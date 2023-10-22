@@ -17,10 +17,10 @@
         <div class="container-fluid">
           <a class="navbar-brand">Profile</a>
           <div class="d-flex" >
-            <div th:if="${customer != null}">
+            <div th:if="${user != null}">
               <p>Welcome,
                 <span
-                        th:text="${customer.getFirstName()}">
+                        th:text="${user.getFirstName()}">
                                 </span>
               </p>
               <a class="btn btn-danger"
