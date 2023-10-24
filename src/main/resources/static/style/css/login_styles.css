@@ -1,0 +1,143 @@
+section {
+	width: 100%;
+	display: flex;
+	position: relative;
+	top: 60px;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	height: calc(100vh);
+}
+
+input {
+	outline: none;
+	border: none;
+	font-family: Roboto Slab;
+	font-size: var(--textsizefortext);
+	font-weight: 400;
+}
+
+.wrapper {
+	position: relative;
+	top: 50px;
+	width: 900px;
+	height: 600px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	cursor: default;
+}
+
+.wrapper::before {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	border-radius: 300px;
+	background: radial-gradient(48.02% 48.02% at 50% 44.82%, #E7EFFF 0%, #E8EFFF 37.6%, #FFF 100%);
+	z-index: -1;
+}
+
+.log-form-container {
+	position: relative;
+	width: 400px;
+	font-family: Roboto Slab, serif;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.alert {
+	margin: 20px 0 0 20px;
+}
+
+.log-option {
+	display: flex;
+	width: 380px;
+	justify-content: space-between;
+}
+
+.auth-button {
+	position: relative;
+	display: flex;
+	width: 180px;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.log-a {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 36px;
+	border-radius: 3px;
+	border: 2px solid #E4E1FF;
+	transition: 0.05s ease-in;
+}
+
+.log-a:hover {
+	border-color: #000;
+}
+
+.log-span {
+	margin-bottom: 8px;
+	margin-left: 20px;
+}
+
+.log-option .log-span {
+	margin-left: 0px;
+}
+
+.log-form {
+	margin-top: 20px;
+}
+
+.log-button {
+	background: #FFF;
+	/*box-shadow: 0px 0px 10px 10px rgba(255, 255, 255, 0.28);*/
+}
+
+.reg-button {
+	background: #3755FA;
+}
+
+.log-input {
+	margin-top: 5px;
+	padding: 5px 18px 5px 18px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 340px;
+	height: 25px;
+	border-radius: 2px;
+	border: 2px solid #E4E1FF;
+	background: #FFF;
+}
+
+.log-input:hover {
+	border: 2px solid #000;
+}
+
+.log-input input {
+	font-size: 18px;
+	display: flex;
+	width: 310px;
+}
+
+.label-submit {
+	position: relative;
+	margin-top: 4px;
+	padding: 5px 0 5px 0;
+	width: 380px;
+	height: 26px;
+	background: #3755FA;
+	border: 2px solid #E4E1FF;
+	content: url("img/round-check.svg");
+}
+
+.label-submit:hover {
+	border-color: #000000;
+}
