@@ -24,6 +24,7 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/registration").permitAll()
+                        .requestMatchers( "/style/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -34,6 +35,9 @@ public class SecurityConfiguration {
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/")
                         .invalidateHttpSession(true));
+
+
+
 
         return http.build();
     }
