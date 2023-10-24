@@ -135,7 +135,7 @@ input {
 	height: 26px;
 	background: #3755FA;
 	border: 2px solid #E4E1FF;
-	content: url("img/round-check.svg");
+	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 7L10 17l-5-5'/%3E%3C/svg%3E");
 }
 
 .label-submit:hover {
