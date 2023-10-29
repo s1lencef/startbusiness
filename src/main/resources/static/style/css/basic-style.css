@@ -1,15 +1,13 @@
 :root {
-	--textcolor: #ffffff;
 	--textsizefortitle: 22px;
 	--textsizeforheaders: 18px;
 	--textsizefortext: 16px;
-	--contentwidth: 1200px;
 	--color: #3755FA;
 }
 
 body {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	box-sizing: border-box;
 	background-color: #ffffff;
 	display: flex;
@@ -52,21 +50,29 @@ label {
 header {
 	position: fixed;
 	width: 100%;
-	height: 50px;
-	background-color: #ffffff;
+	height: 60px;
 	align-items: center;
 	display: flex;
-	padding: 10px 0px 0px 0px;
-	z-index: 1000;
+	padding-top: 10px;
+	font-family: SONGER_SE_Medium;
+	z-index: 100;
 }
 
 header::after {
-	content: '';
+	content: url("data:image/svg+xml,%3Csvg width='1920' height='103' viewBox='0 0 1920 103' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1919' height='3' transform='matrix(1 0 0 -1 0 3)' fill='%233755FA'/%3E%3Cpath d='M1 53.9574C1 53.9574 575.097 103 950 103C1324.9 103 1921 53.9574 1921 53.9574V3H1V53.9574Z' fill='url(%23paint0_linear_0_1)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_0_1' x1='961' y1='75.5547' x2='961' y2='3' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23AEBBFF' stop-opacity='0.62'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
 	position: absolute;
-	bottom: 0;
+	bottom: -100px;
 	width: 100%;
-	height: 3px;
-	background: #3755FA;
+}
+
+.menu {
+	display: flex;
+	font-weight: 500;
+	flex-direction: row;
+	justify-content: flex-end;
+	font-size: var(--textsizeforheaders);
+	right: 80px;
+	position: absolute;
 }
 
 .logo {
@@ -74,18 +80,7 @@ header::after {
 	position: absolute;
 	left: 20px;
 	color: var(--color);
-	font-family: SONGER_SE_Medium;
 	font-size: var(--textsizefortitle);
-}
-
-.menu {
-	display: flex;
-	font-family: SONGER_SE_Medium;
-	flex-direction: row;
-	justify-content: flex-end;
-	font-size: var(--textsizeforheaders);
-	right: 80px;
-	position: absolute;
 }
 
 .menu-btn {
@@ -97,8 +92,8 @@ header::after {
 	bottom: -10px;
 	content: '';
 	width: 3px;
-	height: 0px;
-	background: #000000;
+	height: 0;
+	background: #000;
 	left: -15px;
 	transition: 0.15s;
 	opacity: 0;
@@ -109,8 +104,8 @@ header::after {
 	bottom: -10px;
 	content: '';
 	width: 3px;
-	height: 0px;
-	background: #000000;
+	height: 0;
+	background: #000;
 	right: -15px;
 	transition: 0.15s;
 	opacity: 0;
@@ -131,7 +126,6 @@ header::after {
 	display: flex;
 	position: absolute;
 	right: 20px;
-	bottom: 0px;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -145,7 +139,6 @@ header::after {
 	display: flex;
 	position: relative;
 	margin-bottom: 4px;
-	border-radius: 3px;
 	margin-top: 3px;
 	height: 3px;
 	background: #000000;
@@ -178,16 +171,18 @@ header::after {
 .menu-unfold {
 	position: fixed;
 	border-left: 3px solid var(--color);
-	/*font-family: SONGER_SE_Regular;*/
-	font-size: var(--textsizefortitle);
-	padding: 90px 36px 0 0;
+	font-family: SONGER_SE_Medium;
+	font-size: var(--textsizeforheaders);
+	top:65px;
+	padding: 20px 36px 0 0;
 	display: flex;
 	align-items: flex-end;
 	flex-direction: column;
-	width: 200px;
-	height: calc(100vh - 90px);
-	background: #ffffff;
-	z-index: 800;
+	width: 300px;
+	height: calc(100vh - 85px);
+	/*background: #ffffff;*/
+	background:none;
+	z-index: 200;
 	transition: all 0.5s ease-out;
 	cursor: pointer;
 }
@@ -201,7 +196,7 @@ header::after {
 }
 
 .close-menu {
-	right: -241px;
+	right: -341px;
 }
 
 .menu-btn2 {
@@ -300,11 +295,10 @@ header::after {
 	filter: blur(5px);
 }
 
-
 /*------------*/
 
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 	.menu {
 		display: none;
 	}

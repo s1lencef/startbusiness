@@ -8,8 +8,8 @@
 	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 	      name="viewport">
 	<link rel="stylesheet" href="../static/style/fonts/fonts.css" th:href="@{/style/fonts/fonts.css}">
-	<link rel="stylesheet" href="/static/style/css/basic-style.css" th:href="@{/style/css/basic-style.css}">
-	<link rel="stylesheet" href="/static/style/css/login_styles.css" th:href="@{/style/css/login_styles.css}">
+	<link rel="stylesheet" href="../static/style/css/basic-style.css" th:href="@{/style/css/basic-style.css}">
+	<link rel="stylesheet" href="../static/style/css/login_styles.css" th:href="@{/style/css/login_styles.css}">
 </head>
 
 <body>
@@ -118,7 +118,7 @@
 					<div class="log-form">
 						<span class="log-span">Почта</span>
 						<label for="email" class="log-input">
-							<input id="email" class="form-control"
+							<input id="email" class="form-control" placeholder="dynosem@gmail.com"
 							       th:field="*{email}" required autofocus="autofocus"
 							/>
 							<svg fill="none" height="18" viewBox="0 0 21 18" width="21"
@@ -137,12 +137,15 @@
 							       class="form-control" type="password"
 							       th:field="*{password}" required
 							       autofocus="autofocus"/>
-							<svg fill="none" height="10" viewBox="0 0 22 10" width="22"
-							     xmlns="http://www.w3.org/2000/svg">
-								<path d="M1 8.33333H21V10H1V8.33333ZM2.15 4.95833L3 3.725L3.85 4.95833L5.15 4.33333L4.3 3.1H6V1.85H4.3L5.15 0.625L3.85 0L3 1.225L2.15 0L0.85 0.625L1.7 1.85H0V3.1H1.7L0.85 4.33333L2.15 4.95833ZM8.85 4.33333L10.15 4.95833L11 3.725L11.85 4.95833L13.15 4.33333L12.3 3.1H14V1.85H12.3L13.15 0.625L11.85 0L11 1.225L10.15 0L8.85 0.625L9.7 1.85H8V3.1H9.7L8.85 4.33333ZM22 1.85H20.3L21.15 0.625L19.85 0L19 1.225L18.15 0L16.85 0.625L17.7 1.85H16V3.1H17.7L16.85 4.33333L18.15 4.95833L19 3.725L19.85 4.95833L21.15 4.33333L20.3 3.1H22V1.85Z"
-								      fill="black"/>
-							</svg>
+							<a class="password-control" onclick="return show_hide_password(this);">
+								<svg fill="none" height="10" viewBox="0 0 22 10" width="22"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M1 8.33333H21V10H1V8.33333ZM2.15 4.95833L3 3.725L3.85 4.95833L5.15 4.33333L4.3 3.1H6V1.85H4.3L5.15 0.625L3.85 0L3 1.225L2.15 0L0.85 0.625L1.7 1.85H0V3.1H1.7L0.85 4.33333L2.15 4.95833ZM8.85 4.33333L10.15 4.95833L11 3.725L11.85 4.95833L13.15 4.33333L12.3 3.1H14V1.85H12.3L13.15 0.625L11.85 0L11 1.225L10.15 0L8.85 0.625L9.7 1.85H8V3.1H9.7L8.85 4.33333ZM22 1.85H20.3L21.15 0.625L19.85 0L19 1.225L18.15 0L16.85 0.625L17.7 1.85H16V3.1H17.7L16.85 4.33333L18.15 4.95833L19 3.725L19.85 4.95833L21.15 4.33333L20.3 3.1H22V1.85Z"
+									      fill="black"/>
+								</svg>
+							</a>
 						</label>
+						<a id = "renew-pass" href="">Забыли пароль?</a>
 					</div>
 					<div class="log-form">
 						<span class="log-span">Зарегистрироваться</span>
@@ -153,16 +156,23 @@
 					</div>
 				</form>
 				<!-- success message -->
-				<div th:if="${param.success}">
-					<p class="alert alert-info">Вы успешно зарегистрированы!</p>
+				<div class="alert" th:if="${param.success}">
+					<p class="alert-info">Вы успешно зарегистрированы!</p>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12 2L14.6265 3.916L17.878 3.91L18.8765 7.004L21.5105 8.91L20.5 12L21.5105 15.09L18.8765 16.996L17.878 20.09L14.6265 20.084L12 22L9.3735 20.084L6.122 20.09L5.1235 16.996L2.4895 15.09L3.5 12L2.4895 8.91L5.1235 7.004L6.122 3.91L9.3735 3.916L12 2Z" stroke="#037700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						<path d="M8.5 12L11 14.5L16 9.5" stroke="#037700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+					</svg>
 				</div>
-				<div th:if="${param.email_invalid}">
-					<p class="alert alert-danger">Такой адрес почты уже существует</p>
+				<div class="alert" th:if="${param.email_invalid}">
+					<p class="alert-danger">Адрес почты уже занят</p>
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M12.8999 1.50004C15.2999 1.65004 17.5499 2.85004 19.1999 4.50004C21.1499 6.60004 22.1999 9.15004 22.1999 12.15C22.1999 14.55 21.2999 16.8 19.7999 18.75C18.2999 20.55 16.1999 21.9 13.7999 22.35C11.3999 22.8 8.99994 22.5 6.89994 21.3C4.79994 20.1 3.14994 18.3 2.24994 16.05C1.34994 13.8 1.19994 11.25 1.94994 9.00004C2.69994 6.60004 4.04994 4.65004 6.14994 3.30004C8.09994 1.95004 10.4999 1.35004 12.8999 1.50004ZM13.6499 20.85C15.5999 20.4 17.3999 19.35 18.7499 17.7C19.9499 16.05 20.6999 14.1 20.5499 12C20.5499 9.60004 19.6499 7.20004 17.9999 5.55004C16.4999 4.05004 14.6999 3.15004 12.5999 3.00004C10.6499 2.85004 8.54994 3.30004 6.89994 4.50004C5.24994 5.70004 4.04994 7.35004 3.44994 9.45004C2.84994 11.4 2.84994 13.5 3.74994 15.45C4.64994 17.4 5.99994 18.9 7.79994 19.95C9.59994 21 11.6999 21.3 13.6499 20.85ZM11.8499 11.25L15.4499 7.50004L16.4999 8.55004L12.8999 12.3L16.4999 16.05L15.4499 17.1L11.8499 13.35L8.24994 17.1L7.19994 16.05L10.7999 12.3L7.19994 8.55004L8.24994 7.50004L11.8499 11.25Z" fill="#D34242"/>
+					</svg>
 				</div>
 			</div>
 		</div>
 	</section>
 </div>
-<script type="text/javascript" th:src="@{/style/js/script.js}" src="/static/style/js/script.js"></script>
+<script type="text/javascript" th:src="@{/style/js/script.js}" src="../static/style/js/script.js"></script>
 </body>
 </html>
