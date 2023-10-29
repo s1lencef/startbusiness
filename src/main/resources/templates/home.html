@@ -7,7 +7,7 @@
 	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
 	      name="viewport">
-	<link rel="stylesheet" href="../style/fonts/fonts.css" th:href="@{/style/fonts/fonts.css}">
+	<link rel="stylesheet" href="../static/style/fonts/fonts.css" th:href="@{/style/fonts/fonts.css}">
 	<link rel="stylesheet" href="../static/style/css/basic-style.css" th:href="@{/style/css/basic-style.css}">
 	<link rel="stylesheet" href="../static/style/css/login_styles.css" th:href="@{/style/css/login_styles.css}">
 </head>
@@ -73,8 +73,8 @@
 		<div class="wrapper">
 			<div class="log-form-container">
 				<div class="alert alert-success">
-					Hello <strong><span sec:authentication="principal.username"></span></strong>
-					Login Successful.
+					Здравствуй <p><span sec:authentication="principal.username"></span></p>
+					Авторизация успешна!
 				</div>
 				<input type="hidden" th:name="${_csrf.parameterName}"
 					   th:value="${_csrf.token}" />

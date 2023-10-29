@@ -110,14 +110,6 @@ input {
 	text-decoration:underline;
 }
 
-.log-button {
-	background: #FFF;
-}
-
-.reg-button {
-	background: #3755FA;
-}
-
 .reg-button svg{
 	margin-left: 6px;
 }
