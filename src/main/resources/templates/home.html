@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Start_business</title>
@@ -51,22 +50,29 @@
 		</a>
 	</div>
 </div>
-
 <header>
 	<a class="logo" href="">
 		<strong>Начнисвойбизнес</strong>
 	</a>
+	<div class="menu">
+		<div class="menu-btn">
+			<a class="" href="" id='docs'>Образцы документов</a>
+		</div>
+		<div class="menu-btn">
+			<a class="" href="" id='contacts'>Контакты</a>
+		</div>
+		<div class="menu-btn">
+			<a class="" href="" id='services'>Услуги</a>
+		</div>
+		<div class="menu-btn">
+			<a class="" href="" id='auth'>Вход</a>
+		</div>
+	</div>
 	<a class="container-burger" id='menu-btn'>
 		<span></span>
 		<span></span>
 		<span></span>
 	</a>
-	<div class="menu">
-		<a class="menu-btn" href="" id='docs'>Образцы документов</a>
-		<a class="menu-btn" href="" id='contacts'>Контакты</a>
-		<a class="menu-btn" href="" id='services'>Услуги</a>
-		<a class="menu-btn" href="" id='auth'>Вход</a>
-	</div>
 </header>
 <div class='blur' id="content">
 	<section class="auth-page">
@@ -76,6 +82,16 @@
 					Здравствуй <p><span sec:authentication="principal.username"></span></p>
 					Авторизация успешна!
 				</div>
+				<br>
+				<br>
+				<br>
+				<form th:action="@{/logout}" method="post">
+					<span class="log-span">Выйти</span>
+					<label class="label-submit" for="login-submit">
+						<input class="submit-button" id="login-submit" name="login-submit"
+						       type="submit" value=""/>
+					</label>
+				</form>
 				<input type="hidden" th:name="${_csrf.parameterName}"
 					   th:value="${_csrf.token}" />
 			</div>

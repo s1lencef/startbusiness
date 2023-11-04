@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>Start_business</title>
@@ -56,21 +55,77 @@
 	<a class="logo" href="">
 		<strong>Начнисвойбизнес</strong>
 	</a>
+	<div class="menu">
+		<div class="menu-btn">
+			<a class="" href="" id='docs'>Образцы документов</a>
+		</div>
+		<div class="menu-btn">
+			<a class="" href="" id='contacts'>Контакты</a>
+		</div>
+		<div class="menu-btn">
+			<a class="" href="" id='services'>Услуги</a>
+		</div>
+		<div class="menu-btn">
+			<a class="" href="" id='auth'>Вход</a>
+		</div>
+	</div>
 	<a class="container-burger" id='menu-btn'>
 		<span></span>
 		<span></span>
 		<span></span>
 	</a>
-	<div class="menu">
-		<a class="menu-btn" href="" id='docs'>Образцы документов</a>
-		<a class="menu-btn" href="" id='contacts'>Контакты</a>
-		<a class="menu-btn" href="" id='services'>Услуги</a>
-		<a class="menu-btn" href="" id='auth'>Вход</a>
-	</div>
 </header>
 <div class='blur' id="content">
 	<section class="auth-page">
 		<div class="wrapper">
+			<svg id = "blob1" width="492" height="483" viewBox="0 0 492 483" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g opacity="0.7" filter="url(#filter0_f_100_5)">
+					<path d="M85.9872 157.317C-95.3923 338.359 316.212 497.503 410.12 423.683C504.028 349.863 411.967 251.359 377.08 157.135C329.449 28.4892 267.367 -23.7258 85.9872 157.317Z" fill="url(#paint0_linear_100_5)"/>
+				</g>
+				<defs>
+					<filter id="filter0_f_100_5" x="0.357422" y="0.284363" width="490.752" height="481.888" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+						<feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_100_5"/>
+					</filter>
+					<linearGradient id="paint0_linear_100_5" x1="80.8621" y1="257.653" x2="377.844" y2="371.516" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#94DEFE"/>
+						<stop offset="1" stop-color="#5EA800" stop-opacity="0"/>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg id = "blob2" width="389" height="256" viewBox="0 0 389 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g opacity="0.7" filter="url(#filter0_f_99_4)">
+					<path d="M108.784 69.9027C-55.6844 113.333 120.882 225.067 199.475 214.431C278.068 203.795 335.861 183.868 346.734 115.43C361.579 21.9912 273.252 26.4727 108.784 69.9027Z" fill="url(#paint0_linear_99_4)"/>
+				</g>
+				<defs>
+					<filter id="filter0_f_99_4" x="0.987305" y="0.160461" width="387.359" height="254.98" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+						<feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_99_4"/>
+					</filter>
+					<linearGradient id="paint0_linear_99_4" x1="218.603" y1="212.362" x2="137.659" y2="-18.4554" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#91FFF8"/>
+						<stop offset="1" stop-color="#ADFF44" stop-opacity="0"/>
+					</linearGradient>
+				</defs>
+			</svg>
+			<svg id = "blob3" width="613" height="472" viewBox="0 0 613 472" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g opacity="0.7" filter="url(#filter0_f_100_6)">
+					<path d="M151.337 162.104C-132.302 290.598 199.876 468.411 338.498 425.271C477.121 382.131 574.158 274.306 572.936 147.462C571.267 -25.7197 434.975 33.6099 151.337 162.104Z" fill="url(#paint0_linear_100_6)"/>
+				</g>
+				<defs>
+					<filter id="filter0_f_100_6" x="0.143066" y="-0.00997925" width="612.804" height="471.875" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+						<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+						<feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_100_6"/>
+					</filter>
+					<linearGradient id="paint0_linear_100_6" x1="623.245" y1="211.448" x2="193.887" y2="199.329" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#498CDB"/>
+						<stop offset="1" stop-color="#FF44B4" stop-opacity="0"/>
+					</linearGradient>
+				</defs>
+			</svg>
 			<div class="log-form-container">
 				<form th:action="@{/registration}" method="post" th:object="${user}">
 					<div class="log-form">
@@ -86,7 +141,7 @@
 								</a>
 							</div>
 							<div class="auth-button">
-								<label class="log-span">Регистрация</label>
+								<span class="log-span">Регистрация</span>
 								<a class="log-a reg-button" style = "background: #fff" href="/" th:href="@{/registration}">
 									<svg fill="none" height="24" viewBox="0 0 24 24" width="24"
 									     xmlns="http://www.w3.org/2000/svg">
