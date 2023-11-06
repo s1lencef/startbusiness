@@ -1,27 +1,10 @@
 window.onload = function () {
     document.getElementById('content').classList.toggle('blur');
-    document.getElementById('content').classList.toggle('blur');
-    document.getElementById('content').classList.toggle('blur');
-    document.getElementById('content').classList.toggle('blur');
-    document.getElementById('content').classList.toggle('blur');
-
-    // Get the input element by its ID
-    const inputElement = document.getElementById('password');
-
-    // Create a new MouseEvent object
-    const clickEvent = new MouseEvent('click', {
-    bubbles: true,
-    cancelable: true,
-    view: window
-    });
-
-    // Dispatch the click event on the input element
-    inputElement.dispatchEvent(clickEvent);
 }
 
 function show_hide_password(target){
-    var input = document.getElementById('password');
-    if (input.getAttribute('type') == 'password') {
+    let input = document.getElementById('password');
+    if (input.getAttribute('type') === 'password') {
         target.classList.add('view');
         input.setAttribute('type', 'text');
     } else {
@@ -31,35 +14,26 @@ function show_hide_password(target){
     return false;
 }
 
-
-
-let burger = document.getElementById('menu-btn');
+let burger = document.getElementById('burger-btn');
 burger.addEventListener('click', () => {
-    console.log(document.getElementById('drop-menu').classList);
-    document.getElementById('drop-menu').classList.toggle('active-menu');
+    if(!document.getElementById('drop-menu-2').classList.contains('close-menu-2')){
+        document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
+        document.getElementById('content').classList.toggle('blur');
+    }
     document.getElementById('drop-menu').classList.toggle('close-menu');
-
     document.getElementById('content').classList.toggle('blur');
     burger.classList.toggle('close-burger');
-});
+})
 
 
-$('#contacts').on('click', function (e) {
-    $('html,body').stop().animate({
-        scrollTop: $('footer').offset().top - 100
-    }, 800);
-    e.preventDefault();
-});
-
-$('#contacts2').on('click', function (e) {
-            $('html,body').stop().animate({
-                scrollTop: $('footer').offset().top - 100
-            }, 800);
-            e.preventDefault();
-            if ($("#drop-menu").hasClass('active-menu')) {
-                document.getElementById('drop-menu').classList.toggle('active-menu');
-                document.getElementById('drop-menu').classList.toggle('close-menu');
-                document.getElementById('content').classList.toggle('blur');
-                burger.classList.toggle('close-burger');
-            }
-            });
+let drop_menu = document.getElementById('docs-btn');
+drop_menu.addEventListener('click', () => {
+    if(!document.getElementById('drop-menu').classList.contains('close-menu')){
+        document.getElementById('drop-menu').classList.toggle('close-menu');
+        document.getElementById('content').classList.toggle('blur');
+        burger.classList.toggle('close-burger');
+    }
+    console.log(document.getElementById('drop-menu-2').classList);
+    document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
+    document.getElementById('content').classList.toggle('blur');
+})

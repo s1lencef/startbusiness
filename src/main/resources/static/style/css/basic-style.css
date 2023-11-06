@@ -101,28 +101,25 @@ header::after {
 	align-items: center;
 }
 
-.menu-btn::after {
+.menu-btn::after,
+.menu-btn::before{
+	display: block;
 	background: #000;
 	content: '';
 	bottom:4px;
 	height: 0;
-	left: 0;
 	opacity: 0;
 	position: absolute;
-	transition: 0.15s;
-	width: 3px;
+	transition: 0.1s;
+	width: 2.5px;
+}
+
+.menu-btn::after {
+	left: 5px;
 }
 
 .menu-btn::before {
-	background: #000;
-	content: '';
-	bottom:4px;
-	height: 0;
-	opacity: 0;
-	position: absolute;
-	right: 0px;
-	transition: 0.15s;
-	width: 3px;
+	right: 5px;
 }
 
 .menu-btn:hover::before,
@@ -156,7 +153,7 @@ header::after {
 	width: 100%;
 }
 
-#menu-btn:hover span {
+.container-burger:hover span {
 	background: var(--color);
 }
 
@@ -184,6 +181,7 @@ header::after {
 	border-left: 3px solid var(--color);
 	cursor: pointer;
 	display: flex;
+	right: 0;
 	flex-direction: column;
 	font-family: SONGER_SE_Medium;
 	font-size: var(--textsizeforheaders);
@@ -192,20 +190,27 @@ header::after {
 	position: fixed;
 	top: 74px;
 	transition: all 0.5s ease-out;
-	width: 300px;
 	z-index: 200;
+}
+
+.menu-unfold-1 {
+	width: 300px;
 }
 
 .menu-unfold a {
 	cursor: inherit;
 }
 
-.active-menu {
-	right: 0;
-}
-
 .close-menu {
 	right: -341px;
+}
+
+.menu-unfold-2 {
+	width: 800px;
+}
+
+.close-menu-2 {
+	right: -110vw;
 }
 
 .menu-btn2 {
