@@ -9,5 +9,7 @@ import java.util.List;
 public interface UserService extends UserDetailsService {
 
     User save(UserRegistrationDto registrationDto);
+    User findByEmail(String email);
+    void updatePassword(String password, Long userId);
     List<User> getAll();
 }

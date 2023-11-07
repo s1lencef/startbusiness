@@ -1,9 +1,11 @@
 section {
 	align-items: center;
 	display: flex;
+
 	flex-direction: column;
 	height: calc(100vh - 70px);
 	justify-content: flex-start;
+
 	position: relative;
 	top: 70px;
 	width: 100%;
@@ -13,6 +15,7 @@ section {
 	align-items: center;
 	background: rgba(245, 248, 255, 0.80);
 	cursor: default;
+
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -44,6 +47,7 @@ section {
 }
 
 .wrapper::before {
+
 	background: #F5F8FF;
 	border-radius: 10px;
 	content: "";
@@ -54,6 +58,7 @@ section {
 }
 
 .log-form-container {
+
 	font-family: Roboto Slab, serif;
 	font-size: var(--textsizefortext);
 	font-weight: 400;
@@ -62,11 +67,13 @@ section {
 }
 
 .alert {
+
 	align-items: center;
 	display: inline-flex;
 	justify-content: space-between;
 	margin: 24px 0 0 0;
 	padding: 0 20px 0 20px;
+
 	width: 340px;
 }
 
@@ -79,6 +86,7 @@ section {
 .auth-button {
 	align-items: center;
 	display: flex;
+
 	flex-direction: column;
 	justify-content: center;
 	position: relative;
@@ -87,12 +95,14 @@ section {
 
 .log-a {
 	align-items: center;
+
 	border: 2px solid #E1E1F1;
 	border-radius: 3px;
 	display: flex;
 	height: 32px;
 	justify-content: center;
 	position: relative;
+
 	transition: 0.05s ease-in;
 	width: 100%;
 }
@@ -114,6 +124,7 @@ section {
 .log-form {
 	margin-top: 14px;
 }
+
 
 #renew-pass {
 	color: var(--color);
@@ -142,8 +153,10 @@ section {
 }
 
 .log-input input {
+
 	font-size: inherit;
 	height: 30px;
+
 	width: 300px;
 }
 
