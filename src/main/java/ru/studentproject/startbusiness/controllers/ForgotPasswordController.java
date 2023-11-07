@@ -19,7 +19,6 @@ import ru.studentproject.startbusiness.service.UserService;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
 
 
@@ -53,7 +52,7 @@ public class ForgotPasswordController{
 
         User user = userService.findByEmail(form.getEmail());
         if(user == null){
-            result.rejectValue("email",null,"Пользователь с таким адресом электронной " +
+            result.rejectValue("templates/email",null,"Пользователь с таким адресом электронной " +
                     "почты не зарегистрирован");
             return "forgotpassword";
         }

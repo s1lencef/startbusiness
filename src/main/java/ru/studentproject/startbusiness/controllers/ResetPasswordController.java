@@ -48,7 +48,9 @@ public class ResetPasswordController {
     public String handlerPasswordReset(@ModelAttribute("passwordResetForm") @Valid PasswordResetDto form,
                                        BindingResult result,
                                        RedirectAttributes redirectAttributes){
+
         if (result.hasErrors()){
+            System.out.println(result.getAllErrors());
             redirectAttributes.addFlashAttribute(BindingResult.class.getName()+".passwordResetForm",result);
             redirectAttributes.addFlashAttribute("passwordResetForm",form);
             return "redirect:/reset-password?token=" + form.getToken();

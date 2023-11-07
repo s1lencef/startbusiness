@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 
 @Service
 public class EmailService {
-    @Autowired
+    @Autowired(required=true)
     private JavaMailSender emailSender;
     @Autowired
     private SpringTemplateEngine templateEngine;
@@ -28,7 +28,7 @@ public class EmailService {
             );
             Context context = new Context();
             context.setVariables(email.getModel());
-            String html = templateEngine.process("email/email-template",context);
+            String html = templateEngine.process("email-template.html",context);
             helper.setTo(email.getTo());
             helper.setFrom(email.getFrom());
             helper.setSubject(email.getSubject());
