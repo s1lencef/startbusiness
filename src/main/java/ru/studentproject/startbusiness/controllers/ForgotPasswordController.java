@@ -45,23 +45,30 @@ public class ForgotPasswordController{
             @ModelAttribute("forgotPasswordForm") @Valid PasswordForgotDto form,
             BindingResult result,
             HttpServletRequest request){
-
+        System.out.println("form = " + form + ", result = " + result + ", request = " + request);
         if (result.hasErrors()){
+            System.out.println("error");
             return "forgotpassword";
         }
 
         User user = userService.findByEmail(form.getEmail());
         if(user == null){
+            System.out.println("null user");
             result.rejectValue("templates/email",null,"Пользователь с таким адресом электронной " +
                     "почты не зарегистрирован");
             return "forgotpassword";
         }
-
+        System.out.println("OK");
         PasswordResetToken token = new PasswordResetToken();
         token.setToken(UUID.randomUUID().toString());
         token.setUser(user);
         token.setExpiryDate(30);
-        passwordResetTokenRepository.save(token);
+        try {
+            passwordResetTokenRepository.save(token);
+        }catch (Exception e){
+            System.out.println(e);
+            return "redirect:/forgot-password?error";
+        }
 
         Email email = new Email();
         email.setFrom("no-replay@startbusiness.ru");

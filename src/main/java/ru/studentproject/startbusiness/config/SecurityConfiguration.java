@@ -25,6 +25,8 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/registration").permitAll()
+                        .requestMatchers("/logout").permitAll()
+                        .requestMatchers("/login").permitAll()
                         .requestMatchers( "/style/**").permitAll()
                         .requestMatchers( "/admin/**").hasRole("ADMIN")
                         .requestMatchers("/forgot-password").permitAll()
@@ -37,7 +39,6 @@ public class SecurityConfiguration {
                 )
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-
                         .logoutSuccessUrl("/login")
                         .invalidateHttpSession(true)
                 );

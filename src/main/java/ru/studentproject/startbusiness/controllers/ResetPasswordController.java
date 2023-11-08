@@ -32,12 +32,19 @@ public class ResetPasswordController {
     }
     @GetMapping
     public String resetPasswordPage(@RequestParam(required = true) String token, Model model){
+        System.out.println("\nRESET\n");
+        System.out.println("token = " + token + ", model = " + model);
         PasswordResetToken resetToken = passwordResetTokenRepository.findByToken(token);
         if(resetToken == null){
-            model.addAttribute("error","Не можем найти токен");
+            System.out.println("Не можем найти токен");
+            return "redirect:/forgot-password?notoken";
+//            model.addAttribute("error","Не можем найти токен");
         } else if(resetToken.isExpired()){
-            model.addAttribute("error","Время действия токена вышло," +
-                    " отправьте запрос на смену пароля повторно");
+            passwordResetTokenRepository.delete(resetToken);
+            System.out.println("Время действия токена вышло");
+            return "redirect:/forgot-password?tokenexpired";
+//            model.addAttribute("error","Время действия токена вышло," +
+//                    " отправьте запрос на смену пароля повторно");
         }else{
             model.addAttribute("token", resetToken.getToken());
         }
@@ -48,7 +55,7 @@ public class ResetPasswordController {
     public String handlerPasswordReset(@ModelAttribute("passwordResetForm") @Valid PasswordResetDto form,
                                        BindingResult result,
                                        RedirectAttributes redirectAttributes){
-
+        System.out.println("\nRESET\n");
         if (result.hasErrors()){
             System.out.println(result.getAllErrors());
             redirectAttributes.addFlashAttribute(BindingResult.class.getName()+".passwordResetForm",result);
