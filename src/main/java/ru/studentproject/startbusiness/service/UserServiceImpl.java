@@ -7,7 +7,6 @@ import ru.studentproject.startbusiness.models.Role;
 import ru.studentproject.startbusiness.models.User;
 import ru.studentproject.startbusiness.repos.RoleRepository;
 import ru.studentproject.startbusiness.repos.UserRepository;
-import ru.studentproject.startbusiness.service.UserService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -35,7 +34,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(UserRegistrationDto registrationDto) {
-        long i = 2;
         Role role = roleRepository.findByName("ROLE_USER");
         if (role == null){
             role = new Role("ROLE_USER");
@@ -79,5 +77,12 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() {
 
         return userRepository.findAll();
+    }
+    public User findByEmail(String email){
+        return userRepository.findByEmail(email);
+    }
+
+    public void updatePassword(String password, Long userId) {
+        userRepository.updatePassword(password, userId);
     }
 }
