@@ -38,13 +38,11 @@ public class ResetPasswordController {
         if(resetToken == null){
             System.out.println("Не можем найти токен");
             return "redirect:/forgot-password?notoken";
-//            model.addAttribute("error","Не можем найти токен");
         } else if(resetToken.isExpired()){
             passwordResetTokenRepository.delete(resetToken);
             System.out.println("Время действия токена вышло");
             return "redirect:/forgot-password?tokenexpired";
-//            model.addAttribute("error","Время действия токена вышло," +
-//                    " отправьте запрос на смену пароля повторно");
+
         }else{
             model.addAttribute("token", resetToken.getToken());
         }

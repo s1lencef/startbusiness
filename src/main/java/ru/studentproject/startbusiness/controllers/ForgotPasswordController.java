@@ -78,7 +78,6 @@ public class ForgotPasswordController{
         Map<String, Object> model = new HashMap<>();
         model.put("token", token);
         model.put("user", user);
-        model.put("token", token);
 
         String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
 
