@@ -1,10 +1,13 @@
 package ru.studentproject.startbusiness.dto;
 
 
+import jakarta.validation.constraints.Email;
+
 public class UserRegistrationDto {
 
     private String firstName;
     private String lastName;
+    @Email
     private String email;
     private String password;
 
