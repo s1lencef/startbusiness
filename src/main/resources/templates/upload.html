@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Spring Boot File Upload Example</h1>
+
+
+<h4>Upload Single File:</h4>
+<form method="POST" th:action="@{/upload}" enctype="multipart/form-data">
+    <input type="file" name="file"/> <br/><br/>
+    <button type="submit">Submit</button>
+</form>
+
+
+<div class="alert" th:if="${param.success}">
+    <div th:if="${filename}">
+        <p class="alert-info" th:text="${filename}"/>
+    </div>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L14.6265 3.916L17.878 3.91L18.8765 7.004L21.5105 8.91L20.5 12L21.5105 15.09L18.8765 16.996L17.878 20.09L14.6265 20.084L12 22L9.3735 20.084L6.122 20.09L5.1235 16.996L2.4895 15.09L3.5 12L2.4895 8.91L5.1235 7.004L6.122 3.91L9.3735 3.916L12 2Z" stroke="#037700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.5 12L11 14.5L16 9.5" stroke="#037700" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</div>
+
+</body>
+</html>

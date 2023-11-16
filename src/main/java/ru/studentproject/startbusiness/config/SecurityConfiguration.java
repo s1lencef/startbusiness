@@ -31,6 +31,7 @@ public class SecurityConfiguration {
                         .requestMatchers( "/admin/**").hasRole("ADMIN")
                         .requestMatchers("/forgot-password").permitAll()
                         .requestMatchers("/reset-password").permitAll()
+                        .requestMatchers("/upload").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
