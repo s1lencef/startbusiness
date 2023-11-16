@@ -26,10 +26,12 @@ public class FileController {
 
     @PostMapping
     public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-        fileService.uploadFile(file);
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String userDetails =  authentication.toString();
-        System.out.println("name = "+userDetails);
+        String email =  authentication.getName();
+        fileService.uploadFile(file,email);
+
+
+        System.out.println("name = "+email);
         redirectAttributes.addFlashAttribute("filename","файл "+file.getOriginalFilename()+" успешно загружен!");
 
         return "redirect:/upload?success";

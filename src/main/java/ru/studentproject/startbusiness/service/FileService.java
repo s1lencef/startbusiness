@@ -25,7 +25,7 @@ public class FileService {
     @Value("${app.upload.dir:${user.home}}")
     public String uploadDir;
 
-    public void uploadFile(MultipartFile file) {
+    public void uploadFile(MultipartFile file, String email) {
 
         try {
             Path copyLocation = Paths
@@ -33,7 +33,7 @@ public class FileService {
             Files.copy(file.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
             System.out.println("copyLocation = " + copyLocation + ", file = " + file);
             Document newFile = new Document();
-            User user = userService.findByEmail("fed.vot2011@yandex.ru");
+            User user = userService.findByEmail(email);
             newFile.setFilePath(copyLocation.toString());
             newFile.setDate();
             newFile.setFormId(0L);

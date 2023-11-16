@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
                     ("Invalid username or password.");
         }
         return new org.springframework.security
-                .core.userdetails.User(user.getFirstName(),
+                .core.userdetails.User(user.getEmail(),
                 user.getPassword(),
                 mapRolesToAuthorities(user.getRoles()));
     }

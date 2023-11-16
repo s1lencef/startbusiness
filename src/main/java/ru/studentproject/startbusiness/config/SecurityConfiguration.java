@@ -31,7 +31,8 @@ public class SecurityConfiguration {
                         .requestMatchers( "/admin/**").hasRole("ADMIN")
                         .requestMatchers("/forgot-password").permitAll()
                         .requestMatchers("/reset-password").permitAll()
-                        .requestMatchers("/upload").permitAll()
+                        .requestMatchers("/upload").hasRole("USER")
+                        .requestMatchers("/home").hasRole("USER")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -40,7 +41,7 @@ public class SecurityConfiguration {
                 )
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/login")
                         .invalidateHttpSession(true)
                 );
 
