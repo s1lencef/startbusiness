@@ -5,6 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,6 +41,7 @@ public class FileService {
             newFile.setFormId(0L);
             newFile.setType(false);
             newFile.setUser(user);
+            newFile.setName(file.getOriginalFilename());
             documentRepository.save(newFile);
 
         } catch (Exception e) {
@@ -46,5 +49,14 @@ public class FileService {
             throw new FileStorageException("Could not store file " + file.getOriginalFilename()
                     + ". Please try again!");
         }
+    }
+    public List<Document> getAll() {
+        return documentRepository.findAll();
+    }
+    public Collection<Document> getSamples() {
+        return documentRepository.findSamples();
+    }
+    public Collection<Document> getDocuments() {
+        return documentRepository.findDocuments();
     }
 }

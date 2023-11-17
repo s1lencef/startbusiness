@@ -85,4 +85,5 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(String password, Long userId) {
         userRepository.updatePassword(password, userId);
     }
+
 }

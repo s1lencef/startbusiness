@@ -6,10 +6,25 @@ import java.util.Date;
 
 
 @Entity
+@Table(name = "documents")
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String name;
+
+
+
+    private String filePath;
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "user_id")
+    private User user;
+    private Long formId;
+    @Column(name = "type")
+    private boolean type = false;
+    @Column(nullable = false)
+    private Date date;
 
     public Long getId() {
         return id;
@@ -59,15 +74,12 @@ public class Document {
         Calendar now = Calendar.getInstance();
         this.date = now.getTime();
     }
+    public String getName() {
+        return name;
+    }
 
-    private String filePath;
-    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "user_id")
-    private User user;
-    private Long formId;
-    @Column(name = "type")
-    private boolean type = false;
-    @Column(nullable = false)
-    private Date date;
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

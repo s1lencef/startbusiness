@@ -8,8 +8,9 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.studentproject.startbusiness.repos.UserRepository;
 import ru.studentproject.startbusiness.service.UserService;
+
+import java.util.List;
 
 
 @Controller
@@ -37,6 +38,8 @@ public class HomeController {
 
         String name = userService.findByEmail(email).getFirstName();
         model.addAttribute("name",name);
+        List<ru.studentproject.startbusiness.models.User> users = userService.getAll();
+        System.out.println(users.toString());
 
 
         return "home";

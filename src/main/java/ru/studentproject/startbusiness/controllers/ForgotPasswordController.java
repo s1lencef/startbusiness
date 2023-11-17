@@ -83,7 +83,7 @@ public class ForgotPasswordController{
         }
 
         Email email = new Email();
-        email.setFrom("no-replay@startbusiness.ru");
+        email.setFrom("startbusineshelp@gmail.com");
         email.setTo(user.getEmail());
         email.setSubject("Восстановление пароля");
 
