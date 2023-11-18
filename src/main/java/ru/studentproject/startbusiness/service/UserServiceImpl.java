@@ -3,8 +3,8 @@ package ru.studentproject.startbusiness.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import ru.studentproject.startbusiness.dto.UserRegistrationDto;
-import ru.studentproject.startbusiness.models.Role;
 import ru.studentproject.startbusiness.models.User;
+import ru.studentproject.startbusiness.models.Role;
 import ru.studentproject.startbusiness.repos.RoleRepository;
 import ru.studentproject.startbusiness.repos.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
                     ("Invalid username or password.");
         }
         return new org.springframework.security
-                .core.userdetails.User(user.getFirstName(),
+                .core.userdetails.User(user.getEmail(),
                 user.getPassword(),
                 mapRolesToAuthorities(user.getRoles()));
     }
@@ -85,4 +85,5 @@ public class UserServiceImpl implements UserService {
     public void updatePassword(String password, Long userId) {
         userRepository.updatePassword(password, userId);
     }
+
 }
