@@ -12,7 +12,6 @@ import java.util.List;
 @Repository
 public interface DocumentRepository extends JpaRepository< Document, Long> {
     Document findByFilePath(String filePath);
-
     @Query("SELECT d FROM Document d WHERE d.type = false")
     Collection<Document> findSamples();
     @Query("SELECT d FROM Document d WHERE d.type = true")

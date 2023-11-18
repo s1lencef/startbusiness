@@ -4,8 +4,8 @@
 
 <h1>Spring Boot File Download Example</h1>
 
-<tr th:each="document : ${documents}">
-    <td th:text="${document.id}">No</td>
+<tr th:each="document : ${documents}" style = "border: 2px black solid">
+    <a class="log-a log-button" href="/" style="background: #fff" th:href="@{/download?id=}+${document.id}">
     <td th:text="${document.name}">Full Name</td>
     <td th:text="${#dates.format(document.date, 'dd-MMM-yyyy')}">Email</td>
 </tr>

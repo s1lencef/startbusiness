@@ -59,4 +59,7 @@ public class FileService {
     public Collection<Document> getDocuments() {
         return documentRepository.findDocuments();
     }
+    public Document get(Long id){
+        return documentRepository.getReferenceById(id);
+    }
 }
