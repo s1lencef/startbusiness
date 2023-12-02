@@ -14,4 +14,6 @@ public interface UserService extends UserDetailsService {
     void updatePassword(String password, Long userId);
     List<User> getAll();
 
+    User findById(Long id);
+
 }
