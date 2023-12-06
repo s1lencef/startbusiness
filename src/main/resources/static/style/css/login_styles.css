@@ -1,115 +1,107 @@
-section {
+.auth-page {
 	align-items: center;
 	display: flex;
-
 	flex-direction: column;
-	height: calc(100vh - 70px);
-	justify-content: flex-start;
-
+	height: calc(100vh - 20px);
 	position: relative;
-	top: 70px;
+	top: 59px;
 	width: 100%;
+}
+
+section:hover .wrapper{
+	top: 50px;
+	width: 380px;
 }
 
 .wrapper {
 	align-items: center;
-	background: rgba(245, 248, 255, 0.80);
-	cursor: default;
-
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
-	padding: 0 0 20px 0;
 	position: relative;
-	top: 80px;
-	width: 430px;
+	top: 70px;
+	width: 100%;
+	transition: 0.5s;
+	border-radius: 2px;
 }
 
 #blob1 {
-	position: absolute;
 	right: -300px;
-	top: 100px;
-	z-index: -110;
+	top: 40px;
 }
-
 #blob2 {
 	left: -200px;
-	position: absolute;
 	top: -100px;
-	z-index: -110;
 }
-
 #blob3 {
-	bottom: -100px;
-	left: -300px;
-	position: absolute;
-	z-index: -110;
+	top: 150px;
+	left: -350px;
 }
 
-.wrapper::before {
-
-	background: #F5F8FF;
-	border-radius: 10px;
-	content: "";
-	height: 100%;
+.blob {
 	position: absolute;
-	width: 100%;
-	z-index: -120;
+	transition: filter 1.5s ease;
+	filter: blur(30px);
+}
+
+.blob:hover {
+	filter: blur(30px) hue-rotate(360deg);
 }
 
 .log-form-container {
-
+	background: rgba(245, 248, 255, 0.5);
 	font-family: Roboto Slab, serif;
 	font-size: var(--textsizefortext);
 	font-weight: 400;
 	position: relative;
+	padding: 0 20px 30px 20px;
 	width: 380px;
+	transition: 0.5s;
 }
 
-.alert {
+.log-form-container:hover{
+	background: rgba(245, 248, 255, 0.8);
+}
 
-	align-items: center;
-	display: inline-flex;
-	justify-content: space-between;
-	margin: 24px 0 0 0;
-	padding: 0 20px 0 20px;
-
-	width: 340px;
+.log-form {
+	margin-top: 14px;
 }
 
 .log-option {
 	display: flex;
 	justify-content: space-between;
-	width: 380px;
 }
 
 .auth-button {
 	align-items: center;
 	display: flex;
-
 	flex-direction: column;
 	justify-content: center;
-	position: relative;
 	width: 176px;
 }
 
 .log-a {
 	align-items: center;
-
 	border: 2px solid #E1E1F1;
 	border-radius: 3px;
 	display: flex;
 	height: 32px;
 	justify-content: center;
 	position: relative;
-
-	transition: 0.05s ease-in;
+	transition: 0.2s ease-in-out;
 	width: 100%;
 }
 
-.log-a:hover {
-	border-color: #000;
+.log-a:hover{
+	border: 2px solid #000;
 }
+
+/*.log-a svg{*/
+/*	transition: 0.5s;*/
+/*}*/
+
+/*.log-a:hover svg{*/
+/*	filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(183deg) brightness(103%) contrast(107%);*/
+/*}*/
 
 .log-span {
 	display: inline-flex;
@@ -121,20 +113,15 @@ section {
 	margin-left: 0;
 }
 
-.log-form {
-	margin-top: 14px;
+.reg-button svg {
+	margin-left: 6px;
 }
-
 
 #renew-pass {
 	color: var(--color);
 	font-size: 13px;
 	margin-left: 20px;
 	text-decoration: underline;
-}
-
-.reg-button svg {
-	margin-left: 6px;
 }
 
 .log-input {
@@ -146,6 +133,8 @@ section {
 	justify-content: space-between;
 	padding: 0 18px 0 18px;
 	width: 340px;
+	transition: 0.2s ease-in-out;
+
 }
 
 .log-input:hover {
@@ -153,23 +142,31 @@ section {
 }
 
 .log-input input {
-
-	font-size: inherit;
 	height: 30px;
-
 	width: 300px;
 }
 
 .label-submit {
 	background: #3755FA;
+	border-radius: 2px;
 	border: 2px solid #E1E1F1;
 	content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M20 7L10 17l-5-5'/%3E%3C/svg%3E");
 	height: 22px;
 	padding: 5px 0 5px 0;
 	position: relative;
-	width: 380px;
+	width: 100%;
+	transition: 0.2s ease-in-out;
+
 }
 
 .label-submit:hover {
 	border-color: #000;
 }
+
+.alert {
+	  display: flex;
+	  justify-content: space-between;
+	  margin-top: 20px;
+	  padding-left: 20px;
+	  width: 340px;
+  }
