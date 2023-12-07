@@ -49,7 +49,7 @@ public class ForgotPasswordController{
             @ModelAttribute("forgotPasswordForm") @Valid PasswordForgotDto form,
             BindingResult result,
             HttpServletRequest request){
-        System.out.println("form = " + form +", request = " + request);
+        System.out.println("form = " + form.getEmail() +", request = " + request);
         if (result.hasErrors()){
             for (Object obj:result.getAllErrors()){
                 if(obj instanceof FieldError fieldError) {

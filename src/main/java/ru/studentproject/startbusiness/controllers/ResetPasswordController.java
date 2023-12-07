@@ -26,12 +26,12 @@ public class ResetPasswordController {
     private PasswordResetTokenRepository passwordResetTokenRepository;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-    @ModelAttribute("resetPasswordForm")
+    @ModelAttribute("passwordResetForm")
     public PasswordResetDto resetPasswordDTO(){
         return new PasswordResetDto();
     }
     @GetMapping
-    public String resetPasswordPage(@RequestParam(required = true) String token, Model model){
+    public String resetPasswordPage(@ModelAttribute("passwordResetForm") PasswordResetDto form,@RequestParam(required = true) String token, Model model){
         System.out.println("\nRESET\n");
         System.out.println("token = " + token + ", model = " + model);
         PasswordResetToken resetToken = passwordResetTokenRepository.findByToken(token);
