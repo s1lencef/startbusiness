@@ -323,7 +323,7 @@
 		<div class="wrapper">
 			<div class="log-form-container">
 				<div class="alert alert-success">
-					Здравствуй <p><span sec:authentication="principal.username"></span></p>
+					Здравствуй <p><span th:text = "${name}"></span></p>
 					Авторизация успешна!
 				</div>
 				<br>
