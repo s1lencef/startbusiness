@@ -12,4 +12,24 @@ public class DocumentTypes {
     private Long id;
     @Column(name = "name")
     private String name;
+
+    public DocumentTypes(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public DocumentTypes(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public DocumentTypes() {
+    }
 }
