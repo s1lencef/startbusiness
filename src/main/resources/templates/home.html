@@ -335,9 +335,10 @@
 						<input class="submit-button" id="login-submit" name="login-submit"
 						       type="submit" value=""/>
 					</label>
+					<input  th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
+							type="hidden"/>
 				</form>
-				<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
-				       type="hidden"/>
+
 			</div>
 		</div>
 	</section>

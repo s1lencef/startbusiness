@@ -1,6 +1,7 @@
 package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 
 
 import java.util.Collection;
@@ -20,7 +21,7 @@ public class User {
 
     @Column(name = "last_name")
     private String lastName;
-
+    @Email
     private String email;
 
     private String password;

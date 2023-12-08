@@ -19,6 +19,7 @@ public class HomeController {
     private UserService userService;
     @GetMapping("/login")
     public String login(@AuthenticationPrincipal User user) {
+        System.out.println("user = " + user);
         if (user != null){
             return "redirect:/home";
         }
