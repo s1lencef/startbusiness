@@ -22,7 +22,12 @@ public class HomeController {
         if (user != null){
             return "redirect:/home";
         }
-        return "login";
+        try {
+            return "login";
+        }
+        catch (Exception e){
+            return "redirect:/";
+        }
     }
 
     @GetMapping("/")
