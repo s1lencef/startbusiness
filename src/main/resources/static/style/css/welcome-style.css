@@ -67,3 +67,107 @@
 .p-2{
 
 }
+
+.business-page{
+    align-items: center;
+	justify-content: center;
+   	display: flex;
+   	flex-direction: column;
+   	height: calc(100vh - 198px);
+   	position: relative;
+   	top: 0;
+	padding: 60px 0px;
+   	width: 100vw;
+
+}
+
+
+.businesses-wrapper{
+    height: calc(100vh - 20px);
+    display:flex;
+	width: calc(100vw - 80px);
+    align-items: center;
+    justify-content:flex-start;
+    flex-direction:row;
+}
+
+.businesses-wrapper::before{
+	position: absolute;
+	z-index: -1;
+	right: 0;
+	content: url("../img/business_image1.svg");
+}
+
+.businesses-menu{
+	font-family: SONGER_SE_Regular, serif;
+	font-size: 18px;
+	min-width: 240px;
+    max-width: 378px;
+	margin-right: 20px;
+
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.business-btn{
+	padding-bottom: 25px;
+	position: relative;
+	transition: 0.1s;
+	left: 0;
+}
+
+.business-btn:hover {
+	color: #3755FA;
+	left: -10px;
+}
+
+.businesses-info{
+	padding: 20px 20px;
+	background: rgba(241, 243, 255, 0.5);
+	font-family: Roboto Slab, serif;
+	font-size:16px;
+	max-width: 800px;
+	color: #000;
+	height: 100%;
+}
+
+.business-info{
+	display: flex;
+	flex-direction: column;
+}
+
+.business-docs{
+	display: flex;
+	flex-direction: column;
+}
+
+.business-document{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 80px;
+}
+
+.business-document > svg{
+	margin-right: 10px;
+}
+
+.business-document > p{
+	max-width: 230px;
+}
+
+.business-document-btn{
+    border: 3px solid #3755FA;
+	margin-left: 10px;
+    align-items: center;
+    display: flex;
+    padding: 5px;
+    position: relative;
+    transition: 0.1s;
+}
+
+.business-document-btn:hover {
+	background: #3755FA;
+	color: #ffffff;
+}

@@ -50,7 +50,7 @@ input {
 	outline: none;
 	border: none;
 	font-family: Roboto Slab, serif;
-	font-size: var(--textsizefortext);
+	font-size: 16px;
 	font-weight: 400;
 }
 
@@ -68,8 +68,8 @@ header {
 }
 
 .logo {
-	color: var(--color);
-	font-size: var(--textsizefortitle);
+	color: #3755FA;
+	font-size: 22px;
 	left: 20px;
 	position: absolute;
 }
@@ -77,7 +77,7 @@ header {
 .menu {
 	display: flex;
 	right: 65px;
-	font-size: var(--textsizeforheaders);
+	font-size: 18px;
 	position: absolute;
 	/*right: 20px;*/
 	height: 100%;
@@ -112,6 +112,7 @@ header {
 }
 
 .menu-btn:hover{
+    padding-bottom:10px;
 	color: #3755FA;
 }
 
@@ -140,7 +141,7 @@ header {
 }
 
 .container-burger:hover span {
-	background: var(--color);
+	background: #3755FA;
 }
 .close-burger span {
 	transition: 0.25s;
@@ -159,13 +160,13 @@ header {
 .menu-unfold {
 	align-items: flex-end;
 	background: none;
-	border-left: 3px solid var(--color);
+	border-left: 3px solid  #3755FA;
 	cursor: pointer;
 	display: flex;
 	right: 0;
 	flex-direction: column;
 	font-family: SONGER_SE_Regular, serif;
-	font-size: var(--textsizeforheaders);
+	font-size: 18px;
 	height: calc(100vh - 115px);
 	padding: 40px 30px 0 0;
 	position: fixed;
@@ -255,7 +256,7 @@ header {
 }
 
 .enter-btn {
-	border: 3px solid var(--color);
+	border: 3px solid #3755FA;
 	font-size: 16px;
 	align-items: center;
 	display: flex;
@@ -272,7 +273,7 @@ header {
 }
 
 .enter-btn:hover {
-	background: var(--color);
+	background: #3755FA;
 	color: #ffffff;
 }
 
@@ -283,7 +284,7 @@ header {
 
 .foot {
 	align-items: center;
-	background: var(--color);
+	background: #3755FA;
 	bottom: 0;
 	display: flex;
 	height: 60px;
