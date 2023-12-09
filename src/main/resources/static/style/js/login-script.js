@@ -1,15 +1,17 @@
 
+
+
 let animateLogin = document.getElementById('auth-page');
 animateLogin.addEventListener('mouseleave', function() {
-    console.log(document.getElementById('log-wrapper').classList);
-    // let wrapper = document.getElementById('log-wrapper');
-    document.getElementById('log-wrapper').classList.toggle('wrapper-hover');
+    if(document.getElementById('log-wrapper').classList.contains('wrapper-hover')){
+        document.getElementById('log-wrapper').classList.remove('wrapper-hover');
+    }
 });
 
 let animateLogin2 = document.getElementById('auth-page');
 animateLogin2.addEventListener('mouseenter', function() {
-    console.log(document.getElementById('log-wrapper').classList);
-    // let wrapper = document.getElementById('log-wrapper');
-    document.getElementById('log-wrapper').classList.toggle('wrapper-hover');
+    if(!document.getElementById('log-wrapper').classList.contains('wrapper-hover')){
+        document.getElementById('log-wrapper').classList.add('wrapper-hover');
+    }
 });
 
