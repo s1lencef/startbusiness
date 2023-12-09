@@ -105,4 +105,3 @@ divToScroll.addEventListener('wheel', function(e) {
     e.preventDefault();
     divToScroll.scrollLeft += e.deltaY*2;
 }, false);
-

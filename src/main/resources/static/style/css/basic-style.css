@@ -173,6 +173,7 @@ header {
 	top: 75px;
 	transition: all 0.5s ease-out;
 	z-index: 200;
+	opacity: 1;
 }
 
 .menu-unfold-1 {
@@ -185,10 +186,11 @@ header {
 
 .close-menu {
 	right: -400px;
+	opacity: 0;
 }
 
 .menu-unfold-2 {
-	border-left: 3px solid var(--color);
+	border-left: 3px solid #3755FA;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -201,6 +203,7 @@ header {
 	transition: all 0.5s ease-out;
 	z-index: 200;
 	width: 700px;
+	opacity: 1;
 }
 
 .docs-menu{
@@ -242,6 +245,7 @@ header {
 
 .close-menu-2 {
 	right: -1000px;
+	opacity: 0;
 }
 
 .menu-btn2 {
@@ -336,7 +340,7 @@ header {
 #content::before {
 	top:59px;
 	content: url("data:image/svg+xml,%3Csvg width='1920' height='100' viewBox='0 0 1920 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50.9574C0 50.9574 574.097 100 949 100C1323.9 100 1920 50.9574 1920 50.9574V0H0V50.9574Z' fill='url(%23paint0_linear_81_50)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_81_50' x1='960' y1='72.5547' x2='960' y2='4.3246e-06' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23AEBBFF' stop-opacity='0.62'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	z-index: -10;
 }
@@ -377,6 +381,7 @@ header {
 #menu-unfold-toggle:hover span {
 	transform: translateX(-20%);
 	height: 50px;
+	background: #D5FEC8;
 	width:50px;
 }
 
