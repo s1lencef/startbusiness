@@ -358,59 +358,62 @@
 	<section class="payment-plan">
 		<div class="payment-plan-header">Выберите ваш тариф</div>
 		<div class="payment-plan-wrapper">
-			<div class="first-payment-plan payment-plan-card">
-				<p class="card-header">Регистрационный тариф - Разовый</p>
-				<ul>
-					<li>Регистрация ИП УСН (ДОХОД)</li>
-					<li>Регистрация ИП УСН (ДОХОДЫ МИНУС РАСХОДЫ)</li>
-					<li>Регистрация ИП ПСН</li>
-					<li>Регистрация ИП ОРН</li>
-					<li>Регистрация ООО ОР</li>
-					<li>Регистрация ООО УСН (ДОХОДЫ)</li>
-					<li>Регистрация ООО УСН (ДОХОДЫ МИНУС РАСХОДЫ)</li>
-				</ul>
-			</div>
-			<div class="second-payment-plan payment-plan-card">
-				<p class="card-header">Регистрационный тариф - Стандартный</p>
-				<ul>
-					<li>Онлайн проверка документов юристом</li>
-					<li>Консультация при подаче</li>
-					<li>Автоматическое пробуждение на паре</li>
-				</ul>
-			</div>
-			<div class="third-payment-plan payment-plan-card">
-				<p class="card-header">Регистрационый тариф - Премиум</p>
-				<ul>
-					<li>Автоматическая подставновка данных по ИНН организации</li>
-					<li>Онлайн подача документов</li>
-					<li>2 часовая консультация Санта Клауса</li>
-				</ul>
-			</div>
-		</div>
-	</section>
-	<section class="auth-page">
-		<div class="wrapper">
-			<div class="log-form-container">
-				<div class="alert alert-success">
-					Здравствуй <p><span th:text = "${name}"></span></p>
-					Авторизация успешна!
+			<div class="first-payment-plan payment-plan-card-wrapper">
+				<div class="payment-plan-card">
+					<p class="card-header">Разовый тариф</p>
+					<ul>
+						<li>Регистрация ИП УСН (ДОХОД)</li>
+						<li>Регистрация ИП УСН (ДОХОДЫ МИНУС РАСХОДЫ)</li>
+						<li>Регистрация ИП ПСН</li>
+						<li>Регистрация ИП ОРН</li>
+						<li>Регистрация ООО ОР</li>
+						<li>Регистрация ООО УСН (ДОХОДЫ)</li>
+						<li>Регистрация ООО УСН (ДОХОДЫ МИНУС РАСХОДЫ)</li>
+					</ul>
+					<p class = "price" id="price-1">120₽ / месяц</p>
+					<a class="business-pay-btn" id="pay-btn-1">
+						<p>Оплатить</p>
+					</a>
 				</div>
-				<br>
-				<br>
-				<br>
-				<form method="post" th:action="@{/logout}">
-					<span class="log-span">Выйти</span>
-					<label class="label-submit" for="login-submit">
-						<input class="submit-button" id="login-submit" name="login-submit"
-						       type="submit" value=""/>
-					</label>
-				</form>
-				<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
-				       type="hidden"/>
+			</div>
+			<div class="second-payment-plan payment-plan-card-wrapper">
+				<div class="payment-plan-card">
+					<p class="card-header">Стандартный тариф</p>
+					<ul>
+						<li>Онлайн проверка документов юристом</li>
+						<li>Консультация при подаче</li>
+						<li>Автоматическое пробуждение на паре</li>
+						<li>Онлайн проверка документов юристом</li>
+						<li>Консультация при подаче</li>
+						<li>Автоматическое пробуждение на паре</li>
+					</ul>
+					<p  class = "price" id="price-2">200₽ / год</p>
+					<a class="business-pay-btn" id="pay-btn-2">
+						<p>Оплатить</p>
+					</a>
+				</div>
+			</div>
+			<div class="third-payment-plan payment-plan-card-wrapper">
+				<div class="payment-plan-card">
+					<p class="card-header">Премиум тариф</p>
+					<ul>
+						<li>Автоматическая подставновка данных по ИНН организации</li>
+						<li>Онлайн подача документов</li>
+						<li>2 часовая консультация Санта Клауса</li>
+						<li>Онлайн проверка документов юристом</li>
+						<li>Консультация при подаче</li>
+						<li>Автоматическое пробуждение на паре</li>
+					</ul>
+					<p class = "price"  id="price-3">1630₽ / год</p>
+					<a class="business-pay-btn" id="pay-btn-3">
+						<p>Оплатить</p>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
 	<section class="business-page">
+		<div class="businesses-header">Налоговые ставки</div>
 		<div class="businesses-wrapper">
 			<div class="businesses-menu">
 				<a class="business-btn" id='business-1'><strong>ИП</strong> УСН (ДОХОДЫ)</a>
@@ -823,6 +826,28 @@
 
 					</div>
 				</div>
+			</div>
+		</div>
+	</section>
+	<section class="auth-page">
+		<div class="wrapper">
+			<div class="log-form-container">
+				<div class="alert alert-success">
+					Здравствуй <p><span th:text = "${name}"></span></p>
+					Авторизация успешна!
+				</div>
+				<br>
+				<br>
+				<br>
+				<form method="post" th:action="@{/logout}">
+					<span class="log-span">Выйти</span>
+					<label class="label-submit" for="login-submit">
+						<input class="submit-button" id="login-submit" name="login-submit"
+						       type="submit" value=""/>
+					</label>
+				</form>
+				<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
+				       type="hidden"/>
 			</div>
 		</div>
 	</section>

@@ -46,7 +46,14 @@ section{
 }
 
 .business-page{
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
 
+.businesses-header{
+	font-family: SONGER_SE_Regular;
+	font-size: 2em;
+	margin-bottom: 20px;
 }
 
 .businesses-wrapper{
@@ -95,7 +102,7 @@ section{
 	font-size:16px;
 	max-width: 800px;
 	color: #000;
-	height: calc(100vh - 200px);
+	height: calc(100vh - 300px);
 	transition: 0.2s;
 	backdrop-filter: blur(8px);
 }
@@ -107,6 +114,7 @@ section{
 .business-info-open{
 	height: 100% !important;
 	opacity: 1 !important;
+	overflow: auto !important;
 }
 
 .business-info{
@@ -123,37 +131,46 @@ section{
 	flex-direction: column;
 }
 
-.business-document{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-top: 20px;
-}
+.business-docs{
 
-.business-document > svg{
-	margin-right: 10px;
-}
+	.business-document{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		margin-top: 20px;
+	}
 
-.business-document > p{
-	max-width: 230px;
-}
+	.business-document > svg{
+		position: relative;
+		flex: 0 0 auto;
+		min-width: 27px;
+		margin-right: 10px;
+	}
 
-.business-document-btn{
-    border: 3px solid #3755FA;
-	margin-left: 10px;
-    align-items: center;
-    display: flex;
-    padding: 5px;
-    position: relative;
-    transition: 0.2s;
-}
+	.business-document > p{
+		max-width: 230px;
+		margin-right: 10px;
+	}
 
-.business-document-btn:hover {
-	background: #D5FEC8;
+	.business-document-btn{
+		border: 2px solid #3755FA;
+		align-items: center;
+		display: flex;
+		padding: 5px;
+		position: relative;
+		transition: 0.2s;
+	}
+
+	.business-document-btn:hover {
+		background: #D5FEC8;
+		background: #3755FA;
+		color: white;
+	}
+
 }
 
 .business-start-btn{
-	border: 3px solid #3755FA;
+	border: 2px solid #3755FA;
 	align-items: center;
 	margin-top: 20px;
 	justify-content: center;
@@ -166,7 +183,6 @@ section{
 .business-start-btn:hover {
 	background: #D5FEC8;
 }
-
 
 @media (max-width: 1550px) {
 	/*.businesses-wrapper::before{*/

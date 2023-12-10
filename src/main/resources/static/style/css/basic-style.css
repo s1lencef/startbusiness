@@ -398,8 +398,6 @@ header {
 	transform: translateX(-50%);
 }
 
-
-
 .business-document{
 	display: flex;
 	flex-direction: row;
@@ -408,16 +406,19 @@ header {
 }
 
 .business-document > svg{
+	position: relative;
+	flex: 0 0 auto;
+	min-width: 27px;
 	margin-right: 10px;
 }
 
 .business-document > p{
 	max-width: 230px;
+	margin-right: 10px;
 }
 
 .business-document-btn{
-	border: 3px solid #3755FA;
-	margin-left: 10px;
+	border: 2px solid #3755FA;
 	align-items: center;
 	display: flex;
 	padding: 5px;
@@ -426,10 +427,9 @@ header {
 }
 
 .business-document-btn:hover {
-	background: #D5FEC8;
+	background: #3755FA;
+	color: white;
 }
-
-
 
 /*------------*/
 
