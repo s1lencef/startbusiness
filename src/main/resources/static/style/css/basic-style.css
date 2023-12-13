@@ -14,6 +14,11 @@ body {
 	margin: 0;
 	overflow-x: hidden;
 	padding: 0;
+	/*filter: invert(100%);*/
+}
+
+svg{
+	flex: 0 0 auto;
 }
 
 *::-moz-selection {
@@ -47,6 +52,14 @@ label {
 }
 
 input {
+	outline: none;
+	border: none;
+	font-family: Roboto Slab, serif;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+textarea {
 	outline: none;
 	border: none;
 	font-family: Roboto Slab, serif;
@@ -196,13 +209,13 @@ header {
 	justify-content: center;
 	right: 0;
 	flex-direction: row;
-	height: calc(100vh - 115px);
-	padding: 40px 30px 0 30px;
+	height: calc(100vh - 145px);
+	padding: 40px 30px 30px 30px;
 	position: fixed;
 	top: 75px;
 	transition: all 0.5s ease-out;
 	z-index: 200;
-	width: 700px;
+	width: 900px;
 	opacity: 1;
 }
 
@@ -218,26 +231,86 @@ header {
 
 .docs-info{
 	margin-left: 20px;
-	padding: 20px 20px;
+	margin-top:-37px;
 	background: rgba(241, 243, 255, 0.5) !important;
 	font-family: Roboto Slab, serif;
-	font-size:18px;
-	width: 480px;
+	font-size:16px;
+	width: 680px;
 	color: #000;
 	height: 100%;
 }
 
+h4{
+	/*text-transform: uppercase;*/
+	font-weight: 420;
+	font-size: 16px;
+	margin: 8px 0;
+}
+
+
 .docs-info > .menu-p{
 	height: 0;
-	overflow: hidden;
+	overflow:auto;
+	padding: 0 20px;
 	opacity: 0;
 	transition: 0.6s;
 }
 
+.menu-p::-webkit-scrollbar {
+	display: none;
+}
+
+.menu-p {
+	-ms-overflow-style: none;/
+	scrollbar-width: none;
+}
+
 .p-open{
-	height: 100% !important;
+	height: calc(100%) !important;
+	padding: 30px 20px !important;
 	opacity: 1 !important;
 }
+
+
+.docs{
+	display: flex;
+	flex-direction: column;
+}
+
+.document{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.document > svg{
+	position: relative;
+	flex: 0 0 auto;
+	min-width: 27px;
+	margin-right: 10px;
+}
+
+.document > p{
+	max-width: 230px;
+	flex: 0 0 auto;
+	margin-right: 10px;
+}
+
+.business-document-btn{
+	border: 2px solid #3755FA;
+	align-items: center;
+	display: flex;
+	padding: 5px;
+	position: relative;
+	transition: 0.2s;
+}
+
+.business-document-btn:hover {
+	background: #3755FA;
+	color: white;
+}
+
 
 .menu-p > p{
 	margin-bottom: 20px;
@@ -299,6 +372,10 @@ header {
 	width: calc(100% - 2em);
 }
 
+.menu-unfold-2 .foot{
+	height: 30px;
+}
+
 .foot a {
 	align-items: center;
 	cursor: pointer;
@@ -329,8 +406,8 @@ header {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	overflow-x: hidden;
-	overflow-y: hidden;
+	/*overflow-x: hidden;*/
+	/*overflow-y: hidden;*/
 	position: relative;
 	transition: all 0.5s ease-out;
 	width: 100vw;
@@ -338,7 +415,7 @@ header {
 
 
 #content::before {
-	top:59px;
+	top:78px;
 	content: url("data:image/svg+xml,%3Csvg width='1920' height='100' viewBox='0 0 1920 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50.9574C0 50.9574 574.097 100 949 100C1323.9 100 1920 50.9574 1920 50.9574V0H0V50.9574Z' fill='url(%23paint0_linear_81_50)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_81_50' x1='960' y1='72.5547' x2='960' y2='4.3246e-06' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='%23AEBBFF' stop-opacity='0.62'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E%0A");
 	position: fixed;
 	width: 100%;
@@ -381,7 +458,7 @@ header {
 #menu-unfold-toggle:hover span {
 	transform: translateX(-20%);
 	height: 50px;
-	background: #D5FEC8;
+	background: #3755FA;
 	width:50px;
 }
 
@@ -398,41 +475,13 @@ header {
 	transform: translateX(-50%);
 }
 
-.business-document{
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	margin-top: 20px;
+.section-header{
+	font-family: SONGER_SE_Regular, sans-serif;
+	font-size: 2em;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 40px;
 }
-
-.business-document > svg{
-	position: relative;
-	flex: 0 0 auto;
-	min-width: 27px;
-	margin-right: 10px;
-}
-
-.business-document > p{
-	max-width: 230px;
-	margin-right: 10px;
-}
-
-.business-document-btn{
-	border: 2px solid #3755FA;
-	align-items: center;
-	display: flex;
-	padding: 5px;
-	position: relative;
-	transition: 0.2s;
-}
-
-.business-document-btn:hover {
-	background: #3755FA;
-	color: white;
-}
-
-/*------------*/
-
 
 @media (max-width: 1000px) {
 	.menu {
@@ -442,4 +491,25 @@ header {
 	.container-burger {
 		display: flex;
 	}
+}
+
+@media (max-width: 900px) {
+	.menu-unfold-2 {
+		width: calc(100vw - 130px);
+		padding-right: 0;
+	}
+
+
+}
+
+@media (max-width: 700px) {
+
+	.docs-info{
+		width: calc(100vw - 300px);
+	}
+
+	.text-info :nth-child(3){
+		display: none;
+	}
+
 }

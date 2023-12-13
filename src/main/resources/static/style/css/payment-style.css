@@ -1,26 +1,24 @@
 
 
 .payment-plan {
-	height: 100%;
 	position: relative;
 	margin-top: 70px;
-	margin-bottom: 70px;
 	width: 100%;
 }
 
 .payment-plan-wrapper{
-	width: calc(100vw - 200px);
+	width: calc(100vw);
+	/*padding: 0 50px;*/
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	font-family: Roboto Slab, serif;
-	/*font-size: 16px;*/
 	gap:60px;
 }
 
 .payment-plan-header{
-	font-family: SONGER_SE_Regular;
+	font-family: SONGER_SE_Regular, sans-serif;
 	font-size: 2em;
 	margin-bottom: 50px;
 }
@@ -48,6 +46,8 @@
 	padding: 20px;
 	transition: 0.2s;
 	position: relative;
+	border: 2px solid #000000;
+	border-radius: 10px;
 }
 
 .payment-plan-card:hover{
@@ -84,7 +84,7 @@
 .business-pay-btn{
 	border: 2px solid #3755FA;
 	align-items: center;
-	font-family: SONGER_SE_Medium;
+	font-family: SONGER_SE_Medium, sans-serif;
 	justify-content: center;
 	display: flex;
 	padding: 5px 5px;
@@ -103,3 +103,13 @@
 	font-family: SONGER_SE_Medium;
 	margin: auto 0 15px 30px;
 }
+
+@media (max-width: 1200px) {
+	.payment-plan-card-wrapper{
+		height: auto;
+	}
+}
+
+
+
+

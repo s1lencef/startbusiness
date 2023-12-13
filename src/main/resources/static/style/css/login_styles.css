@@ -58,6 +58,8 @@
 	width: 380px;
 	transition: 0.5s;
 	backdrop-filter: blur(8px);
+	border:2px solid #000000;
+	border-radius: 10px;
 }
 
 .log-form-container:hover{
