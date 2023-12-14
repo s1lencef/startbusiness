@@ -20,14 +20,15 @@ public class Form {
     @ManyToOne(targetEntity = DocumentTypes.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "status")
     private Status status;
-
-    public Form(Long id, User user, User staff, boolean type, Date date, Status status) {
+    private int tax;
+    public Form(Long id, User user, User staff, boolean type, Date date, Status status, int tax) {
         this.id = id;
         this.user = user;
         this.staff = staff;
         this.type = type;
         this.date = date;
         this.status = status;
+        this.tax = tax;
     }
 
     public Form() {
@@ -79,5 +80,13 @@ public class Form {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getTax() {
+        return tax;
+    }
+
+    public void setTax(int tax) {
+        this.tax = tax;
     }
 }

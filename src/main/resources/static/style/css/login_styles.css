@@ -51,14 +51,14 @@
 .log-form-container {
 	background: rgba(241, 243, 255, 0.5);
 	font-family: Roboto Slab, serif;
-	font-size: var(--textsizefortext);
+	font-size: 16px;
 	font-weight: 400;
 	position: relative;
 	padding: 0 20px 30px 20px;
 	width: 380px;
 	transition: 0.5s;
 	backdrop-filter: blur(8px);
-	border:2px solid #000000;
+	border:2px solid #bdb8ec;
 	border-radius: 10px;
 }
 
@@ -122,7 +122,7 @@
 }
 
 #renew-pass {
-	color: var(--color);
+	color: #3755FA;
 	font-size: 13px;
 	margin-left: 20px;
 	text-decoration: underline;

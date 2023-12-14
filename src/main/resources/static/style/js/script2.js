@@ -8,30 +8,3 @@ for (let i = 1; i <= 5; i++) {
         document.getElementById('business-info-' + i).classList.toggle('business-info-open');
     });
 }
-
-// let animatemenu = document.getElementById('bis-wrap');
-// animatemenu.addEventListener('scroll', function() {
-//     if(!document.getElementById('log-wrapper').classList.contains('wrapper-hover')){
-//         document.getElementById('log-wrapper').classList.add('wrapper-hover');
-//     }
-// // });
-//
-// function addScrollListenerToElement(elementId) {
-//     var element = document.getElementById(elementId);
-//     var parent = element.parentNode;
-//
-//     window.addEventListener('scroll', function() {
-//         var rect = element.getBoundingClientRect();
-//         var top = rect.top;
-//         console.log(top);
-//         var bottom = top + parent.offsetHeight;
-//         console.log(bottom);
-//         if (window.scrollTop > top && window.scrollTop < bottom) {
-//             console.log('Элемент находится внутри родительского контейнера');
-//         } else {
-//             console.log('Элемент выходит за пределы родительского контейнера');
-//         }
-//     });
-// }
-//
-// addScrollListenerToElement('bis-menu');

@@ -10,13 +10,13 @@ public class Capital {
     @JoinColumn(nullable = false, name = "form_id")
     private Form formId;
     private int Type;
-    private double Value;
+    private double value;
 
     public Capital(Long id, Form formId, int type, double value) {
         this.id = id;
         this.formId = formId;
         Type = type;
-        Value = value;
+        this.value = value;
     }
 
     public Capital() {
@@ -46,11 +46,11 @@ public class Capital {
         Type = type;
     }
 
-    public double getValue() {
-        return Value;
+    public double getvalue() {
+        return value;
     }
 
-    public void setValue(double value) {
-        Value = value;
+    public void setvalue(double value) {
+        this.value = value;
     }
 }
