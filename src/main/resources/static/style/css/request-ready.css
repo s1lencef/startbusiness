@@ -1,0 +1,48 @@
+.request-form-wrapper-close{
+	display: none;
+}
+
+.request-form-ready .request-form-header{
+	height: 120px;
+	/*position: relative;*/
+	/*width: 100%;*/
+	/*z-index: 2;*/
+}
+
+.request-form-request-name {
+	font-family: SONGER_SE_Regular, sans-serif;
+	font-size: 1em;
+	left: 30px;
+	position: absolute;
+	top: 80px;
+	white-space: nowrap;
+}
+
+.request-docs-wrapper{
+	display: flex;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	font-family: Roboto Slab, serif;
+	font-size: 16px;
+}
+
+.request-docs{
+	display: flex;
+	min-width: 435px;
+	padding: 20px 30px;
+}
+
+.request-side-text{
+	display: flex;
+	flex-direction: column;
+	padding: 20px 50px;
+	max-width: 600px;
+	min-width: 465px;
+}
+
+ul > *{
+	position: relative;
+	margin-bottom: 10px;
+}
+

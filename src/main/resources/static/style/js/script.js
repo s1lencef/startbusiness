@@ -77,14 +77,12 @@ requestToggle.addEventListener('click', () => {
 
 let elements = document.querySelectorAll('.request-a');
 
-// Определите функцию, которую вы хотите назначить
 function paymentPlans() {
     // if(!document.getElementById('payment-page').classList.contains('payment-plan-requests')){
     document.getElementById('payment-page').classList.toggle('payment-plan-requests');
     // }
 }
 
-// Примените функцию ко всем выбранным элементам
 elements.forEach(function (element) {
     element.addEventListener('click', paymentPlans);
 });
@@ -98,7 +96,6 @@ divToScroll.addEventListener('wheel', function (e) {
     divToScroll.scrollLeft += e.deltaY * 2;
 }, false);
 
-// библиотека для шаблона даты
 const dateInput = document.getElementById('dateInput');
 const INNInput = document.getElementById('INNInput');
 const emailInput = document.getElementById('emailInput');
@@ -113,11 +110,11 @@ const mask1 = IMask(dateInput, {
     lazy: false,
     placeholderChar: '_'
 });
-// const mask2 = IMask(INNInput, {
-//     mask: '0000000000',
-//     lazy: true,
-//     placeholderChar: '_'
-// });
+const mask2 = IMask(INNInput, {
+    mask: '0000000000',
+    lazy: false,
+    placeholderChar: '_'
+});
 const mask3 = IMask(emailInput, {
     mask: /^\S*@?\S*$/,
     lazy: false,
@@ -217,7 +214,6 @@ const inputIds4 = ['cityInput', 'streetInput', 'houseInput', 'officeInput'];
 const inputIds5 = ['okvedInput', 'dopokvedInput'];
 const inputIds6 = ['docDateInput'];
 
-// Вызовите функцию changeElementClass при изменении любого поля формы
 inputIds1.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
@@ -259,3 +255,4 @@ inputIds6.forEach(function(inputId) {
         changeElementClass(inputIds6,'request-form-header-menu-btn-6')
     });
 });
+
