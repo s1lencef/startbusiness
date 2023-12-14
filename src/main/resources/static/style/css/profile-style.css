@@ -3,16 +3,20 @@
 	flex-direction: row;
 	height: calc(100vh);
 	justify-content: flex-start;
-	position: relative;
+	position: fixed;
 	top: 75px;
 	width: 100%;
 }
 
+body{
+	overflow: hidden;
+}
+
 .requests {
 	background-color: rgba(243, 247, 255, 0.5);
-	border-right: 3px solid var(--color);
+	border-right: 3px solid #3755FA;
 	font-family: Roboto Slab, serif;
-	font-size: var(--textsizefortext);
+	font-size:16px;
 	left: 0;
 	padding: 30px 0 0 20px;
 	position: relative;
@@ -252,5 +256,28 @@
 
 .request-inwork .svg-inwork {
 	display: flex;
+}
+
+.add-request{
+	border:2px solid #3755FA;
+	height: 40px;
+	width: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: 0.15s;
+	cursor: pointer;
+}
+
+.add-request svg{
+	transition: 0.15s;
+}
+
+.add-request:hover svg{
+	filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(144deg) brightness(106%) contrast(101%);
+}
+
+.add-request:hover{
+	background: #3755FA;
 }
 
