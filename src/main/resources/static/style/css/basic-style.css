@@ -122,8 +122,14 @@ header {
 }
 
 .authorized{
-	display: flex !important;
+	display: inline-flex !important;
 }
+.authorized span{
+	max-width: 250px;
+	overflow: hidden;
+	text-overflow: ellipsis !important;
+}
+
 
 .menu-btn:hover{
     padding-bottom:10px;
@@ -296,8 +302,8 @@ li{
 }
 
 .document > p{
-	min-width: 220px;
-	flex: 0 0 0;
+	max-width: 220px;
+	flex: 0 0 auto;
 	margin-right: 10px;
 }
 
@@ -362,7 +368,6 @@ li{
 .enter-btn:hover svg  {
 	filter: invert(99%) sepia(39%) saturate(2%) hue-rotate(282deg) brightness(113%) contrast(100%);
 }
-
 
 .foot {
 	align-items: center;
@@ -445,6 +450,11 @@ li{
 	transition: all 0.5s ease-out;
 }
 
+#menu-unfold-toggle:hover {
+	backdrop-filter: blur(5px);
+}
+
+
 .menu-toggle-open{
 	left: calc(-100vw + 397px) !important;
 	width: calc(100vw - 400px) !important;
@@ -488,7 +498,7 @@ li{
 	margin-bottom: 40px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 	.menu {
 		display: none;
 		right: 65px;

@@ -48,7 +48,6 @@ drop_menu_2.addEventListener('click', () => {
     document.getElementById('content').classList.toggle('blur');
 });
 
-
 let menuToggle = document.getElementById('menu-unfold-toggle')
 menuToggle.addEventListener('click', () => {
     document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
