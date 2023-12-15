@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.studentproject.startbusiness.models.Document;
+import ru.studentproject.startbusiness.models.DocumentTypes;
 import ru.studentproject.startbusiness.service.FileService;
 
 import java.io.IOException;
@@ -52,12 +53,17 @@ public class FileController {
     @GetMapping("/samples")
     public String downloadPage (Model model, HttpServletRequest request){
         List<Document> documents = fileService.getSamples().stream().toList();
+        ArrayList<DocumentTypes> types = new ArrayList<>();
         if (documents.isEmpty()){
             model.addAttribute("documents", "Документов не найдено");
 
         }
         else{
+            for(Document doc:documents){
+                types.add(doc.isType());
+            }
             model.addAttribute("documents", documents);
+            model.addAttribute("types",types);
         }
         return "samples";
     }

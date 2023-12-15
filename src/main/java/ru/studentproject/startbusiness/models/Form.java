@@ -9,19 +9,21 @@ public class Form {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(targetEntity = DocumentTypes.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
-    @ManyToOne(targetEntity = DocumentTypes.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "staff_id")
     private User staff;
     private boolean type;
     private Date date;
-    @ManyToOne(targetEntity = DocumentTypes.class, fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "status")
     private Status status;
-    private int tax;
-    public Form(Long id, User user, User staff, boolean type, Date date, Status status, int tax) {
+    @ManyToOne(targetEntity = Types.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "tax")
+    private Types tax;
+    public Form(Long id, User user, User staff, boolean type, Date date, Status status, Types tax) {
         this.id = id;
         this.user = user;
         this.staff = staff;
@@ -82,11 +84,11 @@ public class Form {
         this.status = status;
     }
 
-    public int getTax() {
+    public Types getTax() {
         return tax;
     }
 
-    public void setTax(int tax) {
+    public void setTax(Types tax) {
         this.tax = tax;
     }
 }

@@ -25,6 +25,7 @@ public class FileService {
     private UserService userService;
     @Autowired
     private DocumentRepository documentRepository;
+    @Autowired
     private DocumentTypesRepository documentTypesRepository;
     @Value("${app.upload.dir:${user.home}}")
     public String uploadDir;

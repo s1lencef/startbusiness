@@ -71,8 +71,7 @@ header {
 	background: #fff;
 	font-family: SONGER_SE_Regular, sans-serif;
 	border-bottom: 3px solid #3755FA;
-	height: 60px;
-	padding-top:15px;
+	height: 75px;
 	display: flex;
 	align-items: center;
 	position: fixed;
@@ -81,6 +80,7 @@ header {
 }
 
 .logo {
+    padding-top:15px;
 	color: #3755FA;
 	font-size: 22px;
 	left: 20px;
@@ -88,6 +88,7 @@ header {
 }
 
 .menu {
+    padding-top:15px;
 	display: flex;
 	right: 65px;
 	font-size: 18px;
@@ -130,6 +131,7 @@ header {
 }
 
 .container-burger {
+    padding-top:15px;
 	align-items: center;
 	cursor: pointer;
 	display: flex;

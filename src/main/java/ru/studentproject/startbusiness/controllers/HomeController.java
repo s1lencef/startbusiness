@@ -2,6 +2,7 @@ package ru.studentproject.startbusiness.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
@@ -38,12 +39,15 @@ public class HomeController {
     }
     @GetMapping("/home")
     public String home( Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
-
         ru.studentproject.startbusiness.models.User user = userService.findByEmail(email);
+        if (user != null){
+            System.out.println("мыло = " + email);
+     ;
+        }
 
-        String name = userService.findByEmail(email).getFirstName();
-        model.addAttribute("name",name);
+        model.addAttribute("user",user);
         List<ru.studentproject.startbusiness.models.User> users = userService.getAll();
         System.out.println(users.toString());
 

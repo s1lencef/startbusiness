@@ -18,17 +18,18 @@
 		<a class="menu-btn2" id='contacts-btn-2'>Контакты</a>
 		<a class="menu-btn2" id='prices-btn-2'>Тарифы</a>
 		<a class="menu-btn2" id='auth-btn-2'>Вход</a>
-		<!--		<a class="menu-btn2 authorized" id='profile-btn-2'>-->
-		<a class="menu-btn2" id='profile-btn-2'>
+		<a class = "menu-btn2 authorized"th:if="${user}">
 			<svg fill="none" height="24" viewBox="0 ,0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
 				<path d="M20.2861 23.2446C19.7146 21.3826 18.4523 19.738 16.6976 18.5648C14.9429 17.3916 12.7925 16.7554 10.5806 16.7554C8.36865 16.7554 6.21827 17.3916 4.46356 18.5648C2.70885 19.738 1.44651 21.3826 0.875 23.2446"
-				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>
+					  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
 				<path d="M10.5811 13.0865C14.0119 13.0865 16.7931 10.3808 16.7931 7.04324C16.7931 3.70565 14.0119 1 10.5811 1C7.15034 1 4.36914 3.70565 4.36914 7.04324C4.36914 10.3808 7.15034 13.0865 10.5811 13.0865Z"
-				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>
+					  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
 			</svg>
-			Федор Вотяков
+			<span class = "authorized" th:text="${user.firstName}"></span>
+
 		</a>
-		<a class="enter-btn" href="" id='open_request'><p>Создать анкету</p></a>
+
+		<a class="enter-btn" th:if="${user}" th:href="@{/profile?id=}+${user.id}" id='open_request'><p>Создать анкету</p></a>
 		<a class="enter-btn" href="" id='open_chat'><p>Открыть чат с сотрудником</p></a>
 
 		<div class="foot">
@@ -127,7 +128,7 @@
 							</defs>
 						</svg>
 						<p>Документ P21001</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=7}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -155,7 +156,7 @@
 							</defs>
 						</svg>
 						<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=8}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -208,7 +209,7 @@
 							</defs>
 						</svg>
 						<p>Документ P21001</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=7}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -236,7 +237,7 @@
 							</defs>
 						</svg>
 						<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=8}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -286,7 +287,7 @@
 							</defs>
 						</svg>
 						<p>Документ P21001</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=7}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -313,8 +314,8 @@
 								</clipPath>
 							</defs>
 						</svg>
-						<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
-						<a class="business-document-btn">
+						<p>Форма № 26.5-1 (Заявление на получение патента)</p>
+						<a class="business-document-btn" th:href="@{/download?id=9}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -377,7 +378,7 @@
 							</defs>
 						</svg>
 						<p>Договор об учреждении</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=10}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -405,7 +406,7 @@
 							</defs>
 						</svg>
 						<p>Протокол общего собрания учредителей</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=11}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -433,7 +434,7 @@
 							</defs>
 						</svg>
 						<p>Типовой устав № 22</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=12}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -461,7 +462,7 @@
 							</defs>
 						</svg>
 						<p>Документ P11001</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=6}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -489,7 +490,7 @@
 							</defs>
 						</svg>
 						<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=8}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -549,7 +550,7 @@
 							</defs>
 						</svg>
 						<p>Договор об учреждении</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=10}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -577,7 +578,7 @@
 							</defs>
 						</svg>
 						<p>Протокол общего собрания учредителей</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=11}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -605,7 +606,7 @@
 							</defs>
 						</svg>
 						<p>Типовой устав № 22</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=12}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -633,7 +634,7 @@
 							</defs>
 						</svg>
 						<p>Документ P11001</p>
-						<a class="business-document-btn">
+						<a class="business-document-btn" th:href="@{/download?id=6}">
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -680,16 +681,29 @@
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
 		<a class="menu-btn" id='contacts-btn'>Чат</a>
 		<a class="menu-btn" id='auth-btn'>Вход</a>
-		<!--		<a class="menu-btn authorized" id='btn'>-->
-		<a class="menu-btn" id='btn'>
-			Федор Вотяков
-			<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
-				<path d="M20.7061 23.1223C20.1345 21.2603 18.8722 19.6158 17.1175 18.4425C15.3628 17.2693 13.2124 16.6331 11.0005 16.6331C8.78857 16.6331 6.6382 17.2693 4.88348 18.4425C3.12877 19.6158 1.86643 21.2603 1.29492 23.1223"
-				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>
-				<path d="M11.001 12.9642C14.4318 12.9642 17.213 10.2585 17.213 6.92093C17.213 3.58334 14.4318 0.877686 11.001 0.877686C7.57026 0.877686 4.78906 3.58334 4.78906 6.92093C4.78906 10.2585 7.57026 12.9642 11.001 12.9642Z"
-				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>
-			</svg>
+		<a class = "menu-btn authorized"th:if="${user}">
+
+				<span class = "authorized" th:text="${user.firstName}"></span>
+				<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
+					<path d="M20.7061 23.1223C20.1345 21.2603 18.8722 19.6158 17.1175 18.4425C15.3628 17.2693 13.2124 16.6331 11.0005 16.6331C8.78857 16.6331 6.6382 17.2693 4.88348 18.4425C3.12877 19.6158 1.86643 21.2603 1.29492 23.1223"
+						  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
+					<path d="M11.001 12.9642C14.4318 12.9642 17.213 10.2585 17.213 6.92093C17.213 3.58334 14.4318 0.877686 11.001 0.877686C7.57026 0.877686 4.78906 3.58334 4.78906 6.92093C4.78906 10.2585 7.57026 12.9642 11.001 12.9642Z"
+						  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
+				</svg>
 		</a>
+
+		</div>
+
+
+<!--		<a class="menu-btn" id='btn'>-->
+<!--			Федор Вотяков-->
+<!--			<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">-->
+<!--				<path d="M20.7061 23.1223C20.1345 21.2603 18.8722 19.6158 17.1175 18.4425C15.3628 17.2693 13.2124 16.6331 11.0005 16.6331C8.78857 16.6331 6.6382 17.2693 4.88348 18.4425C3.12877 19.6158 1.86643 21.2603 1.29492 23.1223"-->
+<!--				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>-->
+<!--				<path d="M11.001 12.9642C14.4318 12.9642 17.213 10.2585 17.213 6.92093C17.213 3.58334 14.4318 0.877686 11.001 0.877686C7.57026 0.877686 4.78906 3.58334 4.78906 6.92093C4.78906 10.2585 7.57026 12.9642 11.001 12.9642Z"-->
+<!--				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>-->
+<!--			</svg>-->
+<!--		</a>-->
 	</div>
 	<!--	сам бургер-->
 	<a class="container-burger" id='burger-btn'>
@@ -697,5 +711,6 @@
 		<span></span>
 		<span></span>
 	</a>
+	<script src="../static/style/js/header.js" th:src="@{/style/js/header.js}" type="text/javascript"></script>
 </header>
 </body>
