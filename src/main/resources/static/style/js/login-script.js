@@ -1,6 +1,3 @@
-
-
-
 let animateLogin = document.getElementById('auth-page');
 animateLogin.addEventListener('mouseleave', function() {
     if(document.getElementById('log-wrapper').classList.contains('wrapper-hover')){

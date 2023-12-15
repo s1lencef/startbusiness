@@ -1,73 +1,3 @@
-for (let i = 1; i <= 5; i++) {
-    let menu_btn2 = document.getElementById('docs' + i);
-    menu_btn2.addEventListener('click', function () {
-        for (let j = 1; j <= 5; j++) {
-            if (document.getElementById('p_' + j).classList.contains('p-open')) {
-                document.getElementById('p_' + j).classList.toggle('p-open');
-            }
-        }
-        document.getElementById('p_' + i).classList.toggle('p-open');
-    });
-}
-
-let burger = document.getElementById('burger-btn');
-burger.addEventListener('click', () => {
-    if (!document.getElementById('drop-menu-2').classList.contains('close-menu-2')) {
-        document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
-        document.getElementById('menu-unfold-toggle').classList.toggle('menu-toggle-open');
-        document.getElementById('content').classList.toggle('blur');
-    }
-    document.getElementById('drop-menu').classList.toggle('close-menu');
-    document.getElementById('content').classList.toggle('blur');
-    burger.classList.toggle('close-burger');
-});
-
-let drop_menu = document.getElementById('docs-btn');
-drop_menu.addEventListener('click', () => {
-    if (!document.getElementById('drop-menu').classList.contains('close-menu')) {
-        document.getElementById('drop-menu').classList.toggle('close-menu');
-        document.getElementById('content').classList.toggle('blur');
-        burger.classList.toggle('close-burger');
-    }
-    console.log(document.getElementById('drop-menu-2').classList);
-    document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
-    document.getElementById('menu-unfold-toggle').classList.toggle('menu-toggle-open');
-    document.getElementById('content').classList.toggle('blur');
-});
-
-let drop_menu_2 = document.getElementById('docs-btn-2');
-drop_menu_2.addEventListener('click', () => {
-    if (!document.getElementById('drop-menu').classList.contains('close-menu-2')) {
-        document.getElementById('drop-menu').classList.toggle('close-menu');
-        document.getElementById('content').classList.toggle('blur');
-        burger.classList.toggle('close-burger');
-    }
-    console.log(document.getElementById('drop-menu-2').classList);
-    document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
-    document.getElementById('menu-unfold-toggle').classList.toggle('menu-toggle-open');
-    document.getElementById('content').classList.toggle('blur');
-});
-
-
-let menuToggle = document.getElementById('menu-unfold-toggle')
-menuToggle.addEventListener('click', () => {
-    document.getElementById('drop-menu-2').classList.toggle('close-menu-2');
-    document.getElementById('content').classList.toggle('blur');
-    document.getElementById('menu-unfold-toggle').classList.toggle('menu-toggle-open');
-});
-
-function show_hide_password(target) {
-    let input = document.getElementById('password');
-    if (input.getAttribute('type') === 'password') {
-        target.classList.add('view');
-        input.setAttribute('type', 'text');
-    } else {
-        target.classList.remove('view');
-        input.setAttribute('type', 'password');
-    }
-    return false;
-};
-
 let requestToggle = document.getElementById('request-toggle')
 requestToggle.addEventListener('click', () => {
     document.getElementById('req').classList.toggle('requests-closed');
@@ -77,14 +7,12 @@ requestToggle.addEventListener('click', () => {
 
 let elements = document.querySelectorAll('.request-a');
 
-// Определите функцию, которую вы хотите назначить
 function paymentPlans() {
     // if(!document.getElementById('payment-page').classList.contains('payment-plan-requests')){
     document.getElementById('payment-page').classList.toggle('payment-plan-requests');
     // }
 }
 
-// Примените функцию ко всем выбранным элементам
 elements.forEach(function (element) {
     element.addEventListener('click', paymentPlans);
 });
@@ -98,7 +26,6 @@ divToScroll.addEventListener('wheel', function (e) {
     divToScroll.scrollLeft += e.deltaY * 2;
 }, false);
 
-// библиотека для шаблона даты
 const dateInput = document.getElementById('dateInput');
 const INNInput = document.getElementById('INNInput');
 const emailInput = document.getElementById('emailInput');
@@ -113,11 +40,11 @@ const mask1 = IMask(dateInput, {
     lazy: false,
     placeholderChar: '_'
 });
-// const mask2 = IMask(INNInput, {
-//     mask: '0000000000',
-//     lazy: true,
-//     placeholderChar: '_'
-// });
+const mask2 = IMask(INNInput, {
+    mask: '0000000000',
+    lazy: false,
+    placeholderChar: '_'
+});
 const mask3 = IMask(emailInput, {
     mask: /^\S*@?\S*$/,
     lazy: false,
@@ -217,7 +144,6 @@ const inputIds4 = ['cityInput', 'streetInput', 'houseInput', 'officeInput'];
 const inputIds5 = ['okvedInput', 'dopokvedInput'];
 const inputIds6 = ['docDateInput'];
 
-// Вызовите функцию changeElementClass при изменении любого поля формы
 inputIds1.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
@@ -259,3 +185,4 @@ inputIds6.forEach(function(inputId) {
         changeElementClass(inputIds6,'request-form-header-menu-btn-6')
     });
 });
+

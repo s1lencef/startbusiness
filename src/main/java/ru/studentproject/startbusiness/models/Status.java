@@ -1,13 +1,22 @@
 package ru.studentproject.startbusiness.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
-public class Types {
+@Table(name = "status")
+public class Status {
     @Id
     private Long id;
+    @Column(name = "name")
     private String name;
+
+    public Status(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Status() {
+    }
 
     public Long getId() {
         return id;

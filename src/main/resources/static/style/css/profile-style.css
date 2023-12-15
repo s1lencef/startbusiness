@@ -8,7 +8,7 @@
 	width: 100%;
 }
 
-body{
+body {
 	overflow: hidden;
 }
 
@@ -16,7 +16,7 @@ body{
 	background-color: rgba(243, 247, 255, 0.5);
 	border-right: 3px solid #3755FA;
 	font-family: Roboto Slab, serif;
-	font-size:16px;
+	font-size: 16px;
 	left: 0;
 	padding: 30px 0 0 20px;
 	position: relative;
@@ -97,12 +97,12 @@ body{
 }
 
 .requests-closed {
-	border-right: 12px solid var(--color);
+	border-right: 12px solid #3755FA;
 	left: -340px;
 }
 
 .request-wrapper {
-	height: calc(100vh - 164px);
+	height: calc(100vh - 284px);
 	overflow: hidden;
 	scrollbar-gutter: stable both-edges;
 	scrollbar-width: none;
@@ -136,15 +136,15 @@ body{
 }
 
 .requests-head-text {
-	font-family: SONGER_SE_Medium;
+	font-family: SONGER_SE_Medium, serif;
 }
 
 .request {
 	border-top: 2px solid #9AAAFF;
+	cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	padding: 8px 20px 15px 0;
-	cursor: pointer;
 }
 
 .request-wrapper .request:nth-child(1) {
@@ -159,11 +159,6 @@ body{
 	margin-bottom: 5px;
 	position: relative;
 }
-
-/*.request-info:visited .request-name,*/
-/*.request-info:hover .request-name {*/
-/*	text-decoration: underline;*/
-/*}*/
 
 .request-svg {
 	display: none;
@@ -196,50 +191,50 @@ body{
 }
 
 .request-a {
-	margin:14px 0;
-	background: none;
-	color:#000;
-	height: 32px;
-	width: 100%;
-	padding: 0 5px;
-	display: flex;
-	justify-content: center;
-	border: 2px solid #3755FA;
 	align-items: center;
+	background: none;
+	border: 2px solid #3755FA;
+	color: #000;
+	display: flex;
+	height: 32px;
+	justify-content: center;
+	margin: 14px 0;
+	padding: 0 5px;
 	transition: 0.15s;
+	width: 100%;
 }
 
 .request-a:hover {
-	color: #FFFFFF;
 	background: #3755FA;
+	color: #FFFFFF;
 }
 
 .request-ready:hover .request-message-ready {
 	/*display: flex;*/
-	transition: opacity 1s, height 0.1s ease-in;
 	height: 30px;
 	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
 }
 
 .request-paid:hover .request-message-paid {
 	/*display: flex;*/
-	transition: opacity 1s, height 0.1s ease-in;
 	height: 110px;
 	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
 }
 
 .request-undone:hover .request-message-undone {
 	/*display: flex;*/
-	transition: opacity 1s, height 0.1s ease-in;
 	height: 50px;
 	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
 }
 
 .request-inwork:hover .request-message-inwork {
-	transition: opacity 1s, height 0.1s ease-in;
-	/*display: flex;*/
 	height: 30px;
+	/*display: flex;*/
 	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
 }
 
 .request-ready .svg-ready {
@@ -258,26 +253,34 @@ body{
 	display: flex;
 }
 
-.add-request{
-	border:2px solid #3755FA;
-	height: 40px;
-	width: 40px;
-	display: flex;
+.add-request {
 	align-items: center;
+	border: 2px solid #3755FA;
+	bottom: 100px;
+	display: flex;
+	height: 40px;
 	justify-content: center;
+	left: 20px;
+	position: absolute;
 	transition: 0.15s;
-	cursor: pointer;
+	width: 40px;
 }
 
-.add-request svg{
+.add-request::before {
+	content: 'Добавить заявку';
+	position: absolute;
+	right: -150px;
+}
+
+.add-request svg {
 	transition: 0.15s;
 }
 
-.add-request:hover svg{
+.add-request:hover svg {
 	filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(144deg) brightness(106%) contrast(101%);
 }
 
-.add-request:hover{
+.add-request:hover {
 	background: #3755FA;
 }
 

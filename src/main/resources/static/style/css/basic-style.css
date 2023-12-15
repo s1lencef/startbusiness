@@ -71,8 +71,7 @@ header {
 	background: #fff;
 	font-family: SONGER_SE_Regular, sans-serif;
 	border-bottom: 3px solid #3755FA;
-	height: 60px;
-	padding-top:15px;
+	height: 75px;
 	display: flex;
 	align-items: center;
 	position: fixed;
@@ -81,6 +80,7 @@ header {
 }
 
 .logo {
+    padding-top:15px;
 	color: #3755FA;
 	font-size: 22px;
 	left: 20px;
@@ -88,6 +88,7 @@ header {
 }
 
 .menu {
+    padding-top:15px;
 	display: flex;
 	right: 65px;
 	font-size: 18px;
@@ -130,9 +131,9 @@ header {
 }
 
 .container-burger {
+    padding-top:15px;
 	align-items: center;
 	cursor: pointer;
-	display: none;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -243,10 +244,12 @@ header {
 h4{
 	/*text-transform: uppercase;*/
 	font-weight: 420;
-	font-size: 16px;
+	font-size: 17px;
 	margin: 8px 0;
 }
-
+li{
+	margin-bottom: 5px;
+}
 
 .docs-info > .menu-p{
 	height: 0;
@@ -273,6 +276,7 @@ h4{
 
 
 .docs{
+	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
 }
@@ -281,7 +285,7 @@ h4{
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	margin-top: 20px;
+	margin-top: 15px;
 }
 
 .document > svg{
@@ -292,14 +296,16 @@ h4{
 }
 
 .document > p{
-	max-width: 230px;
-	flex: 0 0 auto;
+	min-width: 220px;
+	flex: 0 0 0;
 	margin-right: 10px;
 }
 
 .business-document-btn{
+	min-width: 170px;
 	border: 2px solid #3755FA;
 	align-items: center;
+	justify-content: center;
 	display: flex;
 	padding: 5px;
 	position: relative;
@@ -310,7 +316,6 @@ h4{
 	background: #3755FA;
 	color: white;
 }
-
 
 .menu-p > p{
 	margin-bottom: 20px;
@@ -488,9 +493,6 @@ h4{
 		display: none;
 		right: 65px;
 	}
-	.container-burger {
-		display: flex;
-	}
 }
 
 @media (max-width: 900px) {
@@ -498,8 +500,6 @@ h4{
 		width: calc(100vw - 130px);
 		padding-right: 0;
 	}
-
-
 }
 
 @media (max-width: 700px) {

@@ -21,8 +21,9 @@ public class Document {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
     private Long formId;
-    @Column(name = "type")
-    private boolean type = false;
+    @ManyToOne(targetEntity = DocumentTypes.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "type")
+    private DocumentTypes type;
     @Column(nullable = false)
     private Date date;
 
@@ -58,11 +59,11 @@ public class Document {
         this.formId = formId;
     }
 
-    public boolean isType() {
+    public DocumentTypes isType() {
         return type;
     }
 
-    public void setType(boolean type) {
+    public void setType(DocumentTypes type) {
         this.type = type;
     }
 

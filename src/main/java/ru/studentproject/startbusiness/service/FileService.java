@@ -17,6 +17,7 @@ import ru.studentproject.startbusiness.exceptions.FileStorageException;
 import ru.studentproject.startbusiness.models.User;
 import ru.studentproject.startbusiness.models.Document;
 import ru.studentproject.startbusiness.repos.DocumentRepository;
+import ru.studentproject.startbusiness.repos.DocumentTypesRepository;
 
 @Service
 public class FileService {
@@ -24,9 +25,10 @@ public class FileService {
     private UserService userService;
     @Autowired
     private DocumentRepository documentRepository;
+    @Autowired
+    private DocumentTypesRepository documentTypesRepository;
     @Value("${app.upload.dir:${user.home}}")
     public String uploadDir;
-
     public void uploadFile(MultipartFile file, String email) {
 
         try {
@@ -39,7 +41,7 @@ public class FileService {
             newFile.setFilePath(copyLocation.toString());
             newFile.setDate();
             newFile.setFormId(0L);
-            newFile.setType(false);
+            newFile.setType(documentTypesRepository.getReferenceById(1L));
             newFile.setUser(user);
             newFile.setName(file.getOriginalFilename());
             documentRepository.save(newFile);
@@ -54,10 +56,10 @@ public class FileService {
         return documentRepository.findAll();
     }
     public Collection<Document> getSamples() {
-        return documentRepository.findSamples();
+        return documentRepository.findByType(documentTypesRepository.getReferenceById(1L));
     }
     public Collection<Document> getDocuments() {
-        return documentRepository.findDocuments();
+        return documentRepository.findByType(documentTypesRepository.getReferenceById(2L));
     }
     public Document get(Long id){
         return documentRepository.getReferenceById(id);
