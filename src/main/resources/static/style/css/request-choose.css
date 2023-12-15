@@ -26,13 +26,13 @@
 	content: url("../img/business_image1.svg");
 }
 
-.businesses-wrapper::after{
-	position: absolute;
-	z-index: -1;
-	top:400px;
-	left: 30px;
-	content: url("../img/business_image2.svg");
-}
+/*.businesses-wrapper::after{*/
+/*	position: absolute;*/
+/*	z-index: -1;*/
+/*	top:400px;*/
+/*	left: 30px;*/
+/*	content: url("../img/business_image2.svg");*/
+/*}*/
 
 .businesses-menu{
 	font-family: SONGER_SE_Regular, serif;
