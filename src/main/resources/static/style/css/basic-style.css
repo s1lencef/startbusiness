@@ -124,6 +124,7 @@ header {
 .authorized{
 	display: inline-flex !important;
 }
+
 .authorized span{
 	max-width: 250px;
 	overflow: hidden;

@@ -713,10 +713,8 @@
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
 		<a class="menu-btn" id='contacts-btn'>Чат</a>
 		<a class="menu-btn" id='auth-btn'>Вход</a>
-
 		<a class = "menu-btn authorized"th:if="${user}">
-
-				<span class = "authorized" th:text="${user.firstName}"></span>
+				<span th:text="${user.firstName}"></span>
 				<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
 					<path d="M20.7061 23.1223C20.1345 21.2603 18.8722 19.6158 17.1175 18.4425C15.3628 17.2693 13.2124 16.6331 11.0005 16.6331C8.78857 16.6331 6.6382 17.2693 4.88348 18.4425C3.12877 19.6158 1.86643 21.2603 1.29492 23.1223"
 						  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
@@ -726,17 +724,6 @@
 		</a>
 
 		</div>
-
-
-<!--		<a class="menu-btn" id='btn'>-->
-<!--			Федор Вотяков-->
-<!--			<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">-->
-<!--				<path d="M20.7061 23.1223C20.1345 21.2603 18.8722 19.6158 17.1175 18.4425C15.3628 17.2693 13.2124 16.6331 11.0005 16.6331C8.78857 16.6331 6.6382 17.2693 4.88348 18.4425C3.12877 19.6158 1.86643 21.2603 1.29492 23.1223"-->
-<!--				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>-->
-<!--				<path d="M11.001 12.9642C14.4318 12.9642 17.213 10.2585 17.213 6.92093C17.213 3.58334 14.4318 0.877686 11.001 0.877686C7.57026 0.877686 4.78906 3.58334 4.78906 6.92093C4.78906 10.2585 7.57026 12.9642 11.001 12.9642Z"-->
-<!--				      stroke="black" stroke-linecap="round" stroke-width="1.5"/>-->
-<!--			</svg>-->
-<!--		</a>-->
 
 	</div>
 	<!--	сам бургер-->
