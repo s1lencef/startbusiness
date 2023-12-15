@@ -8,16 +8,13 @@ requestToggle.addEventListener('click', () => {
 let elements = document.querySelectorAll('.request-a');
 
 function paymentPlans() {
-    // if(!document.getElementById('payment-page').classList.contains('payment-plan-requests')){
     document.getElementById('payment-page').classList.toggle('payment-plan-requests');
-    // }
 }
 
 elements.forEach(function (element) {
     element.addEventListener('click', paymentPlans);
 });
 document.getElementById('close-payment-plan').addEventListener('click', paymentPlans);
-
 
 let divToScroll = document.getElementById('scrollDiv');
 
@@ -35,47 +32,49 @@ const passDateInput = document.getElementById('passDateInput');
 const codeInput = document.getElementById('codeInput');
 const docDateInput = document.getElementById('docDateInput');
 
-const mask1 = IMask(dateInput, {
-    mask: '00/00/0000',
-    lazy: false,
-    placeholderChar: '_'
-});
-const mask2 = IMask(INNInput, {
-    mask: '0000000000',
-    lazy: false,
-    placeholderChar: '_'
-});
-const mask3 = IMask(emailInput, {
-    mask: /^\S*@?\S*$/,
-    lazy: false,
-    placeholderChar: '_'
-});
-const mask4 = IMask(telInput, {
-    mask: '+0 000 000-00-00',
-    startsWith: '7',
-    lazy: false,
-    country: 'Russia'
-});
-const mask5 = IMask(passportInput, {
-    mask: '0000-000000',
-    lazy: false,
-    placeholderChar: '_'
-});
-const mask6 = IMask(passDateInput, {
-    mask: '00/00/0000',
-    lazy: false,
-    placeholderChar: '_'
-});
-const mask7 = IMask(codeInput, {
-    mask: '000-000',
-    lazy: false,
-    placeholderChar: '_'
-});
-const mask8 = IMask(docDateInput, {
-    mask: '00/00/0000',
-    lazy: false,
-    placeholderChar: '_'
-});
+
+// const mask1 = IMask(dateInput, {
+//     mask: '00/00/0000',
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+// const mask2 = IMask(INNInput, {
+//     mask: '0000000000',
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+// const mask3 = IMask(emailInput, {
+//     mask: /^\S*@?\S*$/,
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+// const mask4 = IMask(telInput, {
+//     mask: '+0 000 000-00-00',
+//     startsWith: '7',
+//     lazy: false,
+//     country: 'Russia'
+// });
+// const mask5 = IMask(passportInput, {
+//     mask: '0000-000000',
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+// const mask6 = IMask(passDateInput, {
+//     mask: '00/00/0000',
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+// const mask7 = IMask(codeInput, {
+//     mask: '000-000',
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+// const mask8 = IMask(docDateInput, {
+//     mask: '00/00/0000',
+//     lazy: false,
+//     placeholderChar: '_'
+// });
+
 
 // проверка на формат даты
 let Input1 = document.getElementById('dateInput');
@@ -123,12 +122,12 @@ function checkFormFields(inputIds) {
     });
 }
 
-function changeElementClass(inputIds, formId) {
+function changeElementClassName(inputIds, formId) {
     var element = document.getElementById(formId);
     console.log(checkFormFields(inputIds));
     if (checkFormFields(inputIds)) {
 
-        element.classList.add('request-form-header-menu-btn-ready');
+        element.ClassList.add('request-form-header-menu-btn-ready');
         console.log(element.classList);
     } else {
         element.classList.remove('request-form-header-menu-btn-ready');
@@ -144,45 +143,73 @@ const inputIds4 = ['cityInput', 'streetInput', 'houseInput', 'officeInput'];
 const inputIds5 = ['okvedInput', 'dopokvedInput'];
 const inputIds6 = ['docDateInput'];
 
+
 inputIds1.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
-        changeElementClass(inputIds1,'request-form-header-menu-btn-1')
+        changeElementClassName(inputIds1,'request-form-header-menu-btn-1')
     });
 });
 
 inputIds2.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
-        changeElementClass(inputIds2,'request-form-header-menu-btn-2')
+        changeElementClassName(inputIds2,'request-form-header-menu-btn-2')
     });
 });
 
 inputIds3.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
-        changeElementClass(inputIds3,'request-form-header-menu-btn-3')
+        changeElementClassName(inputIds3,'request-form-header-menu-btn-3')
     });
 });
 
 inputIds4.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
-        changeElementClass(inputIds4,'request-form-header-menu-btn-4')
+        changeElementClassName(inputIds4,'request-form-header-menu-btn-4')
     });
 });
 
 inputIds5.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
-        changeElementClass(inputIds5,'request-form-header-menu-btn-5')
+        changeElementClassName(inputIds5,'request-form-header-menu-btn-5')
     });
 });
 
 inputIds6.forEach(function(inputId) {
     // document.getElementById('form1-submit').addEventListener('click', function() {
     document.getElementById(inputId).addEventListener('input', function() {
-        changeElementClass(inputIds6,'request-form-header-menu-btn-6')
+        changeElementClassName(inputIds6,'request-form-header-menu-btn-6')
     });
 });
+
+
+// Get all the divs
+let divs = document.getElementsByClassName('request-form-page');
+
+// Add event listeners to the 'next' and 'previous' links
+for (let i = 0; i < divs.length; i++) {
+    let nextLink = divs[i].querySelector('.next');
+    let prevLink = divs[i].querySelector('.previous');
+
+    nextLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        let nextDiv = divs[i + 1];
+        if (nextDiv) {
+            nextDiv.scrollIntoView({behavior: 'smooth'});
+        }
+    });
+
+    prevLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        let prevDiv = divs[i - 1];
+        if (prevDiv) {
+            prevDiv.scrollIntoView({behavior: 'smooth'});
+        }
+    });
+
+}
 
