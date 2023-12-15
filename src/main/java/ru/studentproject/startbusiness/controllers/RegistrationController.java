@@ -3,6 +3,7 @@ package ru.studentproject.startbusiness.controllers;
 import jakarta.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import ru.studentproject.startbusiness.dto.UserRegistrationDto;
 import ru.studentproject.startbusiness.service.UserService;
@@ -23,21 +24,22 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    @ModelAttribute("user")
+    @ModelAttribute("userreg")
     public UserRegistrationDto userRegistrationDto() {
         return new UserRegistrationDto();
     }
 
     @GetMapping
-    public String showRegistrationForm(@AuthenticationPrincipal User user) {
+    public String showRegistrationForm(@AuthenticationPrincipal User user, Model model) {
         if (user != null){
             return "redirect:/";
         }
+        model.addAttribute("user", null);
         return "registration";
     }
 
     @PostMapping
-    public String registerUserAccount(@Valid @ModelAttribute("user")
+    public String registerUserAccount(@Valid @ModelAttribute("userreg")
                                       UserRegistrationDto registrationDto, BindingResult result) {
         if (result.hasErrors()){
             return "redirect:/registration?emailInvalid";

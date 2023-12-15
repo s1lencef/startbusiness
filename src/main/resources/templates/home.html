@@ -756,9 +756,9 @@
 		</div>
 	</section>
 	<section class="auth-page">
-		<div class="wrapper">
+		<div class="wrapper" th:if="${user}">
 			<div class="log-form-container">
-				<div class="alert alert-success">
+				<div class="alert alert-success" >
 					Здравствуй <p><span th:text="${user.firstName}"></span></p>
 					Авторизация успешна!
 				</div>
@@ -775,6 +775,9 @@
 				<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
 				       type="hidden"/>
 			</div>
+		</div>
+
+		<div class="wrapper" th:unless="${user}">
 		</div>
 	</section>
 </div>

@@ -42,10 +42,7 @@ public class HomeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         ru.studentproject.startbusiness.models.User user = userService.findByEmail(email);
-        if (user != null){
-            System.out.println("мыло = " + email);
-     ;
-        }
+
 
         model.addAttribute("user",user);
         List<ru.studentproject.startbusiness.models.User> users = userService.getAll();

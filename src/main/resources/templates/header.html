@@ -17,7 +17,8 @@
 		<a class="menu-btn2" id='docs-btn-2'>Образцы документов</a>
 		<a class="menu-btn2" id='contacts-btn-2'>Контакты</a>
 		<a class="menu-btn2" id='prices-btn-2'>Тарифы</a>
-		<a class="menu-btn2" id='auth-btn-2'>Вход</a>
+		<a class="menu-btn2" id='auth-btn-2' th:if="${user}" th:href="@{/logout}" method = "POST">Выход</a>
+		<a class="menu-btn2" id='auth-btn-2'th:unless="${user}" th:href="@{/profile}">Вход</a>
 
 		<a class = "menu-btn2 authorized"th:if="${user}">
 			<svg fill="none" height="24" viewBox="0 ,0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -26,11 +27,12 @@
 				<path d="M10.5811 13.0865C14.0119 13.0865 16.7931 10.3808 16.7931 7.04324C16.7931 3.70565 14.0119 1 10.5811 1C7.15034 1 4.36914 3.70565 4.36914 7.04324C4.36914 10.3808 7.15034 13.0865 10.5811 13.0865Z"
 					  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
 			</svg>
-			<span class = "authorized" th:text="${user.firstName}"></span>
+			<span th:text="${user.firstName}"></span>
 
 		</a>
 
 		<a class="enter-btn" th:if="${user}" th:href="@{/profile?id=}+${user.id}" id='open_request'><p>Создать анкету</p></a>
+		<a class="enter-btn" th:unless="${user}" th:href="@{/login}" id='open_request'><p>Создать анкету</p></a>
 
 		<a class="enter-btn" href="" id='open_chat'><p>Открыть чат с сотрудником</p></a>
 
@@ -712,7 +714,12 @@
 	<div class="menu">
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
 		<a class="menu-btn" id='contacts-btn'>Чат</a>
-		<a class="menu-btn" id='auth-btn'>Вход</a>
+
+		<form class="menu-btn" id='auth-btn-1' th:if="${user}" th:action="@{/logout}" method="post">
+			<input th:if="${user}" type="hidden"  th:value="${_csrf.token}" />
+			<input th:if="${user}" type="submit">Выход</input>
+		</form>
+		<a class="menu-btn" id='auth-btn-4' th:unless="${user}" th:href="@{/profile}">Вход</a>
 		<a class = "menu-btn authorized"th:if="${user}">
 				<span th:text="${user.firstName}"></span>
 				<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -722,6 +729,8 @@
 						  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
 				</svg>
 		</a>
+
+
 
 		</div>
 
