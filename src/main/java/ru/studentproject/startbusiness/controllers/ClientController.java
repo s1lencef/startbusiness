@@ -129,15 +129,11 @@ public class ClientController {
 
         String status = "choose";
 
-        if (curr_form.getStatus() == statusService.get(1L)){
-            status = "change";
-        }
-        else if (curr_form.getStatus() == statusService.get(2L)){
-            status = "inwork";
-        }
-        else if (curr_form.getStatus() == statusService.get(4L)){
-            status = "done";
-        }
+        curr_form.setStatus(statusService.get(2L));
+
+        curr_form = formService.save(curr_form);
+
+
         model.addAttribute("status",status);
         model.addAttribute("curr_form", curr_form);
 

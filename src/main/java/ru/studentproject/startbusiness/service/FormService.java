@@ -38,4 +38,7 @@ public class FormService {
 
         return formRepository.save(form);
     }
+    public Form save(Form form) {
+        return formRepository.save(form);
+    }
 }

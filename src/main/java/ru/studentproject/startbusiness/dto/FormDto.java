@@ -8,7 +8,7 @@ import java.util.Date;
 public class FormDto {
 
     private String firstName;
-    private String LastName;
+    private String lastName;
     private String midlleName;
     private int citizenship;
     private Date birthDate;
