@@ -2,6 +2,7 @@ package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -13,7 +14,7 @@ public class Form {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
     @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "staff_id")
+    @JoinColumn(nullable = true, name = "staff_id")
     private User staff;
     private boolean type;
     private Date date;
@@ -72,8 +73,9 @@ public class Form {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate() {
+        Calendar now = Calendar.getInstance();
+        this.date = now.getTime();
     }
 
     public Status getStatus() {

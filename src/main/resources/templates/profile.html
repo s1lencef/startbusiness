@@ -25,12 +25,14 @@
 		<!--		форма анкеты-->
 		<div class="request-form" id="req-form">
 			<div class="big-wrapper">
-				<div class="request-form-wrapper request-form-wrapper-close">
+				<!--Заполнение формы-->
+				<div th:if ="${status} == change" class="request-form-wrapper">
 					<!--			<div class="request-form-wrapper" id="request-1">-->
 					<div class="request-form-header">
-						<p class="request-form-header-title">
-							Регистрация ИП УСН (ДОХОДЫ)
-						</p>
+						<th:block th:each="tax : ${curr_form.getTax()}">
+							<p class="request-form-header-title" th:text="'Регистрация '+${tax.getName()}">
+							</p>
+						</th:block>
 						<div class="request-form-header-menu" id="scrollDiv">
 							<!--					<a class="request-form-header-menu-btn request-form-header-menu-btn-ready" id="">-->
 							<a class="request-form-header-menu-btn" id="request-form-header-menu-btn-1">
@@ -392,12 +394,14 @@
 						</div>
 					</form>
 				</div>
-				<div class="request-form-wrapper request-form-wrapper-close">
+				<div th:if = "${status} == change" class="request-form-wrapper">
 					<!--			<div class="request-form-wrapper" id="request-1">-->
 					<div class="request-form-header">
-						<p class="request-form-header-title">
-							Регистрация ИП УСН (ДОХОДЫ)
-						</p>
+						<th:block th:each="tax : ${curr_form.getTax()}">
+							<p class="request-form-header-title" th:text="${tax.getName()}">
+							</p>
+						</th:block>
+
 						<div class="request-form-header-menu" id="scrollDiv2">
 							<!--					<a class="request-form-header-menu-btn request-form-header-menu-btn-ready" id="">-->
 							<a class="request-form-header-menu-btn" id="request-form-header-menu-btn-2-1">
@@ -759,7 +763,8 @@
 						</div>
 					</form>
 				</div>
-				<div class="request-form-wrapper request-form-ready request-form-wrapper-close">
+<!--				Готовые документы-->
+				<div th:if = "${status} == done"  class="request-form-wrapper request-form-ready">
 					<div class="request-form-header">
 						<p class="request-form-header-title">
 							Регистрация ИП
@@ -912,7 +917,8 @@
 						</div>
 					</div>
 				</div>
-				<div class="request-form-wrapper request-form-choose">
+				<!--Выбор бизнеса-->
+				<div th:if = "${status} == choose" class="request-form-wrapper request-form-choose">
 					<div class="businesses-wrapper" id="bis-wrap">
 						<div class="businesses-menu" id="bis-menu">
 							<div class="businesses-menu-header">Налоговые ставки</div>
@@ -1011,7 +1017,7 @@
 										</a>
 									</div>
 								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-1">
+								<a class="business-start-btn business-document-btn" id="business-start-btn-1"  th:href = "@{/form/create?taxId=0}">
 									<p>Заполнить анкету</p>
 								</a>
 							</div>
@@ -1103,7 +1109,7 @@
 										</a>
 									</div>
 								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-2">
+								<a class="business-start-btn business-document-btn" id="business-start-btn-2"  th:href = "@{/form/create?taxId=1}">
 									<p>Заполнить анкету</p>
 								</a>
 							</div>
@@ -1193,7 +1199,7 @@
 										</a>
 									</div>
 								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-3">
+								<a class="business-start-btn business-document-btn" id="business-start-btn-3"  th:href = "@{/form/create?taxId=2}">
 									<p>Заполнить анкету</p>
 								</a>
 							</div>
@@ -1385,7 +1391,7 @@
 										</a>
 									</div>
 								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-4">
+								<a class="business-start-btn business-document-btn" id="business-start-btn-4"  th:href = "@{/form/create?taxId=3}">
 									<p>Заполнить анкету</p>
 								</a>
 							</div>
@@ -1574,7 +1580,7 @@
 										</a>
 									</div>
 								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-5">
+								<a class="business-start-btn business-document-btn" id="business-start-btn-5"  th:href = "@{/form/create?taxId=4}">
 									<p>Заполнить анкету</p>
 								</a>
 							</div>
@@ -1763,13 +1769,14 @@
 										</a>
 									</div>
 								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-6">
+								<a class="business-start-btn business-document-btn" id="business-start-btn-6"  th:href = "@{/form/create?taxId=4}">
 									<p>Заполнить анкету</p>
 								</a>
 							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 		<!--		заявки пользователя-->
@@ -1786,10 +1793,14 @@
 				<p class="request-message-text">Здесь хранятся оформленные вами документы</p>
 			</div>
 			<!--сами заявки-->
-			<div class="request-wrapper">
+			<div class="request-wrapper" >
                 <!--				<div class="request request-ready request-paid request-undone request-inwork" id="">-->
-                <div class="request "  th:each="form : ${forms}" th:classappend="${form.status.id == 1 ? 'request-undone': form.status.id == 2 ? 'request-inwork':form.status.id == 3 ? 'request-paid':'request-ready'}">
-                    <a class="request-info">
+                <form method = "GET" th:each="form : ${forms}"
+					 th:classappend="${form.status.id == 1 ? 'request-undone': form.status.id == 2 ?
+					  'request-inwork':form.status.id == 3 ? 'request-paid':'request-ready'}"  th:action="@{'/form/change'(id = ${form.id})}" >
+					<input type="hidden" name="id" th:value="${form.id}"/>
+					<button type="submit" class="request ">
+                    <a class="request-info" >
                         <th:block th:each="tax : ${form.getTax()}">
                             <p class="request-name" th:text="${tax.getName()}">
                             </p>
@@ -1885,7 +1896,8 @@
                     <div class="request-message request-message-inwork">
                         <p class="request-message-text">Документы находятся на обработке</p>
                     </div>
-                </div>
+					</button>
+                </form>
 			</div>
                 <a class="add-request" href='/'>
                     <svg fill="none" height="42" viewBox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg">

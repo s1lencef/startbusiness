@@ -714,10 +714,15 @@
 	<div class="menu">
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
 		<a class="menu-btn" id='contacts-btn'>Чат</a>
-
-		<form class="menu-btn" id='auth-btn-1' th:if="${user}" th:action="@{/logout}" method="post">
-			<input th:if="${user}" type="hidden"  th:value="${_csrf.token}" />
-			<input th:if="${user}" type="submit">Выход</input>
+		<!--		Короче пофикси эту хуйню я не знаю-->
+		<form method="post" th:action="@{/logout}" th:if="${user}">
+		<label class="label-submit" for="login-submit">
+			Выход
+			<input class="submit-button" id="login-submit" name="login-submit"
+				   type="submit" value=""/>
+			<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
+				   type="hidden"/>
+		</label>
 		</form>
 		<a class="menu-btn" id='auth-btn-4' th:unless="${user}" th:href="@{/profile}">Вход</a>
 		<a class = "menu-btn authorized"th:if="${user}">

@@ -51,5 +51,9 @@ public class HomeController {
 
         return "home";
     }
+    @GetMapping("/unknown")
+    public String unknown(){
+        return "unknown";
+    }
 
 }
