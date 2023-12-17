@@ -14,4 +14,10 @@ public class CompanyService {
 
         return companyRepository.save(company);
     }
+    public void delete(Company company){
+        companyRepository.delete(company);
+    }
+    public Company findByForm(Form form){
+        return companyRepository.findByForm(form);
+    }
 }

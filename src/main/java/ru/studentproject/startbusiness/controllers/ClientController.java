@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.studentproject.startbusiness.dto.FormDto;
-import ru.studentproject.startbusiness.models.Company;
-import ru.studentproject.startbusiness.models.Employer;
-import ru.studentproject.startbusiness.models.Form;
-import ru.studentproject.startbusiness.models.User;
+import ru.studentproject.startbusiness.models.*;
 
+import ru.studentproject.startbusiness.repos.DocumentRepository;
 import ru.studentproject.startbusiness.service.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -41,7 +41,8 @@ public class ClientController {
     EmployerService employerService;
     @Autowired
     SubjectService subjectService;
-
+    @Autowired
+    DocumentRepository documentRepository;
 
 
     @GetMapping("/profile")
@@ -72,7 +73,9 @@ public class ClientController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User curr_user = userService.findByEmail(email);
+
         Form curr_form = formService.get(id);
+
         if (curr_user != curr_form.getUser()){
             return "redirect:/unknown";
         }
@@ -89,7 +92,12 @@ public class ClientController {
         else if (curr_form.getStatus() == statusService.get(2L)){
             status = "inwork";
         }
+        else if (curr_form.getStatus() == statusService.get(3L)){
+            status = "unpaid";
+        }
         else if (curr_form.getStatus() == statusService.get(4L)){
+            List<Document> documents = documentRepository.findByForm(curr_form.getId());
+            model.addAttribute("documents",documents);
             status = "done";
         }
         model.addAttribute("status",status);
@@ -149,6 +157,46 @@ public class ClientController {
         company = companyService.save(company);
 
 
+        Employer employer = getEmployer(formDto);
+        employer.setForm(curr_form);
+
+        employer = employerService.save(employer);
+
+        curr_form.setStatus(statusService.get(3L));
+
+        curr_form = formService.save(curr_form);
+
+
+        return "redirect:/profile?id="+curr_user.getId();
+
+
+    }
+
+    @GetMapping("/form/delete")
+    public String deleteForm(Model model,@RequestParam(required = true) Long id ){
+        Form form;
+        try {
+            form = formService.get(id);
+        }
+        catch (Exception e){
+            return "redirect:/profile";
+        }
+        Company company = companyService.findByForm(form);
+        Employer employer = employerService.findByForm(form);
+        List<Document> docs = documentRepository.findByForm(form.getId());
+
+        companyService.delete(company);
+        employerService.delete(employer);
+        for(Document doc:docs){
+            documentRepository.delete(doc);
+        }
+        formService.delete(form);
+        model.addAttribute("status","deleted");
+        model.addAttribute("delete_id",id);
+        return "profile";
+    }
+
+    private static Employer getEmployer(FormDto formDto) {
         Employer employer = new Employer();
         employer.setNumber(formDto.getNumber());
         employer.setBirthDate(formDto.getBirthDate());
@@ -165,16 +213,6 @@ public class ClientController {
         employer.setIssueCode(formDto.getIssueCode());
         employer.setIssueDate(formDto.getIssueDate());
         employer.setIssuePlace(formDto.getIssuePlace());
-
-        employer = employerService.save(employer);
-
-        curr_form.setStatus(statusService.get(3L));
-
-        curr_form = formService.save(curr_form);
-
-
-        return "redirect:/profile?id="+curr_user.getId();
-
-
+        return employer;
     }
 }

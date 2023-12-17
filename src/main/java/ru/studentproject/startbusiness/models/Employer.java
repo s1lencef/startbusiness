@@ -28,7 +28,9 @@ public class Employer {
     private double Fraction;
     private double Percent;
     private String Post;
-
+    @ManyToOne(targetEntity = Form.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "form_id")
+    private Form form;
 
 
     public Employer() {
@@ -184,5 +186,13 @@ public class Employer {
 
     public void setPost(String post) {
         Post = post;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 }
