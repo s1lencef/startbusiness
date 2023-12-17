@@ -85,7 +85,7 @@
 							</a>
 						</div>
 					</div>
-					<form class="request-form-pages" method = "POST">
+					<form action = "#" class="request-form-pages" method = "post" th:action="@{'/form/change'(id = ${curr_form.id})}"  th:object="${newForm}">
 						<div class="request-form-page" id='form1'>
 							<div class="request-form-row request-form-page-header">
 								<span class="request-span">Шаг 1 из 6:</span>
@@ -141,6 +141,21 @@
 								<label class="request-input" for="birthInput">
 									<input id="birthInput" name="birthInput" required type="text" th:field = "*{birthPlace}">
 								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Пол</span>
+								<div class="radio-inputs">
+									<label class="request-check">
+										<input checked class="request-radio-btn" name="sex" required type="radio"
+											   value="1" th:field = "*{sex}"/>
+										<span>Мужской</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="sex" required type="radio"
+											   value="2" th:field = "*{sex}"/>
+										<span>Женский</span>
+									</label>
+								</div>
 							</div>
 							<div class="request-form-row">
 								<span class="request-span required">ИНН</span>
@@ -225,27 +240,27 @@
 								<span class="request-span required">Серия и номер</span>
 								<label class="request-input" for="passportInput">
 									<input id="passportInput" name="passportInput" required type="text">
-									<p class="input-result" id="passport-result"></p>
+									<p class="input-result" id="passport-result" th:field = "*{number}" ></p>
 								</label>
 							</div>
 							<div class="request-form-row">
 								<span class="request-span required">Дата выдачи</span>
 								<label class="request-input" for="passDateInput">
-									<input id="passDateInput" name="passDateInput" required type="text">
+									<input id="passDateInput" name="passDateInput" required type="text" th:field = "*{issueDate}">
 									<p class="input-result" id="passDate-result"></p>
 								</label>
 							</div>
 							<div class="request-form-row">
 								<span class="request-span required">Кем выдан</span>
 								<label class="request-input" for="departInput">
-									<textarea id="departInput" name="departInput" required type="text"></textarea>
+									<textarea id="departInput" name="departInput" required type="text" th:field = "*{issuePlace}"></textarea>
 									<p class="input-result" id="depart-result"></p>
 								</label>
 							</div>
 							<div class="request-form-row">
 								<span class="request-span required">Код подразделения</span>
 								<label class="request-input" for="codeInput">
-									<input id="codeInput" name="codeInput" required type="text">
+									<input id="codeInput" name="codeInput" required type="text" th:field = "*{issueCode}">
 									<p class="input-result" id="code-result"></p>
 								</label>
 							</div>
@@ -266,6 +281,26 @@
 							<div class="request-form-row">
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+									 xmlns="http://www.w3.org/2000/svg">
+	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"
+		  stroke="black" stroke-width="1.125"/>
+	<path d="M18.875 23V16.4C18.875 14.3254 18.875 13.2892 18.2157 12.6446C17.5565 12 16.4968 12 14.375 12H12.125C10.0032 12 8.9435 12 8.28425 12.6446C7.625 13.2892 7.625 14.3254 7.625 16.4V23"
+		  stroke="black" stroke-width="1.125"/>
+	<path d="M23.375 22.9998V7.34907C23.375 5.87508 23.375 5.13698 22.9745 4.57159C22.574 4.00619 21.8675 3.74659 20.4545 3.22959C17.6926 2.2165 16.3123 1.7105 15.3436 2.3661C14.375 3.02389 14.375 4.46489 14.375 7.34907V11.9999"
+		  stroke="black" stroke-width="1.125"/>
+	<path d="M4.25 7.59997V5.94998C4.25 4.91268 4.25 4.39459 4.57963 4.07229C4.90925 3.74999 5.43912 3.74999 6.5 3.74999H8.75C9.81088 3.74999 10.3407 3.74999 10.6704 4.07229C11 4.39459 11 4.91268 11 5.94998V7.59997M7.625 3.19999V1M24.5 22.9999H2M11 15.2999H15.5M11 18.5999H15.5"
+		  stroke="black" stroke-linecap="round" stroke-width="1.125"/>
+	</svg>
+
+							</span>
+								<label class="request-input" for="cityInput">
+									<input id="subjectInput" name="cityInput" placeholder="" required type="text" th:field = "*{subject}">
+									<p class="input-result" id="subject-result">Субъект Российской Федерации</p>
+								</label>
+							</div>
+							<div class="request-form-row">
+							<span class="request-span">
+								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
 								     xmlns="http://www.w3.org/2000/svg">
 	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"
 	      stroke="black" stroke-width="1.125"/>
@@ -279,7 +314,7 @@
 
 							</span>
 								<label class="request-input" for="cityInput">
-									<input id="cityInput" name="cityInput" placeholder="" required type="text">
+									<input id="cityInput" name="cityInput" placeholder="" required type="text" th:field = "*{locality}">
 									<p class="input-result" id="city-result">Город, населенный пункт, поселок, деревня</p>
 								</label>
 							</div>
@@ -298,7 +333,7 @@
 	</svg>
 							</span>
 								<label class="request-input" for="streetInput">
-									<input id="streetInput" name="streetInput" placeholder="" required type="text">
+									<input id="streetInput" name="streetInput" placeholder="" required type="text" th:field = "*{street}">
 									<p class="input-result" id="street-result">Улица, микрорайон, территория и т.д.</p>
 								</label>
 							</div>
@@ -311,7 +346,7 @@
 	</svg>
 							</span>
 								<label class="request-input" for="houseInput">
-									<input id="houseInput" name="houseInput" placeholder="" required type="text">
+									<input id="houseInput" name="houseInput" placeholder="" required type="text" th:field = "*{building}">
 									<p class="input-result" id="house-result">Дом, Корпус, Строение</p>
 								</label>
 							</div>
@@ -324,7 +359,7 @@
 	</svg>
 							</span>
 								<label class="request-input" for="officeInput">
-									<input id="officeInput" name="officeInput" placeholder="" required type="text">
+									<input id="officeInput" name="officeInput" placeholder="" required type="text" th:field = "*{office}">
 									<p class="input-result" id="office-result">Офис, квартира, помещение.<br>
 										Не рекомендуется указывать такие элементы как<br> этаж, кабинет, рабочее место</p>
 								</label>
@@ -346,14 +381,14 @@
 							<div class="request-form-row">
 								<span class="request-span required">Основной вид деятельности</span>
 								<label class="request-input" for="okvedInput">
-									<textarea id="okvedInput" name="okvedInput" required type="text"></textarea>
+									<textarea id="okvedInput" name="okvedInput" required type="text" th:field = "*{mainActivities}"></textarea>
 									<p class="input-result" id="okved-result"></p>
 								</label>
 							</div>
 							<div class="request-form-row">
 								<span class="request-span required">Дополнительные виды деятельности</span>
 								<label class="request-input" for="dopokvedInput">
-									<textarea id="dopokvedInput" name="dopokvedInput" required type="text"></textarea>
+									<textarea id="dopokvedInput" name="dopokvedInput" required type="text" th:field = "*{activities}"></textarea>
 									<p class="input-result" id="dopokved-result"></p>
 								</label>
 							</div>

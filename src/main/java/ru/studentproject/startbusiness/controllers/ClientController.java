@@ -15,13 +15,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ru.studentproject.startbusiness.dto.FormDto;
+import ru.studentproject.startbusiness.models.Company;
+import ru.studentproject.startbusiness.models.Employer;
 import ru.studentproject.startbusiness.models.Form;
 import ru.studentproject.startbusiness.models.User;
 
-import ru.studentproject.startbusiness.service.FormService;
-import ru.studentproject.startbusiness.service.StatusService;
-import ru.studentproject.startbusiness.service.TaxService;
-import ru.studentproject.startbusiness.service.UserService;
+import ru.studentproject.startbusiness.service.*;
 
 import java.util.List;
 
@@ -36,11 +35,13 @@ public class ClientController {
     StatusService statusService;
     @Autowired
     TaxService taxService;
+    @Autowired
+    CompanyService companyService;
+    @Autowired
+    EmployerService employerService;
+    @Autowired
+    SubjectService subjectService;
 
-    @ModelAttribute("newForm")
-    public FormDto formDto() {
-        return new FormDto();
-    }
 
 
     @GetMapping("/profile")
@@ -93,6 +94,7 @@ public class ClientController {
         }
         model.addAttribute("status",status);
         model.addAttribute("curr_form", curr_form);
+        model.addAttribute("newForm",new FormDto());
         return "profile";
     }
     @GetMapping("/form/create")
@@ -109,7 +111,7 @@ public class ClientController {
         return "redirect:/form/change?id="+id;
     }
     @PostMapping("/form/change")
-    public String saveForm(Model model, @RequestParam(required = true) Long id,@ModelAttribute("newForm")
+    public String saveForm(Model model, @RequestParam(required = true) Long id, @ModelAttribute()
     FormDto formDto, BindingResult result) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -129,22 +131,49 @@ public class ClientController {
 
         String status = "choose";
 
-        curr_form.setStatus(statusService.get(2L));
 
-        curr_form = formService.save(curr_form);
 
 
         model.addAttribute("status",status);
         model.addAttribute("curr_form", curr_form);
 
+        Company company = new Company();
+        company.setForm(curr_form);
+        company.setActivities(formDto.getMainActivities() +" "+ formDto.getActivities());
+        company.setSubject(subjectService.findByName(formDto.getSubject()));
+        company.setLocality(formDto.getLocality());
+        company.setStreet(formDto.getStreet());
+        company.setBuilding(formDto.getBuilding());
+        company.setOffice(formDto.getOffice());
+
+        company = companyService.save(company);
 
 
+        Employer employer = new Employer();
+        employer.setNumber(formDto.getNumber());
+        employer.setBirthDate(formDto.getBirthDate());
+        employer.setBirthPlace(formDto.getBirthPlace());
+        employer.setCitizenship(formDto.getCitizenship());
+        employer.setEmail(formDto.getEmail());
+        employer.setINN(formDto.getiNN());
+        employer.setSurname(formDto.getLastName());
+        employer.setName(formDto.getFirstName());
+        employer.setMiddlename(formDto.getMiddleName());
+        employer.setSex(formDto.getSex());
+        employer.setPhone(formDto.getPhone());
+        employer.setDocumentType(formDto.getDocumentType());
+        employer.setIssueCode(formDto.getIssueCode());
+        employer.setIssueDate(formDto.getIssueDate());
+        employer.setIssuePlace(formDto.getIssuePlace());
+
+        employer = employerService.save(employer);
+
+        curr_form.setStatus(statusService.get(3L));
+
+        curr_form = formService.save(curr_form);
 
 
-
-
-
-        return "profile";
+        return "redirect:/profile?id="+curr_user.getId();
 
 
     }
