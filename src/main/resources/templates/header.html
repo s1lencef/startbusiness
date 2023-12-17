@@ -15,10 +15,13 @@
 	<!--	боковое бургер меню-->
 	<div class="menu-unfold menu-unfold-1 close-menu" id='drop-menu'>
 		<a class="menu-btn2" id='docs-btn-2'>Образцы документов</a>
-		<a class="menu-btn2" id='contacts-btn-2'>Контакты</a>
+		<a class="menu-btn2" id='home-btn-2'>На главную</a>
 		<a class="menu-btn2" id='prices-btn-2'>Тарифы</a>
-		<a class="menu-btn2" id='auth-btn-2' th:if="${user}" th:href="@{/logout}" method = "POST">Выход</a>
-		<a class="menu-btn2" id='auth-btn-2'th:unless="${user}" th:href="@{/profile}">Вход</a>
+		<form class="menu-btn2" method="post" th:action="@{/logout}" th:if="${user}">
+			<button class="menu-btn2" type="submit" value="">Выход</button>
+			<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+		</form>
+		<a class="menu-btn2" th:unless="${user}" th:href="@{/profile}">Вход</a>
 
 		<a class = "menu-btn2 authorized"th:if="${user}">
 			<svg fill="none" height="24" viewBox="0 ,0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +137,6 @@
 						<p>Документ P21001</p>
 
 						<a class="business-document-btn" th:href="@{/download?id=7}">
-
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -514,9 +516,7 @@
 							</defs>
 						</svg>
 						<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
-
 						<a class="business-document-btn" th:href="@{/download?id=8}">
-
 							<p>Скачать образец документа</p>
 						</a>
 					</div>
@@ -713,16 +713,12 @@
 	<!--	меню header-->
 	<div class="menu">
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
-		<a class="menu-btn" id='contacts-btn'>Чат</a>
+		<a class="menu-btn" id='home-btn'>Главная</a>
 		<!--		Короче пофикси эту хуйню я не знаю-->
-		<form method="post" th:action="@{/logout}" th:if="${user}">
-		<label class="label-submit" for="login-submit">
-			Выход
-			<input class="submit-button" id="login-submit" name="login-submit"
-				   type="submit" value=""/>
+		<form class="menu-btn" method="post" th:action="@{/logout}" th:if="${user}">
+			<button class="menu-btn" id="login-submit" name="login-submit" type="submit" value="">Выход</button>
 			<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
 				   type="hidden"/>
-		</label>
 		</form>
 		<a class="menu-btn" id='auth-btn-4' th:unless="${user}" th:href="@{/profile}">Вход</a>
 		<a class = "menu-btn authorized"th:if="${user}">
@@ -734,11 +730,7 @@
 						  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
 				</svg>
 		</a>
-
-
-
 		</div>
-
 	</div>
 	<!--	сам бургер-->
 	<a class="container-burger" id='burger-btn'>

@@ -170,6 +170,7 @@ body {
 }
 
 .request-name {
+    text-align: start;
 	width: 170px;
 }
 

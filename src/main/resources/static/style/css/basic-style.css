@@ -5,6 +5,10 @@
 	--textsizefortitle: 22px;
 }
 
+header > header{
+border:none;
+}
+
 body {
 	align-items: center;
 	background-color: #ffffff;
@@ -41,9 +45,12 @@ a {
 }
 
 button {
+    padding:0;
+    margin:0;
 	background: none;
 	border: none;
 	cursor: pointer;
+	font: inherit;
 	outline: none;
 }
 
@@ -93,7 +100,6 @@ header {
 	right: 65px;
 	font-size: 18px;
 	position: absolute;
-	/*right: 20px;*/
 	height: 100%;
 	align-items: center;
 }
@@ -105,8 +111,14 @@ header {
 	position: relative;
 	align-items: center;
 	transition: 0.25s;
+	font-family: SONGER_SE_Regular, sans-serif;
+    font-size:18px;
 	white-space: nowrap;
 	text-transform: uppercase;
+}
+
+.menu-btn > .menu-btn{
+padding: 0;
 }
 
 .menu-btn svg{
@@ -126,11 +138,10 @@ header {
 }
 
 .authorized span{
-	max-width: 250px;
+	max-width: 200px;
 	overflow: hidden;
 	text-overflow: ellipsis !important;
 }
-
 
 .menu-btn:hover{
     padding-bottom:10px;
@@ -335,6 +346,10 @@ li{
 	opacity: 0;
 }
 
+.menu-btn2 > .menu-btn2{
+    padding:0;
+}
+
 .menu-btn2 {
 	padding-bottom: 25px;
 	position: relative;
@@ -344,6 +359,11 @@ li{
 .menu-btn2:hover {
 	color: #3755FA;
 	padding-right: 10px;
+}
+
+.menu-btn2 svg{
+	margin-right: 10px;
+	transition: 0.2s;
 }
 
 .enter-btn {
