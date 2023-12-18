@@ -3,6 +3,8 @@ package ru.studentproject.startbusiness.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.python.core.PyInteger;
+import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 
@@ -20,6 +22,7 @@ import ru.studentproject.startbusiness.models.*;
 import ru.studentproject.startbusiness.repos.DocumentRepository;
 import ru.studentproject.startbusiness.service.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,7 +49,8 @@ public class ClientController {
 
 
     @GetMapping("/profile")
-    public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) {
+    public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) throws IOException {
+        makeDocuments();
         if(id == null){
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -169,6 +173,24 @@ public class ClientController {
 
         return "redirect:/profile?id="+curr_user.getId();
 
+
+    }
+    private void makeDocuments(FormDto formDto){
+        PythonInterpreter pythonInterpreter = new PythonInterpreter();
+        String str = formDto.toString();
+        pythonInterpreter.execfile(" python E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\resources\\python\\IP.py ");
+
+
+    }
+    private void makeDocuments() throws IOException {
+        FormDto formDto = new FormDto();
+        String str = formDto.toString();
+        String[] cmd ={
+                "python",
+                "E:/LETI/3_kurs/IT-Projects/startbusiness/src/main/java/ru/studentproject/startbusiness/controllers/IP.py",
+                "1000"
+        };
+        Runtime.getRuntime().exec(cmd);
 
     }
 
