@@ -33,47 +33,47 @@ const codeInput = document.getElementById('codeInput');
 const docDateInput = document.getElementById('docDateInput');
 
 
-// const mask1 = IMask(dateInput, {
-//     mask: '00/00/0000',
-//     lazy: false,
-//     placeholderChar: '_'
-// });
-// const mask2 = IMask(INNInput, {
-//     mask: '0000000000',
-//     lazy: false,
-//     placeholderChar: '_'
-// });
-// const mask3 = IMask(emailInput, {
-//     mask: /^\S*@?\S*$/,
-//     lazy: false,
-//     placeholderChar: '_'
-// });
-// const mask4 = IMask(telInput, {
-//     mask: '+0 000 000-00-00',
-//     startsWith: '7',
-//     lazy: false,
-//     country: 'Russia'
-// });
-// const mask5 = IMask(passportInput, {
-//     mask: '0000-000000',
-//     lazy: false,
-//     placeholderChar: '_'
-// });
-// const mask6 = IMask(passDateInput, {
-//     mask: '00/00/0000',
-//     lazy: false,
-//     placeholderChar: '_'
-// });
-// const mask7 = IMask(codeInput, {
-//     mask: '000-000',
-//     lazy: false,
-//     placeholderChar: '_'
-// });
-// const mask8 = IMask(docDateInput, {
-//     mask: '00/00/0000',
-//     lazy: false,
-//     placeholderChar: '_'
-// });
+const mask1 = IMask(dateInput, {
+    mask: '00/00/0000',
+    lazy: false,
+    placeholderChar: '_'
+});
+const mask2 = IMask(INNInput, {
+    mask: '0000000000',
+    lazy: false,
+    placeholderChar: '_'
+});
+const mask3 = IMask(emailInput, {
+    mask: /^\S*@?\S*$/,
+    lazy: false,
+    placeholderChar: '_'
+});
+const mask4 = IMask(telInput, {
+    mask: '+0 000 000-00-00',
+    startsWith: '7',
+    lazy: false,
+    country: 'Russia'
+});
+const mask5 = IMask(passportInput, {
+    mask: '0000-000000',
+    lazy: false,
+    placeholderChar: '_'
+});
+const mask6 = IMask(passDateInput, {
+    mask: '00/00/0000',
+    lazy: false,
+    placeholderChar: '_'
+});
+const mask7 = IMask(codeInput, {
+    mask: '000-000',
+    lazy: false,
+    placeholderChar: '_'
+});
+const mask8 = IMask(docDateInput, {
+    mask: '00/00/0000',
+    lazy: false,
+    placeholderChar: '_'
+});
 
 
 // проверка на формат даты
