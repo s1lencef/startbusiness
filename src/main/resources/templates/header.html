@@ -713,7 +713,7 @@
 	<!--	меню header-->
 	<div class="menu">
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
-		<a class="menu-btn" id='home-btn'>Главная</a>
+		<a class="menu-btn" id='home-btn' th:href = "@{/home}">Главная</a>
 		<!--		Короче пофикси эту хуйню я не знаю-->
 		<form class="menu-btn" method="post" th:action="@{/logout}" th:if="${user}">
 			<button class="menu-btn" id="login-submit" name="login-submit" type="submit" value="">Выход</button>
