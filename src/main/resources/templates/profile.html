@@ -2,24 +2,25 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-	<meta charset="UTF-8">
-	<title>Start_business</title>
-	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-	      name="viewport">
-	<link href="../static/style/fonts/fonts.css" rel="stylesheet" th:href="@{/style/fonts/fonts.css}">
-	<link href="../static/style/css/basic-style.css" rel="stylesheet" th:href="@{/style/css/basic-style.css}">
-	<link href="../static/style/css/profile-style.css" rel="stylesheet" th:href="@{/style/css/profile-style.css}">
-	<link href="../static/style/css/request-form-style.css" rel="stylesheet"
-	      th:href="@{/style/css/request-form-style.css}">
-	<link href="../static/style/css/payment-style.css" rel="stylesheet" th:href="@{/style/css/payment-style.css}">
-	<link href="../static/style/css/request-ready.css" rel="stylesheet" th:href="@{/style/css/request-ready.css}">
-	<link href="../static/style/css/request-choose.css" rel="stylesheet" th:href="@{/style/css/request-choose.css}">
+    <meta charset="UTF-8">
+    <title>Start_business</title>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <link href="../static/style/fonts/fonts.css" rel="stylesheet" th:href="@{/style/fonts/fonts.css}">
+    <link href="../static/style/css/basic-style.css" rel="stylesheet" th:href="@{/style/css/basic-style.css}">
+    <link href="../static/style/css/profile-style.css" rel="stylesheet" th:href="@{/style/css/profile-style.css}">
+    <link href="../static/style/css/request-form-style.css" rel="stylesheet"
+          th:href="@{/style/css/request-form-style.css}">
+    <link href="../static/style/css/payment-style.css" rel="stylesheet" th:href="@{/style/css/payment-style.css}">
+    <link href="../static/style/css/request-ready.css" rel="stylesheet" th:href="@{/style/css/request-ready.css}">
+    <link href="../static/style/css/request-choose.css" rel="stylesheet" th:href="@{/style/css/request-choose.css}">
 </head>
 
 <body>
-<header th:insert = "header :: header"></header>
+<header th:insert="header :: header"></header>
 <div id="content">
+
 	<!--	профиль пользователя-->
 	<section class="request-page">
 		<!--		форма анкеты-->
@@ -302,17 +303,18 @@
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
 								     xmlns="http://www.w3.org/2000/svg">
-	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"
-	      stroke="black" stroke-width="1.125"/>
-	<path d="M18.875 23V16.4C18.875 14.3254 18.875 13.2892 18.2157 12.6446C17.5565 12 16.4968 12 14.375 12H12.125C10.0032 12 8.9435 12 8.28425 12.6446C7.625 13.2892 7.625 14.3254 7.625 16.4V23"
-	      stroke="black" stroke-width="1.125"/>
-	<path d="M23.375 22.9998V7.34907C23.375 5.87508 23.375 5.13698 22.9745 4.57159C22.574 4.00619 21.8675 3.74659 20.4545 3.22959C17.6926 2.2165 16.3123 1.7105 15.3436 2.3661C14.375 3.02389 14.375 4.46489 14.375 7.34907V11.9999"
-	      stroke="black" stroke-width="1.125"/>
-	<path d="M4.25 7.59997V5.94998C4.25 4.91268 4.25 4.39459 4.57963 4.07229C4.90925 3.74999 5.43912 3.74999 6.5 3.74999H8.75C9.81088 3.74999 10.3407 3.74999 10.6704 4.07229C11 4.39459 11 4.91268 11 5.94998V7.59997M7.625 3.19999V1M24.5 22.9999H2M11 15.2999H15.5M11 18.5999H15.5"
-	      stroke="black" stroke-linecap="round" stroke-width="1.125"/>
-	</svg>
 
+	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"
+          stroke="black" stroke-width="1.125"/>
+	<path d="M18.875 23V16.4C18.875 14.3254 18.875 13.2892 18.2157 12.6446C17.5565 12 16.4968 12 14.375 12H12.125C10.0032 12 8.9435 12 8.28425 12.6446C7.625 13.2892 7.625 14.3254 7.625 16.4V23"
+          stroke="black" stroke-width="1.125"/>
+	<path d="M23.375 22.9998V7.34907C23.375 5.87508 23.375 5.13698 22.9745 4.57159C22.574 4.00619 21.8675 3.74659 20.4545 3.22959C17.6926 2.2165 16.3123 1.7105 15.3436 2.3661C14.375 3.02389 14.375 4.46489 14.375 7.34907V11.9999"
+          stroke="black" stroke-width="1.125"/>
+	<path d="M4.25 7.59997V5.94998C4.25 4.91268 4.25 4.39459 4.57963 4.07229C4.90925 3.74999 5.43912 3.74999 6.5 3.74999H8.75C9.81088 3.74999 10.3407 3.74999 10.6704 4.07229C11 4.39459 11 4.91268 11 5.94998V7.59997M7.625 3.19999V1M24.5 22.9999H2M11 15.2999H15.5M11 18.5999H15.5"
+          stroke="black" stroke-linecap="round" stroke-width="1.125"/>
+	</svg>
 							</span>
+
 								<label class="request-input" for="cityInput">
 									<input id="cityInput" name="cityInput" placeholder="" required type="text" th:field = "*{locality}">
 									<p class="input-result" id="city-result">Город, населенный пункт, поселок, деревня</p>
@@ -321,43 +323,48 @@
 							<div class="request-form-row">
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-								     xmlns="http://www.w3.org/2000/svg">
+                                     xmlns="http://www.w3.org/2000/svg">
 	<path clip-rule="evenodd"
-	      d="M23.625 3.9375C18.4036 3.9375 13.396 6.01171 9.70384 9.70384C6.01171 13.396 3.9375 18.4036 3.9375 23.625C3.9375 23.7742 3.87824 23.9173 3.77275 24.0227C3.66726 24.1282 3.52418 24.1875 3.375 24.1875C3.22582 24.1875 3.08274 24.1282 2.97725 24.0227C2.87176 23.9173 2.8125 23.7742 2.8125 23.625C2.8125 18.1052 5.00524 12.8114 8.90834 8.90834C12.8114 5.00524 18.1052 2.8125 23.625 2.8125C23.7742 2.8125 23.9173 2.87176 24.0227 2.97725C24.1282 3.08274 24.1875 3.22582 24.1875 3.375C24.1875 3.52418 24.1282 3.66726 24.0227 3.77275C23.9173 3.87824 23.7742 3.9375 23.625 3.9375Z"
-	      fill="black"
-	      fill-rule="evenodd"/>
+          d="M23.625 3.9375C18.4036 3.9375 13.396 6.01171 9.70384 9.70384C6.01171 13.396 3.9375 18.4036 3.9375 23.625C3.9375 23.7742 3.87824 23.9173 3.77275 24.0227C3.66726 24.1282 3.52418 24.1875 3.375 24.1875C3.22582 24.1875 3.08274 24.1282 2.97725 24.0227C2.87176 23.9173 2.8125 23.7742 2.8125 23.625C2.8125 18.1052 5.00524 12.8114 8.90834 8.90834C12.8114 5.00524 18.1052 2.8125 23.625 2.8125C23.7742 2.8125 23.9173 2.87176 24.0227 2.97725C24.1282 3.08274 24.1875 3.22582 24.1875 3.375C24.1875 3.52418 24.1282 3.66726 24.0227 3.77275C23.9173 3.87824 23.7742 3.9375 23.625 3.9375Z"
+          fill="black"
+          fill-rule="evenodd"/>
 	<path clip-rule="evenodd"
-	      d="M21.5862 8.57484C21.1672 8.63109 20.752 8.70534 20.3414 8.79646L20.0984 7.6979C20.5406 7.60007 20.9867 7.52068 21.4355 7.45996L21.5862 8.57484ZM17.9289 9.54571C17.1467 9.8621 16.3922 10.2431 15.6732 10.6848L15.0849 9.72627C15.8569 9.25191 16.667 8.84268 17.507 8.50284L17.9289 9.54571ZM13.6387 12.1821C13.003 12.7368 12.4147 13.3434 11.8797 13.9956L11.0095 13.2824C11.5843 12.5819 12.2163 11.9303 12.899 11.3345L13.6387 12.1821ZM10.4454 16.0763C10.0262 16.8085 9.66867 17.5742 9.3766 18.3657L8.32135 17.9759C8.63491 17.1257 9.01873 16.3031 9.46885 15.5166L10.4454 16.0763ZM8.7016 20.8002C8.62316 21.2145 8.56198 21.6318 8.51823 22.0512L7.39941 21.9342C7.44666 21.4825 7.51191 21.0342 7.59629 20.591L8.7016 20.8002ZM19.5348 13.751C20.8315 13.2139 22.2212 12.9375 23.6247 12.9376C23.7739 12.9376 23.917 12.9968 24.0225 13.1023C24.128 13.2078 24.1872 13.3509 24.1872 13.5001C24.1872 13.6493 24.128 13.7923 24.0225 13.8978C23.917 14.0033 23.7739 14.0626 23.6247 14.0626C21.0886 14.0626 18.6563 15.0701 16.863 16.8634C15.0697 18.6567 14.0622 21.089 14.0622 23.6251C14.0622 23.7743 14.003 23.9173 13.8975 24.0228C13.792 24.1283 13.6489 24.1876 13.4997 24.1876C13.3505 24.1876 13.2075 24.1283 13.102 24.0228C12.9965 23.9173 12.9372 23.7743 12.9372 23.6251C12.9372 21.5113 13.564 19.4449 14.7383 17.6873C15.9127 15.9298 17.5819 14.5599 19.5348 13.751Z"
-	      fill="black"
-	      fill-rule="evenodd"/>
+          d="M21.5862 8.57484C21.1672 8.63109 20.752 8.70534 20.3414 8.79646L20.0984 7.6979C20.5406 7.60007 20.9867 7.52068 21.4355 7.45996L21.5862 8.57484ZM17.9289 9.54571C17.1467 9.8621 16.3922 10.2431 15.6732 10.6848L15.0849 9.72627C15.8569 9.25191 16.667 8.84268 17.507 8.50284L17.9289 9.54571ZM13.6387 12.1821C13.003 12.7368 12.4147 13.3434 11.8797 13.9956L11.0095 13.2824C11.5843 12.5819 12.2163 11.9303 12.899 11.3345L13.6387 12.1821ZM10.4454 16.0763C10.0262 16.8085 9.66867 17.5742 9.3766 18.3657L8.32135 17.9759C8.63491 17.1257 9.01873 16.3031 9.46885 15.5166L10.4454 16.0763ZM8.7016 20.8002C8.62316 21.2145 8.56198 21.6318 8.51823 22.0512L7.39941 21.9342C7.44666 21.4825 7.51191 21.0342 7.59629 20.591L8.7016 20.8002ZM19.5348 13.751C20.8315 13.2139 22.2212 12.9375 23.6247 12.9376C23.7739 12.9376 23.917 12.9968 24.0225 13.1023C24.128 13.2078 24.1872 13.3509 24.1872 13.5001C24.1872 13.6493 24.128 13.7923 24.0225 13.8978C23.917 14.0033 23.7739 14.0626 23.6247 14.0626C21.0886 14.0626 18.6563 15.0701 16.863 16.8634C15.0697 18.6567 14.0622 21.089 14.0622 23.6251C14.0622 23.7743 14.003 23.9173 13.8975 24.0228C13.792 24.1283 13.6489 24.1876 13.4997 24.1876C13.3505 24.1876 13.2075 24.1283 13.102 24.0228C12.9965 23.9173 12.9372 23.7743 12.9372 23.6251C12.9372 21.5113 13.564 19.4449 14.7383 17.6873C15.9127 15.9298 17.5819 14.5599 19.5348 13.751Z"
+          fill="black"
+          fill-rule="evenodd"/>
 	</svg>
 							</span>
+
 								<label class="request-input" for="streetInput">
 									<input id="streetInput" name="streetInput" placeholder="" required type="text" th:field = "*{street}">
 									<p class="input-result" id="street-result">Улица, микрорайон, территория и т.д.</p>
 								</label>
 							</div>
 							<div class="request-form-row">
+
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-								     xmlns="http://www.w3.org/2000/svg">
+                                     xmlns="http://www.w3.org/2000/svg">
 	<path d="M25.3125 22.1484H23.4141V12.1869C23.4138 11.9823 23.3712 11.78 23.289 11.5927C23.2068 11.4054 23.0867 11.2371 22.9363 11.0985L14.4988 3.13663L14.4893 3.12819C14.2182 2.8799 13.8639 2.74219 13.4963 2.74219C13.1287 2.74219 12.7744 2.8799 12.5033 3.12819L12.4938 3.13663L4.05633 11.0995C3.90709 11.2385 3.78825 11.4068 3.70729 11.594C3.62633 11.7811 3.58501 11.983 3.58594 12.1869V22.1484H1.6875C1.51967 22.1484 1.35871 22.2151 1.24003 22.3338C1.12136 22.4524 1.05469 22.6134 1.05469 22.7812C1.05469 22.9491 1.12136 23.11 1.24003 23.2287C1.35871 23.3474 1.51967 23.414 1.6875 23.414H25.3125C25.4803 23.414 25.6413 23.3474 25.76 23.2287C25.8786 23.11 25.9453 22.9491 25.9453 22.7812C25.9453 22.6134 25.8786 22.4524 25.76 22.3338C25.6413 22.2151 25.4803 22.1484 25.3125 22.1484ZM4.85156 12.1869C4.8515 12.1575 4.85756 12.1285 4.86937 12.1016C4.88117 12.0747 4.89846 12.0506 4.92012 12.0308L4.92961 12.0224L13.3608 4.06159C13.3992 4.02806 13.4485 4.00958 13.4995 4.00958C13.5505 4.00958 13.5997 4.02806 13.6382 4.06159L22.0704 12.0234L22.0788 12.0319C22.1007 12.0516 22.1182 12.0757 22.1302 12.1025C22.1421 12.1294 22.1484 12.1585 22.1484 12.188V22.1484H16.6641V16.875C16.6641 16.4834 16.5085 16.1078 16.2316 15.8309C15.9547 15.554 15.5791 15.3984 15.1875 15.3984H11.8125C11.4209 15.3984 11.0453 15.554 10.7684 15.8309C10.4915 16.1078 10.3359 16.4834 10.3359 16.875V22.1484H4.85156V12.1869ZM15.3984 22.1484H11.6016V16.875C11.6016 16.819 11.6238 16.7654 11.6633 16.7258C11.7029 16.6863 11.7566 16.664 11.8125 16.664H15.1875C15.2434 16.664 15.2971 16.6863 15.3367 16.7258C15.3762 16.7654 15.3984 16.819 15.3984 16.875V22.1484Z"
-	      fill="black"/>
+          fill="black"/>
 	</svg>
 							</span>
+
 								<label class="request-input" for="houseInput">
 									<input id="houseInput" name="houseInput" placeholder="" required type="text" th:field = "*{building}">
 									<p class="input-result" id="house-result">Дом, Корпус, Строение</p>
 								</label>
 							</div>
 							<div class="request-form-row">
+
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-								     xmlns="http://www.w3.org/2000/svg">
+                                     xmlns="http://www.w3.org/2000/svg">
 	<path d="M5.0625 22.5V21.375H7.3125V4.5H16.3125V5.625H19.6875V21.375H21.9375V22.5H18.5625V6.75H16.3125V22.5H5.0625ZM12.9375 14.3663C13.17 14.3663 13.3725 14.28 13.545 14.1075C13.7175 13.935 13.8038 13.7325 13.8038 13.5C13.8038 13.2675 13.7175 13.065 13.545 12.8925C13.3725 12.72 13.17 12.6337 12.9375 12.6337C12.705 12.6337 12.5025 12.72 12.33 12.8925C12.1575 13.065 12.0712 13.2675 12.0712 13.5C12.0712 13.7325 12.1575 13.935 12.33 14.1075C12.5025 14.28 12.705 14.3663 12.9375 14.3663ZM8.4375 21.375H15.1875V5.625H8.4375V21.375Z"
-	      fill="black"/>
+          fill="black"/>
 	</svg>
 							</span>
+
 								<label class="request-input" for="officeInput">
 									<input id="officeInput" name="officeInput" placeholder="" required type="text" th:field = "*{office}">
 									<p class="input-result" id="office-result">Офис, квартира, помещение.<br>
@@ -633,789 +640,1241 @@
 										</svg>
 										<p>Документ P21001</p>
 
-										<a class="business-document-btn" th:href="@{/download?id=7}">
+<!--                &lt;!&ndash;Заполнение формы 2&ndash;&gt;-->
+<!--                <div class="request-form-wrapper">-->
+<!--                    <div class="request-form-header">-->
+<!--                        <th:block th:each="tax : ${curr_form.getTax()}">-->
+<!--                            <p class="request-form-header-title" th:text="'Регистрация '+${tax.getName()}">-->
+<!--                            </p>-->
+<!--                        </th:block>-->
+<!--                        <div class="request-form-header-menu" id="scrollDiv2">-->
+<!--                            <a class="request-form-header-menu-btn" id="request-form-header-menu-btn-2-1">-->
+<!--                                <p>Личная информация</p>-->
+<!--                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"-->
+<!--                                          stroke-linejoin="round"-->
+<!--                                          stroke-width="1.83333"/>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-2-2">-->
+<!--                                <p>Контактные данные</p>-->
+<!--                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"-->
+<!--                                          stroke-linejoin="round"-->
+<!--                                          stroke-width="1.83333"/>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                            <a class="request-form-header-menu-btn" id="request-form-header-menu-btn-2-3">-->
+<!--                                <p>Паспортные данные</p>-->
+<!--                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"-->
+<!--                                          stroke-linejoin="round"-->
+<!--                                          stroke-width="1.83333"/>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-2-4">-->
+<!--                                <p>Адрес места жительства </p>-->
+<!--                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"-->
+<!--                                          stroke-linejoin="round"-->
+<!--                                          stroke-width="1.83333"/>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-2-5">-->
+<!--                                <p>Виды деятельности</p>-->
+<!--                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"-->
+<!--                                          stroke-linejoin="round"-->
+<!--                                          stroke-width="1.83333"/>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-2-6">-->
+<!--                                <p>Дата составления документов</p>-->
+<!--                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"-->
+<!--                                          stroke-linejoin="round"-->
+<!--                                          stroke-width="1.83333"/>-->
+<!--                                </svg>-->
+<!--                            </a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <form class="request-form-pages" method="POST">-->
+<!--                        <div class="request-form-page" id='form-2-1'>-->
+<!--                            <div class="request-form-row request-form-page-header">-->
+<!--                                <span class="request-span">Шаг 1 из 6:</span>-->
+<!--                                <p>Личная информация</p>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Имя</span>-->
+<!--                                <label class="request-input" for="name">-->
+<!--                                    <input id="name2" th:field="*{firstName}"/>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Отчество</span>-->
+<!--                                <label class="request-input" for="middleName">-->
+<!--                                    <input id="middleName2" th:field="*{middleName}"/>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Фамилия</span>-->
+<!--                                <label class="request-input" for="surname">-->
+<!--                                    <input id="surname2" th:field="*{lastName}"/>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Гражданство</span>-->
+<!--                                <div class="radio-inputs">-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input checked class="request-radio-btn" name="citizenship2" required-->
+<!--                                               type="radio"-->
+<!--                                               value="1" th:field="*{citizenship}"/>-->
+<!--                                        <span>Гражданин РФ</span>-->
+<!--                                    </label>-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input class="request-radio-btn" name="citizenship2" required type="radio"-->
+<!--                                               value="2" th:field="*{citizenship}"/>-->
+<!--                                        <span>Иностранный гражданин</span>-->
+<!--                                    </label>-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input class="request-radio-btn" name="citizenship2" required type="radio"-->
+<!--                                               value="3" th:field="*{citizenship}"/>-->
+<!--                                        <span>Лицо без гражданства</span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Дата рождения</span>-->
+<!--                                <label class="request-input" for="dateInput2">-->
+<!--                                    <input id="dateInput2" name="dateInput2" required type="text" th:field="*{birthDate}">-->
+<!--                                    <p class="input-result" id="date-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Место рождения</span>-->
+<!--                                <label class="request-input2" for="birthInput2">-->
+<!--                                    <input id="birthInput2" name="birthInput2" required type="text"-->
+<!--                                           th:field="*{birthPlace}">-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">ИНН</span>-->
+<!--                                <label class="request-input" for="INNInput2">-->
+<!--                                    <input id="INNInput2" name="INNInput2" required type="text" th:field="*{iNN}">-->
+<!--                                    <p class="input-result" id="INN-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row final-option">-->
+<!--                                <button class="previous" id="form-2-1-prev">-->
+<!--                                    <p>Назад</p>-->
+<!--                                </button>-->
+<!--                                <button class="next" id="form-2-1-next">-->
+<!--                                    <p>Далее</p>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="request-form-page" id='form-2-2'>-->
+<!--                            <div class="request-form-row request-form-page-header">-->
+<!--                                <span class="request-span">Шаг 2 из 6:</span>-->
+<!--                                <p>Контактные данные</p>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Адрес электронной почты</span>-->
+<!--                                <label class="request-input" for="emailInput2">-->
+<!--                                    <input id="emailInput2" name="emailInput2" required type="text" th:field="*{email}">-->
+<!--                                    <p class="input-result" id="email-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Номер телефона</span>-->
+<!--                                <label class="request-input" for="telInput">-->
+<!--                                    <input id="telInput2" name="telInput" required type="text" th:field="*{phone}">-->
+<!--                                    <p class="input-result" id="tel-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row final-option">-->
+<!--                                <button class="previous" id="form-2-2-prev">-->
+<!--                                    <p>Назад</p>-->
+<!--                                </button>-->
+<!--                                <button class="next" id="form-2-2-next">-->
+<!--                                    <p>Далее</p>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="request-form-page" id='form-2-3'>-->
+<!--                            <div class="request-form-row request-form-page-header">-->
+<!--                                <span class="request-span">Шаг 3 из 6:</span>-->
+<!--                                <p>Паспортные данные</p>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Вид документа</span>-->
+<!--                                <div class="radio-inputs">-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input checked class="request-radio-btn" name="passport_type2" required-->
+<!--                                               type="radio"-->
+<!--                                               value="21" th:field="*{documentType}"/>-->
+<!--                                        <span>Паспорт гражданина Российской Федерации</span>-->
+<!--                                    </label>-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input class="request-radio-btn" name="passport_type2" required type="radio"-->
+<!--                                               value="10" th:field="*{documentType}"/>-->
+<!--                                        <span>Паспорт иностранного гражданина</span>-->
+<!--                                    </label>-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input class="request-radio-btn" name="passport_type2" required type="radio"-->
+<!--                                               value="12" th:field="*{documentType}"/>-->
+<!--                                        <span>Вид на жительство</span>-->
+<!--                                    </label>-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input class="request-radio-btn" name="passport_type2" required type="radio"-->
+<!--                                               value="14" th:field="*{documentType}"/>-->
+<!--                                        <span>Временное удостоверение личности гражданина Российской Федерации</span>-->
+<!--                                    </label>-->
+<!--                                    <label class="request-check">-->
+<!--                                        <input class="request-radio-btn" name="passport_type2" required type="radio"-->
+<!--                                               value="23" th:field="*{documentType}"/>-->
+<!--                                        <span>Свидетельство о рождении, выданное уполномоченным органом иностранного государства </span>-->
+<!--                                    </label>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Серия и номер</span>-->
+<!--                                <label class="request-input" for="passportInput2">-->
+<!--                                    <input id="passportInput2" name="passportInput2" required type="text">-->
+<!--                                    <p class="input-result" id="passport-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Дата выдачи</span>-->
+<!--                                <label class="request-input" for="passDateInput2">-->
+<!--                                    <input id="passDateInput2" name="passDateInput2" required type="text">-->
+<!--                                    <p class="input-result" id="passDate-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Кем выдан</span>-->
+<!--                                <label class="request-input" for="departInput2">-->
+<!--                                    <textarea id="departInput2" name="departInput2" required type="text"></textarea>-->
+<!--                                    <p class="input-result" id="depart-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Код подразделения</span>-->
+<!--                                <label class="request-input" for="codeInput2">-->
+<!--                                    <input id="codeInput2" name="codeInput2" required type="text">-->
+<!--                                    <p class="input-result" id="code-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row final-option">-->
+<!--                                <button class="previous" id="form-2-3-prev">-->
+<!--                                    <p>Назад</p>-->
+<!--                                </button>-->
+<!--                                <button class="next" id="form-2-3-next">-->
+<!--                                    <p>Далее</p>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="request-form-page" id='form-2-4'>-->
+<!--                            <div class="request-form-row request-form-page-header">-->
+<!--                                <span class="request-span">Шаг 4 из 6:</span>-->
+<!--                                <p>Адрес места жительства</p>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--							<span class="request-span">-->
+<!--								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"-->
+<!--          stroke="black" stroke-width="1.125"/>-->
+<!--	<path d="M18.875 23V16.4C18.875 14.3254 18.875 13.2892 18.2157 12.6446C17.5565 12 16.4968 12 14.375 12H12.125C10.0032 12 8.9435 12 8.28425 12.6446C7.625 13.2892 7.625 14.3254 7.625 16.4V23"-->
+<!--          stroke="black" stroke-width="1.125"/>-->
+<!--	<path d="M23.375 22.9998V7.34907C23.375 5.87508 23.375 5.13698 22.9745 4.57159C22.574 4.00619 21.8675 3.74659 20.4545 3.22959C17.6926 2.2165 16.3123 1.7105 15.3436 2.3661C14.375 3.02389 14.375 4.46489 14.375 7.34907V11.9999"-->
+<!--          stroke="black" stroke-width="1.125"/>-->
+<!--	<path d="M4.25 7.59997V5.94998C4.25 4.91268 4.25 4.39459 4.57963 4.07229C4.90925 3.74999 5.43912 3.74999 6.5 3.74999H8.75C9.81088 3.74999 10.3407 3.74999 10.6704 4.07229C11 4.39459 11 4.91268 11 5.94998V7.59997M7.625 3.19999V1M24.5 22.9999H2M11 15.2999H15.5M11 18.5999H15.5"-->
+<!--          stroke="black" stroke-linecap="round" stroke-width="1.125"/>-->
+<!--	</svg>-->
+<!--							</span>-->
+<!--                                <label class="request-input" for="cityInput2">-->
+<!--                                    <input id="cityInput2" name="cityInput2" placeholder="" required type="text">-->
+<!--                                    <p class="input-result2" id="city-result2">Город, населенный пункт, поселок,-->
+<!--                                        деревня</p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--							<span class="request-span">-->
+<!--								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--	<path clip-rule="evenodd"-->
+<!--          d="M23.625 3.9375C18.4036 3.9375 13.396 6.01171 9.70384 9.70384C6.01171 13.396 3.9375 18.4036 3.9375 23.625C3.9375 23.7742 3.87824 23.9173 3.77275 24.0227C3.66726 24.1282 3.52418 24.1875 3.375 24.1875C3.22582 24.1875 3.08274 24.1282 2.97725 24.0227C2.87176 23.9173 2.8125 23.7742 2.8125 23.625C2.8125 18.1052 5.00524 12.8114 8.90834 8.90834C12.8114 5.00524 18.1052 2.8125 23.625 2.8125C23.7742 2.8125 23.9173 2.87176 24.0227 2.97725C24.1282 3.08274 24.1875 3.22582 24.1875 3.375C24.1875 3.52418 24.1282 3.66726 24.0227 3.77275C23.9173 3.87824 23.7742 3.9375 23.625 3.9375Z"-->
+<!--          fill="black"-->
+<!--          fill-rule="evenodd"/>-->
+<!--	<path clip-rule="evenodd"-->
+<!--          d="M21.5862 8.57484C21.1672 8.63109 20.752 8.70534 20.3414 8.79646L20.0984 7.6979C20.5406 7.60007 20.9867 7.52068 21.4355 7.45996L21.5862 8.57484ZM17.9289 9.54571C17.1467 9.8621 16.3922 10.2431 15.6732 10.6848L15.0849 9.72627C15.8569 9.25191 16.667 8.84268 17.507 8.50284L17.9289 9.54571ZM13.6387 12.1821C13.003 12.7368 12.4147 13.3434 11.8797 13.9956L11.0095 13.2824C11.5843 12.5819 12.2163 11.9303 12.899 11.3345L13.6387 12.1821ZM10.4454 16.0763C10.0262 16.8085 9.66867 17.5742 9.3766 18.3657L8.32135 17.9759C8.63491 17.1257 9.01873 16.3031 9.46885 15.5166L10.4454 16.0763ZM8.7016 20.8002C8.62316 21.2145 8.56198 21.6318 8.51823 22.0512L7.39941 21.9342C7.44666 21.4825 7.51191 21.0342 7.59629 20.591L8.7016 20.8002ZM19.5348 13.751C20.8315 13.2139 22.2212 12.9375 23.6247 12.9376C23.7739 12.9376 23.917 12.9968 24.0225 13.1023C24.128 13.2078 24.1872 13.3509 24.1872 13.5001C24.1872 13.6493 24.128 13.7923 24.0225 13.8978C23.917 14.0033 23.7739 14.0626 23.6247 14.0626C21.0886 14.0626 18.6563 15.0701 16.863 16.8634C15.0697 18.6567 14.0622 21.089 14.0622 23.6251C14.0622 23.7743 14.003 23.9173 13.8975 24.0228C13.792 24.1283 13.6489 24.1876 13.4997 24.1876C13.3505 24.1876 13.2075 24.1283 13.102 24.0228C12.9965 23.9173 12.9372 23.7743 12.9372 23.6251C12.9372 21.5113 13.564 19.4449 14.7383 17.6873C15.9127 15.9298 17.5819 14.5599 19.5348 13.751Z"-->
+<!--          fill="black"-->
+<!--          fill-rule="evenodd"/>-->
+<!--	</svg>-->
+<!--							</span>-->
+<!--                                <label class="request-input" for="streetInput2">-->
+<!--                                    <input id="streetInput2" name="streetInput2" placeholder="" required type="text">-->
+<!--                                    <p class="input-result" id="street-result2">Улица, микрорайон, территория и т.д.</p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--							<span class="request-span">-->
+<!--								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--	<path d="M25.3125 22.1484H23.4141V12.1869C23.4138 11.9823 23.3712 11.78 23.289 11.5927C23.2068 11.4054 23.0867 11.2371 22.9363 11.0985L14.4988 3.13663L14.4893 3.12819C14.2182 2.8799 13.8639 2.74219 13.4963 2.74219C13.1287 2.74219 12.7744 2.8799 12.5033 3.12819L12.4938 3.13663L4.05633 11.0995C3.90709 11.2385 3.78825 11.4068 3.70729 11.594C3.62633 11.7811 3.58501 11.983 3.58594 12.1869V22.1484H1.6875C1.51967 22.1484 1.35871 22.2151 1.24003 22.3338C1.12136 22.4524 1.05469 22.6134 1.05469 22.7812C1.05469 22.9491 1.12136 23.11 1.24003 23.2287C1.35871 23.3474 1.51967 23.414 1.6875 23.414H25.3125C25.4803 23.414 25.6413 23.3474 25.76 23.2287C25.8786 23.11 25.9453 22.9491 25.9453 22.7812C25.9453 22.6134 25.8786 22.4524 25.76 22.3338C25.6413 22.2151 25.4803 22.1484 25.3125 22.1484ZM4.85156 12.1869C4.8515 12.1575 4.85756 12.1285 4.86937 12.1016C4.88117 12.0747 4.89846 12.0506 4.92012 12.0308L4.92961 12.0224L13.3608 4.06159C13.3992 4.02806 13.4485 4.00958 13.4995 4.00958C13.5505 4.00958 13.5997 4.02806 13.6382 4.06159L22.0704 12.0234L22.0788 12.0319C22.1007 12.0516 22.1182 12.0757 22.1302 12.1025C22.1421 12.1294 22.1484 12.1585 22.1484 12.188V22.1484H16.6641V16.875C16.6641 16.4834 16.5085 16.1078 16.2316 15.8309C15.9547 15.554 15.5791 15.3984 15.1875 15.3984H11.8125C11.4209 15.3984 11.0453 15.554 10.7684 15.8309C10.4915 16.1078 10.3359 16.4834 10.3359 16.875V22.1484H4.85156V12.1869ZM15.3984 22.1484H11.6016V16.875C11.6016 16.819 11.6238 16.7654 11.6633 16.7258C11.7029 16.6863 11.7566 16.664 11.8125 16.664H15.1875C15.2434 16.664 15.2971 16.6863 15.3367 16.7258C15.3762 16.7654 15.3984 16.819 15.3984 16.875V22.1484Z"-->
+<!--          fill="black"/>-->
+<!--	</svg>-->
+<!--							</span>-->
+<!--                                <label class="request-input" for="houseInput2">-->
+<!--                                    <input id="houseInput2" name="houseInput2" placeholder="" required type="text">-->
+<!--                                    <p class="input-result" id="house-result2">Дом, Корпус, Строение</p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--							<span class="request-span">-->
+<!--								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"-->
+<!--                                     xmlns="http://www.w3.org/2000/svg">-->
+<!--	<path d="M5.0625 22.5V21.375H7.3125V4.5H16.3125V5.625H19.6875V21.375H21.9375V22.5H18.5625V6.75H16.3125V22.5H5.0625ZM12.9375 14.3663C13.17 14.3663 13.3725 14.28 13.545 14.1075C13.7175 13.935 13.8038 13.7325 13.8038 13.5C13.8038 13.2675 13.7175 13.065 13.545 12.8925C13.3725 12.72 13.17 12.6337 12.9375 12.6337C12.705 12.6337 12.5025 12.72 12.33 12.8925C12.1575 13.065 12.0712 13.2675 12.0712 13.5C12.0712 13.7325 12.1575 13.935 12.33 14.1075C12.5025 14.28 12.705 14.3663 12.9375 14.3663ZM8.4375 21.375H15.1875V5.625H8.4375V21.375Z"-->
+<!--          fill="black"/>-->
+<!--	</svg>-->
+<!--							</span>-->
+<!--                                <label class="request-input" for="officeInput2">-->
+<!--                                    <input id="officeInput2" name="officeInput2" placeholder="" required type="text">-->
+<!--                                    <p class="input-result" id="office-result2">Офис, квартира, помещение.<br>-->
+<!--                                        Не рекомендуется указывать такие элементы как<br> этаж, кабинет, рабочее место-->
+<!--                                    </p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row final-option">-->
+<!--                                <button class="previous" id="form-2-4-prev">-->
+<!--                                    <p>Назад</p>-->
+<!--                                </button>-->
+<!--                                <button class="next" id="form-2-4-next">-->
+<!--                                    <p>Далее</p>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="request-form-page" id='form-2-5'>-->
+<!--                            <div class="request-form-row request-form-page-header">-->
+<!--                                <span class="request-span">Шаг 5 из 6:</span>-->
+<!--                                <p>Виды деятельности (для кодов по Оквед)</p>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Основной вид деятельности</span>-->
+<!--                                <label class="request-input" for="okvedInput2">-->
+<!--                                    <textarea id="okvedInput2" name="okvedInput2" required type="text"></textarea>-->
+<!--                                    <p class="input-result" id="okved-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required">Дополнительные виды деятельности</span>-->
+<!--                                <label class="request-input" for="dopokvedInput2">-->
+<!--                                    <textarea id="dopokvedInput2" name="dopokvedInput2" required type="text"></textarea>-->
+<!--                                    <p class="input-result" id="dopokved-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row final-option">-->
+<!--                                <button class="previous" id="form-2-5-prev">-->
+<!--                                    <p>Назад</p>-->
+<!--                                </button>-->
+<!--                                <button class="next" id="form-2-5-next">-->
+<!--                                    <p>Далее</p>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="request-form-page" id='form-2-6'>-->
+<!--                            <div class="request-form-row request-form-page-header">-->
+<!--                                <span class="request-span">Шаг 6 из 6:</span>-->
+<!--                                <p>Дата составления документов</p>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row">-->
+<!--                                <span class="request-span required"></span>-->
+<!--                                <label class="request-input" for="docDateInput2">-->
+<!--                                    <input id="docDateInput2" name="docDateInput2" required type="text">-->
+<!--                                    <p class="input-result" id="docDateInput-result2"></p>-->
+<!--                                </label>-->
+<!--                            </div>-->
+<!--                            <div class="request-form-row final-option">-->
+<!--                                <button class="previous" id="form-2-6-prev">-->
+<!--                                    <p>Назад</p>-->
+<!--                                </button>-->
+<!--                                <button type="submit" id="form-2-6-submit">-->
+<!--                                    <p>Завершить</p>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </form>-->
+<!--                </div>-->
+ 
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=7}">
 
-										<a class="business-document-btn" th:href="@{/download?id=8}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-1"  th:href = "@{/form/create?taxId=0}">
-									<p>Заполнить анкету</p>
-								</a>
-							</div>
-							<div class="business-info" id='business-info-2'>
-								<div>
-									<h4>ИП УСН (доходы минус расходы)</h4>
-									<p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
-										подразумевает особый порядок уплаты налогов и ориентирован на представителей малого и
-										среднего бизнеса</p>
-									<h4>Условия применения УСН:</h4>
-									<ul>
-										<li>Число сотрудников <130 (чел)
-										<li>Доход <200 (млн.руб в год)</li>
-										<li>Остаточная стоимость <150 (млн.руб.)</li>
-									</ul>
-									<h4>Особенности режима:</h4>
-									<ul>
-										<li>Представление уведомления о переходе на УСН (не позднее последнего числа года,
-											предшествующего году, с которого планируется начать применение УСН)
-										</li>
-										<li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или) средней
-											численности работников (законами субъектов РФ ставка может быть снижена до 5%)
-										</li>
-										<li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от 5 до 15 % в
-											зависимости от категорий налогоплательщиков
-										</li>
-										<li>Необходимость подачи декларации раз в год.</li>
-									</ul>
-								</div>
-								<div class="docs">
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Документ P21001</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=8}">
 
-										<a class="business-document-btn" th:href="@{/download?id=7}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="business-start-btn business-document-btn" id="business-start-btn-1"
+                                   th:href="@{/form/create?taxId=0}">
+                                    <p>Заполнить анкету</p>
+                                </a>
+                            </div>
+                            <div class="business-info" id='business-info-2'>
+                                <div>
+                                    <h4>ИП УСН (доходы минус расходы)</h4>
+                                    <p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
+                                        подразумевает особый порядок уплаты налогов и ориентирован на представителей
+                                        малого и
+                                        среднего бизнеса</p>
+                                    <h4>Условия применения УСН:</h4>
+                                    <ul>
+                                        <li>Число сотрудников <130 (чел)
+                                        <li>Доход <200 (млн.руб в год)</li>
+                                        <li>Остаточная стоимость <150 (млн.руб.)</li>
+                                    </ul>
+                                    <h4>Особенности режима:</h4>
+                                    <ul>
+                                        <li>Представление уведомления о переходе на УСН (не позднее последнего числа
+                                            года,
+                                            предшествующего году, с которого планируется начать применение УСН)
+                                        </li>
+                                        <li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или)
+                                            средней
+                                            численности работников (законами субъектов РФ ставка может быть снижена до
+                                            5%)
+                                        </li>
+                                        <li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от
+                                            5 до 15 % в
+                                            зависимости от категорий налогоплательщиков
+                                        </li>
+                                        <li>Необходимость подачи декларации раз в год.</li>
+                                    </ul>
+                                </div>
+                                <div class="docs">
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Документ P21001</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=7}">
 
-										<a class="business-document-btn" th:href="@{/download?id=8}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-2"  th:href = "@{/form/create?taxId=1}">
-									<p>Заполнить анкету</p>
-								</a>
-							</div>
-							<div class="business-info" id='business-info-3'>
-								<div>
-									<h4>ИП ПСН</h4>
-									<p>Патентная система налогообложения (ПСН) - специальный налоговый режим, при котором
-										налогоплательщиками признаются индивидуальные предприниматели, занимающиеся определенными
-										видами
-										деятельности, установленными законами субъектов РФ.</p>
-									<h4>Условия применения ПСН:</h4>
-									<ul>
-										<li>Необходимость подачи заявления на получение патента. Срок, на который может быть выдан
-											патент (по выбору ИП) – от 1 до 12 месяцев.
-										<li>Число работников не более 15 человек</li>
-										<li>Доход не более 60 млн. руб в год</li>
-									</ul>
-									<h4>Особенности режима:</h4>
-									<ul>
-										<li>Налоговая ставка 6% (может быть уменьшена законами субъектов РФ).</li>
-										<li>Отсутствие необходимости представления отчетности.</li>
-										<li>Периодичность уплаты налога и его размер зависит от срока действия патента.</li>
-										<li>Законами субъектов РФ устанавливаются размеры потенциально возможного годового
-											дохода.
-										</li>
-									</ul>
-								</div>
-								<div class="docs">
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Документ P21001</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=8}">
 
-										<a class="business-document-btn" th:href="@{/download?id=7}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="business-start-btn business-document-btn" id="business-start-btn-2"
+                                   th:href="@{/form/create?taxId=1}">
+                                    <p>Заполнить анкету</p>
+                                </a>
+                            </div>
+                            <div class="business-info" id='business-info-3'>
+                                <div>
+                                    <h4>ИП ПСН</h4>
+                                    <p>Патентная система налогообложения (ПСН) - специальный налоговый режим, при
+                                        котором
+                                        налогоплательщиками признаются индивидуальные предприниматели, занимающиеся
+                                        определенными
+                                        видами
+                                        деятельности, установленными законами субъектов РФ.</p>
+                                    <h4>Условия применения ПСН:</h4>
+                                    <ul>
+                                        <li>Необходимость подачи заявления на получение патента. Срок, на который может
+                                            быть выдан
+                                            патент (по выбору ИП) – от 1 до 12 месяцев.
+                                        <li>Число работников не более 15 человек</li>
+                                        <li>Доход не более 60 млн. руб в год</li>
+                                    </ul>
+                                    <h4>Особенности режима:</h4>
+                                    <ul>
+                                        <li>Налоговая ставка 6% (может быть уменьшена законами субъектов РФ).</li>
+                                        <li>Отсутствие необходимости представления отчетности.</li>
+                                        <li>Периодичность уплаты налога и его размер зависит от срока действия
+                                            патента.
+                                        </li>
+                                        <li>Законами субъектов РФ устанавливаются размеры потенциально возможного
+                                            годового
+                                            дохода.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="docs">
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Документ P21001</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Форма № 26.5-1 (Заявление на получение патента)</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=7}">
 
-										<a class="business-document-btn" th:href="@{/download?id=9}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Форма № 26.5-1 (Заявление на получение патента)</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-3"  th:href = "@{/form/create?taxId=2}">
-									<p>Заполнить анкету</p>
-								</a>
-							</div>
-							<div class="business-info" id='business-info-4'>
-								<div>
-									<h4>ООО УСН (доходы)</h4>
-									<p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
-										подразумевает особый порядок уплаты налогов и ориентирован на представителей малого и
-										среднего бизнеса.</p>
-									<h4>Условия применения УСН:</h4>
-									<ul>
-										<li>Число сотрудников <130 (чел)
-										<li>Доход <200 (млн.руб в год)</li>
-										<li>Остаточная стоимость <150 (млн.руб.)</li>
-										<li>Доля участия в ней других организаций не может превышать 25%</li>
-										<li>Запрет применения УСН для организаций, у которых есть филиалы</li>
-										<li>Организация имеет право перейти на УСН, если по итогам девяти месяцев того года, в
-											котором организация подает уведомление о переходе, ее доходы не превысили 112,5 млн.
-											рублей (ст. 346.12 НК РФ)
-										</li>
-									</ul>
-									<h4>Особенности режима:</h4>
-									<ul>
-										<li>Представление уведомления о переходе на УСН (не позднее последнего числа года,
-											предшествующего году, с которого планируется начать применение УСН).
-										</li>
-										<li>Налоговая ставка 6% или 8% в зависимости от размера доходов и (или) средней численности
-											работников.
-										</li>
-										<li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от 1 до 6% в
-											зависимости от категорий налогоплательщиков
-										</li>
-										<li>Необходимость подачи декларации раз в год.</li>
-										<li>Отчетность и уплата налога производится поквартально.</li>
-										<li>Организации могут снизить налог (УСН), на величину уплаченных страховых взносов с ФОТ,
-											не более чем на 50 %.
-										</li>
-									</ul>
-								</div>
-								<div class="docs">
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Договор об учреждении</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=9}">
 
-										<a class="business-document-btn" th:href="@{/download?id=10}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="business-start-btn business-document-btn" id="business-start-btn-3"
+                                   th:href="@{/form/create?taxId=2}">
+                                    <p>Заполнить анкету</p>
+                                </a>
+                            </div>
+                            <div class="business-info" id='business-info-4'>
+                                <div>
+                                    <h4>ООО УСН (доходы)</h4>
+                                    <p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
+                                        подразумевает особый порядок уплаты налогов и ориентирован на представителей
+                                        малого и
+                                        среднего бизнеса.</p>
+                                    <h4>Условия применения УСН:</h4>
+                                    <ul>
+                                        <li>Число сотрудников <130 (чел)
+                                        <li>Доход <200 (млн.руб в год)</li>
+                                        <li>Остаточная стоимость <150 (млн.руб.)</li>
+                                        <li>Доля участия в ней других организаций не может превышать 25%</li>
+                                        <li>Запрет применения УСН для организаций, у которых есть филиалы</li>
+                                        <li>Организация имеет право перейти на УСН, если по итогам девяти месяцев того
+                                            года, в
+                                            котором организация подает уведомление о переходе, ее доходы не превысили
+                                            112,5 млн.
+                                            рублей (ст. 346.12 НК РФ)
+                                        </li>
+                                    </ul>
+                                    <h4>Особенности режима:</h4>
+                                    <ul>
+                                        <li>Представление уведомления о переходе на УСН (не позднее последнего числа
+                                            года,
+                                            предшествующего году, с которого планируется начать применение УСН).
+                                        </li>
+                                        <li>Налоговая ставка 6% или 8% в зависимости от размера доходов и (или) средней
+                                            численности
+                                            работников.
+                                        </li>
+                                        <li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от
+                                            1 до 6% в
+                                            зависимости от категорий налогоплательщиков
+                                        </li>
+                                        <li>Необходимость подачи декларации раз в год.</li>
+                                        <li>Отчетность и уплата налога производится поквартально.</li>
+                                        <li>Организации могут снизить налог (УСН), на величину уплаченных страховых
+                                            взносов с ФОТ,
+                                            не более чем на 50 %.
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="docs">
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Договор об учреждении</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Протокол общего собрания учредителей</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=10}">
 
-										<a class="business-document-btn" th:href="@{/download?id=11}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Протокол общего собрания учредителей</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Типовой устав № 22</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=11}">
 
-										<a class="business-document-btn" th:href="@{/download?id=12}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Типовой устав № 22</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Документ P11001</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=12}">
 
-										<a class="business-document-btn" th:href="@{/download?id=6}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Документ P11001</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=6}">
 
-										<a class="business-document-btn" th:href="@{/download?id=8}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-4"  th:href = "@{/form/create?taxId=3}">
-									<p>Заполнить анкету</p>
-								</a>
-							</div>
-							<div class="business-info" id='business-info-5'>
-								<div>
-									<h4>ООО УСН (доходы минус расходы)</h4>
-									<p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
-										подразумевает особый порядок уплаты налогов и ориентирован на представителей малого и
-										среднего бизнеса</p>
-									<h4>Условия применения УСН:</h4>
-									<ul>
-										<li>Число сотрудников <130 (чел)
-										<li>Доход <200 (млн.руб в год)</li>
-										<li>Остаточная стоимость <150 (млн.руб.)</li>
-										<li>Доля участия в ней других организаций не может превышать 25%</li>
-										<li>Запрет применения УСН для организаций, у которых есть филиалы</li>
-										<li>Организация имеет право перейти на УСН, если по итогам девяти месяцев того года, в
-											котором организация подает уведомление о переходе, ее доходы не превысили 112,5 млн.
-											рублей (ст. 346.12 НК РФ)
-										</li>
-									</ul>
-									<h4>Особенности режима:</h4>
-									<ul>
-										<li>Представление уведомления о переходе на УСН (не позднее последнего числа года,
-											предшествующего году, с которого планируется начать применение УСН)
-										</li>
-										<li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или) средней
-											численности работников (законами субъектов РФ ставка может быть снижена до 5%)
-										</li>
-										<li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от 5 до 15 % в
-											зависимости от категорий налогоплательщиков
-										</li>
-										<li>Необходимость подачи декларации раз в год.</li>
-										<li>Отчетность и уплата налога производится поквартально.</li>
-									</ul>
-								</div>
-								<div class="docs">
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Договор об учреждении</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=8}">
 
-										<a class="business-document-btn" th:href="@{/download?id=10}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="business-start-btn business-document-btn" id="business-start-btn-4"
+                                   th:href="@{/form/create?taxId=3}">
+                                    <p>Заполнить анкету</p>
+                                </a>
+                            </div>
+                            <div class="business-info" id='business-info-5'>
+                                <div>
+                                    <h4>ООО УСН (доходы минус расходы)</h4>
+                                    <p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
+                                        подразумевает особый порядок уплаты налогов и ориентирован на представителей
+                                        малого и
+                                        среднего бизнеса</p>
+                                    <h4>Условия применения УСН:</h4>
+                                    <ul>
+                                        <li>Число сотрудников <130 (чел)
+                                        <li>Доход <200 (млн.руб в год)</li>
+                                        <li>Остаточная стоимость <150 (млн.руб.)</li>
+                                        <li>Доля участия в ней других организаций не может превышать 25%</li>
+                                        <li>Запрет применения УСН для организаций, у которых есть филиалы</li>
+                                        <li>Организация имеет право перейти на УСН, если по итогам девяти месяцев того
+                                            года, в
+                                            котором организация подает уведомление о переходе, ее доходы не превысили
+                                            112,5 млн.
+                                            рублей (ст. 346.12 НК РФ)
+                                        </li>
+                                    </ul>
+                                    <h4>Особенности режима:</h4>
+                                    <ul>
+                                        <li>Представление уведомления о переходе на УСН (не позднее последнего числа
+                                            года,
+                                            предшествующего году, с которого планируется начать применение УСН)
+                                        </li>
+                                        <li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или)
+                                            средней
+                                            численности работников (законами субъектов РФ ставка может быть снижена до
+                                            5%)
+                                        </li>
+                                        <li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от
+                                            5 до 15 % в
+                                            зависимости от категорий налогоплательщиков
+                                        </li>
+                                        <li>Необходимость подачи декларации раз в год.</li>
+                                        <li>Отчетность и уплата налога производится поквартально.</li>
+                                    </ul>
+                                </div>
+                                <div class="docs">
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Договор об учреждении</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Протокол общего собрания учредителей</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=10}">
 
-										<a class="business-document-btn" th:href="@{/download?id=11}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Протокол общего собрания учредителей</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Типовой устав № 22</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=11}">
 
-										<a class="business-document-btn" th:href="@{/download?id=12}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Типовой устав № 22</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Документ P11001</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=12}">
 
-										<a class="business-document-btn" th:href="@{/download?id=6}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Документ P11001</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=6}">
 
-										<a class="business-document-btn" th:href="@{/download?id=8}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-								</div>
-								<a class="business-start-btn business-document-btn" id="business-start-btn-5"  th:href = "@{/form/create?taxId=4}">
-									<p>Заполнить анкету</p>
-								</a>
-							</div>
-							<div class="business-info" id='business-info-6'>
-								<div>
-									<h4>ООО УСН (доходы минус расходы)</h4>
-									<p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
-										подразумевает особый порядок уплаты налогов и ориентирован на представителей малого и
-										среднего бизнеса</p>
-									<h4>Условия применения УСН:</h4>
-									<ul>
-										<li>Число сотрудников <130 (чел)
-										<li>Доход <200 (млн.руб в год)</li>
-										<li>Остаточная стоимость <150 (млн.руб.)</li>
-										<li>Доля участия в ней других организаций не может превышать 25%</li>
-										<li>Запрет применения УСН для организаций, у которых есть филиалы</li>
-										<li>Организация имеет право перейти на УСН, если по итогам девяти месяцев того года, в
-											котором организация подает уведомление о переходе, ее доходы не превысили 112,5 млн.
-											рублей (ст. 346.12 НК РФ)
-										</li>
-									</ul>
-									<h4>Особенности режима:</h4>
-									<ul>
-										<li>Представление уведомления о переходе на УСН (не позднее последнего числа года,
-											предшествующего году, с которого планируется начать применение УСН)
-										</li>
-										<li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или) средней
-											численности работников (законами субъектов РФ ставка может быть снижена до 5%)
-										</li>
-										<li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от 5 до 15 % в
-											зависимости от категорий налогоплательщиков
-										</li>
-										<li>Необходимость подачи декларации раз в год.</li>
-										<li>Отчетность и уплата налога производится поквартально.</li>
-									</ul>
-								</div>
-								<div class="docs">
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Договор об учреждении</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=8}">
 
-										<a class="business-document-btn" th:href="@{/download?id=10}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <a class="business-start-btn business-document-btn" id="business-start-btn-5"
+                                   th:href="@{/form/create?taxId=4}">
+                                    <p>Заполнить анкету</p>
+                                </a>
+                            </div>
+                            <div class="business-info" id='business-info-6'>
+                                <div>
+                                    <h4>ООО УСН (доходы минус расходы)</h4>
+                                    <p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
+                                        подразумевает особый порядок уплаты налогов и ориентирован на представителей
+                                        малого и
+                                        среднего бизнеса</p>
+                                    <h4>Условия применения УСН:</h4>
+                                    <ul>
+                                        <li>Число сотрудников <130 (чел)
+                                        <li>Доход <200 (млн.руб в год)</li>
+                                        <li>Остаточная стоимость <150 (млн.руб.)</li>
+                                        <li>Доля участия в ней других организаций не может превышать 25%</li>
+                                        <li>Запрет применения УСН для организаций, у которых есть филиалы</li>
+                                        <li>Организация имеет право перейти на УСН, если по итогам девяти месяцев того
+                                            года, в
+                                            котором организация подает уведомление о переходе, ее доходы не превысили
+                                            112,5 млн.
+                                            рублей (ст. 346.12 НК РФ)
+                                        </li>
+                                    </ul>
+                                    <h4>Особенности режима:</h4>
+                                    <ul>
+                                        <li>Представление уведомления о переходе на УСН (не позднее последнего числа
+                                            года,
+                                            предшествующего году, с которого планируется начать применение УСН)
+                                        </li>
+                                        <li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или)
+                                            средней
+                                            численности работников (законами субъектов РФ ставка может быть снижена до
+                                            5%)
+                                        </li>
+                                        <li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от
+                                            5 до 15 % в
+                                            зависимости от категорий налогоплательщиков
+                                        </li>
+                                        <li>Необходимость подачи декларации раз в год.</li>
+                                        <li>Отчетность и уплата налога производится поквартально.</li>
+                                    </ul>
+                                </div>
+                                <div class="docs">
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Договор об учреждении</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Протокол общего собрания учредителей</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=10}">
 
-										<a class="business-document-btn" th:href="@{/download?id=11}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Протокол общего собрания учредителей</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Типовой устав № 22</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=11}">
 
-										<a class="business-document-btn" th:href="@{/download?id=12}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Типовой устав № 22</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Документ P11001</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=12}">
 
-										<a class="business-document-btn" th:href="@{/download?id=6}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Документ P11001</p>
 
-											<p>Скачать образец документа</p>
-										</a>
-									</div>
-									<div class="document">
-										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-											 xmlns="http://www.w3.org/2000/svg">
-											<g clip-path="url(#clip0_449_44)">
-												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
-													  stroke-linejoin="round" stroke-width="1.5"/>
-												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-													  stroke-width="1.5"/>
-											</g>
-											<defs>
-												<clipPath id="clip0_449_44">
-													<rect fill="white" height="27" width="27"/>
-												</clipPath>
-											</defs>
-										</svg>
-										<p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
+                                        <a class="business-document-btn" th:href="@{/download?id=6}">
 
-										<a class="business-document-btn" th:href="@{/download?id=8}">
+                                            <p>Скачать образец документа</p>
+                                        </a>
+                                    </div>
+                                    <div class="document">
+                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_449_44)">
+                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
+                                                      stroke-linecap="round"
+                                                      stroke-linejoin="round" stroke-width="1.5"/>
+                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                                      stroke-width="1.5"/>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_449_44">
+                                                    <rect fill="white" height="27" width="27"/>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
+
+                                        <a class="business-document-btn" th:href="@{/download?id=8}">
+
 
 											<p>Скачать образец документа</p>
 										</a>
@@ -1436,36 +1895,35 @@
 					</div>
 				</div>
 
-			</div>
-		</div>
-		<!--		заявки пользователя-->
-		<div class="requests" id="req">
-			<a class="request-toggle-open" id="request-toggle">
-				<span class="circle-expanded" id="circle"></span>
-				<svg fill="none" height="16" viewBox="0 0 27 16" width="27" xmlns="http://www.w3.org/2000/svg">
-					<path d="M26.7065 8.7284C27.0974 8.33819 27.0979 7.70502 26.7077 7.31419L20.3488 0.945153C19.9586 0.554317 19.3254 0.553813 18.9346 0.944025C18.5437 1.33424 18.5432 1.9674 18.9334 2.35824L24.5858 8.0196L18.9244 13.6719C18.5336 14.0622 18.5331 14.6953 18.9233 15.0862C19.3135 15.477 19.9467 15.4775 20.3375 15.0873L26.7065 8.7284ZM-0.000797252 9L25.9992 9.02073L26.0008 7.02073L0.000797252 7L-0.000797252 9Z"
-					      fill="#3755FA"/>
-				</svg>
-			</a>
-			<div class="requests-wrapper-header requests-empty">
-				<p class="requests-head-text">Ваши заявки</p>
-				<p class="request-message-text">Здесь хранятся оформленные вами документы</p>
-			</div>
-			<!--сами заявки-->
-			<div class="request-wrapper" >
+
+            </div>
+        </div>
+        <!--		заявки пользователя-->
+        <div class="requests" id="req">
+            <a class="request-toggle-open" id="request-toggle">
+                <span class="circle-expanded" id="circle"></span>
+                <svg fill="none" height="16" viewBox="0 0 27 16" width="27" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.7065 8.7284C27.0974 8.33819 27.0979 7.70502 26.7077 7.31419L20.3488 0.945153C19.9586 0.554317 19.3254 0.553813 18.9346 0.944025C18.5437 1.33424 18.5432 1.9674 18.9334 2.35824L24.5858 8.0196L18.9244 13.6719C18.5336 14.0622 18.5331 14.6953 18.9233 15.0862C19.3135 15.477 19.9467 15.4775 20.3375 15.0873L26.7065 8.7284ZM-0.000797252 9L25.9992 9.02073L26.0008 7.02073L0.000797252 7L-0.000797252 9Z"
+                          fill="#3755FA"/>
+                </svg>
+            </a>
+            <div class="requests-wrapper-header requests-empty">
+                <p class="requests-head-text">Ваши заявки</p>
+                <p class="request-message-text">Здесь хранятся оформленные вами документы</p>
+            </div>
+            <!--сами заявки-->
+            <div class="request-wrapper">
                 <!--				<div class="request request-ready request-paid request-undone request-inwork" id="">-->
-                <form method = "GET" th:each="form : ${forms}"
-					 th:classappend="${form.status.id == 1 ? 'request-undone': form.status.id == 2 ?
-					  'request-inwork':form.status.id == 3 ? 'request-paid':'request-ready'}"  th:action="@{'/form/change'(id = ${form.id})}" >
-					<input type="hidden" name="id" th:value="${form.id}"/>
-					<button type="submit" class="request ">
-                    <a class="request-info" >
+                <form class="request" method="GET" th:each="form : ${forms}"
+                      th:classappend="${form.status.id == 1 ? 'request-undone': form.status.id == 2 ?
+					  'request-inwork':form.status.id == 3 ? 'request-paid':'request-ready'}"
+                      th:action="@{'/form/change'(id = ${form.id})}">
+                    <input type="hidden" name="id" th:value="${form.id}"/>
+                    <button class="request-info" type="submit">
                         <th:block th:each="tax : ${form.getTax()}">
-                            <p class="request-name" th:text="${tax.getName()}">
-                            </p>
+                            <p class="request-name" th:text="${tax.getName()}"></p>
                         </th:block>
-                        <p class="request-date" th:text="${#dates.format(form.date, 'dd-mm-yyyy')}">
-                        </p>
+                        <p class="request-date" th:text="${#dates.format(form.date, 'dd-mm-yyyy')}"></p>
                         <svg class="request-svg svg-ready" fill="none" height="27" viewBox="0 0 27 27" width="27"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_446_17)">
@@ -1489,15 +1947,18 @@
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_446_9)">
                                 <path d="M20.8567 15.9521H18.641C18.301 15.9518 17.9714 16.0699 17.709 16.2862C17.4466 16.5024 17.2678 16.8034 17.2033 17.1373C17.1388 17.4712 17.1927 17.8171 17.3556 18.1155C17.5185 18.414 17.7804 18.6464 18.0961 18.7727L20.3455 19.6718C20.6606 19.7985 20.9217 20.0309 21.0841 20.3292C21.2465 20.6274 21.3 20.9728 21.2356 21.3062C21.1712 21.6396 20.9927 21.9402 20.7309 22.1564C20.4691 22.3726 20.1402 22.491 19.8006 22.4912H17.5871"
-                                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5"/>
                                 <path d="M19.2217 15.9521V15.1348" stroke="black" stroke-linecap="round"
                                       stroke-linejoin="round" stroke-width="1.5"/>
                                 <path d="M19.2217 23.3086V22.4912" stroke="black" stroke-linecap="round"
                                       stroke-linejoin="round" stroke-width="1.5"/>
                                 <path d="M12.6826 19.2217C12.6826 20.9559 13.3716 22.6192 14.5979 23.8455C15.8242 25.0718 17.4874 25.7607 19.2217 25.7607C20.9559 25.7607 22.6192 25.0718 23.8455 23.8455C25.0718 22.6192 25.7607 20.9559 25.7607 19.2217C25.7607 17.4874 25.0718 15.8242 23.8455 14.5979C22.6192 13.3716 20.9559 12.6826 19.2217 12.6826C17.4874 12.6826 15.8242 13.3716 14.5979 14.5979C13.3716 15.8242 12.6826 17.4874 12.6826 19.2217Z"
-                                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5"/>
                                 <path d="M8.5957 22.4912H2.87402C2.65934 22.4912 2.44676 22.4489 2.24843 22.3668C2.05009 22.2846 1.86987 22.1642 1.71807 22.0124C1.41149 21.7058 1.23926 21.29 1.23926 20.8564V2.87402C1.23926 2.44046 1.41149 2.02465 1.71807 1.71807C2.02465 1.41149 2.44046 1.23926 2.87402 1.23926H14.458C14.8914 1.23964 15.3069 1.41212 15.6132 1.71879L18.7432 4.84773C18.895 4.99961 19.0154 5.1799 19.0975 5.3783C19.1796 5.57671 19.2218 5.78934 19.2217 6.00405V8.5957"
-                                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5"/>
                             </g>
                             <defs>
                                 <clipPath id="clip0_446_9">
@@ -1525,11 +1986,13 @@
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_446_36)">
                                 <path d="M12.6826 19.7217C12.6826 21.4559 13.3716 23.1192 14.5979 24.3455C15.8242 25.5718 17.4874 26.2607 19.2217 26.2607C20.9559 26.2607 22.6192 25.5718 23.8455 24.3455C25.0718 23.1192 25.7607 21.4559 25.7607 19.7217C25.7607 17.9874 25.0718 16.3242 23.8455 15.0979C22.6192 13.8716 20.9559 13.1826 19.2217 13.1826C17.4874 13.1826 15.8242 13.8716 14.5979 15.0979C13.3716 16.3242 12.6826 17.9874 12.6826 19.7217Z"
-                                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5"/>
                                 <path d="M21.6738 19.7217H19.2217V16.4521" stroke="black" stroke-linecap="round"
                                       stroke-linejoin="round" stroke-width="1.5"/>
                                 <path d="M8.5957 22.9912H2.87402C2.65934 22.9912 2.44676 22.9489 2.24843 22.8668C2.05009 22.7846 1.86987 22.6642 1.71807 22.5124C1.41149 22.2058 1.23926 21.79 1.23926 21.3564V3.37402C1.23926 2.94046 1.41149 2.52465 1.71807 2.21807C2.02465 1.91149 2.44046 1.73926 2.87402 1.73926H14.458C14.8914 1.73964 15.3069 1.91212 15.6132 2.21879L18.7432 5.34773C18.895 5.49961 19.0154 5.6799 19.0975 5.8783C19.1796 6.07671 19.2218 6.28934 19.2217 6.50405V9.0957"
-                                      stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5"/>
                             </g>
                             <defs>
                                 <clipPath id="clip0_446_36">
@@ -1537,7 +2000,7 @@
                                 </clipPath>
                             </defs>
                         </svg>
-                    </a>
+                    </button>
                     <div class="request-message request-message-ready">
                         <p class="request-message-text">Документы в вашем распоряжении</p>
                     </div>
@@ -1555,17 +2018,16 @@
                     <div class="request-message request-message-inwork">
                         <p class="request-message-text">Документы находятся на обработке</p>
                     </div>
-					</button>
                 </form>
-			</div>
-                <a class="add-request" href='/'>
-                    <svg fill="none" height="42" viewBox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M33.25 22.7466H22.75V33.2466H19.25V22.7466H8.75V19.2466H19.25V8.74658H22.75V19.2466H33.25V22.7466Z"
-                              fill="black"/>
-                    </svg>
-                </a>
             </div>
-	</section>
+            <a class="add-request" href='/'>
+                <svg fill="none" height="42" viewBox="0 0 42 42" width="42" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M33.25 22.7466H22.75V33.2466H19.25V22.7466H8.75V19.2466H19.25V8.74658H22.75V19.2466H33.25V22.7466Z"
+                          fill="black"/>
+                </svg>
+            </a>
+        </div>
+    </section>
     <!--	<section class="payment-plan payment-plan-requests payment-plan-close " id="payment-page">-->
     <section class="payment-plan payment-plan-close" id="payment-page">
         <div class="section-header">

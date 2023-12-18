@@ -211,9 +211,9 @@
 .request-form-row textarea {
 	border: 2px solid #3755FA;
 	max-width: 330px;
-	min-height: 30px;
+	min-height: 25px;
 	min-width: 330px;
-	padding: 0 5px 0 5px;
+	padding: 5px 5px 0 5px;
 	position: relative;
 }
 
@@ -280,11 +280,12 @@
 	width: 344px;
 }
 
-.final-option a {
+.final-option button {
 	align-items: center;
-	background: #3755FA;
+
 	border: 2px solid #3755FA;
-	color: #ffffff;
+	background: #3755FA;
+       color: #ffffff;
 	display: flex;
 	height: 32px;
 	justify-content: center;
@@ -292,12 +293,13 @@
 	width: 155px;
 }
 
-.final-option a:nth-child(1) {
-	background: none;
-	color: #000;
+.final-option button:nth-child(1) {
+    background: none;
+    color: #000;
 }
 
-.final-option a:hover {
+
+.final-option button:hover {
 	background: #3755FA;
 	color: #ffffff;
 }
