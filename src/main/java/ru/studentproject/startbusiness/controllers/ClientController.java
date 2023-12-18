@@ -195,7 +195,20 @@ public class ClientController {
         model.addAttribute("delete_id",id);
         return "profile";
     }
+    @GetMapping("/form/pay")
+    public String pay(Model model,@RequestParam(required = true) Long id ){
+        Form form;
+        try {
+            form = formService.get(id);
+        }
+        catch (Exception e){
+            return "redirect:/profile";
+        }
+        form.setStatus(statusService.get(3L));
+        formService.save(form);
 
+        return "redirect:/profile";
+    }
     private static Employer getEmployer(FormDto formDto) {
         Employer employer = new Employer();
         employer.setNumber(formDto.getNumber());

@@ -13,7 +13,6 @@ public class Company {
     private Form form;
     private String FullName;
     private String ShortName;
-    @Lob
     private String Activities;
     private int CharterType = 22;
     @ManyToOne(targetEntity = Document.class, fetch = FetchType.EAGER)

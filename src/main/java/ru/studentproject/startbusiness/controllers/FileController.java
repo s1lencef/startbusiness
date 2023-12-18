@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,14 +18,20 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.studentproject.startbusiness.models.Document;
 import ru.studentproject.startbusiness.models.DocumentTypes;
+import ru.studentproject.startbusiness.models.Form;
+import ru.studentproject.startbusiness.repos.DocumentRepository;
 import ru.studentproject.startbusiness.service.FileService;
+import ru.studentproject.startbusiness.service.FormService;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 @Controller
 
@@ -32,7 +39,10 @@ public class FileController {
 
     @Autowired
     FileService fileService;
-
+    @Autowired
+    FormService formService;
+    @Autowired
+    DocumentRepository documentRepository;
     @GetMapping("/upload")
     public String uploadPage() {
         return "upload";
@@ -92,6 +102,30 @@ public class FileController {
         response.flushBuffer();
 
 
+    }
+    @GetMapping("/download/all")
+    public void dowloadAllFiles(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = true) Long id) throws IOException {
+        Form form = formService.get(id);
+        List<Document> documents = documentRepository.findByForm(form.getId());
+        ArrayList<Path> filesToDownload =  new ArrayList<>();
+        for(Document doc:documents){
+            filesToDownload.add(Paths.get(doc.getFilePath()));
+        }
+        String filename = form.getId()+" - "+form.getTax().getName()+".zip";
+        response.setContentType("application/zip"); // zip archive format
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
+                .filename(filename, StandardCharsets.UTF_8)
+                .build()
+                .toString());
+        try(ZipOutputStream zipOutputStream = new ZipOutputStream(response.getOutputStream())){
+            for (Path file : filesToDownload) {
+                try (InputStream inputStream = Files.newInputStream(file)) {
+                    zipOutputStream.putNextEntry(new ZipEntry(file.getFileName().toString()));
+                    StreamUtils.copy(inputStream, zipOutputStream);
+                    zipOutputStream.flush();
+                }
+            }
+        }
     }
 
 //    @PostMapping("/upload-files")
