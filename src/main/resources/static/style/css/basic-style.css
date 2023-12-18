@@ -551,7 +551,7 @@ li{
 	}
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 	.menu-unfold-2 {
 		width: calc(100vw - 130px);
 		padding-right: 0;
