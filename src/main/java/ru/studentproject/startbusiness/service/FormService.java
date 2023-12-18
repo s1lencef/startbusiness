@@ -41,4 +41,7 @@ public class FormService {
     public Form save(Form form) {
         return formRepository.save(form);
     }
+    public void delete(Form form){
+        formRepository.delete(form);
+    }
 }

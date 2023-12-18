@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 import ru.studentproject.startbusiness.models.Email;
+import ru.studentproject.startbusiness.models.Employer;
 
 import java.nio.charset.StandardCharsets;
 
@@ -39,4 +40,6 @@ public class EmailService {
             throw new RuntimeException(e);
         }
     }
+
+
 }

@@ -20,260 +20,290 @@
 <body>
 <header th:insert="header :: header"></header>
 <div id="content">
-    <!--	профиль пользователя-->
-    <section class="request-page">
-        <!--		форма анкеты-->
-        <div class="request-form" id="req-form">
-            <div class="big-wrapper">
-                <!--Заполнение формы 1-->
-                <div th:if="${status} == change" class="request-form-wrapper request-OOO">
-                    <div class="request-form-header">
-                        <th:block th:each="tax : ${curr_form.getTax()}">
-                            <p class="request-form-header-title" th:text="'Регистрация '+${tax.getName()}">
-                            </p>
-                        </th:block>
-                        <div class="request-form-header-menu" id="scrollDiv">
-                            <a class="request-form-header-menu-btn" id="request-form-header-menu-btn-1">
-                                <p>Личная информация</p>
-                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          stroke-width="1.83333"/>
-                                </svg>
-                            </a>
-                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-2">
-                                <p>Контактные данные</p>
-                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          stroke-width="1.83333"/>
-                                </svg>
-                            </a>
-                            <a class="request-form-header-menu-btn" id="request-form-header-menu-btn-3">
-                                <p>Паспортные данные</p>
-                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          stroke-width="1.83333"/>
-                                </svg>
-                            </a>
-                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-4">
-                                <p>Адрес места жительства </p>
-                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          stroke-width="1.83333"/>
-                                </svg>
-                            </a>
-                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-5">
-                                <p>Виды деятельности</p>
-                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          stroke-width="1.83333"/>
-                                </svg>
-                            </a>
-                            <a class="request-form-header-menu-btn " id="request-form-header-menu-btn-6">
-                                <p>Дата составления документов</p>
-                                <svg fill="none" height="14" viewBox="0 0 20 14" width="20"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          stroke-width="1.83333"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                    <form class="request-form-pages" method="POST">
-                        <div class="request-form-page" id='form1'>
-                            <div class="request-form-row request-form-page-header">
-                                <span class="request-span">Шаг 1 из 6:</span>
-                                <p>Личная информация</p>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Имя</span>
-                                <label class="request-input" for="name">
-                                    <input id="name" th:field="*{firstName}"/>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Отчество</span>
-                                <label class="request-input" for="middleName">
-                                    <input id="middleName" th:field="*{middleName}"/>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Фамилия</span>
-                                <label class="request-input" for="surname">
-                                    <input id="surname" th:field="*{lastName}"/>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Гражданство</span>
-                                <div class="radio-inputs">
-                                    <label class="request-check">
-                                        <input checked class="request-radio-btn" name="citizenship" required
-                                               type="radio"
-                                               value="1" th:field="*{citizenship}"/>
-                                        <span>Гражданин РФ</span>
-                                    </label>
-                                    <label class="request-check">
-                                        <input class="request-radio-btn" name="citizenship" required type="radio"
-                                               value="2" th:field="*{citizenship}"/>
-                                        <span>Иностранный гражданин</span>
-                                    </label>
-                                    <label class="request-check">
-                                        <input class="request-radio-btn" name="citizenship" required type="radio"
-                                               value="3" th:field="*{citizenship}"/>
-                                        <span>Лицо без гражданства</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Дата рождения</span>
-                                <label class="request-input" for="dateInput">
-                                    <input id="dateInput" name="dateInput" required type="text" th:field="*{birthDate}">
-                                    <p class="input-result" id="date-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Место рождения</span>
-                                <label class="request-input" for="birthInput">
-                                    <input id="birthInput" name="birthInput" required type="text"
-                                           th:field="*{birthPlace}">
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">ИНН</span>
-                                <label class="request-input" for="INNInput">
-                                    <input id="INNInput" name="INNInput" required type="text" th:field="*{iNN}">
-                                    <p class="input-result" id="INN-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row final-option">
-                                <button class="previous" id="form1-prev">
-                                    <p>Назад</p>
-                                </button>
-                                <button class="next" id="form1-next">
-                                    <p>Далее</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="request-form-page" id='form2'>
-                            <div class="request-form-row request-form-page-header">
-                                <span class="request-span">Шаг 2 из 6:</span>
-                                <p>Контактные данные</p>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Адрес электронной почты</span>
-                                <label class="request-input" for="emailInput">
-                                    <input id="emailInput" name="emailInput" required type="text" th:field="*{email}">
-                                    <p class="input-result" id="email-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Номер телефона</span>
-                                <label class="request-input" for="telInput">
-                                    <input id="telInput" name="telInput" required type="text" th:field="*{phone}">
-                                    <p class="input-result" id="tel-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row final-option">
-                                <button class="previous" id="form2-prev">
-                                    <p>Назад</p>
-                                </button>
-                                <button class="next" id="form2-next">
-                                    <p>Далее</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="request-form-page" id='form3'>
-                            <div class="request-form-row request-form-page-header">
-                                <span class="request-span">Шаг 3 из 6:</span>
-                                <p>Паспортные данные</p>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Вид документа</span>
-                                <div class="radio-inputs">
-                                    <label class="request-check">
-                                        <input checked class="request-radio-btn" name="passport_type" required
-                                               type="radio"
-                                               value="21" th:field="*{documentType}"/>
-                                        <span>Паспорт гражданина Российской Федерации</span>
-                                    </label>
-                                    <label class="request-check">
-                                        <input class="request-radio-btn" name="passport_type" required type="radio"
-                                               value="10" th:field="*{documentType}"/>
-                                        <span>Паспорт иностранного гражданина</span>
-                                    </label>
-                                    <label class="request-check">
-                                        <input class="request-radio-btn" name="passport_type" required type="radio"
-                                               value="12" th:field="*{documentType}"/>
-                                        <span>Вид на жительство</span>
-                                    </label>
-                                    <label class="request-check">
-                                        <input class="request-radio-btn" name="passport_type" required type="radio"
-                                               value="14" th:field="*{documentType}"/>
-                                        <span>Временное удостоверение личности гражданина Российской Федерации</span>
-                                    </label>
-                                    <label class="request-check">
-                                        <input class="request-radio-btn" name="passport_type" required type="radio"
-                                               value="23" th:field="*{documentType}"/>
-                                        <span>Свидетельство о рождении, выданное уполномоченным органом иностранного государства </span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Серия и номер</span>
-                                <label class="request-input" for="passportInput">
-                                    <input id="passportInput" name="passportInput" required type="text">
-                                    <p class="input-result" id="passport-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Дата выдачи</span>
-                                <label class="request-input" for="passDateInput">
-                                    <input id="passDateInput" name="passDateInput" required type="text">
-                                    <p class="input-result" id="passDate-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Кем выдан</span>
-                                <label class="request-input" for="departInput">
-                                    <textarea id="departInput" name="departInput" required type="text"></textarea>
-                                    <p class="input-result" id="depart-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Код подразделения</span>
-                                <label class="request-input" for="codeInput">
-                                    <input id="codeInput" name="codeInput" required type="text">
-                                    <p class="input-result" id="code-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row final-option">
-                                <button class="previous" id="form3-prev">
-                                    <p>Назад</p>
-                                </button>
-                                <button class="next" id="form3-next">
-                                    <p>Далее</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="request-form-page" id='form4'>
-                            <div class="request-form-row request-form-page-header">
-                                <span class="request-span">Шаг 4 из 6:</span>
-                                <p>Адрес места жительства</p>
-                            </div>
-                            <div class="request-form-row">
+
+	<!--	профиль пользователя-->
+	<section class="request-page">
+		<!--		форма анкеты-->
+		<div class="request-form" id="req-form">
+			<div class="big-wrapper">
+				<!--Заполнение формы-->
+				<div th:if ="${status} == change" class="request-form-wrapper">
+					<!--			<div class="request-form-wrapper" id="request-1">-->
+					<div class="request-form-header">
+						<th:block th:each="tax : ${curr_form.getTax()}">
+							<p class="request-form-header-title" th:text="'Регистрация '+${tax.getName()}">
+							</p>
+						</th:block>
+						<div class="request-form-header-menu" id="scrollDiv">
+							<!--					<a class="request-form-header-menu-btn request-form-header-menu-btn-ready" id="">-->
+							<a class="request-form-header-menu-btn" id="request-form-header-menu-btn-1">
+								<p>Личная информация</p>
+								<svg fill="none" height="14" viewBox="0 0 20 14" width="20"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round" stroke-linejoin="round"
+									      stroke-width="1.83333"/>
+								</svg>
+							</a>
+							<a class="request-form-header-menu-btn " id="request-form-header-menu-btn-2">
+								<p>Контактные данные</p>
+								<svg fill="none" height="14" viewBox="0 0 20 14" width="20"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round" stroke-linejoin="round"
+									      stroke-width="1.83333"/>
+								</svg>
+							</a>
+							<a class="request-form-header-menu-btn" id="request-form-header-menu-btn-3">
+								<p>Паспортные данные</p>
+								<svg fill="none" height="14" viewBox="0 0 20 14" width="20"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round" stroke-linejoin="round"
+									      stroke-width="1.83333"/>
+								</svg>
+							</a>
+							<a class="request-form-header-menu-btn " id="request-form-header-menu-btn-4">
+								<p>Адрес места жительства </p>
+								<svg fill="none" height="14" viewBox="0 0 20 14" width="20"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round" stroke-linejoin="round"
+									      stroke-width="1.83333"/>
+								</svg>
+							</a>
+							<a class="request-form-header-menu-btn " id="request-form-header-menu-btn-5">
+								<p>Виды деятельности</p>
+								<svg fill="none" height="14" viewBox="0 0 20 14" width="20"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round" stroke-linejoin="round"
+									      stroke-width="1.83333"/>
+								</svg>
+							</a>
+							<a class="request-form-header-menu-btn " id="request-form-header-menu-btn-6">
+								<p>Дата составления документов</p>
+								<svg fill="none" height="14" viewBox="0 0 20 14" width="20"
+								     xmlns="http://www.w3.org/2000/svg">
+									<path d="M19 1L7 13L1 7" stroke="#037700" stroke-linecap="round" stroke-linejoin="round"
+									      stroke-width="1.83333"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<form action = "#" class="request-form-pages" method = "post" th:action="@{'/form/change'(id = ${curr_form.id})}"  th:object="${newForm}">
+						<div class="request-form-page" id='form1'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Шаг 1 из 6:</span>
+								<p>Личная информация</p>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Имя</span>
+								<label class="request-input" for="name">
+									<input id="name" th:field="*{firstName}"/>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Отчество</span>
+								<label class="request-input" for="middleName">
+								<input id="middleName"th:field="*{middleName}"/>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Фамилия</span>
+								<label class="request-input" for="surname">
+								<input id="surname" th:field="*{lastName}"/>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Гражданство</span>
+								<div class="radio-inputs">
+									<label class="request-check">
+										<input checked class="request-radio-btn" name="citizenship" required type="radio"
+										       value="1" th:field = "*{citizenship}"/>
+										<span>Гражданин РФ</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="citizenship" required type="radio"
+										       value="2" th:field = "*{citizenship}"/>
+										<span>Иностранный гражданин</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="citizenship" required type="radio"
+										       value="3" th:field = "*{citizenship}"/>
+										<span>Лицо без гражданства</span>
+									</label>
+								</div>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Дата рождения</span>
+								<label class="request-input" for="dateInput">
+									<input id="dateInput" name="dateInput" required type="text" th:field = "*{birthDate}">
+									<p class="input-result" id="date-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Место рождения</span>
+								<label class="request-input" for="birthInput">
+									<input id="birthInput" name="birthInput" required type="text" th:field = "*{birthPlace}">
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Пол</span>
+								<div class="radio-inputs">
+									<label class="request-check">
+										<input checked class="request-radio-btn" name="sex" required type="radio"
+											   value="1" th:field = "*{sex}"/>
+										<span>Мужской</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="sex" required type="radio"
+											   value="2" th:field = "*{sex}"/>
+										<span>Женский</span>
+									</label>
+								</div>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">ИНН</span>
+								<label class="request-input" for="INNInput">
+									<input id="INNInput" name="INNInput" required type="text" th:field = "*{iNN}">
+									<p class="input-result" id="INN-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row final-option">
+								<a class="previous" id="form1-prev">
+									<p>Назад</p>
+								</a>
+								<a class="next" id="form1-next">
+									<p>Далее</p>
+								</a>
+							</div>
+						</div>
+						<div class="request-form-page" id='form2'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Шаг 2 из 6:</span>
+								<p>Контактные данные</p>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Адрес электронной почты</span>
+								<label class="request-input" for="emailInput">
+									<input id="emailInput" name="emailInput" required type="text" th:field = "*{email}">
+									<p class="input-result" id="email-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Номер телефона</span>
+								<label class="request-input" for="telInput">
+									<input id="telInput" name="telInput" required type="text" th:field = "*{phone}">
+									<p class="input-result" id="tel-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row final-option">
+								<a class="previous" id="form2-prev">
+									<p>Назад</p>
+								</a>
+								<a class="next" id="form2-next">
+									<p>Далее</p>
+								</a>
+							</div>
+						</div>
+						<div class="request-form-page" id='form3'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Шаг 3 из 6:</span>
+								<p>Паспортные данные</p>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Вид документа</span>
+								<div class="radio-inputs">
+									<label class="request-check">
+										<input checked class="request-radio-btn" name="passport_type" required type="radio"
+											   value="21" th:field = "*{documentType}"/>
+										<span>Паспорт гражданина Российской Федерации</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="passport_type" required type="radio"
+										       value="10" th:field = "*{documentType}"/>
+										<span>Паспорт иностранного гражданина</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="passport_type" required type="radio"
+										       value="12" th:field = "*{documentType}"/>
+										<span>Вид на жительство</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="passport_type" required type="radio"
+										       value="14" th:field = "*{documentType}"/>
+										<span>Временное удостоверение личности гражданина Российской Федерации</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="passport_type" required type="radio"
+										       value="23" th:field = "*{documentType}"/>
+										<span>Свидетельство о рождении, выданное уполномоченным органом иностранного государства </span>
+									</label>
+								</div>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Серия и номер</span>
+								<label class="request-input" for="passportInput">
+									<input id="passportInput" name="passportInput" required type="text">
+									<p class="input-result" id="passport-result" th:field = "*{number}" ></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Дата выдачи</span>
+								<label class="request-input" for="passDateInput">
+									<input id="passDateInput" name="passDateInput" required type="text" th:field = "*{issueDate}">
+									<p class="input-result" id="passDate-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Кем выдан</span>
+								<label class="request-input" for="departInput">
+									<textarea id="departInput" name="departInput" required type="text" th:field = "*{issuePlace}"></textarea>
+									<p class="input-result" id="depart-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Код подразделения</span>
+								<label class="request-input" for="codeInput">
+									<input id="codeInput" name="codeInput" required type="text" th:field = "*{issueCode}">
+									<p class="input-result" id="code-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row final-option">
+								<a class="previous" id="form3-prev">
+									<p>Назад</p>
+								</a>
+								<a class="next" id="form3-next">
+									<p>Далее</p>
+								</a>
+							</div>
+						</div>
+						<div class="request-form-page" id='form4'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Шаг 4 из 6:</span>
+								<p>Адрес места жительства</p>
+							</div>
+							<div class="request-form-row">
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-                                     xmlns="http://www.w3.org/2000/svg">
+									 xmlns="http://www.w3.org/2000/svg">
+	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"
+		  stroke="black" stroke-width="1.125"/>
+	<path d="M18.875 23V16.4C18.875 14.3254 18.875 13.2892 18.2157 12.6446C17.5565 12 16.4968 12 14.375 12H12.125C10.0032 12 8.9435 12 8.28425 12.6446C7.625 13.2892 7.625 14.3254 7.625 16.4V23"
+		  stroke="black" stroke-width="1.125"/>
+	<path d="M23.375 22.9998V7.34907C23.375 5.87508 23.375 5.13698 22.9745 4.57159C22.574 4.00619 21.8675 3.74659 20.4545 3.22959C17.6926 2.2165 16.3123 1.7105 15.3436 2.3661C14.375 3.02389 14.375 4.46489 14.375 7.34907V11.9999"
+		  stroke="black" stroke-width="1.125"/>
+	<path d="M4.25 7.59997V5.94998C4.25 4.91268 4.25 4.39459 4.57963 4.07229C4.90925 3.74999 5.43912 3.74999 6.5 3.74999H8.75C9.81088 3.74999 10.3407 3.74999 10.6704 4.07229C11 4.39459 11 4.91268 11 5.94998V7.59997M7.625 3.19999V1M24.5 22.9999H2M11 15.2999H15.5M11 18.5999H15.5"
+		  stroke="black" stroke-linecap="round" stroke-width="1.125"/>
+	</svg>
+
+							</span>
+								<label class="request-input" for="cityInput">
+									<input id="subjectInput" name="cityInput" placeholder="" required type="text" th:field = "*{subject}">
+									<p class="input-result" id="subject-result">Субъект Российской Федерации</p>
+								</label>
+							</div>
+							<div class="request-form-row">
+							<span class="request-span">
+								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+								     xmlns="http://www.w3.org/2000/svg">
+
 	<path d="M3.125 23V12.0001C3.125 9.92549 3.125 8.88929 3.78425 8.2447C4.4435 7.6001 5.50325 7.6001 7.625 7.6001C9.74675 7.6001 10.8065 7.6001 11.4657 8.2447C12.125 8.88929 12.125 9.92549 12.125 12.0001"
           stroke="black" stroke-width="1.125"/>
 	<path d="M18.875 23V16.4C18.875 14.3254 18.875 13.2892 18.2157 12.6446C17.5565 12 16.4968 12 14.375 12H12.125C10.0032 12 8.9435 12 8.28425 12.6446C7.625 13.2892 7.625 14.3254 7.625 16.4V23"
@@ -284,13 +314,13 @@
           stroke="black" stroke-linecap="round" stroke-width="1.125"/>
 	</svg>
 							</span>
-                                <label class="request-input" for="cityInput">
-                                    <input id="cityInput" name="cityInput" placeholder="" required type="text">
-                                    <p class="input-result" id="city-result">Город, населенный пункт, поселок,
-                                        деревня</p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
+
+								<label class="request-input" for="cityInput">
+									<input id="cityInput" name="cityInput" placeholder="" required type="text" th:field = "*{locality}">
+									<p class="input-result" id="city-result">Город, населенный пункт, поселок, деревня</p>
+								</label>
+							</div>
+							<div class="request-form-row">
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -304,12 +334,14 @@
           fill-rule="evenodd"/>
 	</svg>
 							</span>
-                                <label class="request-input" for="streetInput">
-                                    <input id="streetInput" name="streetInput" placeholder="" required type="text">
-                                    <p class="input-result" id="street-result">Улица, микрорайон, территория и т.д.</p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
+
+								<label class="request-input" for="streetInput">
+									<input id="streetInput" name="streetInput" placeholder="" required type="text" th:field = "*{street}">
+									<p class="input-result" id="street-result">Улица, микрорайон, территория и т.д.</p>
+								</label>
+							</div>
+							<div class="request-form-row">
+
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -317,12 +349,14 @@
           fill="black"/>
 	</svg>
 							</span>
-                                <label class="request-input" for="houseInput">
-                                    <input id="houseInput" name="houseInput" placeholder="" required type="text">
-                                    <p class="input-result" id="house-result">Дом, Корпус, Строение</p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
+
+								<label class="request-input" for="houseInput">
+									<input id="houseInput" name="houseInput" placeholder="" required type="text" th:field = "*{building}">
+									<p class="input-result" id="house-result">Дом, Корпус, Строение</p>
+								</label>
+							</div>
+							<div class="request-form-row">
+
 							<span class="request-span">
 								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
                                      xmlns="http://www.w3.org/2000/svg">
@@ -330,73 +364,282 @@
           fill="black"/>
 	</svg>
 							</span>
-                                <label class="request-input" for="officeInput">
-                                    <input id="officeInput" name="officeInput" placeholder="" required type="text">
-                                    <p class="input-result" id="office-result">Офис, квартира, помещение.<br>
-                                        Не рекомендуется указывать такие элементы как<br> этаж, кабинет, рабочее место
-                                    </p>
-                                </label>
-                            </div>
-                            <div class="request-form-row final-option">
-                                <button class="previous" id="form4-prev">
-                                    <p>Назад</p>
-                                </button>
-                                <button class="next" id="form4-next">
-                                    <p>Далее</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="request-form-page" id='form5'>
-                            <div class="request-form-row request-form-page-header">
-                                <span class="request-span">Шаг 5 из 6:</span>
-                                <p>Виды деятельности (для кодов по Оквед)</p>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Основной вид деятельности</span>
-                                <label class="request-input" for="okvedInput">
-                                    <textarea id="okvedInput" name="okvedInput" required type="text"></textarea>
-                                    <p class="input-result" id="okved-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required">Дополнительные виды деятельности</span>
-                                <label class="request-input" for="dopokvedInput">
-                                    <textarea id="dopokvedInput" name="dopokvedInput" required type="text"></textarea>
-                                    <p class="input-result" id="dopokved-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row final-option">
-                                <button class="previous" id="form5-prev">
-                                    <p>Назад</p>
-                                </button>
-                                <button class="next" id="form5-next">
-                                    <p>Далее</p>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="request-form-page" id='form6'>
-                            <div class="request-form-row request-form-page-header">
-                                <span class="request-span">Шаг 6 из 6:</span>
-                                <p>Дата составления документов</p>
-                            </div>
-                            <div class="request-form-row">
-                                <span class="request-span required"></span>
-                                <label class="request-input" for="docDateInput">
-                                    <input id="docDateInput" name="docDateInput" required type="text">
-                                    <p class="input-result" id="docDateInput-result"></p>
-                                </label>
-                            </div>
-                            <div class="request-form-row final-option">
-                                <button class="previous" id="form6-prev">
-                                    <p>Назад</p>
-                                </button>
-                                <button type="submit" id="form-1-6-next">
-                                    <p>Завершить</p>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+
+								<label class="request-input" for="officeInput">
+									<input id="officeInput" name="officeInput" placeholder="" required type="text" th:field = "*{office}">
+									<p class="input-result" id="office-result">Офис, квартира, помещение.<br>
+										Не рекомендуется указывать такие элементы как<br> этаж, кабинет, рабочее место</p>
+								</label>
+							</div>
+							<div class="request-form-row final-option">
+								<a class="previous" id="form4-prev">
+									<p>Назад</p>
+								</a>
+								<a class="next" id="form4-next">
+									<p>Далее</p>
+								</a>
+							</div>
+						</div>
+						<div class="request-form-page" id='form5'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Шаг 5 из 6:</span>
+								<p>Виды деятельности (для кодов по Оквед)</p>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Основной вид деятельности</span>
+								<label class="request-input" for="okvedInput">
+									<textarea id="okvedInput" name="okvedInput" required type="text" th:field = "*{mainActivities}"></textarea>
+									<p class="input-result" id="okved-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Дополнительные виды деятельности</span>
+								<label class="request-input" for="dopokvedInput">
+									<textarea id="dopokvedInput" name="dopokvedInput" required type="text" th:field = "*{activities}"></textarea>
+									<p class="input-result" id="dopokved-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row final-option">
+								<a class="previous" id="form5-prev">
+									<p>Назад</p>
+								</a>
+								<a class="next" id="form5-next">
+									<p>Далее</p>
+								</a>
+							</div>
+						</div>
+						<div class="request-form-page" id='form6'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Шаг 6 из 6:</span>
+								<p>Дата составления документов</p>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required"></span>
+								<label class="request-input" for="docDateInput">
+									<input id="docDateInput" name="docDateInput" required type="text">
+									<p class="input-result" id="docDateInput-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row final-option">
+								<a class="previous" id="form6-prev">
+									<p>Назад</p>
+								</a>
+								<button type = "submit" id="form-1-6-next">
+									<p>Завершить</p>
+								</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+<!--				Готовые документы-->
+				<div th:if = "${status} == done"  class="request-form-wrapper request-form-ready">
+					<div class="request-form-header">
+						<th:block th:each="tax : ${curr_form.getTax()}">
+							<p class="request-form-header-title" th:text="'Регистрация '+${tax.getName()}">
+							</p>
+						</th:block>
+						<p class="request-form-request-name" th:text = "'Заявка №'+${curr_form.id}"></p>
+					</div>
+					<div class="request-docs-wrapper">
+						<div class="request-docs">
+							<div class="docs">
+								<div class="document">
+									Ваши готовые документы
+								</div>
+								<div class="document" th:each = "document : ${documents}">
+									<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+										 xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_449_44)">
+											<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+												  stroke="black" stroke-linecap="round" stroke-linejoin="round"
+												  stroke-width="1.5"/>
+											<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+												  stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
+												  stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
+												  stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+												  stroke="black" stroke-linecap="round" stroke-linejoin="round"
+												  stroke-width="1.5"/>
+										</g>
+										<defs>
+											<clipPath id="clip0_449_44">
+												<rect fill="white" height="27" width="27"/>
+											</clipPath>
+										</defs>
+									</svg>
+									<p th:text = "${document.name}"></p>
+									<a class="business-document-btn" th:href="@{'/download?id='+${document.id}}">
+										<p>Скачать образец документа</p>
+									</a>
+								</div>
+
+								<div class="document">
+									<svg fill="none" height="28" viewBox="0 0 27 28" width="27"
+									     xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_481_139)">
+											<path d="M1.51172 5.94287H25.4883" stroke="black" stroke-linecap="round"
+											      stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M15.9531 1.5835H11.0488C10.8341 1.5835 10.6216 1.62578 10.4232 1.70794C10.2249 1.79009 10.0447 1.91051 9.89287 2.06231C9.74107 2.21411 9.62066 2.39433 9.5385 2.59266C9.45635 2.791 9.41406 3.00358 9.41406 3.21826V5.94287H17.5879V3.21826C17.5879 2.78469 17.4157 2.36889 17.1091 2.06231C16.8025 1.75573 16.3867 1.5835 15.9531 1.5835Z"
+											      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+											      stroke-width="1.5"/>
+											<path d="M11.0469 19.8384V11.6646" stroke="black" stroke-linecap="round"
+											      stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M15.9512 19.8384V11.6646" stroke="black" stroke-linecap="round"
+											      stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M20.9754 24.0561C20.945 24.4656 20.7607 24.8485 20.4593 25.1276C20.158 25.4066 19.7622 25.5612 19.3515 25.5601H7.64656C7.23587 25.5612 6.84001 25.4066 6.5387 25.1276C6.23739 24.8485 6.05301 24.4656 6.0227 24.0561L4.50781 5.94287H22.4902L20.9754 24.0561Z"
+											      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+											      stroke-width="1.5"/>
+										</g>
+										<defs>
+											<clipPath id="clip0_481_139">
+												<rect fill="white" height="27" transform="translate(0 0.0717773)"
+												      width="27"/>
+											</clipPath>
+										</defs>
+									</svg>
+									<a class="business-document-btn delete-request" id='delete-request' th:href = "@{/form/delete?id=}+${curr_form.id}">
+										<p>Удалить заявку</p>
+									</a>
+								</div>
+								<div class="document">
+									<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+									     xmlns="http://www.w3.org/2000/svg">
+										<g clip-path="url(#clip0_449_44)">
+											<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+											      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+											      stroke-width="1.5"/>
+											<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+											      stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
+											      stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
+											      stroke-linejoin="round" stroke-width="1.5"/>
+											<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+											      stroke="black" stroke-linecap="round" stroke-linejoin="round"
+											      stroke-width="1.5"/>
+										</g>
+										<defs>
+											<clipPath id="clip0_449_44">
+												<rect fill="white" height="27" width="27"/>
+											</clipPath>
+										</defs>
+									</svg>
+									<a class="business-document-btn" id='download-all'>
+										<p>Скачать все документы</p>
+									</a>
+								</div>
+								<div class="document">
+									<svg fill="none" height="28" viewBox="0 0 27 28" width="27"
+									     xmlns="http://www.w3.org/2000/svg">
+										<path d="M8.74624 22.5135C10.2097 23.293 11.843 23.6994 13.5011 23.6966C19.093 23.6966 23.6261 19.1635 23.6261 13.5716C23.6261 7.97975 19.093 3.44664 13.5011 3.44664C7.90924 3.44664 3.37613 7.97975 3.37613 13.5716C3.37613 15.2929 3.80524 16.9119 4.56124 18.3294C4.73762 18.6596 4.7791 19.0454 4.67695 19.4056L3.48702 23.5877L7.67009 22.3987C8.03014 22.2963 8.41588 22.3374 8.74624 22.5135ZM13.5011 25.1431C11.6055 25.1458 9.7384 24.6807 8.06545 23.7892L3.46581 25.0977C3.25933 25.1564 3.04093 25.1589 2.83319 25.1049C2.62545 25.0509 2.43589 24.9424 2.28411 24.7906C2.13234 24.6388 2.02384 24.4493 1.96984 24.2415C1.91584 24.0338 1.9183 23.8154 1.97695 23.6089L3.28452 19.0092C2.39235 17.3358 1.92699 15.468 1.9297 13.5716C1.9297 7.18132 7.11081 2.00021 13.5011 2.00021C19.8914 2.00021 25.0726 7.18132 25.0726 13.5716C25.0726 19.962 19.8914 25.1431 13.5011 25.1431ZM9.16184 11.402C9.16184 11.2102 9.23804 11.0262 9.37367 10.8906C9.5093 10.755 9.69325 10.6788 9.88506 10.6788H17.1172C17.309 10.6788 17.493 10.755 17.6286 10.8906C17.7642 11.0262 17.8404 11.2102 17.8404 11.402C17.8404 11.5938 17.7642 11.7778 17.6286 11.9134C17.493 12.049 17.309 12.1252 17.1172 12.1252H9.88506C9.69325 12.1252 9.5093 12.049 9.37367 11.9134C9.23804 11.7778 9.16184 11.5938 9.16184 11.402ZM9.16184 15.7413C9.16184 15.5495 9.23804 15.3655 9.37367 15.2299C9.5093 15.0943 9.69325 15.0181 9.88506 15.0181H14.2243C14.4162 15.0181 14.6001 15.0943 14.7357 15.2299C14.8714 15.3655 14.9476 15.5495 14.9476 15.7413C14.9476 15.9331 14.8714 16.117 14.7357 16.2527C14.6001 16.3883 14.4162 16.4645 14.2243 16.4645H9.88506C9.69325 16.4645 9.5093 16.3883 9.37367 16.2527C9.23804 16.117 9.16184 15.9331 9.16184 15.7413Z"
+										      fill="black"/>
+									</svg>
+									<a class="business-document-btn" id='open-chat'>
+										<p>Чат с сотрудником</p>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="request-side-text">
+							<p>Пакет ваших документов успешно сформирован. Теперь, для завершения процедуры регистрации вам
+								необходимо следовать инструкции:</p>
+							<ol>
+								<li>Оплатить госпошлину в размере 4000 руб. Сформировать квитанцию на уплату госпошлины можно на сайте ФНС РФ.</li>
+								<li>Перед подачей документов, заявителю необходимо подписать лист «И». Делать это можно только в присутствии налогового инспектора, при сдаче документов необходимо иметь с собой копию паспорта.</li>
+								<li>Документы передаются непосредственно лично в межрайонную инспекцию ФНС России № 7 по Санкт-Петербургу, расположенную по адресу: 190068, г. Санкт-Петербург, наб. канала Грибоедова, 133. Код инспекции 7838.</li>
+							</ol>
+							<p>Если все документы в порядке, налоговая инспекция через 3 рабочих дня направит по указанному вами адресу электронной почты:</p>
+							<ol>
+								<li>Лист записи ЕГРЮЛ;</li>
+								<li>Свидетельство о постановке на учет в налоговом органе.</li>
+							</ol>
+							<p>Также, документы можно забрать лично или через представителя по нотариально удостоверенной доверенности.</p>
+						</div>
+					</div>
+				</div>
+				<div th:if = "${status} == unpaid"  class="request-form-wrapper request-form-ready">
+					<div class="request-form-header">
+						<p class="request-form-header-title">
+							Зоплоти
+						</p>
+						<p class="request-form-request-name" th:text = "'Заявка №'+${curr_form.id}"></p>
+					</div>
+				</div>
+				<div th:if = "${status} == inwork"  class="request-form-wrapper request-form-ready">
+					<div class="request-form-header">
+						<p class="request-form-header-title">
+							Работаем (๑•̀ᗝ•́)૭
+						</p>
+						<p class="request-form-request-name" th:text = "'Заявка №'+${curr_form.id}"></p>
+					</div>
+				</div>
+				<!--Выбор бизнеса-->
+				<div th:if = "${status} == choose" class="request-form-wrapper request-form-choose">
+					<div class="businesses-wrapper" id="bis-wrap">
+						<div class="businesses-menu" id="bis-menu">
+							<div class="businesses-menu-header">Налоговые ставки</div>
+							<a class="business-btn" id='business-1'><strong>ИП</strong> УСН (ДОХОДЫ)</a>
+							<a class="business-btn" id='business-2'><strong>ИП</strong> УСН (ДОХОДЫ МИНУС РАСХОДЫ)</a>
+							<a class="business-btn" id='business-3'><strong>ИП</strong> ПСН</a>
+							<a class="business-btn" id='business-4'><strong>ООО</strong> УСН (ДОХОДЫ)</a>
+							<a class="business-btn" id='business-5'><strong>ООО</strong> УСН (ДОХОДЫ МИНУС РАСХОДЫ)</a>
+						</div>
+						<div class="businesses-info">
+							<div class="business-info business-info-open" id='business-info-1'>
+								<div>
+									<h4>ИП УСН (доходы)</h4>
+									<p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
+										подразумевает особый порядок уплаты налогов и ориентирован на представителей малого и
+										среднего бизнеса</p>
+									<h4>Условия применения УСН:</h4>
+									<ul>
+										<li>Число сотрудников <130 (чел)
+										<li>Доход <200 (млн.руб в год)</li>
+										<li>Остаточная стоимость <150 (млн.руб.)</li>
+									</ul>
+									<h4>Особенности режима:</h4>
+									<ul>
+										<li>Представление уведомления о переходе на УСН (не позднее последнего числа года,
+											предшествующего году, с которого планируется начать применение УСН)
+										</li>
+										<li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или) средней
+											численности работников (законами субъектов РФ ставка может быть снижена до 5%)
+										</li>
+										<li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от 5 до 15 % в
+											зависимости от категорий налогоплательщиков
+										</li>
+										<li>Необходимость подачи декларации раз в год.</li>
+									</ul>
+								</div>
+								<div class="docs">
+									<div class="document">
+										<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+											 xmlns="http://www.w3.org/2000/svg">
+											<g clip-path="url(#clip0_449_44)">
+												<path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
+													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
+													  stroke-width="1.5"/>
+												<path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
+													  stroke-linejoin="round" stroke-width="1.5"/>
+												<path d="M19.2217 22.4912L16.7695 20.0391" stroke="black" stroke-linecap="round"
+													  stroke-linejoin="round" stroke-width="1.5"/>
+												<path d="M19.2227 22.4912L21.6748 20.0391" stroke="black" stroke-linecap="round"
+													  stroke-linejoin="round" stroke-width="1.5"/>
+												<path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
+													  stroke="black" stroke-linecap="round" stroke-linejoin="round"
+													  stroke-width="1.5"/>
+											</g>
+											<defs>
+												<clipPath id="clip0_449_44">
+													<rect fill="white" height="27" width="27"/>
+												</clipPath>
+											</defs>
+										</svg>
+										<p>Документ P21001</p>
+
 <!--                &lt;!&ndash;Заполнение формы 2&ndash;&gt;-->
 <!--                <div class="request-form-wrapper">-->
 <!--                    <div class="request-form-header">-->
@@ -769,247 +1012,7 @@
 <!--                        </div>-->
 <!--                    </form>-->
 <!--                </div>-->
-                <!--				Готовые документы-->
-                <div th:if="${status} == done" class="request-form-wrapper request-form-ready">
-                    <div class="request-form-header">
-                        <p class="request-form-header-title">
-                            Регистрация ИП
-                        </p>
-                        <p class="request-form-request-name">Заявка №322132</p>
-                    </div>
-                    <div class="request-docs-wrapper">
-                        <div class="request-docs">
-                            <div class="docs">
-                                <div class="document">
-                                    Ваши готовые документы
-                                </div>
-                                <div class="document">
-                                    <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_449_44)">
-                                            <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                            <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_449_44">
-                                                <rect fill="white" height="27" width="27"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <p>Документ P21001</p>
-                                    <a class="business-document-btn">
-                                        <p>Скачать образец документа</p>
-                                    </a>
-                                </div>
-                                <div class="document">
-                                    <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_449_44)">
-                                            <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                            <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_449_44">
-                                                <rect fill="white" height="27" width="27"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <p>Форма № 26.2-1 (Заявление о переходе на УСН)</p>
-                                    <a class="business-document-btn">
-                                        <p>Скачать образец документа</p>
-                                    </a>
-                                </div>
-                                <div class="document">
-                                    <svg fill="none" height="28" viewBox="0 0 27 28" width="27"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_481_139)">
-                                            <path d="M1.51172 5.94287H25.4883" stroke="black" stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M15.9531 1.5835H11.0488C10.8341 1.5835 10.6216 1.62578 10.4232 1.70794C10.2249 1.79009 10.0447 1.91051 9.89287 2.06231C9.74107 2.21411 9.62066 2.39433 9.5385 2.59266C9.45635 2.791 9.41406 3.00358 9.41406 3.21826V5.94287H17.5879V3.21826C17.5879 2.78469 17.4157 2.36889 17.1091 2.06231C16.8025 1.75573 16.3867 1.5835 15.9531 1.5835Z"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                            <path d="M11.0469 19.8384V11.6646" stroke="black" stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M15.9512 19.8384V11.6646" stroke="black" stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M20.9754 24.0561C20.945 24.4656 20.7607 24.8485 20.4593 25.1276C20.158 25.4066 19.7622 25.5612 19.3515 25.5601H7.64656C7.23587 25.5612 6.84001 25.4066 6.5387 25.1276C6.23739 24.8485 6.05301 24.4656 6.0227 24.0561L4.50781 5.94287H22.4902L20.9754 24.0561Z"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_481_139">
-                                                <rect fill="white" height="27" transform="translate(0 0.0717773)"
-                                                      width="27"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <a class="business-document-btn delete-request" id='delete-request'>
-                                        <p>Удалить заявку</p>
-                                    </a>
-                                </div>
-                                <div class="document">
-                                    <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <g clip-path="url(#clip0_449_44)">
-                                            <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                            <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
-                                                  stroke-linecap="round"
-                                                  stroke-linejoin="round" stroke-width="1.5"/>
-                                            <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-                                                  stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                  stroke-width="1.5"/>
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_449_44">
-                                                <rect fill="white" height="27" width="27"/>
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                    <a class="business-document-btn" id='download-all'>
-                                        <p>Скачать все документы</p>
-                                    </a>
-                                </div>
-                                <div class="document">
-                                    <svg fill="none" height="28" viewBox="0 0 27 28" width="27"
-                                         xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.74624 22.5135C10.2097 23.293 11.843 23.6994 13.5011 23.6966C19.093 23.6966 23.6261 19.1635 23.6261 13.5716C23.6261 7.97975 19.093 3.44664 13.5011 3.44664C7.90924 3.44664 3.37613 7.97975 3.37613 13.5716C3.37613 15.2929 3.80524 16.9119 4.56124 18.3294C4.73762 18.6596 4.7791 19.0454 4.67695 19.4056L3.48702 23.5877L7.67009 22.3987C8.03014 22.2963 8.41588 22.3374 8.74624 22.5135ZM13.5011 25.1431C11.6055 25.1458 9.7384 24.6807 8.06545 23.7892L3.46581 25.0977C3.25933 25.1564 3.04093 25.1589 2.83319 25.1049C2.62545 25.0509 2.43589 24.9424 2.28411 24.7906C2.13234 24.6388 2.02384 24.4493 1.96984 24.2415C1.91584 24.0338 1.9183 23.8154 1.97695 23.6089L3.28452 19.0092C2.39235 17.3358 1.92699 15.468 1.9297 13.5716C1.9297 7.18132 7.11081 2.00021 13.5011 2.00021C19.8914 2.00021 25.0726 7.18132 25.0726 13.5716C25.0726 19.962 19.8914 25.1431 13.5011 25.1431ZM9.16184 11.402C9.16184 11.2102 9.23804 11.0262 9.37367 10.8906C9.5093 10.755 9.69325 10.6788 9.88506 10.6788H17.1172C17.309 10.6788 17.493 10.755 17.6286 10.8906C17.7642 11.0262 17.8404 11.2102 17.8404 11.402C17.8404 11.5938 17.7642 11.7778 17.6286 11.9134C17.493 12.049 17.309 12.1252 17.1172 12.1252H9.88506C9.69325 12.1252 9.5093 12.049 9.37367 11.9134C9.23804 11.7778 9.16184 11.5938 9.16184 11.402ZM9.16184 15.7413C9.16184 15.5495 9.23804 15.3655 9.37367 15.2299C9.5093 15.0943 9.69325 15.0181 9.88506 15.0181H14.2243C14.4162 15.0181 14.6001 15.0943 14.7357 15.2299C14.8714 15.3655 14.9476 15.5495 14.9476 15.7413C14.9476 15.9331 14.8714 16.117 14.7357 16.2527C14.6001 16.3883 14.4162 16.4645 14.2243 16.4645H9.88506C9.69325 16.4645 9.5093 16.3883 9.37367 16.2527C9.23804 16.117 9.16184 15.9331 9.16184 15.7413Z"
-                                              fill="black"/>
-                                    </svg>
-                                    <a class="business-document-btn" id='open-chat'>
-                                        <p>Чат с сотрудником</p>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="request-side-text">
-                            <p>Пакет ваших документов успешно сформирован. Теперь, для завершения процедуры регистрации
-                                вам
-                                необходимо следовать инструкции:</p>
-                            <ol>
-                                <li>Оплатить госпошлину в размере 4000 руб. Сформировать квитанцию на уплату госпошлины
-                                    можно на сайте ФНС РФ.
-                                </li>
-                                <li>Перед подачей документов, заявителю необходимо подписать лист «И». Делать это можно
-                                    только в присутствии налогового инспектора, при сдаче документов необходимо иметь с
-                                    собой копию паспорта.
-                                </li>
-                                <li>Документы передаются непосредственно лично в межрайонную инспекцию ФНС России № 7 по
-                                    Санкт-Петербургу, расположенную по адресу: 190068, г. Санкт-Петербург, наб. канала
-                                    Грибоедова, 133. Код инспекции 7838.
-                                </li>
-                            </ol>
-                            <p>Если все документы в порядке, налоговая инспекция через 3 рабочих дня направит по
-                                указанному вами адресу электронной почты:</p>
-                            <ol>
-                                <li>Лист записи ЕГРЮЛ;</li>
-                                <li>Свидетельство о постановке на учет в налоговом органе.</li>
-                            </ol>
-                            <p>Также, документы можно забрать лично или через представителя по нотариально
-                                удостоверенной доверенности.</p>
-                        </div>
-                    </div>
-                </div>
-                <!--Выбор бизнеса-->
-                <div th:if="${status} == choose" class="request-form-wrapper request-form-choose">
-                    <div class="businesses-wrapper" id="bis-wrap">
-                        <div class="businesses-menu" id="bis-menu">
-                            <div class="businesses-menu-header">Налоговые ставки</div>
-                            <a class="business-btn" id='business-1'><strong>ИП</strong> УСН (ДОХОДЫ)</a>
-                            <a class="business-btn" id='business-2'><strong>ИП</strong> УСН (ДОХОДЫ МИНУС РАСХОДЫ)</a>
-                            <a class="business-btn" id='business-3'><strong>ИП</strong> ПСН</a>
-                            <a class="business-btn" id='business-4'><strong>ООО</strong> УСН (ДОХОДЫ)</a>
-                            <a class="business-btn" id='business-5'><strong>ООО</strong> УСН (ДОХОДЫ МИНУС РАСХОДЫ)</a>
-                        </div>
-                        <div class="businesses-info">
-                            <div class="business-info business-info-open" id='business-info-1'>
-                                <div>
-                                    <h4>ИП УСН (доходы)</h4>
-                                    <p>Упрощенная система налогообложения (УСН) – это один из налоговых режимов, который
-                                        подразумевает особый порядок уплаты налогов и ориентирован на представителей
-                                        малого и
-                                        среднего бизнеса</p>
-                                    <h4>Условия применения УСН:</h4>
-                                    <ul>
-                                        <li>Число сотрудников <130 (чел)
-                                        <li>Доход <200 (млн.руб в год)</li>
-                                        <li>Остаточная стоимость <150 (млн.руб.)</li>
-                                    </ul>
-                                    <h4>Особенности режима:</h4>
-                                    <ul>
-                                        <li>Представление уведомления о переходе на УСН (не позднее последнего числа
-                                            года,
-                                            предшествующего году, с которого планируется начать применение УСН)
-                                        </li>
-                                        <li>Налоговая ставка 15% или 20% в зависимости от размера доходов и (или)
-                                            средней
-                                            численности работников (законами субъектов РФ ставка может быть снижена до
-                                            5%)
-                                        </li>
-                                        <li>Законами субъектов РФ могут быть установлены налоговые ставки в пределах от
-                                            5 до 15 % в
-                                            зависимости от категорий налогоплательщиков
-                                        </li>
-                                        <li>Необходимость подачи декларации раз в год.</li>
-                                    </ul>
-                                </div>
-                                <div class="docs">
-                                    <div class="document">
-                                        <svg fill="none" height="27" viewBox="0 0 27 27" width="27"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <g clip-path="url(#clip0_449_44)">
-                                                <path d="M12.6836 19.2217C12.6836 20.9559 13.3725 22.6192 14.5988 23.8455C15.8252 25.0718 17.4884 25.7607 19.2227 25.7607C20.9569 25.7607 22.6202 25.0718 23.8465 23.8455C25.0728 22.6192 25.7617 20.9559 25.7617 19.2217C25.7617 17.4874 25.0728 15.8242 23.8465 14.5979C22.6202 13.3716 20.9569 12.6826 19.2227 12.6826C17.4884 12.6826 15.8252 13.3716 14.5988 14.5979C13.3725 15.8242 12.6836 17.4874 12.6836 19.2217Z"
-                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-width="1.5"/>
-                                                <path d="M19.2227 15.9521V22.4912" stroke="black" stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="1.5"/>
-                                                <path d="M19.2217 22.4912L16.7695 20.0391" stroke="black"
-                                                      stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="1.5"/>
-                                                <path d="M19.2227 22.4912L21.6748 20.0391" stroke="black"
-                                                      stroke-linecap="round"
-                                                      stroke-linejoin="round" stroke-width="1.5"/>
-                                                <path d="M8.59473 22.4912H2.87305C2.65837 22.4912 2.44579 22.4489 2.24745 22.3668C2.04911 22.2846 1.86889 22.1642 1.71709 22.0124C1.41051 21.7058 1.23828 21.29 1.23828 20.8564V2.87402C1.23828 2.44046 1.41051 2.02465 1.71709 1.71807C2.02367 1.41149 2.43948 1.23926 2.87305 1.23926H14.457C14.8904 1.23964 15.3059 1.41212 15.6122 1.71879L18.7423 4.84773C18.894 4.99961 19.0144 5.1799 19.0965 5.3783C19.1786 5.57671 19.2208 5.78934 19.2207 6.00405V8.5957"
-                                                      stroke="black" stroke-linecap="round" stroke-linejoin="round"
-                                                      stroke-width="1.5"/>
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_449_44">
-                                                    <rect fill="white" height="27" width="27"/>
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
-                                        <p>Документ P21001</p>
+ 
 
                                         <a class="business-document-btn" th:href="@{/download?id=7}">
 
@@ -1872,18 +1875,26 @@
 
                                         <a class="business-document-btn" th:href="@{/download?id=8}">
 
-                                            <p>Скачать образец документа</p>
-                                        </a>
-                                    </div>
-                                </div>
-                                <a class="business-start-btn business-document-btn" id="business-start-btn-6"
-                                   th:href="@{/form/create?taxId=4}">
-                                    <p>Заполнить анкету</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+											<p>Скачать образец документа</p>
+										</a>
+									</div>
+								</div>
+								<a class="business-start-btn business-document-btn" id="business-start-btn-6"  th:href = "@{/form/create?taxId=4}">
+									<p>Заполнить анкету</p>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+<!--				Заявка удалена-->
+				<div th:if = "${status} == deleted"  class="request-form-wrapper request-form-ready">
+					<div class="request-form-header">
+						<p class="request-form-header-title" th:text = "'Заявка № '+ ${delete_id}+ 'удалена'">
+						</p>
+					</div>
+				</div>
+
 
             </div>
         </div>

@@ -6,17 +6,21 @@ import jakarta.validation.constraints.Email;
 @Entity
 public class Company {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne(targetEntity = Form.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "form_id")
+    private Form form;
     private String FullName;
     private String ShortName;
     @Lob
     private String Activities;
     private int CharterType = 22;
     @ManyToOne(targetEntity = Document.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "charter_id")
+    @JoinColumn(nullable = true, name = "charter_id")
     private Document Charter;
     @ManyToOne(targetEntity = Subject.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "subject_id")
+    @JoinColumn(nullable = true, name = "subject_id")
     private Subject subject;
     private String Locality;
     private String Street;
@@ -141,5 +145,13 @@ public class Company {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
     }
 }
