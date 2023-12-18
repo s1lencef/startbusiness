@@ -47,14 +47,16 @@ body {
 	height: 100%;
 	overflow-x: hidden;
 	position: absolute;
-	right: -50px;
+	right: -62px;
+	border-left:13px solid #3755FA;
 	top: 0;
 	width: 50px;
 	transition: 0.3s;
 }
 
 #request-toggle:hover {
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(3px);
+
 }
 
 #request-toggle svg {
@@ -70,7 +72,7 @@ body {
 	border-radius: 100%;
 	height: 30px;
 	position: absolute;
-	transform: translateX(-30%);
+	transform: translateX(-60%);
 	transition: all 0.1s;
 	width: 30px;
 }
@@ -79,6 +81,11 @@ body {
 	height: 50px;
 	transform: translateX(-40%);
 	width: 50px;
+}
+
+.request-toggle-open{
+    border-left:3px solid #3755FA!important;
+    right: -52px !important;
 }
 
 .request-toggle-open span {

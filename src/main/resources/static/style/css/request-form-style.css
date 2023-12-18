@@ -211,9 +211,9 @@
 .request-form-row textarea {
 	border: 2px solid #3755FA;
 	max-width: 330px;
-	min-height: 30px;
+	min-height: 25px;
 	min-width: 330px;
-	padding: 0 5px 0 5px;
+	padding: 5px 5px 0 5px;
 	position: relative;
 }
 

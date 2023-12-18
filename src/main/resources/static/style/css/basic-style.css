@@ -241,7 +241,9 @@ padding: 0;
 .docs-menu{
 	width: 200px;
 	display: flex;
+	font-size: 1.1em;
 	flex-direction: column;
+	backdrop-filter: blur(5px);
 }
 
 .docs-menu .menu-btn2:hover {
@@ -269,7 +271,15 @@ li{
 	margin-bottom: 5px;
 }
 
-.docs-info > .menu-p{
+.menu-p{
+	height: 0;
+	overflow:auto;
+	padding: 0 20px;
+	opacity: 0;
+	transition: 0.6s;
+}
+
+.docs-info .menu-p{
 	height: 0;
 	overflow:auto;
 	padding: 0 20px;
@@ -292,11 +302,14 @@ li{
 	opacity: 1 !important;
 }
 
-
 .docs{
 	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
+}
+
+.docs-info .docs{
+	margin: 0 0 20px 0;
 }
 
 .document{
@@ -314,15 +327,25 @@ li{
 }
 
 .document > p{
-
 	max-width: 220px;
 	flex: 0 0 auto;
-
 	margin-right: 10px;
 }
 
 .business-document-btn{
 	min-width: 170px;
+	border: 2px solid #3755FA;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	padding: 5px;
+	position: relative;
+	transition: 0.2s;
+}
+
+.docs-info .business-document-btn{
+	min-width: 170px;
+	margin-left: auto;
 	border: 2px solid #3755FA;
 	align-items: center;
 	justify-content: center;

@@ -45,7 +45,7 @@
 }
 
 .blob:hover {
-	filter: blur(30px) hue-rotate(360deg);
+	/*filter: blur(30px) hue-rotate(360deg);*/
 }
 
 .log-form-container {
@@ -138,7 +138,6 @@
 	padding: 0 18px 0 18px;
 	width: 340px;
 	transition: 0.2s ease-in-out;
-
 }
 
 .log-input:hover {
