@@ -3,6 +3,8 @@ package ru.studentproject.startbusiness.dto;
 import jakarta.validation.constraints.Email;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class FormDto {
@@ -205,5 +207,37 @@ public class FormDto {
 
     public void setLocality(String locality) {
         this.locality = locality;
+    }
+    public String toString(){
+        return getLastName()+"&"+getFirstName()+"&"+getMiddleName()+"&"+getCitizenship()+"&"+new SimpleDateFormat("dd-MM-yyyy").format(getBirthDate())
+                +"&"+getBirthPlace()+"&"+getiNN()+"&"+getSex()+"&"+getEmail()+"&"+getPhone()+"&"+getDocumentType()+"&"+getNumber()+"&"+getIssueDate()+"&"+getIssuePlace()
+                + "&"+getSubject() + "&" + getLocality() + "&" + getStreet() + "&" + getBuilding() + "&" + getOffice() + "&"+getMainActivities()+"&"+getActivities();
+
+    }
+
+    public FormDto() {
+        this.firstName = "Максим";
+        this.lastName = "Авиатков";
+        this.middleName = "Семенович";
+        this.citizenship = 123;
+        Calendar now = Calendar.getInstance();
+        this.birthDate = now.getTime();
+        this.birthPlace = "Сургутуралкирпич";
+        this.iNN = 1234567898L;
+        this.sex = 1;
+        this.email="maxim@mail.ru";
+        this.phone="79211113314";
+        this.documentType = 21;
+        this.number=1234556890L;//серия и номер паспорта
+        this.issueDate = now.getTime();
+        this.issuePlace = "МП №9 УФМС РФ Выборгского района Санкт-Петербурга по Санкт-Петербургу и Ленинградской области";
+        this.issueCode = "123-123";
+        this.subject = "78";
+        this.locality = "г.Санкт-Петербруг";
+        this.street="ул.Папова";
+        this.building="1";
+        this.office = "12";
+        this.mainActivities = "43.68.12";
+        this.activities = "43.68.13 43.68.13";
     }
 }
