@@ -2072,8 +2072,11 @@
 				<!--Заявка удалена-->
 				<div th:if = "${status} == deleted"  class="request-form-wrapper request-form-ready">
 					<div class="request-form-header">
-						<p class="request-form-header-title" th:text = "'Заявка № '+ ${delete_id}+ 'удалена'">
-						</p>
+						<th:block th:each="tax : ${curr_form.getTax()}">
+							<p class="request-form-header-title" th:text="'Регистрация '+${tax.getName()}">
+							</p>
+						</th:block>
+						<p class="request-form-request-name" th:text = "'Заявка № '+ ${delete_id}+ ' удалена'"></p>
 					</div>
                     <div class="request-form-pages center-svg">
                         <svg width="382" height="280" viewBox="0 0 382 280" fill="none" xmlns="http://www.w3.org/2000/svg">
