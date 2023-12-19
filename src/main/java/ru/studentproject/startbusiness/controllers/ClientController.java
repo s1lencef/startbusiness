@@ -151,7 +151,8 @@ public class ClientController {
 
         Company company = new Company();
         company.setForm(curr_form);
-        company.setActivities(formDto.getMainActivities() +" "+ formDto.getActivities());
+        company.setMainActivities(formDto.getMainActivities());
+        company.setActivities(formDto.getActivities());
         company.setSubject(subjectService.findByName(formDto.getSubject()));
         company.setLocality(formDto.getLocality());
         company.setStreet(formDto.getStreet());
@@ -227,6 +228,7 @@ public class ClientController {
             return "redirect:/profile";
         }
         form.setStatus(statusService.get(3L));
+        form.setStaff(userService.getById(24L));
         formService.save(form);
 
         return "redirect:/profile";

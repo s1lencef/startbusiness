@@ -13,6 +13,7 @@ public class Company {
     private Form form;
     private String FullName;
     private String ShortName;
+    private String mainActivities;
     private String Activities;
     private int CharterType = 22;
     @ManyToOne(targetEntity = Document.class, fetch = FetchType.EAGER)
@@ -27,25 +28,6 @@ public class Company {
     private String Office;
     @Email
     private String email;
-
-    public Company(Long id, String fullName, String shortName,
-                   String activities, int charterType, Document charter,
-                   Subject subject, String locality, String street,
-                   String building, String office, String email)
-    {
-        this.id = id;
-        FullName = fullName;
-        ShortName = shortName;
-        Activities = activities;
-        CharterType = charterType;
-        Charter = charter;
-        this.subject = subject;
-        Locality = locality;
-        Street = street;
-        Building = building;
-        Office = office;
-        this.email = email;
-    }
 
     public Company() {
     }
@@ -152,5 +134,13 @@ public class Company {
 
     public void setForm(Form form) {
         this.form = form;
+    }
+
+    public String getMainActivities() {
+        return mainActivities;
+    }
+
+    public void setMainActivities(String mainActivities) {
+        this.mainActivities = mainActivities;
     }
 }
