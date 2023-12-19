@@ -23,7 +23,7 @@
 		</form>
 		<a class="menu-btn2" th:unless="${user}" th:href="@{/profile}">Вход</a>
 
-		<a class = "menu-btn2 authorized"th:if="${user}">
+		<a class = "menu-btn2 authorized"th:if="${user}" th:href = "@{/profile}">
 			<svg fill="none" height="24" viewBox="0 ,0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
 				<path d="M20.2861 23.2446C19.7146 21.3826 18.4523 19.738 16.6976 18.5648C14.9429 17.3916 12.7925 16.7554 10.5806 16.7554C8.36865 16.7554 6.21827 17.3916 4.46356 18.5648C2.70885 19.738 1.44651 21.3826 0.875 23.2446"
 					  stroke="black" stroke-linecap="round" stroke-width="1.5"/>
@@ -721,7 +721,7 @@
 				   type="hidden"/>
 		</form>
 		<a class="menu-btn" id='auth-btn-4' th:unless="${user}" th:href="@{/profile}">Вход</a>
-		<a class = "menu-btn authorized"th:if="${user}">
+		<a class = "menu-btn authorized"th:if="${user}" th:href = "@{/profile}">
 				<span th:text="${user.firstName}"></span>
 				<svg fill="none" height="24" viewBox="0 0 22 24" width="22" xmlns="http://www.w3.org/2000/svg">
 					<path d="M20.7061 23.1223C20.1345 21.2603 18.8722 19.6158 17.1175 18.4425C15.3628 17.2693 13.2124 16.6331 11.0005 16.6331C8.78857 16.6331 6.6382 17.2693 4.88348 18.4425C3.12877 19.6158 1.86643 21.2603 1.29492 23.1223"

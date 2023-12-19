@@ -23,6 +23,9 @@ public class FormService {
     public List<Form> getUsersForms(User user) {
         return formRepository.findByUser(user);
     }
+    public List<Form> getAdminForms(User user) {
+        return formRepository.findByStaff(user);
+    }
     public Form get(Long id){
         return formRepository.getReferenceById(id);
     }
