@@ -1,8 +1,7 @@
 .center-svg{
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
-	padding: 3em;
+	justify-content: center;
 }
 
 .center-svg svg{

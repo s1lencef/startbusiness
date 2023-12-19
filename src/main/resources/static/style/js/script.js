@@ -49,7 +49,7 @@ const mask3 = IMask(emailInput, {
     placeholderChar: '_'
 });
 const mask4 = IMask(telInput, {
-    mask: '+0(000) 000-00-00',
+    mask: '+7(000)000-00-00',
     startsWith: '7',
     lazy: false,
     country: 'Russia'
@@ -120,6 +120,7 @@ Input5.addEventListener('input', function () {
     let regex = /^\d{4} \d{6}$/;
     if (regex.test(Input)) {
         document.getElementById('passport-result').textContent = 'Паспортные данные введены правильно!';
+        console.log(Input);
     } else {
         document.getElementById('passport-result').textContent = 'Неверный формат серии и номера паспорта!';
     }

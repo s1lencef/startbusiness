@@ -189,7 +189,7 @@
 							<div class="request-form-row">
 								<span class="request-span required">Номер телефона</span>
 								<label class="request-input" for="telInput">
-									<input id="telInput" name="telInput" pattern="\+7\s?[\(]{0,1}9[0-9]{2}[\)]{0,1}\s?\d{3}[-]{0,1}\d{2}[-]{0,1}\d{2}" required type="text" th:field = "*{phone}">
+									<input id="telInput" name="telInput" required type="tel" th:field = "*{phone}">
 									<p class="input-result" id="tel-result"></p>
 								</label>
 							</div>
@@ -240,7 +240,7 @@
 							<div class="request-form-row">
 								<span class="request-span required">Серия и номер</span>
 								<label class="request-input" for="passportInput">
-									<input id="passportInput" name="passportInput" required type="text">
+									<input id="passportInput" name="passportInput" pattern="^\d{4} \d{6}$" required type="text">
 									<p class="input-result" id="passport-result" th:field = "*{number}" ></p>
 								</label>
 							</div>
@@ -261,7 +261,7 @@
 							<div class="request-form-row">
 								<span class="request-span required">Код подразделения</span>
 								<label class="request-input" for="codeInput">
-									<input id="codeInput" name="codeInput" required type="text" th:field = "*{issueCode}">
+									<input id="codeInput" name="codeInput" required pattern="^\d{3}-\d{3}$" type="text" th:field = "*{issueCode}">
 									<p class="input-result" id="code-result"></p>
 								</label>
 							</div>
