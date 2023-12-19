@@ -14,10 +14,7 @@ import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.Company;
 import ru.studentproject.startbusiness.models.Form;
 import ru.studentproject.startbusiness.models.User;
-import ru.studentproject.startbusiness.service.CompanyService;
-import ru.studentproject.startbusiness.service.FormService;
-import ru.studentproject.startbusiness.service.StatusService;
-import ru.studentproject.startbusiness.service.UserService;
+import ru.studentproject.startbusiness.service.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -36,6 +33,8 @@ public class AdminController {
     CompanyService companyService;
     @Autowired
     StatusService statusService;
+    @Autowired
+    TaxService  taxService;
     @GetMapping()
     public String adminHome(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -69,7 +68,7 @@ public class AdminController {
         company = companyService.save(company);
         curr_form.setStatus(statusService.get(5L));
         curr_form = formService.save(curr_form);
-        return"redirect:/admin/form/make";
+        return"redirect:/admin/form/make?id="+curr_form.getId();
     }
     @GetMapping("/form/make")
     public String makeDocs(@RequestParam(required = false) Long id, Model model) throws IOException, InterruptedException {
@@ -91,7 +90,31 @@ public class AdminController {
         while ((Output_line = Buffered_Reader.readLine()) != null) {
             System.out.println(Output_line);
         }
+        Form form = formService.get(id);
+        if (form.getTax() == taxService.get(2L)){
+            System.out.println("импотент");
+            scriptPath = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\Patent.py";
+        }
+        else{
+            System.out.println("Утка");
+            scriptPath = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\USN.py";
+        }
+       Process_Builder = new
+                ProcessBuilder("python",scriptPath)
+                .inheritIO();
+        Demo_Process = Process_Builder.start();
 
+        Demo_Process.waitFor();
+
+       Buffered_Reader = new BufferedReader(
+                new InputStreamReader(
+                        Demo_Process.getInputStream()
+                ));
+       Output_line = "";
+
+
+        form.setStatus(statusService.get(4L));
+        form = formService.save(form);
 
         return "redirect:/admin";
     }

@@ -24,7 +24,7 @@ def len_splitting(data, data_len, field_name, field_data):
                 line = words[i] + ' '
                 j += 1
         if i == len(words) - 1:
-            all_lines.append(line)
+             all_lines.append(line)
     else:
         all_lines.append(data)
     return completion(all_lines, field_name, field_data)
@@ -55,7 +55,7 @@ def R21001(DATA, FIELDS_LEN, FIELDS_NAME, field_data):
                 pdf_writer.update_page_form_field_values(page, {field: value})
             except:
                 pass
-    new_file_name = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\R21001_" + DATA[13].replace(" ", "_") + ".pdf"
+    new_file_name = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\R21001_" + DATA[6] + ".pdf"
     with open(new_file_name, 'wb') as output_file:
         pdf_writer.write(output_file)
 def start_R21001():
@@ -72,19 +72,17 @@ def start_R21001():
     user_ids = []
 
     for row in cursor:
-        user_ids.append(row[0])
-    cursor.execute('SELECT * FROM employer WHERE form_id =' + str(user_ids[0]))
+        user_ids.append(row)
+    cursor.execute('SELECT * FROM employer WHERE form_id =' + str(user_ids[0][0]))
     for row in cursor:
         empl_infs = row
-    cursor.execute('SELECT * FROM company WHERE form_id =' + str(user_ids[0]))
+    cursor.execute('SELECT * FROM company WHERE form_id =' + str(user_ids[0][0]))
     for row in cursor:
         comp_infs = row
     cursor.execute('SELECT * FROM subject WHERE id =' + str(comp_infs[13]))
     for row in cursor:
         subj_infs = row
-    #Изменяем статус заявки
-    #cursor.execute('Update form set "status" = 4 WHERE id =' + str(user_ids[0]))
-    #conn.commit()
+
 
     cursor.execute('SELECT * FROM documents')
     for row in cursor:
@@ -92,9 +90,9 @@ def start_R21001():
     insert_query = """ INSERT INTO documents (id, date, file_path, form_id, name, user_id, type)
                                   VALUES (%s, %s, %s, %s, %s, %s, %s)"""
     item_purchase_time = datetime.datetime.now()
-    file_path = os.getcwd()
-    item_tuple = (int(last_id) + 1, item_purchase_time, file_path, user_ids[0], "R21001_" + str(empl_infs[16])[0:4] + "_" + str(empl_infs[16])[4::] + ".pdf", 24, 2)
-    #cursor.execute(insert_query, item_tuple)
+    file_path = os.getcwd()+"\\R21001_" + str(empl_infs[6]) + ".pdf"
+    item_tuple = (int(last_id) + 1, item_purchase_time, file_path, user_ids[0][0], "R21001_" + str(empl_infs[6]) + ".pdf", 24, 2)
+    cursor.execute(insert_query, item_tuple)
     print(item_tuple)
     conn.commit()
     cursor.close()
@@ -112,7 +110,7 @@ def start_R21001():
     DOC_NUM = str(empl_infs[16])[0:4] + " " + str(empl_infs[16])[4::] # Format: "0421 651128"
     DOC_DATE = empl_infs[8].strftime('%d.%m.%Y')  # Format: "06.12.2013"
     DOC_PLACE = str(empl_infs[9])  # Format: "УФМС РФ ПО г. САНКТ-ПЕТЕРБУРГ"
-    DOC_CODE = str(empl_infs[7]) # Format: "780005"
+    DOC_CODE = str(empl_infs[7]).replace("-", "") # Format: "780005"
     ADRESS_S_RF = str(comp_infs[13]) # Format: "27"
     # ...
     ADRESS_1 = str(subj_infs[2]) # Format: "3"
@@ -134,7 +132,7 @@ def start_R21001():
     ADRESS_PLACE_2 = "офис " + str(comp_infs[6])   # Format: "кв. 21"
     ADRESS_PLACE_3 = ""  # Format: "кв. 59"
     EMAIL = empl_infs[15]  # Format: "ANNA.VS@MAIL.RU"
-    PHONE = empl_infs[17]  # Format: "+79117615542"
+    PHONE = empl_infs[17].replace("(", "").replace(")", "").replace("-", "").replace(" ", "")  # Format: "+79117615542"
     MAIN_CODE = comp_infs[10].replace(".", " ")  # Format: "10 78 71"
     DOP_COD = comp_infs[1].replace(".", " ")  # Format: "10 78 72 47 78 24"
     ###___DATA___IP___
@@ -339,4 +337,3 @@ def start_R21001():
     ]
     R21001(DATA_3, FIELDS_LEN_3, FIELDS_NAME_3, {})
 start_R21001()
-

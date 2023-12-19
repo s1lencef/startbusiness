@@ -34,8 +34,8 @@
 
 		</a>
 
-		<a class="enter-btn" th:if="${user}" th:href="@{/profile?id=}+${user.id}" id='open_request'><p>Создать анкету</p></a>
-		<a class="enter-btn" th:unless="${user}" th:href="@{/login}" id='open_request'><p>Создать анкету</p></a>
+		<a class="enter-btn"  th:href="@{/profile}" id='open_request1'><p>Создать анкету</p></a>
+
 
 		<a class="enter-btn" href="" id='open_chat'><p>Открыть чат с сотрудником</p></a>
 
