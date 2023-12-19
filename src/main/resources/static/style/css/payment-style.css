@@ -108,6 +108,43 @@
 	margin: auto 0 15px 30px;
 }
 
+
+.delete-unpaid-request::before{
+	position: absolute;
+	right: -450px;
+	z-index: -1;
+	bottom: -350px;
+	opacity: 1;
+	content: url("../img/business_image5.svg");
+	transition: 0.4s;
+}
+
+.delete-unpaid-request::after{
+	position: absolute;
+	right: -520px;
+	z-index: -1;
+	bottom: -410px;
+	opacity: 0;
+	content: url("../img/business_image4.svg");
+	transition: 0.4s;
+}
+
+.delete-unpaid-request:hover::after{
+	opacity: 1;
+	bottom: -360px;
+	right: -390px;
+}
+
+.delete-unpaid-request:hover::before{
+	opacity: 0;
+}
+
+.buy-request{
+	background: #3755FA;
+	color: #fff;
+}
+
+
 @media (max-width: 1200px) {
 	.payment-plan-card-wrapper{
 		height: auto;
