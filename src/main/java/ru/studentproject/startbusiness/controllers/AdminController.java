@@ -1,5 +1,6 @@
 package ru.studentproject.startbusiness.controllers;
 
+import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,6 +19,9 @@ import ru.studentproject.startbusiness.service.FormService;
 import ru.studentproject.startbusiness.service.StatusService;
 import ru.studentproject.startbusiness.service.UserService;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.List;
 
 
@@ -63,11 +67,34 @@ public class AdminController {
         company.setMainActivities(aDto.getMainActivities());
         company.setActivities(aDto.getActivities());
         company = companyService.save(company);
-        curr_form.setStatus(statusService.get(4L));
+        curr_form.setStatus(statusService.get(5L));
         curr_form = formService.save(curr_form);
-        return"redirect:/admin";
+        return"redirect:/admin/form/make";
     }
+    @GetMapping("/form/make")
+    public String makeDocs(@RequestParam(required = false) Long id, Model model) throws IOException, InterruptedException {
+        String scriptPath = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\IP.py";
 
+        ProcessBuilder Process_Builder = new
+                ProcessBuilder("python",scriptPath)
+                .inheritIO();
+
+        Process Demo_Process = Process_Builder.start();
+        Demo_Process.waitFor();
+
+        BufferedReader Buffered_Reader = new BufferedReader(
+                new InputStreamReader(
+                        Demo_Process.getInputStream()
+                ));
+        String Output_line = "";
+
+        while ((Output_line = Buffered_Reader.readLine()) != null) {
+            System.out.println(Output_line);
+        }
+
+
+        return "redirect:/admin";
+    }
 
 
 }

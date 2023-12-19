@@ -1,5 +1,6 @@
 package ru.studentproject.startbusiness.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -8,7 +9,8 @@ public class Types {
     @Id
     private Long id;
     private String name;
-
+    @Column(name = "tax_text")
+    private String text;
     public Long getId() {
         return id;
     }
@@ -23,5 +25,13 @@ public class Types {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

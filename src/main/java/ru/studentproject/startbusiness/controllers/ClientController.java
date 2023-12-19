@@ -50,7 +50,6 @@ public class ClientController {
 
     @GetMapping("/profile")
     public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) throws IOException {
-        makeDocuments();
         if(id == null){
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -197,6 +196,11 @@ public class ClientController {
 
     @GetMapping("/form/delete")
     public String deleteForm(Model model,@RequestParam(required = true) Long id ){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        User curr_user = userService.findByEmail(email);
+        List<Form> forms = formService.getUsersForms(curr_user);
+        model.addAttribute("forms",forms);
         Form form;
         try {
             form = formService.get(id);
@@ -227,7 +231,7 @@ public class ClientController {
         catch (Exception e){
             return "redirect:/profile";
         }
-        form.setStatus(statusService.get(3L));
+        form.setStatus(statusService.get(2L));
         form.setStaff(userService.getById(24L));
         formService.save(form);
 
