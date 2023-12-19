@@ -1,3 +1,6 @@
+
+document.getElementById('prices-btn-2').addEventListener('click', paymentPlans);
+
 let requestToggle = document.getElementById('request-toggle')
 requestToggle.addEventListener('click', () => {
     document.getElementById('req').classList.toggle('requests-closed');
@@ -9,6 +12,11 @@ let elements = document.querySelectorAll('.request-a');
 
 function paymentPlans() {
     document.getElementById('payment-page').classList.toggle('payment-plan-requests');
+    if (!document.getElementById('drop-menu').classList.contains('close-menu')) {
+        document.getElementById('drop-menu').classList.toggle('close-menu');
+        document.getElementById('content').classList.toggle('blur');
+        burger.classList.toggle('close-burger');
+    }
 }
 
 elements.forEach(function (element) {
@@ -254,3 +262,14 @@ for (let i = 0; i < divs.length; i++) {
     });
 }
 
+
+for (let i = 1; i <= 5; i++) {
+    let menu_btn2 = document.getElementById('business-' + i);
+    menu_btn2.addEventListener('click', function() {
+        for (let j = 1; j <= 5; j++) {
+            if(document.getElementById('business-info-' + j).classList.contains('business-info-open')) {
+                document.getElementById('business-info-' + j).classList.toggle('business-info-open');
+            }}
+        document.getElementById('business-info-' + i).classList.toggle('business-info-open');
+    });
+}

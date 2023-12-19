@@ -43,3 +43,9 @@ window.addEventListener('scroll', function() {
         element.classList.remove('invisible');
     }
 });
+
+
+document.getElementById('prices-btn-2').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('payment-plan').scrollIntoView({behavior: 'smooth'});
+});

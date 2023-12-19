@@ -15,7 +15,7 @@
 	<!--	боковое бургер меню-->
 	<div class="menu-unfold menu-unfold-1 close-menu" id='drop-menu'>
 		<a class="menu-btn2" id='docs-btn-2'>Образцы документов</a>
-		<a class="menu-btn2" id='home-btn-2'>На главную</a>
+		<a class="menu-btn2" id='home-btn-2' href="/">На главную</a>
 		<a class="menu-btn2" id='prices-btn-2'>Тарифы</a>
 		<form class="menu-btn2" method="post" th:action="@{/logout}" th:if="${user}">
 			<button class="menu-btn2" type="submit" value="">Выход</button>
@@ -713,8 +713,7 @@
 	<!--	меню header-->
 	<div class="menu">
 		<a class="menu-btn" id='docs-btn'>Образцы документов</a>
-		<a class="menu-btn" id='home-btn' th:href = "@{/home}">Главная</a>
-		<!--		Короче пофикси эту хуйню я не знаю-->
+		<a class="menu-btn" id='home-btn' href="/" th:href = "@{/home}">Главная</a>
 		<form class="menu-btn" method="post" th:action="@{/logout}" th:if="${user}">
 			<button class="menu-btn" id="login-submit" name="login-submit" type="submit" value="">Выход</button>
 			<input th:name="${_csrf.parameterName}" th:value="${_csrf.token}"
