@@ -1,8 +1,7 @@
 .center-svg{
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
-	padding: 3em;
+	justify-content: center;
 }
 
 .center-svg svg{
@@ -181,8 +180,10 @@
 }
 
 .request-form-page-header p {
-	height: 30px;
-	padding: 8px 5px 0 5px;
+	/*height: 30px;*/
+	height: auto;
+	width: 330px;
+	padding: 8px 5px 8px 5px;
 }
 
 .request-span {
