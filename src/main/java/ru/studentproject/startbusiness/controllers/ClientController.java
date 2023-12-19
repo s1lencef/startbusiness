@@ -50,7 +50,6 @@ public class ClientController {
 
     @GetMapping("/profile")
     public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) throws IOException {
-        makeDocuments();
         if(id == null){
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String email = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -227,7 +226,7 @@ public class ClientController {
         catch (Exception e){
             return "redirect:/profile";
         }
-        form.setStatus(statusService.get(3L));
+        form.setStatus(statusService.get(2L));
         form.setStaff(userService.getById(24L));
         formService.save(form);
 
