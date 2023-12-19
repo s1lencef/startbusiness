@@ -358,6 +358,7 @@ li{
 .business-document-btn:hover {
 	background: #3755FA;
 	color: white;
+	border-radius: 3px;
 }
 
 .menu-p > p{

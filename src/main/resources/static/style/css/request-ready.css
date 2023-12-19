@@ -25,7 +25,7 @@
 	bottom: -320px;
 	opacity: 1;
 	content: url("../img/business_image3.svg");
-	transition: 1s;
+	transition: 0.4s;
 }
 
 .delete-request::after{
@@ -35,7 +35,7 @@
 	bottom: -410px;
 	opacity: 0;
 	content: url("../img/business_image4.svg");
-	transition: 1s;
+	transition: 0.4s;
 }
 
 .delete-request:hover::after{
