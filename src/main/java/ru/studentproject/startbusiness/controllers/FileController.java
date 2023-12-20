@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -88,11 +89,15 @@ public class FileController {
         if (contentType == null) {
             contentType = MediaType.APPLICATION_OCTET_STREAM_VALUE;
         }
+        try {
+            response.setContentType(contentType);
 
-        response.setContentType(contentType);
+            response.setContentLengthLong(Files.size(file));
+        }
+        catch (NoSuchFileException e){
+            System.out.println(e);
 
-        response.setContentLengthLong(Files.size(file));
-
+        }
         response.setHeader(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
                 .filename(file.getFileName().toString(), StandardCharsets.UTF_8)
                 .build()
@@ -100,7 +105,6 @@ public class FileController {
 
         Files.copy(file, response.getOutputStream());
         response.flushBuffer();
-
 
     }
     @GetMapping("/download/all")

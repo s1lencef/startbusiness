@@ -25,6 +25,7 @@ import ru.studentproject.startbusiness.service.*;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -61,7 +62,8 @@ public class ClientController {
             System.out.println(", id = " + id + "   " + userService.getById(id));
             User user = userService.getById(id);
             List<Form> forms = formService.getUsersForms(user);
-            System.out.println("forms = " + forms);
+            for(Form form:forms){
+            }
             model.addAttribute("user", user);
             model.addAttribute("forms", forms);
 

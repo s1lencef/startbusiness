@@ -2140,7 +2140,7 @@
                         <th:block th:each="tax : ${form.getTax()}">
                             <p class="request-name" th:text="${tax.getName()}"></p>
                         </th:block>
-                        <p class="request-date" th:text="${#dates.format(form.date, 'dd-mm-yyyy')}"></p>
+                        <p class="request-date" th:text="${#dates.format(form.date, 'dd-MM-YYYY')}"></p>
                         <svg class="request-svg svg-ready" fill="none" height="27" viewBox="0 0 27 27" width="27"
                              xmlns="http://www.w3.org/2000/svg">
                             <g clip-path="url(#clip0_446_17)">

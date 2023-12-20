@@ -77,7 +77,7 @@ def start_USN():
         empl_infs = row
 
 
-    cursor.execute('SELECT * FROM documents')
+    cursor.execute('SELECT * FROM documents WHERE id>12')
     for row in cursor:
         last_id = row[0]
     insert_query = """ INSERT INTO documents (id, date, file_path, form_id, name, user_id, type)
