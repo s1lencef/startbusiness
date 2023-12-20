@@ -15,7 +15,7 @@
 	position: relative;
 	display:flex;
 	flex-direction:row;
-	max-height: 400vh;
+	/*max-height: 400vh;*/
 }
 
 .businesses-wrapper::before{
@@ -89,7 +89,7 @@
 }
 
 .business-info-open{
-	max-height: 1300px !important;
+	max-height: 1350px !important;
 	opacity: 1 !important;
 }
 
