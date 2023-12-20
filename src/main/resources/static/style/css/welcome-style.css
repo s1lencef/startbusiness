@@ -155,14 +155,6 @@ section{
 	content: url("../img/business_image1.svg");
 }
 
-/*.businesses-wrapper::after{*/
-/*	position: absolute;*/
-/*	z-index: -1;*/
-/*	top:400px;*/
-/*	left: 30px;*/
-/*	content: url("../img/business_image2.svg");*/
-/*}*/
-
 .businesses-menu{
 	font-family: SONGER_SE_Regular, serif;
 	font-size: 18px;
@@ -217,7 +209,7 @@ section{
 }
 
 .business-info-open{
-	max-height: 1300px !important;
+	max-height: 1350px !important;
 	opacity: 1 !important;
 	/*overflow: auto !important;*/
 }
