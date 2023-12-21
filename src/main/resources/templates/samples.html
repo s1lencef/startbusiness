@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<h1>Spring Boot File Download Example</h1>
+
+<tr style="border: 2px black solid" th:each="document : ${documents}">
+	<a class="log-a log-button" style="background: #fff" th:href="@{/download?id=}+${document.id}">
+		<td th:text="${document.name}">Full Name</td>
+	</a>
+		<td th:text="${#dates.format(document.date, 'dd-MMM-yyyy')}">Email</td>
+		<td >
+			<th:block th:each="type : ${document.isType()}">
+			<th:block th:text="${type.name}"></th:block>
+			<br>
+			</th:block>
+		</td>
+</tr>
+
+
+</body>
+</html>

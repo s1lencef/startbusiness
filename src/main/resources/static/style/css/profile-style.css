@@ -1,0 +1,299 @@
+.request-page {
+	display: flex;
+	flex-direction: row;
+	height: calc(100vh);
+	justify-content: flex-start;
+	position: fixed;
+	top: 75px;
+	width: 100%;
+}
+
+body {
+	overflow: hidden;
+}
+
+.requests {
+	background-color: rgba(243, 247, 255, 0.5);
+	border-right: 3px solid #3755FA;
+	font-family: Roboto Slab, serif;
+	font-size: 16px;
+	left: 0;
+	padding: 30px 0 0 20px;
+	position: relative;
+	top: 0;
+	transition: all 0.3s ease-out;
+	width: 320px;
+}
+
+.requests::after {
+	content: url('data:image/svg+xml,<svg width="368" height="306" viewBox="0 0 368 306" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.7" filter="url(%23filter0_f_238_25)"><path d="M135.077 50.24C-25.2141 -6.7555 52.6626 196.074 123.241 232.359C193.819 268.645 252.92 284.499 302.522 229.622C370.243 154.698 295.369 107.235 135.077 50.24Z" fill="url(%23paint0_linear_238_25)"/></g><defs><filter id="filter0_f_238_25" x="0.892578" y="0.207092" width="366.577" height="305.144" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_238_25"/></filter><linearGradient id="paint0_linear_238_25" x1="140.109" y1="241.655" x2="206.91" y2="-13.1013" gradientUnits="userSpaceOnUse"><stop stop-color="%2391FFF8"/><stop offset="1" stop-color="%23ADFF44" stop-opacity="0"/></linearGradient></defs></svg>');
+	left: 70px;
+	position: absolute;
+	top: -150px;
+	z-index: -10;
+}
+
+.requests::before {
+	bottom: -80px;
+	content: url('data:image/svg+xml,<svg width="478" height="483" viewBox="0 0 478 483" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.7" filter="url(%23filter0_f_238_27)"><path d="M71.9867 157.317C-109.393 338.359 302.212 497.504 396.12 423.683C490.028 349.863 397.967 251.359 363.08 157.135C315.449 28.4892 253.366 -23.7257 71.9867 157.317Z" fill="url(%23paint0_linear_238_27)"/></g><defs><filter id="filter0_f_238_27" x="-13.6426" y="0.284363" width="490.752" height="481.888" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/><feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_238_27"/></filter><linearGradient id="paint0_linear_238_27" x1="66.8616" y1="257.653" x2="363.843" y2="371.516" gradientUnits="userSpaceOnUse"><stop stop-color="%2394DEFE"/><stop offset="1" stop-color="%2352FF00" stop-opacity="0"/></linearGradient></defs></svg>');
+	left: 40px;
+	position: absolute;
+	z-index: -10;
+}
+
+#request-toggle {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	overflow-x: hidden;
+	position: absolute;
+	right: -62px;
+	border-left:13px solid #3755FA;
+	top: 0;
+	width: 50px;
+	transition: 0.3s;
+}
+
+#request-toggle:hover {
+	backdrop-filter: blur(3px);
+
+}
+
+#request-toggle svg {
+	height: 20px;
+	position: absolute;
+	transform: translateX(-100%);
+	transition: all 0.1s;
+	width: 40px;
+}
+
+#request-toggle span {
+	border: 3px solid #3755FA;
+	border-radius: 100%;
+	height: 30px;
+	position: absolute;
+	transform: translateX(-60%);
+	transition: all 0.1s;
+	width: 30px;
+}
+
+#request-toggle:hover span {
+	height: 50px;
+	transform: translateX(-40%);
+	width: 50px;
+}
+
+.request-toggle-open{
+    border-left:3px solid #3755FA!important;
+    right: -52px !important;
+}
+
+.request-toggle-open span {
+	transform: translateX(-60%) !important;
+}
+
+.request-toggle-open:hover span {
+	transform: translateX(-40%) !important;
+}
+
+#request-toggle:hover svg {
+	transform: translateX(30%);
+}
+
+.request-toggle-open svg {
+	transform: translateX(-100%) rotate(180deg) !important;
+}
+
+.request-toggle-open:hover svg {
+	transform: translateX(20%) rotate(180deg) !important;
+}
+
+.requests-closed {
+	border-right: 12px solid #3755FA;
+	left: -340px;
+}
+
+.request-wrapper {
+	height: calc(100vh - 284px);
+	overflow: hidden;
+	scrollbar-gutter: stable both-edges;
+	scrollbar-width: none;
+}
+
+.request-wrapper:hover,
+.request-wrapper:active,
+.request-wrapper:focus {
+	overflow-y: scroll;
+}
+
+.request-wrapper::-webkit-scrollbar {
+	width: 0;
+}
+
+.request-wrapper::-webkit-scrollbar-track {
+	background-color: rgba(238, 238, 238, 1);
+}
+
+.request-wrapper::-webkit-scrollbar-thumb {
+	background-color: rgba(212, 255, 228, 1);
+}
+
+.request-wrapper::-webkit-scrollbar-thumb:hover {
+	background-color: rgba(212, 255, 228, 1);
+}
+
+.requests-wrapper-header {
+	margin-bottom: 10px;
+	padding-right: 20px;
+}
+
+.requests-head-text {
+	font-family: SONGER_SE_Medium, serif;
+}
+
+.request {
+	border-top: 2px solid #9AAAFF;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	padding: 8px 20px 15px 0;
+}
+
+.request-wrapper .request:nth-child(1) {
+	border-top: none;
+}
+
+.request-info {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.request-svg {
+	display: none;
+}
+
+.request-name {
+    text-align: start;
+	width: 170px;
+}
+
+.request-message {
+	display: flex;
+	flex-direction: column;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	transition: opacity 1s, height 0.1s ease-out;
+}
+
+.request-message-text {
+	margin-top: 5px;
+}
+
+.request-button {
+	width: 200px;
+}
+
+.request-span {
+	display: inline-flex;
+	margin: 8px 0 8px 0;
+}
+
+.request-a {
+	align-items: center;
+	background: none;
+	border: 2px solid #3755FA;
+	color: #000;
+	display: flex;
+	height: 32px;
+	justify-content: center;
+	margin: 14px 0;
+	padding: 0 5px;
+	transition: 0.15s;
+	width: 100%;
+}
+
+.request-a:hover {
+	background: #3755FA;
+	color: #FFFFFF;
+}
+
+.request-ready:hover .request-message-ready {
+	/*display: flex;*/
+	height: 30px;
+	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
+}
+
+.request-paid:hover .request-message-paid {
+	/*display: flex;*/
+	height: 110px;
+	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
+}
+
+.request-undone:hover .request-message-undone {
+	/*display: flex;*/
+	height: 50px;
+	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
+}
+
+.request-inwork:hover .request-message-inwork {
+	height: 30px;
+	/*display: flex;*/
+	opacity: 1;
+	transition: opacity 1s, height 0.1s ease-in;
+}
+
+.request-ready .svg-ready {
+	display: flex;
+}
+
+.request-paid .svg-paid {
+	display: flex;
+}
+
+.request-undone .svg-undone {
+	display: flex;
+}
+
+.request-inwork .svg-inwork {
+	display: flex;
+}
+
+.add-request {
+	align-items: center;
+	border: 2px solid #3755FA;
+	bottom: 100px;
+	display: flex;
+	height: 40px;
+	justify-content: center;
+	left: 20px;
+	position: absolute;
+	transition: 0.15s;
+	width: 40px;
+}
+
+.add-request::before {
+	content: 'Добавить заявку';
+	position: absolute;
+	right: -150px;
+}
+
+.add-request svg {
+	transition: 0.15s;
+}
+
+.add-request:hover svg {
+	filter: invert(100%) sepia(0%) saturate(7498%) hue-rotate(144deg) brightness(106%) contrast(101%);
+}
+
+.add-request:hover {
+	background: #3755FA;
+}
+

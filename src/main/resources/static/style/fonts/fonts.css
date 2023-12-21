@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap');
+@font-face {
+    font-family: SONGER_SE_Bold;
+    src: url(SONGER_SE_Bold.otf);
+}
+
+@font-face {
+    font-family: SONGER_SE_Medium;
+    src: url(SONGER_SE_Medium.otf);
+}
+
+@font-face {
+    font-family: SONGER_SE_Regular;
+    src: url(SONGER_SE_Regular.otf);
+}
+
