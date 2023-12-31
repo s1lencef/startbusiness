@@ -72,7 +72,7 @@ public class AdminController {
     }
     @GetMapping("/form/make")
     public String makeDocs(@RequestParam(required = false) Long id, Model model) throws IOException, InterruptedException {
-        String scriptPath = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\IP.py";
+        String scriptPath = "E:\\LETI\\3_kurs\\5sem\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\pythonScripts\\IP.py";
 
         ProcessBuilder Process_Builder = new
                 ProcessBuilder("python",scriptPath)
@@ -93,11 +93,11 @@ public class AdminController {
         Form form = formService.get(id);
         if (form.getTax() == taxService.get(2L)){
             System.out.println("импотент");
-            scriptPath = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\Patent.py";
+            scriptPath = "E:\\LETI\\3_kurs\\5sem\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\pythonScripts\\Patent.py";
         }
         else{
             System.out.println("Утка");
-            scriptPath = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\USN.py";
+            scriptPath = "E:\\LETI\\3_kurs\\5sem\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\pythonScripts\\USN.py";
         }
        Process_Builder = new
                 ProcessBuilder("python",scriptPath)

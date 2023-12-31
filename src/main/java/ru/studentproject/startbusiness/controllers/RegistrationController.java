@@ -1,10 +1,14 @@
 package ru.studentproject.startbusiness.controllers;
 
 import jakarta.validation.Valid;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.dto.UserRegistrationDto;
 import ru.studentproject.startbusiness.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -30,11 +34,13 @@ public class RegistrationController {
     }
 
     @GetMapping
-    public String showRegistrationForm(@AuthenticationPrincipal User user, Model model) {
-        if (user != null){
+    public String showRegistrationForm(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if (!(authentication instanceof AnonymousAuthenticationToken)){
             return "redirect:/";
         }
-        model.addAttribute("user", null);
+        model.addAttribute("userreg",new UserRegistrationDto());
         return "registration";
     }
 

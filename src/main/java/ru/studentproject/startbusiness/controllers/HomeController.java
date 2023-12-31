@@ -24,12 +24,8 @@ public class HomeController {
         if (user != null){
             return "redirect:/home";
         }
-        try {
-            return "login";
-        }
-        catch (Exception e){
-            return "redirect:/";
-        }
+        return "login";
+
     }
 
     @GetMapping("/")

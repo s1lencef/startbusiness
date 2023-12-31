@@ -53,7 +53,7 @@ public class ClientController {
     public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) throws IOException {
         if(id == null){
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            String email = SecurityContextHolder.getContext().getAuthentication().getName();
+            String email = authentication.getName();
             User curr_user = userService.findByEmail(email);
             System.out.println("redirect:/profile?id="+curr_user.getId());
             return "redirect:/profile?id="+curr_user.getId();
@@ -201,8 +201,7 @@ public class ClientController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User curr_user = userService.findByEmail(email);
-        List<Form> forms = formService.getUsersForms(curr_user);
-        model.addAttribute("forms",forms);
+
         Form form;
         try {
             form = formService.get(id);
@@ -220,6 +219,8 @@ public class ClientController {
             documentRepository.delete(doc);
         }
         formService.delete(form);
+        List<Form> forms = formService.getUsersForms(curr_user);
+        model.addAttribute("forms",forms);
         model.addAttribute("status","deleted");
         model.addAttribute("delete_id",id);
         return "profile";

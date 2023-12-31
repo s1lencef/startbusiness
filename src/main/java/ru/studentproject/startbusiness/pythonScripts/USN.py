@@ -43,7 +43,7 @@ def change_field_data(DATA, FIELDS_NAME, FIELDS_LEN, field_data):
 
     return field_data
 def USN(DATA, FIELDS_LEN, FIELDS_NAME, field_data):
-    filename = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\java\\ru\\studentproject\\startbusiness\\controllers\\USN.pdf"
+    filename = "E:\\LETI\\3_kurs\\5sem\\IT-Projects\\startbusiness\\src\\main\\resources\\documents\\samples\\USN.pdf"
     pdf_reader = PdfReader(filename)
     pdf_writer = PdfWriter()
     pdf_writer.append(pdf_reader)
@@ -54,7 +54,7 @@ def USN(DATA, FIELDS_LEN, FIELDS_NAME, field_data):
                 pdf_writer.update_page_form_field_values(page, {field: value})
             except:
                 pass
-    new_file_name = "E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\USN_" + DATA[2] + ".pdf"
+    new_file_name = "E:\\LETI\\3_kurs\\5sem\\IT-Projects\\startbusiness\\src\\main\\resources\\documents\\USN_" + DATA[2] + ".pdf"
     with open(new_file_name, 'wb') as output_file:
         pdf_writer.write(output_file)
 
@@ -77,13 +77,13 @@ def start_USN():
         empl_infs = row
 
 
-    cursor.execute('SELECT * FROM documents WHERE id>12')
+    cursor.execute('SELECT * FROM documents ORDER BY id')
     for row in cursor:
         last_id = row[0]
     insert_query = """ INSERT INTO documents (id, date, file_path, form_id, name, user_id, type)
                                   VALUES (%s, %s, %s, %s, %s, %s, %s)"""
     item_purchase_time = datetime.datetime.now()
-    file_path = os.getcwd()+"\\USN_" + str(empl_infs[6]) + ".pdf"
+    file_path = "E:\\LETI\\3_kurs\\5sem\\IT-Projects\\startbusiness\\src\\main\\resources\\documents\\USN_" + str(empl_infs[6]) + ".pdf"
     item_tuple = (int(last_id) + 1, item_purchase_time, file_path, user_ids[0][0], "USN_" + str(empl_infs[6]) + ".pdf", 24, 2)
     cursor.execute(insert_query, item_tuple)
     print(item_tuple)
