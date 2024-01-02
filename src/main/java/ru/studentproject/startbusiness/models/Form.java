@@ -17,6 +17,7 @@ public class Form {
     @JoinColumn(nullable = true, name = "staff_id")
     private User staff;
     private boolean type;
+    private boolean favorites;
     private Date date;
     @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "status")
@@ -92,5 +93,13 @@ public class Form {
 
     public void setTax(Types tax) {
         this.tax = tax;
+    }
+
+    public boolean isFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(boolean favorites) {
+        this.favorites = favorites;
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import java.util.Properties;
@@ -24,9 +25,9 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/").permitAll()
-                        .requestMatchers("/registration").permitAll()
+                        .requestMatchers("/registration**").permitAll()
                         .requestMatchers("/logout").permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers( "/style/**").permitAll()
@@ -35,6 +36,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/reset-password").permitAll()
                         .requestMatchers("/upload").hasRole("USER")
                         .requestMatchers("/home").permitAll()
+                        .requestMatchers("/").permitAll()
                         .requestMatchers("/profile/**").hasRole("USER")
                         .requestMatchers("/form/**").hasRole("USER")
                         .requestMatchers("/download").permitAll()
@@ -46,8 +48,10 @@ public class SecurityConfiguration {
                 )
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/home")
                         .invalidateHttpSession(true)
+                ).sessionManagement((session) -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 );
 
         return http.build();

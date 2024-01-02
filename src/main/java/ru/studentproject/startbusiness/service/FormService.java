@@ -9,6 +9,8 @@ import ru.studentproject.startbusiness.repos.TypesRepository;
 
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 @Service
 public class FormService {
@@ -21,7 +23,12 @@ public class FormService {
 
 
     public List<Form> getUsersForms(User user) {
-        return formRepository.findByUser(user);
+        List<Form> forms =  formRepository.findByUser(user);
+        forms.sort(new FormComparator());
+        for (Form form :forms){
+            System.out.println(form.getId());
+        }
+        return forms;
     }
     public List<Form> getAdminForms(User user) {
         return formRepository.findByStaff(user);

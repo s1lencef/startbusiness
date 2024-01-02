@@ -13,6 +13,7 @@ import ru.studentproject.startbusiness.dto.ActivitiesDto;
 import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.Company;
 import ru.studentproject.startbusiness.models.Form;
+import ru.studentproject.startbusiness.models.Subject;
 import ru.studentproject.startbusiness.models.User;
 import ru.studentproject.startbusiness.service.*;
 
@@ -52,9 +53,11 @@ public class AdminController {
         Form curr_form = formService.get(id);
         Company company = companyService.findByForm(curr_form);
         System.out.println(company.getMainActivities());
+        Subject subject = company.getSubject();
         model.addAttribute("curr_form",curr_form);
         model.addAttribute("curr_company",company);
         model.addAttribute("type","change");
+        model.addAttribute("subject",subject);
         model.addAttribute("activ",new ActivitiesDto());
 
         return "admin_home";

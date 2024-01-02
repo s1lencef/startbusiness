@@ -57,6 +57,6 @@ public class RegistrationController {
             System.out.println(e);
             return "redirect:/registration?emailUsed";
         }
-        return "redirect:/registration?success";
+        return "redirect:/profile";
     }
 }

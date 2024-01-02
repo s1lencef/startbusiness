@@ -35,6 +35,10 @@
 
 							</div>
 							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Регион</span>
+								<p th:text="${subject.id}+' '+${subject.name}"></p>
+							</div>
+							<div class="request-form-row request-form-page-header">
 								<span class="request-span">Текст пользователя</span>
 								<p th:text="${curr_company.getMainActivities()}"></p>
 							</div>
