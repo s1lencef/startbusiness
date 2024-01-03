@@ -169,6 +169,10 @@
 	width: 700px;
 }
 
+.request-form-page-hidden{
+	display: none !important;
+}
+
 .request-form-page::before {
 	background: rgba(241, 243, 255, 0.5);
 	content: '';
@@ -210,6 +214,10 @@
 	align-items: flex-start;
 	display: flex;
 	margin-top: 5px;
+}
+
+.request-form-row-hidden{
+	display: none !important;
 }
 
 .request-form-row input {

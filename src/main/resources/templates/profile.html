@@ -118,7 +118,7 @@
 										<span>Гражданин РФ</span>
 									</label>
 									<label class="request-check">
-										<input class="request-radio-btn" name="citizenship" required type="radio"
+										<input class="request-radio-btn" id="foreignCitizen" name="citizenship" required type="radio"
 										       value="2" th:field = "*{citizenship}"/>
 										<span>Иностранный гражданин</span>
 									</label>
@@ -170,6 +170,73 @@
 									<p>Назад</p>
 								</button>
 								<button class="next" id="form1-next">
+									<p>Далее</p>
+								</button>
+							</div>
+						</div>
+						<div class="request-form-page request-form-page-hidden" id='foreignCitizenForm'>
+							<div class="request-form-row request-form-page-header">
+								<span class="request-span">Дополнительный шаг</span>
+								<p>Документ, подтверждающий право вести бизнес в РФ</p>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Вид документа</span>
+								<div class="radio-inputs">
+									<label class="request-check">
+										<input checked class="request-radio-btn" name="residentCard" required type="radio"
+										       value="1" th:field = "*{residentCard}"/>
+										<span>Вид на жительство</span>
+									</label>
+									<label class="request-check">
+										<input class="request-radio-btn" name="residentCard" required type="radio"
+										       value="2" th:field = "*{residentCard}"/>
+										<span>Разрешение на временное проживание</span>
+									</label>
+								</div>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Номер</span>
+								<label class="request-input" for="residentCardInput">
+									<input id="residentCardInput" name="residentCardInput" pattern="^\d{10}$" required type="text" th:field = "*{residentCardnumber}">
+									<p class="input-result" id="residentCard-result" ></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Дата выдачи</span>
+								<label class="request-input" for="residentCardDateInput">
+									<input id="residentCardDateInput" name="residentCardDateInput" required pattern="\d{2}/\d{2}/\d{4}" type="text" th:field = "*{residentCardIssueDate}">
+									<p class="input-result" id="residentCardDate-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Кем выдан</span>
+								<label class="request-input" for="residentCardDepartInput">
+									<textarea id="residentCardDepartInput" name="residentCardDepartInput" required type="text" th:field = "*{residentCardIssuePlace}"></textarea>
+									<p class="input-result" id="residentCardDepart-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row" id="endDate">
+								<span class="request-span required">Срок действия</span>
+								<label class="request-input" for="residentCardDateInput">
+									<input id="residentCardEndDateInput" name="residentCardEndDateInput" required pattern="\d{2}/\d{2}/\d{4}" type="text" th:field = "*{residentCardEndDate}">
+									<p class="input-result" id="residentCardEndDate-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
+								<span class="request-span required"></span>
+								<div class="radio-inputs">
+									<label class="request-check">
+										<input id="infiniteResidentCard" class="request-radio-btn" name="infiniteResidentCard" required type="checkbox"
+										       value="1" th:field = "*{infiniteResidentCard}"/>
+										<span>Бессрочно</span>
+									</label>
+								</div>
+							</div>
+							<div class="request-form-row final-option">
+								<button class="previous" id="form1-1-prev">
+									<p>Назад</p>
+								</button>
+								<button class="next" id="form1-1-next">
 									<p>Далее</p>
 								</button>
 							</div>
@@ -291,7 +358,6 @@
 <path d="M3.02641 14.7948C3.04047 14.855 2.96059 14.7745 3.00953 14.7835M3.01516 14.7835C2.77159 14.6502 2.66247 14.086 2.49484 13.7317M2.49484 13.7255C2.26816 13.4139 2.31484 12.5836 2.08984 12.2405" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M2.09588 12.2512C2.06044 12.1443 1.98225 12.0695 1.96875 11.9626M1.96875 11.957C2.01769 11.2527 1.88156 9.75254 2.25169 9.10735M2.25225 9.11298C2.3535 8.85141 2.4975 8.76648 2.65669 8.58704M2.65669 8.58141C3.26194 8.11116 2.83444 7.36248 3.00319 6.61604C3.57188 5.15073 7.19494 7.10148 8.8065 7.07841M7.12463 20.5002C6.97838 20.156 6.237 19.9467 6.02662 19.7662C5.35725 19.4534 6.12787 17.7367 5.50631 17.4768C4.8735 17.0774 4.05506 16.8102 3.46556 17.3845C1.6515 20.3692 4.22325 18.7672 2.10769 20.633C2.75569 21.2079 3.91725 20.2752 4.48875 20.0142C5.02256 19.7757 5.23913 20.2634 5.79544 20.3725C6.05981 20.5154 7.56 21.47 7.12463 20.5002Z" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-
 							</span>
 								<label class="request-input" for="cityInput">
 									<input id="subjectInput" name="cityInput" placeholder="" required type="text" th:field = "*{subject}">
@@ -368,6 +434,21 @@
 									<input id="officeInput" name="officeInput" placeholder="" required type="text" th:field = "*{office}">
 									<p class="input-result" id="office-result">Офис, квартира, помещение.<br>
 										Не рекомендуется указывать такие элементы как<br> этаж, кабинет, рабочее место</p>
+								</label>
+							</div>
+							<div class="request-form-row">
+
+							<span class="request-span">
+								<svg fill="none" height="27" viewBox="0 0 27 27" width="27"
+								     xmlns="http://www.w3.org/2000/svg">
+	<path d="M5.0625 22.5V21.375H7.3125V4.5H16.3125V5.625H19.6875V21.375H21.9375V22.5H18.5625V6.75H16.3125V22.5H5.0625ZM12.9375 14.3663C13.17 14.3663 13.3725 14.28 13.545 14.1075C13.7175 13.935 13.8038 13.7325 13.8038 13.5C13.8038 13.2675 13.7175 13.065 13.545 12.8925C13.3725 12.72 13.17 12.6337 12.9375 12.6337C12.705 12.6337 12.5025 12.72 12.33 12.8925C12.1575 13.065 12.0712 13.2675 12.0712 13.5C12.0712 13.7325 12.1575 13.935 12.33 14.1075C12.5025 14.28 12.705 14.3663 12.9375 14.3663ZM8.4375 21.375H15.1875V5.625H8.4375V21.375Z"
+	      fill="black"/>
+	</svg>
+							</span>
+
+								<label class="request-input" for="cabinetInput">
+									<input id="cabinetInput" name="cabinetInput" placeholder="" required type="text" th:field = "*{cabinet}">
+									<p class="input-result" id="cabinet-result">Помещение внутри квартиры<br></p>
 								</label>
 							</div>
 							<div class="request-form-row final-option">

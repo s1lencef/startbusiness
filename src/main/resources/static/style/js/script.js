@@ -261,3 +261,16 @@ for (let i = 0; i < divs.length; i++) {
         }
     });
 }
+
+
+
+
+let foreignCitizenToggle = document.getElementById('foreignCitizen')
+foreignCitizenToggle.addEventListener('click', () => {
+    document.getElementById('foreignCitizenForm').classList.toggle('request-form-page-hidden');
+});
+
+let endDateToggle = document.getElementById('infiniteResidentCard')
+endDateToggle.addEventListener('click', () => {
+    document.getElementById('endDate').classList.toggle('request-form-row-hidden');
+});
