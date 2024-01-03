@@ -2,6 +2,8 @@ package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.ColumnDefault;
+
 import java.util.Date;
 
 @Entity
@@ -28,6 +30,14 @@ public class Employer {
     private double Fraction;
     private double Percent;
     private String Post;
+
+    private int residentCard;
+    private String residentCardNumber;
+    private Date residentCardIssueDate;
+    private String residentCardIssuePlace;
+    private Date residentCardEndDate;
+    @ColumnDefault("2")
+    private int infiniteResidentCard;
     @ManyToOne(targetEntity = Form.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "form_id")
     private Form form;
@@ -194,5 +204,53 @@ public class Employer {
 
     public void setForm(Form form) {
         this.form = form;
+    }
+
+    public int getResidentCard() {
+        return residentCard;
+    }
+
+    public void setResidentCard(int residentCard) {
+        this.residentCard = residentCard;
+    }
+
+    public String getResidentCardNumber() {
+        return residentCardNumber;
+    }
+
+    public void setResidentCardNumber(String residentCardNumber) {
+        this.residentCardNumber = residentCardNumber;
+    }
+
+    public Date getResidentCardIssueDate() {
+        return residentCardIssueDate;
+    }
+
+    public void setResidentCardIssueDate(Date residentCardIssueDate) {
+        this.residentCardIssueDate = residentCardIssueDate;
+    }
+
+    public String getResidentCardIssuePlace() {
+        return residentCardIssuePlace;
+    }
+
+    public void setResidentCardIssuePlace(String residentCardIssuePlace) {
+        this.residentCardIssuePlace = residentCardIssuePlace;
+    }
+
+    public Date getResidentCardEndDate() {
+        return residentCardEndDate;
+    }
+
+    public void setResidentCardEndDate(Date residentCardEndDate) {
+        this.residentCardEndDate = residentCardEndDate;
+    }
+
+    public int getInfiniteResidentCard() {
+        return infiniteResidentCard;
+    }
+
+    public void setInfiniteResidentCard(int infiniteResidentCard) {
+        this.infiniteResidentCard = infiniteResidentCard;
     }
 }

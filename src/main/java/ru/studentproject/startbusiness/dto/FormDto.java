@@ -1,6 +1,7 @@
 package ru.studentproject.startbusiness.dto;
 
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.ColumnDefault;
 
 
 import java.text.SimpleDateFormat;
@@ -25,6 +26,12 @@ public class FormDto {
     private Date issueDate;
     private String issuePlace;
     private String issueCode;
+    private int residentCard;
+    private String residentCardNumber;
+    private Date residentCardIssueDate;
+    private String residentCardIssuePlace;
+    private Date residentCardEndDate;
+    private int infiniteResidentCard;
     private String subject;
     private String locality;
     private String street;
@@ -225,6 +232,55 @@ public class FormDto {
 
     }
 
+    public int getResidentCard() {
+        return this.residentCard;
+    }
+
+    public void setResidentCard(int residentCard) {
+        this.residentCard = residentCard;
+    }
+
+    public String getResidentCardNumber() {
+        return residentCardNumber;
+    }
+
+    public void setResidentCardNumber(String residentCardNumber) {
+        this.residentCardNumber = residentCardNumber;
+    }
+
+    public Date getResidentCardIssueDate() {
+        return residentCardIssueDate;
+    }
+
+    public void setResidentCardIssueDate(Date residentCardIssueDate) {
+        this.residentCardIssueDate = residentCardIssueDate;
+    }
+
+    public String getResidentCardIssuePlace() {
+        return residentCardIssuePlace;
+    }
+
+    public void setResidentCardIssuePlace(String residentCardIssuePlace) {
+        this.residentCardIssuePlace = residentCardIssuePlace;
+    }
+
+    public Date getResidentCardEndDate() {
+        return residentCardEndDate;
+    }
+
+    public void setResidentCardEndDate(Date residentCardEndDate) {
+        this.residentCardEndDate = residentCardEndDate;
+    }
+
+    public int getInfiniteResidentCard() {
+        return infiniteResidentCard;
+    }
+
+    public void setInfiniteResidentCard(int infiniteResidentCard) {
+        this.infiniteResidentCard = infiniteResidentCard;
+    }
+
     public FormDto() {
+        this.infiniteResidentCard = 2;
     }
 }
