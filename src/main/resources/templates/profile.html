@@ -118,7 +118,7 @@
 										<span>Гражданин РФ</span>
 									</label>
 									<label class="request-check">
-										<input class="request-radio-btn" id="foreignCitizen" name="citizenship" required type="radio"
+										<input id="foreignCitizen" class="request-radio-btn" name="citizenship" required type="radio"
 										       value="2" th:field = "*{citizenship}"/>
 										<span>Иностранный гражданин</span>
 									</label>
@@ -226,9 +226,9 @@
 								<span class="request-span required"></span>
 								<div class="radio-inputs">
 									<label class="request-check">
-										<input id="infiniteResidentCard" class="request-radio-btn" name="infiniteResidentCard" required type="checkbox"
+										<input class="request-radio-btn" name="infiniteResidentCard" required type="checkbox"
 										       value="1" th:field = "*{infiniteResidentCard}"/>
-										<span>Бессрочно</span>
+										<span id="infiniteResidentCard">Бессрочно</span>
 									</label>
 								</div>
 							</div>

@@ -1,4 +1,23 @@
 
+const foreignCitizenToggle = document.querySelector('#foreignCitizen');
+const radioButtons = document.querySelectorAll('input[name="citizenship"]');
+    for (const radioButton of radioButtons) {
+        radioButton.addEventListener("click", () => {
+        if (foreignCitizenToggle.checked) {
+            document.getElementById('foreignCitizenForm').classList.remove('request-form-page-hidden');
+        }
+        else{
+            document.getElementById('foreignCitizenForm').classList.add('request-form-page-hidden');
+        }
+        });
+    }
+
+let endDateToggle = document.getElementById('infiniteResidentCard')
+endDateToggle.addEventListener('click', () => {
+    console.log("Asaf");
+    document.getElementById('endDate').classList.toggle('request-form-row-hidden');
+});
+
 document.getElementById('prices-btn-2').addEventListener('click', paymentPlans);
 
 let requestToggle = document.getElementById('request-toggle')
@@ -265,12 +284,3 @@ for (let i = 0; i < divs.length; i++) {
 
 
 
-let foreignCitizenToggle = document.getElementById('foreignCitizen')
-foreignCitizenToggle.addEventListener('click', () => {
-    document.getElementById('foreignCitizenForm').classList.toggle('request-form-page-hidden');
-});
-
-let endDateToggle = document.getElementById('infiniteResidentCard')
-endDateToggle.addEventListener('click', () => {
-    document.getElementById('endDate').classList.toggle('request-form-row-hidden');
-});
