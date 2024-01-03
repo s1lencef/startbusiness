@@ -25,6 +25,7 @@ public class Form {
     @ManyToOne(targetEntity = Types.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "tax")
     private Types tax;
+    private String department;
     public Form(Long id, User user, User staff, boolean type, Date date, Status status, Types tax) {
         this.id = id;
         this.user = user;

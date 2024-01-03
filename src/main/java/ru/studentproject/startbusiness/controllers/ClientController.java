@@ -242,6 +242,7 @@ public class ClientController {
     }
     private static Employer getEmployer(FormDto formDto) {
         Employer employer = new Employer();
+        System.out.println("formDto = " + formDto.toString());
         employer.setNumber(formDto.getNumber());
         employer.setBirthDate(formDto.getBirthDate());
         employer.setBirthPlace(formDto.getBirthPlace());
