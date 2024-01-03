@@ -26,6 +26,8 @@ public class Company {
     private String Street;
     private String Building;
     private String Office;
+    @Column(name = "cabinet")
+    private String cabinet;
     @Email
     private String email;
 
@@ -142,5 +144,13 @@ public class Company {
 
     public void setMainActivities(String mainActivities) {
         this.mainActivities = mainActivities;
+    }
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
     }
 }

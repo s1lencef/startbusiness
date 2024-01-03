@@ -30,6 +30,7 @@ public class FormDto {
     private String street;
     private String building;
     private String office;
+    private String cabinet;
     private String mainActivities;
     private String activities;
 
@@ -208,6 +209,15 @@ public class FormDto {
     public void setLocality(String locality) {
         this.locality = locality;
     }
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
+    }
+
     public String toString(){
         return getLastName()+"&"+getFirstName()+"&"+getMiddleName()+"&"+getCitizenship()+"&"+new SimpleDateFormat("dd-MM-yyyy").format(getBirthDate())
                 +"&"+getBirthPlace()+"&"+getiNN()+"&"+getSex()+"&"+getEmail()+"&"+getPhone()+"&"+getDocumentType()+"&"+getNumber()+"&"+getIssueDate()+"&"+getIssuePlace()

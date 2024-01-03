@@ -159,7 +159,7 @@ public class ClientController {
         company.setStreet(formDto.getStreet());
         company.setBuilding(formDto.getBuilding());
         company.setOffice(formDto.getOffice());
-
+        company.setCabinet(formDto.getCabinet());
         company = companyService.save(company);
 
 
