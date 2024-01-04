@@ -134,7 +134,7 @@ public class ClientController {
     @PostMapping("/form/change")
     public String saveForm( Model model, @RequestParam(required = true) Long id,
                             @RequestParam("files1") MultipartFile[] files1,
-                            @RequestParam("files2") MultipartFile[] files2,
+                            @RequestParam(name = "files2", required = false) MultipartFile[] files2,
                             @ModelAttribute() FormDto formDto, BindingResult result)
     {
         System.out.println("model = " + model + ", id = " + id + ", files1 = " + Arrays.toString(files1) + ", files2 = " + Arrays.toString(files2) + ", formDto = " + formDto + ", result = " + result);
