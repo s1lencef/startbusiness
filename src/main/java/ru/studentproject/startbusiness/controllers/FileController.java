@@ -136,13 +136,22 @@ public class FileController {
     public String uploadFiles(@RequestParam("files") MultipartFile[] files, RedirectAttributes redirectAttributes) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email =  authentication.getName();
-        Arrays.asList(files)
-                .stream()
-                .forEach(file -> fileService.uploadFile(file,email));
-
-        redirectAttributes.addFlashAttribute("message",
+        System.out.println("files = " + Arrays.toString(files) + ", redirectAttributes = " + redirectAttributes);
+        for (MultipartFile file : files) {
+            if (!file.isEmpty()) {
+                String fileName = file.getOriginalFilename();
+                long fileSize = file.getSize();
+                fileService.uploadFile(file,email);
+                System.out.println("Загружен файл: " + fileName);
+                System.out.println("Размер файла: " + fileSize + " байт");
+            }
+        }
+        redirectAttributes.addFlashAttribute("filename",
                 "You successfully uploaded all files!");
 
         return "redirect:/upload?success";
+
+
     }
+
 }

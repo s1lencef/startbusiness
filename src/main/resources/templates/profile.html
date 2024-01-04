@@ -85,7 +85,7 @@
 							</a>
 						</div>
 					</div>
-					<form action = "#" class="request-form-pages" method = "post" th:action="@{'/form/change'(id = ${curr_form.id})}"  th:object="${newForm}">
+					<form action = "#" class="request-form-pages" method = "post" th:action="@{'/form/change'(id = ${curr_form.id})}"  th:object="${newForm}" enctype="multipart/form-data">
 						<div class="request-form-page" id='form1'>
 							<div class="request-form-row request-form-page-header">
 								<span class="request-span">Шаг 1 из 6:</span>
@@ -232,6 +232,12 @@
 									</label>
 								</div>
 							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Скан документа</span>
+								<label class="request-input" for="passFile">
+									<input id = "residentFile" name="files2" type="file" required multiple/>
+								</label>
+							</div>
 							<div class="request-form-row final-option">
 								<button class="previous" id="form1-1-prev">
 									<p>Назад</p>
@@ -332,6 +338,12 @@
 									<p class="input-result" id="code-result"></p>
 								</label>
 							</div>
+							<div class="request-form-row">
+								<span class="request-span required">Скан документа</span>
+								<label class="request-input" for="passFile">
+									<input id = "passFile" name="files1" type="file" required multiple/>
+								</label>
+							</div>
 							<div class="request-form-row final-option">
 								<button class="previous" id="form3-prev">
 									<p>Назад</p>
@@ -340,6 +352,7 @@
 									<p>Далее</p>
 								</button>
 							</div>
+
 						</div>
 						<div class="request-form-page" id='form4'>
 							<div class="request-form-row request-form-page-header">

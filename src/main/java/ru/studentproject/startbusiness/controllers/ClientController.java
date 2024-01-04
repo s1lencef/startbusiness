@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.*;
 
@@ -52,6 +53,8 @@ public class ClientController {
     DocumentRepository documentRepository;
     @Autowired
     RoleRepository roleRepository;
+    @Autowired
+    FileService fileService;
 
 
     @GetMapping("/profile")
@@ -129,8 +132,13 @@ public class ClientController {
         return "redirect:/form/change?id="+id;
     }
     @PostMapping("/form/change")
-    public String saveForm(Model model, @RequestParam(required = true) Long id, @ModelAttribute()
-    FormDto formDto, BindingResult result) {
+    public String saveForm( Model model, @RequestParam(required = true) Long id,
+                            @RequestParam("files1") MultipartFile[] files1,
+                            @RequestParam("files2") MultipartFile[] files2,
+                            @ModelAttribute() FormDto formDto, BindingResult result)
+    {
+        System.out.println("model = " + model + ", id = " + id + ", files1 = " + Arrays.toString(files1) + ", files2 = " + Arrays.toString(files2) + ", formDto = " + formDto + ", result = " + result);
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         User curr_user = userService.findByEmail(email);
@@ -148,9 +156,6 @@ public class ClientController {
 
 
         String status = "choose";
-
-
-
 
         model.addAttribute("status",status);
         model.addAttribute("curr_form", curr_form);
@@ -177,6 +182,30 @@ public class ClientController {
 
         curr_form = formService.save(curr_form);
 
+        for (MultipartFile file : files1) {
+            if (!file.isEmpty()) {
+                String fileName = file.getOriginalFilename();
+                long fileSize = file.getSize();
+
+                fileService.uploadFile(file,email,curr_form);
+
+                System.out.println("Загружен файл: " + fileName + "\nДля формы "+curr_form.getId());
+                System.out.println("Размер файла: " + fileSize + " байт");
+            }
+        }
+
+        // Обработка загруженных файлов для второго места
+        for (MultipartFile file : files2) {
+            if (!file.isEmpty()) {
+                String fileName = file.getOriginalFilename();
+                long fileSize = file.getSize();
+
+                fileService.uploadFile(file,email,curr_form);
+
+                System.out.println("Загружен файл: " + fileName + "\nДля формы "+curr_form.getId());
+                System.out.println("Размер файла: " + fileSize + " байт");
+            }
+        }
 
         return "redirect:/profile?id="+curr_user.getId();
 
