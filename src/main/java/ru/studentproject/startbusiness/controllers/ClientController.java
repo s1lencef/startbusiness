@@ -20,6 +20,9 @@ import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.*;
 
 import ru.studentproject.startbusiness.repos.DocumentRepository;
+import ru.studentproject.startbusiness.repos.RoleRepository;
+import ru.studentproject.startbusiness.repos.UserComparator;
+import ru.studentproject.startbusiness.repos.UserRepository;
 import ru.studentproject.startbusiness.service.*;
 
 import java.io.IOException;
@@ -47,6 +50,8 @@ public class ClientController {
     SubjectService subjectService;
     @Autowired
     DocumentRepository documentRepository;
+    @Autowired
+    RoleRepository roleRepository;
 
 
     @GetMapping("/profile")
@@ -235,7 +240,12 @@ public class ClientController {
             return "redirect:/profile";
         }
         form.setStatus(statusService.get(2L));
-        form.setStaff(userService.getById(24L));
+        List<User> staff = userService.findByRole(3L);
+        staff.sort(new UserComparator());
+        User lastStaff = staff.get(0);
+        form.setStaff(lastStaff);
+        lastStaff.setFormsCount();
+        userService.save(lastStaff);
         formService.save(form);
 
         return "redirect:/profile";
@@ -243,21 +253,33 @@ public class ClientController {
     private static Employer getEmployer(FormDto formDto) {
         Employer employer = new Employer();
         System.out.println("formDto = " + formDto.toString());
-        employer.setNumber(formDto.getNumber());
-        employer.setBirthDate(formDto.getBirthDate());
-        employer.setBirthPlace(formDto.getBirthPlace());
-        employer.setCitizenship(formDto.getCitizenship());
-        employer.setEmail(formDto.getEmail());
-        employer.setINN(formDto.getiNN());
+
         employer.setSurname(formDto.getLastName());
         employer.setName(formDto.getFirstName());
         employer.setMiddlename(formDto.getMiddleName());
+        employer.setBirthDate(formDto.getBirthDate());
+        employer.setBirthPlace(formDto.getBirthPlace());
+        employer.setCitizenship(formDto.getCitizenship());
         employer.setSex(formDto.getSex());
+        employer.setINN(formDto.getiNN());
+
         employer.setPhone(formDto.getPhone());
+        employer.setEmail(formDto.getEmail());
+
         employer.setDocumentType(formDto.getDocumentType());
         employer.setIssueCode(formDto.getIssueCode());
         employer.setIssueDate(formDto.getIssueDate());
         employer.setIssuePlace(formDto.getIssuePlace());
+        employer.setNumber(formDto.getNumber());
+
+        employer.setResidentCard(formDto.getResidentCard());
+        employer.setResidentCardEndDate(formDto.getResidentCardEndDate());
+        employer.setResidentCardIssueDate(formDto.getResidentCardIssueDate());
+        employer.setResidentCardNumber(formDto.getResidentCardNumber());
+        employer.setResidentCardIssuePlace(formDto.getResidentCardIssuePlace());
+        employer.setInfiniteResidentCard(formDto.getInfiniteResidentCard());
+
         return employer;
     }
+
 }

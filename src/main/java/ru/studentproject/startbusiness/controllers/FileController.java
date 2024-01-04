@@ -49,18 +49,18 @@ public class FileController {
         return "upload";
     }
 
-    @PostMapping("/upload")
-    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email =  authentication.getName();
-        fileService.uploadFile(file,email);
-
-
-        System.out.println("name = "+email);
-        redirectAttributes.addFlashAttribute("filename","файл "+file.getOriginalFilename()+" успешно загружен!");
-
-        return "redirect:/upload?success";
-    }
+//    @PostMapping("/upload")
+//    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        String email =  authentication.getName();
+//        fileService.uploadFile(file,email);
+//
+//
+//        System.out.println("name = "+email);
+//        redirectAttributes.addFlashAttribute("filename","файл "+file.getOriginalFilename()+" успешно загружен!");
+//
+//        return "redirect:/upload?success";
+//    }
     @GetMapping("/samples")
     public String downloadPage (Model model, HttpServletRequest request){
         List<Document> documents = fileService.getSamples().stream().toList();
@@ -132,16 +132,17 @@ public class FileController {
         }
     }
 
-//    @PostMapping("/upload-files")
-//    public String uploadFiles(@RequestParam("files") MultipartFile[] files, RedirectAttributes redirectAttributes) {
-//
-//        Arrays.asList(files)
-//                .stream()
-//                .forEach(file -> fileService.uploadFile(file));
-//
-//        redirectAttributes.addFlashAttribute("message",
-//                "You successfully uploaded all files!");
-//
-//        return "redirect:/";
-//    }
+    @PostMapping("/upload")
+    public String uploadFiles(@RequestParam("files") MultipartFile[] files, RedirectAttributes redirectAttributes) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email =  authentication.getName();
+        Arrays.asList(files)
+                .stream()
+                .forEach(file -> fileService.uploadFile(file,email));
+
+        redirectAttributes.addFlashAttribute("message",
+                "You successfully uploaded all files!");
+
+        return "redirect:/upload?success";
+    }
 }
