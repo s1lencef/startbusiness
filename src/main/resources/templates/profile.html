@@ -225,10 +225,10 @@
 							<div class="request-form-row">
 								<span class="request-span required"></span>
 								<div class="radio-inputs">
-									<label class="request-check">
-										<input class="request-radio-btn" name="infiniteResidentCard" required type="checkbox"
+									<label class="request-check" for="infiniteResidentCard">
+										<input id="infiniteResidentCard" class="request-radio-btn" name="infiniteResidentCard" required type="checkbox"
 										       value="1" th:field = "*{infiniteResidentCard}"/>
-										<span id="infiniteResidentCard">Бессрочно</span>
+										<span id="infiniteResidentCard-span">Бессрочно</span>
 									</label>
 								</div>
 							</div>
@@ -2226,15 +2226,13 @@
                 <!--				<div class="request request-ready request-paid request-undone request-inwork" id="">-->
                 <form class="request" method="GET" th:each="form : ${forms}"
                       th:classappend="${form.status.id == 1 ? 'request-undone': form.status.id == 2 ?
-					  'request-inwork':form.status.id == 3 ? 'request-paid':'request-ready'}"
+					  'request-inwork':form.status.id == 3 ? 'request-paid':'request-ready' + form.favorites == true ? 'request-favorite':'request-default'}"
                       th:action="@{'/form/change'(id = ${form.id})}">
                     <input type="hidden" name="id" th:value="${form.id}"/>
                     <button class="request-info" type="submit">
                         <th:block th:each="tax : ${form.getTax()}">
                             <p class="request-name" th:text="${tax.getName()}"></p>
                         </th:block>
-						<div th:if ="${form.favorites} == true">⭐</div>
-
                         <p class="request-date" th:text="${#dates.format(form.date, 'dd-MM-YYYY')}"></p>
                         <svg class="request-svg svg-ready" fill="none" height="27" viewBox="0 0 27 27" width="27"
                              xmlns="http://www.w3.org/2000/svg">
@@ -2409,6 +2407,7 @@
 </div>
 <script src="https://unpkg.com/imask"></script>
 <script src="../static/style/js/script.js" th:src="@{/style/js/script.js}" type="text/javascript"></script>
+<script src="../static/style/js/autosize.js" th:src="@{/style/js/autosize.js}" type="text/javascript"></script>
 
 <script src="../static/style/js/header.js" th:src="@{/style/js/header.js}" type="text/javascript"></script>
 <script src="../static/style/js/business.js" th:src="@{/style/js/business.js}" type="text/javascript"></script>

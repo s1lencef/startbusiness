@@ -12,10 +12,17 @@ const radioButtons = document.querySelectorAll('input[name="citizenship"]');
         });
     }
 
-let endDateToggle = document.getElementById('infiniteResidentCard')
+let endDateToggle = document.getElementById('infiniteResidentCard');
 endDateToggle.addEventListener('click', () => {
-    console.log("Asaf");
-    document.getElementById('endDate').classList.toggle('request-form-row-hidden');
+    if (endDateToggle.checked) {
+        document.getElementById('endDate').classList.add('request-form-row-hidden');
+        document.getElementById('infiniteResidentCard-span').classList.add('request-radio-btn-checked');
+        console.log(document.getElementById('infiniteResidentCard-span').classList);
+    }
+else{
+        document.getElementById('endDate').classList.remove('request-form-row-hidden');
+        document.getElementById('infiniteResidentCard-span').classList.remove('request-radio-btn-checked');
+    }
 });
 
 document.getElementById('prices-btn-2').addEventListener('click', paymentPlans);

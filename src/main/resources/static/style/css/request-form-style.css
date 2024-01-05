@@ -280,9 +280,17 @@
 	background: #3755FA;
 }
 
-.request-radio-btn:checked + span:before {
-	background: #3755FA;
+.request-radio-btn:checked + span::before {
+	background: #3755FA !important;
 }
+
+.request-radio-btn-checked::before {
+	background: #3755FA !important;
+}
+
+/*.request-check span::before.checked {*/
+/*	background: #3755FA !important;*/
+/*}*/
 
 .input-result {
 	color: #3755FA;
