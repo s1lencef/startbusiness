@@ -1,3 +1,22 @@
+// Получение ссылок на элементы DOM с помощью их id и классов
+const fileInput1 = document.getElementById("residentFile1");
+const fileInput2 = document.getElementById("residentFile2");
+
+fileInput1.addEventListener("change", function () {
+    if (fileInput1.files.length > 0) {
+        document.getElementById("file-name-1").value = fileInput1.files[0].name;
+    } else {
+        document.getElementById("file-name-1").textContent = "";
+    }
+});
+
+fileInput2.addEventListener("change", function () {
+    if (fileInput2.files.length > 0) {
+        document.getElementById("file-name-2").value = fileInput2.files[0].name;
+    } else {
+        document.getElementById("file-name-2").textContent = "";
+    }
+});
 
 const foreignCitizenToggle = document.querySelector('#foreignCitizen');
 const radioButtons = document.querySelectorAll('input[name="citizenship"]');

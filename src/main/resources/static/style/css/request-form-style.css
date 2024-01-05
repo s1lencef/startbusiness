@@ -310,10 +310,9 @@
 
 .final-option button {
 	align-items: center;
-
 	border: 2px solid #3755FA;
 	background: #3755FA;
-       color: #ffffff;
+	color: #ffffff;
 	display: flex;
 	height: 32px;
 	justify-content: center;
@@ -326,7 +325,6 @@
     color: #000;
 }
 
-
 .final-option button:hover {
 	background: #3755FA;
 	color: #ffffff;
@@ -338,6 +336,33 @@
 	cursor: pointer;
 	height: 36px;
 	width: 100%;
+}
+
+.file-name {
+	width: 178px !important;
+	border: none !important;
+}
+
+.file-input {
+	display: none;
+}
+
+.file-text{
+	height: 22px;
+	padding: 4px 0;
+	width: 153px;
+	background-color: #3755FA;
+	text-align: center;
+	border: none !important;
+}
+
+.file-label {
+	border: 2px solid #3755FA;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	cursor: pointer;
+	margin-bottom: 10px;
 }
 
 /*payment*/

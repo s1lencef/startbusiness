@@ -223,7 +223,7 @@
 								</label>
 							</div>
 							<div class="request-form-row">
-								<span class="request-span required"></span>
+								<span class="request-span"></span>
 								<div class="radio-inputs">
 									<label class="request-check" for="infiniteResidentCard">
 										<input id="infiniteResidentCard" class="request-radio-btn" name="infiniteResidentCard" required type="checkbox"
@@ -234,8 +234,10 @@
 							</div>
 							<div class="request-form-row">
 								<span class="request-span">Скан документа</span>
-								<label class="request-input" for="passFile">
-									<input id = "residentFile" name="files2" type="file" multiple/>
+								<label for="residentFile2" class="file-label">
+									<span class="file-text">Выбрать файл</span>
+									<input type="text" id="file-name-2" class="file-name"/>
+									<input id="residentFile2" class="file-input" name="files2" type="file" multiple/>
 								</label>
 							</div>
 							<div class="request-form-row final-option">
@@ -339,9 +341,11 @@
 								</label>
 							</div>
 							<div class="request-form-row">
-								<span class="request-span required">Скан документа</span>
-								<label class="request-input" for="passFile">
-									<input id = "passFile" name="files1" type="file" required multiple/>
+								<span class="request-span">Скан документа</span>
+								<label for="residentFile1" class="file-label">
+									<span class="file-text">Выбрать файл</span>
+									<input type="text" id="file-name-1" class="file-name"/>
+									<input id="residentFile1" class="file-input" name="files1" type="file" multiple/>
 								</label>
 							</div>
 							<div class="request-form-row final-option">
