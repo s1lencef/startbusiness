@@ -288,16 +288,12 @@
 	background: #3755FA !important;
 }
 
-/*.request-check span::before.checked {*/
-/*	background: #3755FA !important;*/
-/*}*/
-
 .input-result {
 	color: #3755FA;
 	font-size: 13px;
 	margin-bottom: 10px;
 	margin-top: 10px;
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 }
 
 .final-option {
@@ -362,7 +358,21 @@
 	align-items: center;
 	color: #fff;
 	cursor: pointer;
+	max-width: 344px;
 	margin-bottom: 10px;
+}
+
+.file-result svg{
+	margin-left: 10px;
+}
+
+.delete-file-result{
+	color: inherit;
+	margin-left: 15px;
+}
+
+.delete-file-result:hover{
+	text-decoration: underline;
 }
 
 /*payment*/

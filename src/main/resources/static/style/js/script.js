@@ -1,49 +1,3 @@
-// Получение ссылок на элементы DOM с помощью их id и классов
-const fileInput1 = document.getElementById("residentFile1");
-const fileInput2 = document.getElementById("residentFile2");
-
-fileInput1.addEventListener("change", function () {
-    if (fileInput1.files.length > 0) {
-        document.getElementById("file-name-1").value = fileInput1.files[0].name;
-    } else {
-        document.getElementById("file-name-1").textContent = "";
-    }
-});
-
-fileInput2.addEventListener("change", function () {
-    if (fileInput2.files.length > 0) {
-        document.getElementById("file-name-2").value = fileInput2.files[0].name;
-    } else {
-        document.getElementById("file-name-2").textContent = "";
-    }
-});
-
-const foreignCitizenToggle = document.querySelector('#foreignCitizen');
-const radioButtons = document.querySelectorAll('input[name="citizenship"]');
-    for (const radioButton of radioButtons) {
-        radioButton.addEventListener("click", () => {
-        if (foreignCitizenToggle.checked) {
-            document.getElementById('foreignCitizenForm').classList.remove('request-form-page-hidden');
-        }
-        else{
-            document.getElementById('foreignCitizenForm').classList.add('request-form-page-hidden');
-        }
-        });
-    }
-
-let endDateToggle = document.getElementById('infiniteResidentCard');
-endDateToggle.addEventListener('click', () => {
-    if (endDateToggle.checked) {
-        document.getElementById('endDate').classList.add('request-form-row-hidden');
-        document.getElementById('infiniteResidentCard-span').classList.add('request-radio-btn-checked');
-        console.log(document.getElementById('infiniteResidentCard-span').classList);
-    }
-else{
-        document.getElementById('endDate').classList.remove('request-form-row-hidden');
-        document.getElementById('infiniteResidentCard-span').classList.remove('request-radio-btn-checked');
-    }
-});
-
 document.getElementById('prices-btn-2').addEventListener('click', paymentPlans);
 
 let requestToggle = document.getElementById('request-toggle')
@@ -76,6 +30,30 @@ divToScroll.addEventListener('wheel', function (e) {
     divToScroll.scrollLeft += e.deltaY * 2;
 }, false);
 
+const foreignCitizenToggle = document.querySelector('#foreignCitizen');
+const radioButtons = document.querySelectorAll('input[name="citizenship"]');
+for (const radioButton of radioButtons) {
+    radioButton.addEventListener("click", () => {
+        if (foreignCitizenToggle.checked) {
+            document.getElementById('foreignCitizenForm').classList.remove('request-form-page-hidden');
+        } else {
+            document.getElementById('foreignCitizenForm').classList.add('request-form-page-hidden');
+        }
+    });
+}
+
+let endDateToggle = document.getElementById('infiniteResidentCard');
+endDateToggle.addEventListener('click', () => {
+    if (endDateToggle.checked) {
+        document.getElementById('endDate').classList.add('request-form-row-hidden');
+        document.getElementById('infiniteResidentCard-span').classList.add('request-radio-btn-checked');
+        console.log(document.getElementById('infiniteResidentCard-span').classList);
+    } else {
+        document.getElementById('endDate').classList.remove('request-form-row-hidden');
+        document.getElementById('infiniteResidentCard-span').classList.remove('request-radio-btn-checked');
+    }
+});
+
 const dateInput = document.getElementById('dateInput');
 const INNInput = document.getElementById('INNInput');
 const emailInput = document.getElementById('emailInput');
@@ -84,7 +62,8 @@ const passportInput = document.getElementById('passportInput');
 const passDateInput = document.getElementById('passDateInput');
 const codeInput = document.getElementById('codeInput');
 const docDateInput = document.getElementById('docDateInput');
-
+const residentCardDateInput = document.getElementById('residentCardDateInput');
+const residentCardEndDateInput = document.getElementById('residentCardEndDateInput');
 
 const mask1 = IMask(dateInput, {
     mask: '00/00/0000',
@@ -123,6 +102,18 @@ const mask7 = IMask(codeInput, {
     placeholderChar: '_'
 });
 const mask8 = IMask(docDateInput, {
+    mask: '00/00/0000',
+    lazy: false,
+    placeholderChar: '_'
+});
+
+const mask9 = IMask(residentCardDateInput, {
+    mask: '00/00/0000',
+    lazy: false,
+    placeholderChar: '_'
+});
+
+const mask10 = IMask(residentCardEndDateInput, {
     mask: '00/00/0000',
     lazy: false,
     placeholderChar: '_'
@@ -215,6 +206,32 @@ Input8.addEventListener('input', function () {
         document.getElementById('docDateInput-result').textContent = 'Дата введена правильно!';
     } else {
         document.getElementById('docDateInput-result').textContent = 'Неверный формат даты!';
+    }
+});
+
+// проверка на формат даты документов
+let Input9 = document.getElementById('residentCardDateInput');
+Input9.addEventListener('input', function () {
+    let Input = document.getElementById('residentCardDateInput').value;
+    Input = Input.slice(0, 10);
+    let regex = /^(((0[1-9]|[1]\d|3[0])\/(0[-1]|1[2])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[1]\d|30)\/(0[-1]|1[1])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[-1]|[-1]|[-1])|(([-1]|[-1]|[-1])00))))$/;
+    if (regex.test(Input)) {
+        document.getElementById('residentCardDate-result').textContent = 'Дата введена правильно!';
+    } else {
+        document.getElementById('residentCardDate-result').textContent = 'Неверный формат даты!';
+    }
+});
+
+// проверка на формат даты документов
+let Input10 = document.getElementById('residentCardEndDateInput');
+Input10.addEventListener('input', function () {
+    let Input = document.getElementById('residentCardEndDateInput').value;
+    Input = Input.slice(0, 10);
+    let regex = /^(((0[1-9]|[1]\d|3[0])\/(0[-1]|1[2])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[1]\d|30)\/(0[-1]|1[1])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[-1]|[-1]|[-1])|(([-1]|[-1]|[-1])00))))$/;
+    if (regex.test(Input)) {
+        document.getElementById('residentCardEndDate-result').textContent = 'Дата введена правильно!';
+    } else {
+        document.getElementById('residentCardEndDate-result').textContent = 'Неверный формат даты!';
     }
 });
 
