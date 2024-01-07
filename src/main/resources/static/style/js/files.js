@@ -24,10 +24,10 @@ endDateToggle.addEventListener('click', () => {
 
 var fileInput1 = document.getElementById('residentFile1');
 fileInput1.addEventListener('change', function () {
-    // var elementsToRemove = document.getElementById('residentFiles1').querySelectorAll('.remove-class');
-    // elementsToRemove.forEach(function(element) {
-    //     element.remove();
-    // });
+    var elementsToRemove = document.getElementById('residentFiles1').querySelectorAll('.remove-class');
+    elementsToRemove.forEach(function(element) {
+        element.remove();
+    });
     if (fileInput1.files.length > 0) {
         let value = fileInput1.files[0].name;
         if (value.length > 20) {
@@ -35,7 +35,7 @@ fileInput1.addEventListener('change', function () {
         }
         document.getElementById("file-name-1").value = value;
     } else {
-        document.getElementById("file-name-1").textContent = "";
+        document.getElementById("file-name-1").value = "";
     }
     var files = this.files;
     for (var i = 0; i < files.length; i++) {
@@ -51,6 +51,9 @@ fileInput1.addEventListener('change', function () {
             fileName = fileName.slice(0, 18) + '...' + fileName.slice(-7);
         }
         fileNameSpan.textContent = fileName;
+        var fullFileNameSpan = document.createElement('span');
+        fullFileNameSpan.className = 'file-name-hidden';
+        fullFileNameSpan.textContent = file.name;
         var deleteLink = document.createElement('a');
         deleteLink.className = 'delete-file-result';
         deleteLink.addEventListener('click', function () {
@@ -78,13 +81,11 @@ fileInput1.addEventListener('change', function () {
             if (fileInput1.files.length > 0) {
                 let value = fileInput1.files[0].name;
                 if (value.length > 22) {
-                    var start = value.slice(0, 12);
-                    var end = value.slice(-7);
-                    value = start + '...' + end;
+                    value = value.slice(0, 12) + '...' + value.slice(-7);
                 }
-                document.getElementById("file-name-1").value = fileInput1.files[0].name;
+                document.getElementById("file-name-1").value = value;
             } else {
-                document.getElementById("file-name-1").textContent = "";
+                document.getElementById("file-name-1").value = "";
             }
         });
         var deleteText = document.createElement('span');
@@ -103,6 +104,7 @@ fileInput1.addEventListener('change', function () {
         deleteLink.appendChild(deleteText);
         deleteLink.appendChild(svg);
         fileResult.appendChild(fileNameSpan);
+        fileResult.appendChild(fullFileNameSpan);
         fileResult.appendChild(deleteLink);
         resultBlock.appendChild(fileResult);
         document.getElementById('residentFile1-result').parentNode.insertBefore(resultBlock, document.getElementById('residentFile1-result'));
@@ -111,7 +113,7 @@ fileInput1.addEventListener('change', function () {
 
 var fileInput2 = document.getElementById('residentFile2');
 fileInput2.addEventListener('change', function () {
-    var elementsToRemove = residentFiles2.querySelectorAll('.remove-class');
+    var elementsToRemove = document.getElementById('residentFiles2').querySelectorAll('.remove-class');
     elementsToRemove.forEach(function(element) {
         element.remove();
     });
@@ -138,6 +140,9 @@ fileInput2.addEventListener('change', function () {
             fileName = fileName.slice(0, 18) + '...' + fileName.slice(-7);
         }
         fileNameSpan.textContent = fileName;
+        var fullFileNameSpan = document.createElement('span');
+        fullFileNameSpan.className = 'file-name-hidden';
+        fullFileNameSpan.textContent = file.name;
         var deleteLink = document.createElement('a');
         deleteLink.className = 'delete-file-result';
         deleteLink.addEventListener('click', function () {
@@ -165,11 +170,9 @@ fileInput2.addEventListener('change', function () {
             if (fileInput2.files.length > 0) {
                 let value = fileInput2.files[0].name;
                 if (value.length > 22) {
-                    var start = value.slice(0, 12);
-                    var end = value.slice(-7);
-                    value = start + '...' + end;
+                    value = value.slice(0, 12) + '...' + value.slice(-7);
                 }
-                document.getElementById("file-name-2").value = fileInput2.files[0].name;
+                document.getElementById("file-name-2").value = value;
             } else {
                 document.getElementById("file-name-2").value = "";
             }
@@ -190,6 +193,7 @@ fileInput2.addEventListener('change', function () {
         deleteLink.appendChild(deleteText);
         deleteLink.appendChild(svg);
         fileResult.appendChild(fileNameSpan);
+        fileResult.appendChild(fullFileNameSpan);
         fileResult.appendChild(deleteLink);
         resultBlock.appendChild(fileResult);
         document.getElementById('residentFile2-result').parentNode.insertBefore(resultBlock, document.getElementById('residentFile2-result'));
