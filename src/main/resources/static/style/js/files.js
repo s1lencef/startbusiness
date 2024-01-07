@@ -24,10 +24,10 @@ endDateToggle.addEventListener('click', () => {
 
 var fileInput1 = document.getElementById('residentFile1');
 fileInput1.addEventListener('change', function () {
-    var elementsToRemove = residentFiles1.querySelectorAll('.remove-class');
-    elementsToRemove.forEach(function(element) {
-        element.remove();
-    });
+    // var elementsToRemove = document.getElementById('residentFiles1').querySelectorAll('.remove-class');
+    // elementsToRemove.forEach(function(element) {
+    //     element.remove();
+    // });
     if (fileInput1.files.length > 0) {
         let value = fileInput1.files[0].name;
         if (value.length > 20) {
@@ -35,7 +35,7 @@ fileInput1.addEventListener('change', function () {
         }
         document.getElementById("file-name-1").value = value;
     } else {
-        document.getElementById("file-name-1").value = "";
+        document.getElementById("file-name-1").textContent = "";
     }
     var files = this.files;
     for (var i = 0; i < files.length; i++) {
@@ -84,7 +84,7 @@ fileInput1.addEventListener('change', function () {
                 }
                 document.getElementById("file-name-1").value = fileInput1.files[0].name;
             } else {
-                document.getElementById("file-name-1").value = "";
+                document.getElementById("file-name-1").textContent = "";
             }
         });
         var deleteText = document.createElement('span');
