@@ -1,26 +1,26 @@
-const foreignCitizenToggle = document.querySelector('#foreignCitizen');
-const radioButtons = document.querySelectorAll('input[name="citizenship"]');
-for (const radioButton of radioButtons) {
-    radioButton.addEventListener("click", () => {
-        if (foreignCitizenToggle.checked) {
-            document.getElementById('foreignCitizenForm').classList.remove('request-form-page-hidden');
-        } else {
-            document.getElementById('foreignCitizenForm').classList.add('request-form-page-hidden');
-        }
-    });
-}
-
-let endDateToggle = document.getElementById('infiniteResidentCard');
-endDateToggle.addEventListener('click', () => {
-    if (endDateToggle.checked) {
-        document.getElementById('endDate').classList.add('request-form-row-hidden');
-        document.getElementById('infiniteResidentCard-span').classList.add('request-radio-btn-checked');
-        console.log(document.getElementById('infiniteResidentCard-span').classList);
-    } else {
-        document.getElementById('endDate').classList.remove('request-form-row-hidden');
-        document.getElementById('infiniteResidentCard-span').classList.remove('request-radio-btn-checked');
-    }
-});
+// const foreignCitizenToggle = document.querySelector('#foreignCitizen');
+// const radioButtons = document.querySelectorAll('input[name="citizenship"]');
+// for (const radioButton of radioButtons) {
+//     radioButton.addEventListener("click", () => {
+//         if (foreignCitizenToggle.checked) {
+//             document.getElementById('foreignCitizenForm').classList.remove('request-form-page-hidden');
+//         } else {
+//             document.getElementById('foreignCitizenForm').classList.add('request-form-page-hidden');
+//         }
+//     });
+// }
+//
+// let endDateToggle = document.getElementById('infiniteResidentCard');
+// endDateToggle.addEventListener('click', () => {
+//     if (endDateToggle.checked) {
+//         document.getElementById('endDate').classList.add('request-form-row-hidden');
+//         document.getElementById('infiniteResidentCard-span').classList.add('request-radio-btn-checked');
+//         console.log(document.getElementById('infiniteResidentCard-span').classList);
+//     } else {
+//         document.getElementById('endDate').classList.remove('request-form-row-hidden');
+//         document.getElementById('infiniteResidentCard-span').classList.remove('request-radio-btn-checked');
+//     }
+// });
 
 var fileInput1 = document.getElementById('residentFile1');
 fileInput1.addEventListener('change', function () {
