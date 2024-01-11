@@ -3,7 +3,8 @@
 
     var $tooltip = $('#tooltip');
 
-    var $region = $container.find('[name="subject"]'),
+    var
+        $region = $container.find('[name="subject"]'),
         $city = $container.find('[name="locality"]'),
         $street = $container.find('[name="street"]'),
         $building = $container.find('[name="building"]');
@@ -13,12 +14,9 @@
         .add($street)
         .add($building)
         .fias({
-            parentInput: $container.find('.request-form-pages'),
+            parentInput: $container.find('.request-form-page'),
             verify: true,
-            select: function (obj) {
-                setLabel($(this), obj.type);
-                $tooltip.hide();
-            },
+
             check: function (obj) {
                 var $input = $(this);
 
@@ -42,6 +40,7 @@
 
     $region.fias('type', $.fias.type.region);
     $city.fias('type', $.fias.type.city);
+
     $street.fias('type', $.fias.type.street);
     $building.fias('type', $.fias.type.building);
 
