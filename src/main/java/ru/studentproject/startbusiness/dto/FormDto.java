@@ -253,6 +253,10 @@ public class FormDto {
     }
 
     public void setResidentCardIssueDate(Date residentCardIssueDate) {
+        if (residentCardIssuePlace == null){
+            Calendar now = Calendar.getInstance();
+            this.residentCardIssueDate = now.getTime();
+        }
         this.residentCardIssueDate = residentCardIssueDate;
     }
 
@@ -261,8 +265,10 @@ public class FormDto {
     }
 
     public void setResidentCardIssuePlace(String residentCardIssuePlace) {
+
         this.residentCardIssuePlace = residentCardIssuePlace;
     }
+
 
     public Date getResidentCardEndDate() {
         return residentCardEndDate;
