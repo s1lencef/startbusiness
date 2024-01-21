@@ -3,10 +3,12 @@ package ru.studentproject.startbusiness.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import java.util.Properties;
@@ -23,8 +25,9 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/registration").permitAll()
+                        .requestMatchers("/registration**").permitAll()
                         .requestMatchers("/logout").permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers( "/style/**").permitAll()
@@ -33,7 +36,10 @@ public class SecurityConfiguration {
                         .requestMatchers("/reset-password").permitAll()
                         .requestMatchers("/upload").hasRole("USER")
                         .requestMatchers("/home").permitAll()
-                        .requestMatchers("/profile").hasRole("USER")
+                        .requestMatchers("/").permitAll()
+                        .requestMatchers("/profile/**").hasRole("USER")
+                        .requestMatchers("/form/**").hasRole("USER")
+                        .requestMatchers("/download").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -42,8 +48,10 @@ public class SecurityConfiguration {
                 )
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/")
+                        .logoutSuccessUrl("/home")
                         .invalidateHttpSession(true)
+                ).sessionManagement((session) -> session
+                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 );
 
         return http.build();

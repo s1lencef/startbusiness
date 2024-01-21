@@ -2,6 +2,7 @@ package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
 
+import java.util.Calendar;
 import java.util.Date;
 
 @Entity
@@ -13,9 +14,10 @@ public class Form {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
     @ManyToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "staff_id")
+    @JoinColumn(nullable = true, name = "staff_id")
     private User staff;
     private boolean type;
+    private boolean favorites;
     private Date date;
     @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "status")
@@ -23,6 +25,7 @@ public class Form {
     @ManyToOne(targetEntity = Types.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "tax")
     private Types tax;
+    private String department;
     public Form(Long id, User user, User staff, boolean type, Date date, Status status, Types tax) {
         this.id = id;
         this.user = user;
@@ -72,8 +75,9 @@ public class Form {
         return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate() {
+        Calendar now = Calendar.getInstance();
+        this.date = now.getTime();
     }
 
     public Status getStatus() {
@@ -90,5 +94,13 @@ public class Form {
 
     public void setTax(Types tax) {
         this.tax = tax;
+    }
+
+    public boolean isFavorites() {
+        return favorites;
+    }
+
+    public void setFavorites(boolean favorites) {
+        this.favorites = favorites;
     }
 }

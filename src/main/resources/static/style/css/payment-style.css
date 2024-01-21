@@ -18,14 +18,16 @@
 }
 
 .payment-plan-header{
-	font-family: SONGER_SE_Regular, sans-serif;
+	/*font-family: SONGER_SE_Regular, sans-serif;*/
+	font-family: SONGER_SE_Medium, sans-serif;
 	font-size: 2em;
 	margin-bottom: 50px;
 }
 
 .card-header{
 	align-self: center;
-	font-size: 1.1em;
+	font-family: SONGER_SE_Medium, sans-serif;
+	font-size: 1.2em;
 	font-weight: 500;
 }
 
@@ -40,14 +42,16 @@
 	display: flex;
 	font-size: 1em;
 	flex-direction: column;
-	background: rgba(241, 243, 255, 0.5);
-	backdrop-filter:blur(10px);
+	background: rgba(242, 246, 255, 0.5);
+	border-radius: 10px;
+	backdrop-filter: blur(5px) hue-rotate(20deg);
+	/*background: rgba(241, 243, 255, 0.5);*/
+	/*backdrop-filter:blur(10px);*/
 	width: 100%;
 	padding: 20px;
 	transition: 0.2s;
 	position: relative;
-	border: 2px solid #000000;
-	border-radius: 10px;
+	border: 2.5px solid #000000;
 }
 
 .payment-plan-card:hover{
@@ -103,6 +107,43 @@
 	font-family: SONGER_SE_Medium;
 	margin: auto 0 15px 30px;
 }
+
+
+.delete-unpaid-request::before{
+	position: absolute;
+	right: -450px;
+	z-index: -1;
+	bottom: -350px;
+	opacity: 1;
+	content: url("../img/business_image5.svg");
+	transition: 0.4s;
+}
+
+.delete-unpaid-request::after{
+	position: absolute;
+	right: -520px;
+	z-index: -1;
+	bottom: -410px;
+	opacity: 0;
+	content: url("../img/business_image4.svg");
+	transition: 0.4s;
+}
+
+.delete-unpaid-request:hover::after{
+	opacity: 1;
+	bottom: -360px;
+	right: -390px;
+}
+
+.delete-unpaid-request:hover::before{
+	opacity: 0;
+}
+
+.buy-request{
+	background: #3755FA;
+	color: #fff;
+}
+
 
 @media (max-width: 1200px) {
 	.payment-plan-card-wrapper{

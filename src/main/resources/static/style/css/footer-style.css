@@ -1,0 +1,98 @@
+
+.auth-page{
+	height: 50vh;
+}
+
+.auth-wrapper{
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	flex-direction: column;
+}
+
+.big-auth-button{
+	border:3px solid #000;
+	border-radius: 10px;
+	padding: 1.2em 1em;
+	width: 24em;
+	height: auto;
+	z-index:1;
+	background: rgba(255, 255, 255, 0.04);
+	backdrop-filter: blur(3px);
+	transition: 0.2s;
+}
+
+.big-auth-button button{
+	width: 100%;
+	color: inherit;
+	font-size: 1.8em;
+	text-align: center;
+	font-family: SONGER_SE_regular;
+}
+
+.big-auth-reg{
+	margin-bottom: -9em;
+	margin-left: -35em;
+}
+
+.big-auth-reg:hover .fineprint{
+	height: 4em;
+	opacity: 1;
+}
+
+.big-auth-reg:hover{
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.big-auth-enter:hover{
+	background: #3755FA;
+	color: #fff !important;
+}
+
+.fineprint{
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	margin-top: 0.2em;
+	font-family: Roboto Slab, serif;
+	font-size: 12px;
+	transition: 0.2s;
+}
+
+.big-auth-enter{
+	margin-top: -9em;
+	margin-right: -35em;
+}
+
+footer {
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	flex-direction: column;
+	background: #3755FA 50%;
+	width: 100%;
+	font-family: SONGER_SE_regular;
+}
+
+footer .foot{
+	align-items: center;
+	background: #3755FA;
+	display: flex;
+	height: 60px;
+	padding: 1em;
+	justify-content: center;
+	position: relative;
+	width: 20em;
+}
+
+.copiright {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 50px;
+	text-align: center;
+	font-size: 1.2em;
+	border-top:3px solid #fff;
+	color: #FFFFFF;
+}

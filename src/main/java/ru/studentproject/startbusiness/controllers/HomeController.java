@@ -19,17 +19,8 @@ public class HomeController {
     @Autowired
     private UserService userService;
     @GetMapping("/login")
-    public String login(@AuthenticationPrincipal User user) {
-        System.out.println("user = " + user);
-        if (user != null){
-            return "redirect:/home";
-        }
-        try {
-            return "login";
-        }
-        catch (Exception e){
-            return "redirect:/";
-        }
+    public String login() {
+        return "login";
     }
 
     @GetMapping("/")
@@ -42,10 +33,7 @@ public class HomeController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = SecurityContextHolder.getContext().getAuthentication().getName();
         ru.studentproject.startbusiness.models.User user = userService.findByEmail(email);
-        if (user != null){
-            System.out.println("мыло = " + email);
-     ;
-        }
+
 
         model.addAttribute("user",user);
         List<ru.studentproject.startbusiness.models.User> users = userService.getAll();
@@ -53,6 +41,10 @@ public class HomeController {
 
 
         return "home";
+    }
+    @GetMapping("/unknown")
+    public String unknown(){
+        return "unknown";
     }
 
 }

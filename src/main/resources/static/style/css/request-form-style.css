@@ -1,3 +1,13 @@
+.center-svg{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.center-svg svg{
+	display: flex;
+}
+
 .request-form {
 	height: 100%;
 	left: 342px;
@@ -159,6 +169,10 @@
 	width: 700px;
 }
 
+.request-form-page-hidden{
+	display: none !important;
+}
+
 .request-form-page::before {
 	background: rgba(241, 243, 255, 0.5);
 	content: '';
@@ -170,8 +184,10 @@
 }
 
 .request-form-page-header p {
-	height: 30px;
-	padding: 8px 5px 0 5px;
+	/*height: 30px;*/
+	height: auto;
+	width: 330px;
+	padding: 8px 5px 8px 5px;
 }
 
 .request-span {
@@ -200,6 +216,10 @@
 	margin-top: 5px;
 }
 
+.request-form-row-hidden{
+	display: none !important;
+}
+
 .request-form-row input {
 	border: 2px solid #3755FA;
 	height: 30px;
@@ -211,9 +231,9 @@
 .request-form-row textarea {
 	border: 2px solid #3755FA;
 	max-width: 330px;
-	min-height: 30px;
+	min-height: 25px;
 	min-width: 330px;
-	padding: 0 5px 0 5px;
+	padding: 5px 5px 0 5px;
 	position: relative;
 }
 
@@ -260,8 +280,12 @@
 	background: #3755FA;
 }
 
-.request-radio-btn:checked + span:before {
-	background: #3755FA;
+.request-radio-btn:checked + span::before {
+	background: #3755FA !important;
+}
+
+.request-radio-btn-checked::before {
+	background: #3755FA !important;
 }
 
 .input-result {
@@ -269,7 +293,7 @@
 	font-size: 13px;
 	margin-bottom: 10px;
 	margin-top: 10px;
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 }
 
 .final-option {
@@ -280,10 +304,10 @@
 	width: 344px;
 }
 
-.final-option a {
+.final-option button {
 	align-items: center;
-	background: #3755FA;
 	border: 2px solid #3755FA;
+	background: #3755FA;
 	color: #ffffff;
 	display: flex;
 	height: 32px;
@@ -292,12 +316,12 @@
 	width: 155px;
 }
 
-.final-option a:nth-child(1) {
-	background: none;
-	color: #000;
+.final-option button:nth-child(1) {
+    background: none;
+    color: #000;
 }
 
-.final-option a:hover {
+.final-option button:hover {
 	background: #3755FA;
 	color: #ffffff;
 }
@@ -308,6 +332,52 @@
 	cursor: pointer;
 	height: 36px;
 	width: 100%;
+}
+
+.file-name {
+	width: 178px !important;
+	border: none !important;
+}
+
+.file-input {
+	display: none;
+}
+
+.file-text{
+	height: 22px;
+	padding: 4px 0;
+	width: 153px;
+	background-color: #3755FA;
+	text-align: center;
+	border: none !important;
+}
+
+.file-label {
+	border: 2px solid #3755FA;
+	display: flex;
+	align-items: center;
+	color: #fff;
+	cursor: pointer;
+	max-width: 346px;
+	margin-bottom: 10px;
+}
+
+.file-result svg{
+	margin-left: 10px;
+}
+
+.file-name-hidden{
+	display: none;
+}
+
+.delete-file-result{
+	color: inherit;
+	margin-left: 15px;
+}
+
+.delete-file-result:hover{
+	text-decoration: underline;
+	color: #D34242;
 }
 
 /*payment*/

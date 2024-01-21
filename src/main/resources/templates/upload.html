@@ -7,10 +7,9 @@
 
 <h4>Upload Single File:</h4>
 <form enctype="multipart/form-data" method="POST" th:action="@{/upload}">
-	<input name="file" type="file"/> <br/><br/>
+	<input name="files" type="file" multiple/>
 	<button type="submit">Submit</button>
 </form>
-
 
 <div class="alert" th:if="${param.success}">
 	<div th:if="${filename}">

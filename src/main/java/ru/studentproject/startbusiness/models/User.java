@@ -2,6 +2,7 @@ package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.ColumnDefault;
 
 
 import java.util.Collection;
@@ -35,7 +36,9 @@ public class User {
                     (name = "role_id",
                             referencedColumnName = "id"))
     private Collection<Role> roles;
-
+    @Column(name = "form_count")
+    @ColumnDefault("0")
+    private int formsCount;
     public User() {
 
     }
@@ -97,5 +100,13 @@ public class User {
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+    public int getFormsCount() {
+        return formsCount;
+    }
+
+    public void setFormsCount() {
+        this.formsCount =this.formsCount+1;
     }
 }

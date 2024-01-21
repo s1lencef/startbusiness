@@ -2,17 +2,21 @@ package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.ColumnDefault;
+
 import java.util.Date;
 
 @Entity
 public class Employer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long number;
     private int Citizenship;
     private String Surname;
     private String Name;
     private String Middlename;
-    private boolean sex;
+    private int sex;
     private Date BirthDate;
     private String BirthPlace;
     private Long INN;
@@ -23,47 +27,21 @@ public class Employer {
     private Date IssueDate;
     private String IssuePlace;
     private String IssueCode;
-    @ManyToOne(targetEntity = Subject.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "subject_code")
-    private Subject SubjectCode;
-    private String Locality;
-    private String Street;
-    private String Building;
-    private String Office;
-
     private double Fraction;
     private double Percent;
     private String Post;
 
-    public Employer(Long id, int citizenship, String surname, String name, String middlename,
-                    boolean sex, Date birthDate, String birthPlace, Long INN, String email,
-                    String phone, int documentType, Date issueDate, String issuePlace,
-                    String issueCode, Subject subjectCode, String locality, String street,
-                    String building, String office, double fraction, double percent, String post) {
-        this.id = id;
-        Citizenship = citizenship;
-        Surname = surname;
-        Name = name;
-        Middlename = middlename;
-        this.sex = sex;
-        BirthDate = birthDate;
-        BirthPlace = birthPlace;
-        this.INN = INN;
-        this.email = email;
-        this.phone = phone;
-        DocumentType = documentType;
-        IssueDate = issueDate;
-        IssuePlace = issuePlace;
-        IssueCode = issueCode;
-        SubjectCode = subjectCode;
-        Locality = locality;
-        Street = street;
-        Building = building;
-        Office = office;
-        Fraction = fraction;
-        Percent = percent;
-        Post = post;
-    }
+    private int residentCard;
+    private String residentCardNumber;
+    private Date residentCardIssueDate;
+    private String residentCardIssuePlace;
+    private Date residentCardEndDate;
+    @ColumnDefault("2")
+    private int infiniteResidentCard;
+    @ManyToOne(targetEntity = Form.class, fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false, name = "form_id")
+    private Form form;
+
 
     public Employer() {
     }
@@ -74,6 +52,14 @@ public class Employer {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getNumber() {
+        return number;
+    }
+
+    public void setNumber(Long number) {
+        this.number = number;
     }
 
     public int getCitizenship() {
@@ -108,11 +94,11 @@ public class Employer {
         Middlename = middlename;
     }
 
-    public boolean isSex() {
+    public int getSex() {
         return sex;
     }
 
-    public void setSex(boolean sex) {
+    public void setSex(int sex) {
         this.sex = sex;
     }
 
@@ -188,46 +174,6 @@ public class Employer {
         IssueCode = issueCode;
     }
 
-    public Subject getSubjectCode() {
-        return SubjectCode;
-    }
-
-    public void setSubjectCode(Subject subjectCode) {
-        SubjectCode = subjectCode;
-    }
-
-    public String getLocality() {
-        return Locality;
-    }
-
-    public void setLocality(String locality) {
-        Locality = locality;
-    }
-
-    public String getStreet() {
-        return Street;
-    }
-
-    public void setStreet(String street) {
-        Street = street;
-    }
-
-    public String getBuilding() {
-        return Building;
-    }
-
-    public void setBuilding(String building) {
-        Building = building;
-    }
-
-    public String getOffice() {
-        return Office;
-    }
-
-    public void setOffice(String office) {
-        Office = office;
-    }
-
     public double getFraction() {
         return Fraction;
     }
@@ -250,5 +196,61 @@ public class Employer {
 
     public void setPost(String post) {
         Post = post;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+    }
+
+    public int getResidentCard() {
+        return residentCard;
+    }
+
+    public void setResidentCard(int residentCard) {
+        this.residentCard = residentCard;
+    }
+
+    public String getResidentCardNumber() {
+        return residentCardNumber;
+    }
+
+    public void setResidentCardNumber(String residentCardNumber) {
+        this.residentCardNumber = residentCardNumber;
+    }
+
+    public Date getResidentCardIssueDate() {
+        return residentCardIssueDate;
+    }
+
+    public void setResidentCardIssueDate(Date residentCardIssueDate) {
+        this.residentCardIssueDate = residentCardIssueDate;
+    }
+
+    public String getResidentCardIssuePlace() {
+        return residentCardIssuePlace;
+    }
+
+    public void setResidentCardIssuePlace(String residentCardIssuePlace) {
+        this.residentCardIssuePlace = residentCardIssuePlace;
+    }
+
+    public Date getResidentCardEndDate() {
+        return residentCardEndDate;
+    }
+
+    public void setResidentCardEndDate(Date residentCardEndDate) {
+        this.residentCardEndDate = residentCardEndDate;
+    }
+
+    public int getInfiniteResidentCard() {
+        return infiniteResidentCard;
+    }
+
+    public void setInfiniteResidentCard(int infiniteResidentCard) {
+        this.infiniteResidentCard = infiniteResidentCard;
     }
 }
