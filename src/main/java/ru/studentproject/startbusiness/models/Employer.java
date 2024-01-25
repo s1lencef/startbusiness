@@ -30,7 +30,8 @@ public class Employer {
     private double Fraction;
     private double Percent;
     private String Post;
-
+    @ColumnDefault("000")
+    private int country;
     private int residentCard;
     private String residentCardNumber;
     private Date residentCardIssueDate;
@@ -206,6 +207,14 @@ public class Employer {
         this.form = form;
     }
 
+    public int getCountry() {
+        return country;
+    }
+
+    public void setCountry(int country) {
+        this.country = country;
+    }
+
     public int getResidentCard() {
         return residentCard;
     }
@@ -253,4 +262,5 @@ public class Employer {
     public void setInfiniteResidentCard(int infiniteResidentCard) {
         this.infiniteResidentCard = infiniteResidentCard;
     }
+
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import ru.studentproject.startbusiness.config.CountryFounder;
 import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.*;
 
@@ -26,11 +27,13 @@ import ru.studentproject.startbusiness.repos.UserComparator;
 import ru.studentproject.startbusiness.repos.UserRepository;
 import ru.studentproject.startbusiness.service.*;
 
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
 
 
 @Controller
@@ -135,8 +138,7 @@ public class ClientController {
     public String saveForm( Model model, @RequestParam(required = true) Long id,
                             @RequestParam("files1") MultipartFile[] files1,
                             @RequestParam(name = "files2", required = false) MultipartFile[] files2,
-                            @ModelAttribute() FormDto formDto, BindingResult result)
-    {
+                            @ModelAttribute() FormDto formDto, BindingResult result) throws IOException {
         System.out.println("model = " + model + ", id = " + id + ", files1 = " + Arrays.toString(files1) + ", files2 = " + Arrays.toString(files2) + ", formDto = " + formDto + ", result = " + result);
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -279,7 +281,7 @@ public class ClientController {
 
         return "redirect:/profile";
     }
-    private static Employer getEmployer(FormDto formDto) {
+    private static Employer getEmployer(FormDto formDto) throws IOException {
         Employer employer = new Employer();
         System.out.println("formDto = " + formDto.toString());
 
@@ -301,14 +303,38 @@ public class ClientController {
         employer.setIssuePlace(formDto.getIssuePlace());
         employer.setNumber(formDto.getNumber());
 
-        employer.setResidentCard(formDto.getResidentCard());
-        employer.setResidentCardEndDate(formDto.getResidentCardEndDate());
-        employer.setResidentCardIssueDate(formDto.getResidentCardIssueDate());
-        employer.setResidentCardNumber(formDto.getResidentCardNumber());
-        employer.setResidentCardIssuePlace(formDto.getResidentCardIssuePlace());
-        employer.setInfiniteResidentCard(formDto.getInfiniteResidentCard());
+        if (!Objects.equals(formDto.getCountry(), "")){
+            employer.setCountry(CountryFounder.getCountryCode(formDto.getCountry()));
+            employer.setResidentCard(formDto.getResidentCard());
+            employer.setResidentCardEndDate(formDto.getResidentCardEndDate());
+            employer.setResidentCardIssueDate(formDto.getResidentCardIssueDate());
+            employer.setResidentCardNumber(formDto.getResidentCardNumber());
+            employer.setResidentCardIssuePlace(formDto.getResidentCardIssuePlace());
+            employer.setInfiniteResidentCard(formDto.getInfiniteResidentCard());
+        }
+
 
         return employer;
+    }
+    private static int getCountryCode(String country) throws IOException {
+        final URL url = new URL("http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/country");
+        final HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setConnectTimeout(1000);
+        con.setReadTimeout(1000);
+        try (final BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
+            String inputLine;
+            final StringBuilder content = new StringBuilder();
+            while ((inputLine = in.readLine()) != null) {
+                content.append(inputLine);
+            }
+            System.out.println(content.toString());
+        } catch (final Exception ex) {
+            ex.printStackTrace();
+            return 0;
+        }
+        return 0;
     }
 
 }

@@ -197,6 +197,15 @@
 								<p>Документ, подтверждающий право вести бизнес в РФ</p>
 							</div>
 							<div class="request-form-row">
+								<span class="request-span required">Страна гражданства</span>
+								<label class="request-input" for="country">
+									<input id="country"
+										   th:field="*{country}"
+										   type="text">
+									<p class="input-result" id="country-result"></p>
+								</label>
+							</div>
+							<div class="request-form-row">
 								<span class="request-span required">Вид документа</span>
 								<div class="radio-inputs">
 									<label class="request-check">
@@ -400,7 +409,7 @@
 							</div>
 
 						</div>
-						<div class="request-form-page" id='form4'>
+						<div class="" id='form4'>
 							<div class="request-form-row request-form-page-header">
 								<span class="request-span">Шаг 4 из 6:</span>
 								<p>Адрес места жительства</p>
