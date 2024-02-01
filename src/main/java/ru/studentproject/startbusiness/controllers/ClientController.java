@@ -213,24 +213,6 @@ public class ClientController {
 
 
     }
-    private void makeDocuments(FormDto formDto){
-        PythonInterpreter pythonInterpreter = new PythonInterpreter();
-        String str = formDto.toString();
-        pythonInterpreter.execfile(" python E:\\LETI\\3_kurs\\IT-Projects\\startbusiness\\src\\main\\resources\\python\\IP.py ");
-
-
-    }
-    private void makeDocuments() throws IOException {
-        FormDto formDto = new FormDto();
-        String str = formDto.toString();
-        String[] cmd ={
-                "python",
-                "E:/LETI/3_kurs/IT-Projects/startbusiness/src/main/java/ru/studentproject/startbusiness/controllers/IP.py",
-                "1000"
-        };
-        Runtime.getRuntime().exec(cmd);
-
-    }
 
     @GetMapping("/form/delete")
     public String deleteForm(Model model,@RequestParam(required = true) Long id ){
@@ -315,26 +297,6 @@ public class ClientController {
 
 
         return employer;
-    }
-    private static int getCountryCode(String country) throws IOException {
-        final URL url = new URL("http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/country");
-        final HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json");
-        con.setConnectTimeout(1000);
-        con.setReadTimeout(1000);
-        try (final BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()))) {
-            String inputLine;
-            final StringBuilder content = new StringBuilder();
-            while ((inputLine = in.readLine()) != null) {
-                content.append(inputLine);
-            }
-            System.out.println(content.toString());
-        } catch (final Exception ex) {
-            ex.printStackTrace();
-            return 0;
-        }
-        return 0;
     }
 
 }

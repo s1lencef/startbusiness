@@ -49,18 +49,7 @@ public class FileController {
         return "upload";
     }
 
-//    @PostMapping("/upload")
-//    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String email =  authentication.getName();
-//        fileService.uploadFile(file,email);
-//
-//
-//        System.out.println("name = "+email);
-//        redirectAttributes.addFlashAttribute("filename","файл "+file.getOriginalFilename()+" успешно загружен!");
-//
-//        return "redirect:/upload?success";
-//    }
+
     @GetMapping("/samples")
     public String downloadPage (Model model, HttpServletRequest request){
         List<Document> documents = fileService.getSamples().stream().toList();
