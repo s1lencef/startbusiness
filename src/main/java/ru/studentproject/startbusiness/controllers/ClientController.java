@@ -265,6 +265,7 @@ public class ClientController {
     }
     private static Employer getEmployer(FormDto formDto) throws IOException {
         Employer employer = new Employer();
+        CountryFounder countryFounder = new CountryFounder();
         System.out.println("formDto = " + formDto.toString());
 
         employer.setSurname(formDto.getLastName());
@@ -286,7 +287,7 @@ public class ClientController {
         employer.setNumber(formDto.getNumber());
 
         if (!Objects.equals(formDto.getCountry(), "")){
-            employer.setCountry(CountryFounder.getCountryCode(formDto.getCountry()));
+            employer.setCountry(countryFounder.getCountryCode(formDto.getCountry()));
             employer.setResidentCard(formDto.getResidentCard());
             employer.setResidentCardEndDate(formDto.getResidentCardEndDate());
             employer.setResidentCardIssueDate(formDto.getResidentCardIssueDate());

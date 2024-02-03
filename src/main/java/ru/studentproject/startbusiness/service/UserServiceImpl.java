@@ -35,16 +35,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(UserRegistrationDto registrationDto) {
         Role role = roleRepository.findByName("ROLE_USER");
-        if (role == null){
-            role = new Role("ROLE_USER");
-            roleRepository.save(role);
-        }
-        var user = new User(registrationDto.getFirstName(),
-                registrationDto.getLastName(),
-                registrationDto.getEmail(),
-                passwordEncoder.encode(registrationDto
-                        .getPassword()),
-                Arrays.asList(role));
+
+        var user = new User(registrationDto,role);
 
         return userRepository.save(user);
     }
