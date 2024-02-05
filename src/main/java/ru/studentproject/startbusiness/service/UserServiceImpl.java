@@ -2,6 +2,8 @@ package ru.studentproject.startbusiness.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import ru.studentproject.startbusiness.dto.UserRegistrationDto;
 import ru.studentproject.startbusiness.models.User;
 import ru.studentproject.startbusiness.models.Role;
@@ -66,6 +68,11 @@ public class UserServiceImpl implements UserService {
                 .map(role -> new SimpleGrantedAuthority
                         (role.getName()))
                 .collect(Collectors.toList());
+    }
+    public User getAuthenticatedUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return findByEmail(email);
     }
 
     @Override
