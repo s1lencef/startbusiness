@@ -130,7 +130,7 @@ public class FileController {
             if (!file.isEmpty()) {
                 String fileName = file.getOriginalFilename();
                 long fileSize = file.getSize();
-                fileService.uploadFile(file,email);
+                fileService.uploadFile(file,email,null);
                 System.out.println("Загружен файл: " + fileName);
                 System.out.println("Размер файла: " + fileSize + " байт");
             }
