@@ -3,8 +3,6 @@ package ru.studentproject.startbusiness.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.python.core.PyInteger;
-import org.python.util.PythonInterpreter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 
@@ -24,15 +22,10 @@ import ru.studentproject.startbusiness.models.*;
 import ru.studentproject.startbusiness.repos.DocumentRepository;
 import ru.studentproject.startbusiness.repos.RoleRepository;
 import ru.studentproject.startbusiness.repos.UserComparator;
-import ru.studentproject.startbusiness.repos.UserRepository;
 import ru.studentproject.startbusiness.service.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 import java.util.*;
 
 
@@ -51,7 +44,7 @@ public class ClientController {
     @Autowired
     EmployerService employerService;
     @Autowired
-    SubjectService subjectService;
+    static SubjectService subjectService;
     @Autowired
     DocumentRepository documentRepository;
     @Autowired
@@ -59,209 +52,23 @@ public class ClientController {
     @Autowired
     FileService fileService;
 
+    private final long STATUS_CHANGE = 1L;
+    private final long STATUS_IN_WORK = 2L;
+    private final long STATUS_UNPAID = 3L;
+    private final long STATUS_DONE = 4L;
 
-    @GetMapping("/profile")
-    public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) throws IOException {
-        if(id == null){
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            String email = authentication.getName();
-            User curr_user = userService.findByEmail(email);
-            System.out.println("redirect:/profile?id="+curr_user.getId());
-            return "redirect:/profile?id="+curr_user.getId();
-        }
-        else {
-            System.out.println(", id = " + id + "   " + userService.getById(id));
-            User user = userService.getById(id);
-            List<Form> forms = formService.getUsersForms(user);
-            for(Form form:forms){
-            }
-            model.addAttribute("user", user);
-            model.addAttribute("forms", forms);
-
-        }
-        model.addAttribute("status","choose");
-        return "profile";
-    }
-
-
-    @GetMapping("/form/change")
-    public String newForm(Model model, @RequestParam(required = true) Long id) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User curr_user = userService.findByEmail(email);
-
-        Form curr_form = formService.get(id);
-
-        if (curr_user != curr_form.getUser()){
-            return "redirect:/unknown";
-        }
-        List<Form> forms = formService.getUsersForms(curr_user);
-
-        model.addAttribute("user", curr_user);
-        model.addAttribute("forms", forms);
-        String status = "choose";
-
-
-        if (curr_form.getStatus() == statusService.get(1L)){
-            status = "change";
-        }
-        else if (curr_form.getStatus() == statusService.get(2L)){
-            status = "inwork";
-        }
-        else if (curr_form.getStatus() == statusService.get(3L)){
-            status = "unpaid";
-        }
-        else if (curr_form.getStatus() == statusService.get(4L)){
-            List<Document> documents = documentRepository.findByForm(curr_form.getId());
-            model.addAttribute("documents",documents);
-            status = "done";
-        }
-        model.addAttribute("status",status);
-        model.addAttribute("curr_form", curr_form);
-        model.addAttribute("newForm",new FormDto());
-        return "profile";
-    }
-    @GetMapping("/form/create")
-    public String createForm(Model model, @RequestParam(required = true) Long taxId){
-        Form form;
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User curr_user = userService.findByEmail(email);
-
-         form = formService.save(taxId,curr_user);
-         Long id = form.getId();
-
-        return "redirect:/form/change?id="+id;
-    }
-    @PostMapping("/form/change")
-    public String saveForm( Model model, @RequestParam(required = true) Long id,
-                            @RequestParam("files1") MultipartFile[] files1,
-                            @RequestParam(name = "files2", required = false) MultipartFile[] files2,
-                            @ModelAttribute() FormDto formDto, BindingResult result) throws IOException {
-        System.out.println("model = " + model + ", id = " + id + ", files1 = " + Arrays.toString(files1) + ", files2 = " + Arrays.toString(files2) + ", formDto = " + formDto + ", result = " + result);
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User curr_user = userService.findByEmail(email);
-
-        Form curr_form = formService.get(id);
-
-        if (curr_user != curr_form.getUser()){
-            return "redirect:/unknown";
-        }
-
-        List<Form> forms = formService.getUsersForms(curr_user);
-
-        model.addAttribute("user", curr_user);
-        model.addAttribute("forms", forms);
-
-
-        String status = "choose";
-
-        model.addAttribute("status",status);
-        model.addAttribute("curr_form", curr_form);
-
-        Company company = new Company();
-        company.setForm(curr_form);
-        company.setMainActivities(formDto.getMainActivities());
-        company.setActivities(formDto.getActivities());
-        company.setSubject(subjectService.findByName(formDto.getSubject()));
-        company.setLocality(formDto.getLocality());
-        company.setStreet(formDto.getStreet());
-        company.setBuilding(formDto.getBuilding());
-        company.setOffice(formDto.getOffice());
-        company.setCabinet(formDto.getCabinet());
-        company = companyService.save(company);
-
-
-        Employer employer = getEmployer(formDto);
-        employer.setForm(curr_form);
-
-        employer = employerService.save(employer);
-
-        curr_form.setStatus(statusService.get(3L));
-
-        curr_form = formService.save(curr_form);
-
-        for (MultipartFile file : files1) {
-            if (!file.isEmpty()) {
-                String fileName = file.getOriginalFilename();
-                long fileSize = file.getSize();
-
-                fileService.uploadFile(file,email,curr_form);
-
-                System.out.println("Загружен файл: " + fileName + "\nДля формы "+curr_form.getId());
-                System.out.println("Размер файла: " + fileSize + " байт");
-            }
-        }
-
-        // Обработка загруженных файлов для второго места
-        for (MultipartFile file : files2) {
-            if (!file.isEmpty()) {
-                String fileName = file.getOriginalFilename();
-                long fileSize = file.getSize();
-
-                fileService.uploadFile(file,email,curr_form);
-
-                System.out.println("Загружен файл: " + fileName + "\nДля формы "+curr_form.getId());
-                System.out.println("Размер файла: " + fileSize + " байт");
-            }
-        }
-
-        return "redirect:/profile?id="+curr_user.getId();
-
-
-    }
-
-    @GetMapping("/form/delete")
-    public String deleteForm(Model model,@RequestParam(required = true) Long id ){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        User curr_user = userService.findByEmail(email);
-
-        Form form;
-        try {
-            form = formService.get(id);
-        }
-        catch (Exception e){
-            return "redirect:/profile";
-        }
-        Company company = companyService.findByForm(form);
-        Employer employer = employerService.findByForm(form);
-        List<Document> docs = documentRepository.findByForm(form.getId());
-
-        companyService.delete(company);
-        employerService.delete(employer);
-        for(Document doc:docs){
-            documentRepository.delete(doc);
-        }
-        formService.delete(form);
-        List<Form> forms = formService.getUsersForms(curr_user);
-        model.addAttribute("forms",forms);
-        model.addAttribute("status","deleted");
-        model.addAttribute("delete_id",id);
-        return "profile";
-    }
-    @GetMapping("/form/pay")
-    public String pay(Model model,@RequestParam(required = true) Long id ){
-        Form form;
-        try {
-            form = formService.get(id);
-        }
-        catch (Exception e){
-            return "redirect:/profile";
-        }
-        form.setStatus(statusService.get(2L));
-        List<User> staff = userService.findByRole(3L);
+    private User getStaffToPurpose(){
+        final long ROLE_STAFF = 3L;
+        List<User> staff = userService.findByRole(ROLE_STAFF);
         staff.sort(new UserComparator());
         User lastStaff = staff.get(0);
-        form.setStaff(lastStaff);
         lastStaff.setFormsCount();
-        userService.save(lastStaff);
-        formService.save(form);
+        return userService.save(lastStaff);
+    }
 
-        return "redirect:/profile";
+    private void purposeFormToStaff(Form form, User staff){
+        form.setStaff(staff);
+        formService.save(form);
     }
     private static Employer getEmployer(FormDto formDto) throws IOException {
         Employer employer = new Employer();
@@ -299,5 +106,221 @@ public class ClientController {
 
         return employer;
     }
+    private static Company getCompany(FormDto formDto){
+        Company company = new Company();
+        company.setMainActivities(formDto.getMainActivities());
+        company.setActivities(formDto.getActivities());
+        company.setSubject(subjectService.findByName(formDto.getSubject()));
+        company.setLocality(formDto.getLocality());
+        company.setStreet(formDto.getStreet());
+        company.setBuilding(formDto.getBuilding());
+        company.setOffice(formDto.getOffice());
+        company.setCabinet(formDto.getCabinet());
+        return company;
+    }
+    private String getFormStatus(Form form){
+        if (form.getStatus() == statusService.get(STATUS_CHANGE)){
+            return "change";
+        }
+        else if (form.getStatus() == statusService.get(STATUS_IN_WORK)){
+            return "inwork";
+        }
+        else if (form.getStatus() == statusService.get(STATUS_UNPAID)){
+            return "unpaid";
+        }
+        else if (form.getStatus() == statusService.get(STATUS_DONE)){
+
+            return "done";
+        }
+        return "choose";
+    }
+    private void printFileInfo(MultipartFile file){
+        System.out.println("Загружен файл: " + file.getOriginalFilename());
+        System.out.println("Размер файла: " + file.getSize() + " байт");
+    }
+    @GetMapping("/profile")
+    public String account(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = false) Long id, Model model) throws IOException {
+        if(id == null){
+            User curr_user = userService.getAuthenticatedUser();
+            System.out.println("redirect:/profile?id="+curr_user.getId());
+            return "redirect:/profile?id="+curr_user.getId();
+        }
+        else {
+            System.out.println(", id = " + id + "   " + userService.getById(id));
+
+            User user = userService.getById(id);
+            List<Form> forms = formService.getUsersForms(user);
+
+            model.addAttribute("user", user);
+            model.addAttribute("forms", forms);
+
+        }
+        model.addAttribute("status","choose");
+        return "profile";
+    }
+
+
+    @GetMapping("/form/change")
+    public String newForm(Model model, @RequestParam(required = true) Long id) {
+
+        User curr_user = userService.getAuthenticatedUser();
+
+        Form curr_form = formService.get(id);
+
+        if (curr_user != curr_form.getUser()){
+            return "redirect:/unknown";
+        }
+        List<Form> forms = formService.getUsersForms(curr_user);
+
+        String status = getFormStatus(curr_form);
+
+        if (status.equals("done")) {
+            List<Document> documents = documentRepository.findByForm(curr_form.getId());
+            model.addAttribute("documents", documents);
+        }
+
+        model.addAttribute("user", curr_user);
+        model.addAttribute("forms", forms);
+        model.addAttribute("status",status);
+        model.addAttribute("curr_form", curr_form);
+        model.addAttribute("newForm",new FormDto());
+
+        return "profile";
+    }
+    @GetMapping("/form/create")
+    public String createForm(Model model, @RequestParam(required = true) Long taxId){
+        Form form;
+
+        User curr_user = userService.getAuthenticatedUser();
+
+         form = formService.save(taxId,curr_user);
+
+         Long id = form.getId();
+
+        return "redirect:/form/change?id="+id;
+    }
+    @PostMapping("/form/change")
+    public String saveForm( Model model, @RequestParam(required = true) Long id,
+                            @RequestParam("files1") MultipartFile[] files1,
+                            @RequestParam(name = "files2", required = false) MultipartFile[] files2,
+                            @ModelAttribute() FormDto formDto, BindingResult result) throws IOException
+    {
+        System.out.println("model = " + model + ", id = " + id + ", files1 = " + Arrays.toString(files1) + ", files2 = " + Arrays.toString(files2) + ", formDto = " + formDto + ", result = " + result);
+
+
+        User curr_user = userService.getAuthenticatedUser();
+
+        Form curr_form = formService.get(id);
+
+        if (curr_user != curr_form.getUser()){
+            return "redirect:/unknown";
+        }
+
+        List<Form> forms = formService.getUsersForms(curr_user);
+
+        model.addAttribute("user", curr_user);
+        model.addAttribute("forms", forms);
+
+
+        String status = "choose";
+
+        model.addAttribute("status",status);
+        model.addAttribute("curr_form", curr_form);
+
+        Company company = getCompany(formDto);
+
+        company.setForm(curr_form);
+
+        company = companyService.save(company);
+
+
+        Employer employer = getEmployer(formDto);
+
+        employer.setForm(curr_form);
+
+        employer = employerService.save(employer);
+
+
+        curr_form.setStatus(statusService.get(STATUS_UNPAID));
+
+        curr_form = formService.save(curr_form);
+
+
+        for (MultipartFile file : files1) {
+            if (!file.isEmpty()) {
+
+                fileService.uploadFile(file,curr_user.getEmail(),curr_form);
+
+                printFileInfo(file);
+            }
+        }
+
+        // Обработка загруженных файлов для второго места
+        for (MultipartFile file : files2) {
+            if (!file.isEmpty()) {
+
+                fileService.uploadFile(file,curr_user.getEmail(),curr_form);
+
+                printFileInfo(file);
+            }
+        }
+
+        return "redirect:/profile?id="+curr_user.getId();
+
+
+    }
+
+    @GetMapping("/form/delete")
+    public String deleteForm(Model model,@RequestParam(required = true) Long id ){
+
+        User curr_user = userService.getAuthenticatedUser();
+
+        Form form;
+
+        try {
+            form = formService.get(id);
+        }
+        catch (Exception e){
+            return "redirect:/profile";
+        }
+        Company company = companyService.findByForm(form);
+        Employer employer = employerService.findByForm(form);
+        List<Document> docs = documentRepository.findByForm(form.getId());
+
+        companyService.delete(company);
+        employerService.delete(employer);
+
+        for(Document doc:docs){
+            documentRepository.delete(doc);
+        }
+
+        formService.delete(form);
+
+        List<Form> forms = formService.getUsersForms(curr_user);
+
+        model.addAttribute("forms",forms);
+        model.addAttribute("status","deleted");
+        model.addAttribute("delete_id",id);
+        return "profile";
+    }
+    @GetMapping("/form/pay")
+    public String pay(Model model,@RequestParam(required = true) Long id ){
+        Form form;
+
+        try {
+            form = formService.get(id);
+        }
+        catch (Exception e){
+            return "redirect:/profile";
+        }
+
+
+        User staff = getStaffToPurpose();
+
+        purposeFormToStaff(form, staff);
+
+        return "redirect:/profile";
+    }
+
 
 }

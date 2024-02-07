@@ -30,15 +30,10 @@ public class HomeController {
     }
     @GetMapping("/home")
     public String home( Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-        ru.studentproject.startbusiness.models.User user = userService.findByEmail(email);
 
+        ru.studentproject.startbusiness.models.User user = userService.getAuthenticatedUser();
 
         model.addAttribute("user",user);
-        List<ru.studentproject.startbusiness.models.User> users = userService.getAll();
-        System.out.println(users.toString());
-
 
         return "home";
     }

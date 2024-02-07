@@ -35,12 +35,14 @@ public class RegistrationController {
 
     @GetMapping
     public String showRegistrationForm(Model model) {
+
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (!(authentication instanceof AnonymousAuthenticationToken)){
             return "redirect:/";
         }
         model.addAttribute("userreg",new UserRegistrationDto());
+
         return "registration";
     }
 

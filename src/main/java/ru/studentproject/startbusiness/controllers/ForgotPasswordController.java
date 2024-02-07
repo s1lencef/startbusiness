@@ -35,6 +35,49 @@ public class ForgotPasswordController{
     private EmailService emailService;
     @Autowired
     private MessageSource messageSource;
+
+    private String errorHandler(BindingResult result){
+        for (Object obj:result.getAllErrors()){
+            if(obj instanceof FieldError fieldError) {
+                String code = fieldError.getCode();
+                assert code != null;
+                return switch (code) {
+                    case "NotEmpty" -> "redirect:/forgot-password?emailEmpty";
+                    case "Email" -> "redirect:/forgot-password?invalidEmail";
+                    default -> "forgotpassword";
+                };
+            }
+        }
+        return "redirect:/forgot-password?emailEmpty";
+    }
+
+    private PasswordResetToken createUserResetToken(User user){
+        PasswordResetToken token = new PasswordResetToken();
+        token.setToken(UUID.randomUUID().toString());
+        token.setUser(user);
+        token.setExpiryDate(30);
+        return token;
+    }
+    private Email createEmail(User user){
+        Email newEmail = new Email();
+        newEmail.setFrom("startbusineshelp@gmail.com");
+        newEmail.setTo(user.getEmail());
+        newEmail.setSubject("Восстановление пароля");
+        return newEmail;
+    }
+    private String generateUrl(HttpServletRequest request,PasswordResetToken token){
+        return request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()+
+                "/reset-password?token=" + token.getToken();
+    }
+    private Map<String, Object> createModel (String url,PasswordResetToken token,User user){
+        Map<String, Object> model = new HashMap<>();
+        model.put("token", token);
+        model.put("user", user);
+        model.put("resetUrl", url);
+        return model;
+
+    }
+
     @ModelAttribute("forgotPasswordForm")
     public PasswordForgotDto forgotPasswordDTO(){
         return new PasswordForgotDto();
@@ -44,25 +87,16 @@ public class ForgotPasswordController{
         return "forgotpassword";
     }
 
+
     @PostMapping
     public String forgotPasswordForm(
             @ModelAttribute("forgotPasswordForm") @Valid PasswordForgotDto form,
             BindingResult result,
-            HttpServletRequest request){
+            HttpServletRequest request)
+    {
         System.out.println("form = " + form.getEmail() +", request = " + request);
         if (result.hasErrors()){
-            for (Object obj:result.getAllErrors()){
-                if(obj instanceof FieldError fieldError) {
-                    String code = fieldError.getCode();
-                    assert code != null;
-                    return switch (code) {
-                        case "NotEmpty" -> "redirect:/forgot-password?emailEmpty";
-                        case "Email" -> "redirect:/forgot-password?invalidEmail";
-                        default -> "forgotpassword";
-                    };
-                }
-            }
-            return "redirect:/forgot-password?emailEmpty";
+            return errorHandler(result);
         }
 
         User user = userService.findByEmail(form.getEmail());
@@ -71,10 +105,9 @@ public class ForgotPasswordController{
             return "redirect:/forgot-password?wrongEmail";
         }
         System.out.println("OK");
-        PasswordResetToken token = new PasswordResetToken();
-        token.setToken(UUID.randomUUID().toString());
-        token.setUser(user);
-        token.setExpiryDate(30);
+
+        PasswordResetToken token = createUserResetToken(user);
+
         try {
             passwordResetTokenRepository.save(token);
         }catch (Exception e){
@@ -82,20 +115,14 @@ public class ForgotPasswordController{
             return "redirect:/forgot-password?error";
         }
 
-        Email email = new Email();
-        email.setFrom("startbusineshelp@gmail.com");
-        email.setTo(user.getEmail());
-        email.setSubject("Восстановление пароля");
+        Email email = createEmail(user);
 
-        Map<String, Object> model = new HashMap<>();
-        model.put("token", token);
-        model.put("user", user);
+        String url = generateUrl(request,token);
 
-        String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
-
-        model.put("resetUrl", url + "/reset-password?token=" + token.getToken());
+        Map<String, Object> model = createModel(url,token,user);
 
         email.setModel(model);
+
         emailService.sendEmail(email);
 
         return "redirect:/forgot-password?success";
