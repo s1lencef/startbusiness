@@ -7,23 +7,30 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CountryFounder {
-    public static int getCountryCode(String country) throws IOException, JSONException {
+    HttpURLConnection connection;
+    JSONObject params;
+    private void createConnection() throws IOException {
 
-        final URL url = new URL("http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/country");
-        final HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        final String urlString = "http://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/country";
+        final URL url = new URL(urlString);
 
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json");
-        con.setRequestProperty("Accept", "application/json");
-        con.setRequestProperty("Authorization","Token "+"30988fd2e27097c5d01458e767448eb886aabf54");
-        con.setConnectTimeout(1000);
-        con.setReadTimeout(1000);
-        con.setDoOutput(true);
+        connection = (HttpURLConnection) url.openConnection();
 
-        JSONObject params = new JSONObject();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "application/json");
+        connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("Authorization","Token "+"30988fd2e27097c5d01458e767448eb886aabf54");
+        connection.setConnectTimeout(1000);
+        connection.setReadTimeout(1000);
+        connection.setDoOutput(true);
+
+    }
+    private void setJSONParameters(String country){
+        params = new JSONObject();
         try {
             params.put("query", country);
         }
@@ -32,13 +39,16 @@ public class CountryFounder {
         }
         System.out.println(params.toString());
 
-        OutputStream os = con.getOutputStream();
+    }
+    private void writeParameters() throws IOException {
+        OutputStream os = connection.getOutputStream();
         os.write(params.toString().getBytes("UTF-8"));
         os.close();
         os.flush();
-
+    }
+    private int readCodeFromBuffer(){
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(
-                con.getInputStream())))
+                connection.getInputStream())))
         {
             String line = bf.readLine();
             JSONObject json = new JSONObject(line);
@@ -50,6 +60,14 @@ public class CountryFounder {
             System.out.println(exception);
             return -1;
         }
+    }
+
+    public int getCountryCode(String country) throws IOException, JSONException {
+        createConnection();
+        setJSONParameters(country);
+        writeParameters();
+        return readCodeFromBuffer();
+
     }
 
 }

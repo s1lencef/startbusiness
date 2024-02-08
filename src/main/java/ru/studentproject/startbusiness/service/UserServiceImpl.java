@@ -2,6 +2,8 @@ package ru.studentproject.startbusiness.service;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import ru.studentproject.startbusiness.dto.UserRegistrationDto;
 import ru.studentproject.startbusiness.models.User;
 import ru.studentproject.startbusiness.models.Role;
@@ -35,16 +37,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public User save(UserRegistrationDto registrationDto) {
         Role role = roleRepository.findByName("ROLE_USER");
-        if (role == null){
-            role = new Role("ROLE_USER");
-            roleRepository.save(role);
-        }
-        var user = new User(registrationDto.getFirstName(),
-                registrationDto.getLastName(),
-                registrationDto.getEmail(),
-                passwordEncoder.encode(registrationDto
-                        .getPassword()),
-                Arrays.asList(role));
+
+        var user = new User(registrationDto,role);
 
         return userRepository.save(user);
     }
@@ -54,10 +48,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         var user = userRepository.findByEmail(username);
+
         if (user == null) {
             throw new UsernameNotFoundException
                     ("Invalid username or password.");
@@ -74,6 +68,11 @@ public class UserServiceImpl implements UserService {
                 .map(role -> new SimpleGrantedAuthority
                         (role.getName()))
                 .collect(Collectors.toList());
+    }
+    public User getAuthenticatedUser(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String email = SecurityContextHolder.getContext().getAuthentication().getName();
+        return findByEmail(email);
     }
 
     @Override
