@@ -1,12 +1,11 @@
 package ru.studentproject.startbusiness.controllers;
 
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import ru.studentproject.startbusiness.config.CountryFounder;
+import ru.studentproject.startbusiness.config.RegionCode;
 import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.*;
 
@@ -44,7 +44,7 @@ public class ClientController {
     @Autowired
     EmployerService employerService;
     @Autowired
-    static SubjectService subjectService;
+    SubjectService subjectService;
     @Autowired
     DocumentRepository documentRepository;
     @Autowired
@@ -70,54 +70,8 @@ public class ClientController {
         form.setStaff(staff);
         formService.save(form);
     }
-    private static Employer getEmployer(FormDto formDto) throws IOException {
-        Employer employer = new Employer();
-        CountryFounder countryFounder = new CountryFounder();
-        System.out.println("formDto = " + formDto.toString());
-
-        employer.setSurname(formDto.getLastName());
-        employer.setName(formDto.getFirstName());
-        employer.setMiddlename(formDto.getMiddleName());
-        employer.setBirthDate(formDto.getBirthDate());
-        employer.setBirthPlace(formDto.getBirthPlace());
-        employer.setCitizenship(formDto.getCitizenship());
-        employer.setSex(formDto.getSex());
-        employer.setINN(formDto.getiNN());
-
-        employer.setPhone(formDto.getPhone());
-        employer.setEmail(formDto.getEmail());
-
-        employer.setDocumentType(formDto.getDocumentType());
-        employer.setIssueCode(formDto.getIssueCode());
-        employer.setIssueDate(formDto.getIssueDate());
-        employer.setIssuePlace(formDto.getIssuePlace());
-        employer.setNumber(formDto.getNumber());
-
-        if (!Objects.equals(formDto.getCountry(), "")){
-            employer.setCountry(countryFounder.getCountryCode(formDto.getCountry()));
-            employer.setResidentCard(formDto.getResidentCard());
-            employer.setResidentCardEndDate(formDto.getResidentCardEndDate());
-            employer.setResidentCardIssueDate(formDto.getResidentCardIssueDate());
-            employer.setResidentCardNumber(formDto.getResidentCardNumber());
-            employer.setResidentCardIssuePlace(formDto.getResidentCardIssuePlace());
-            employer.setInfiniteResidentCard(formDto.getInfiniteResidentCard());
-        }
 
 
-        return employer;
-    }
-    private static Company getCompany(FormDto formDto){
-        Company company = new Company();
-        company.setMainActivities(formDto.getMainActivities());
-        company.setActivities(formDto.getActivities());
-        company.setSubject(subjectService.findByName(formDto.getSubject()));
-        company.setLocality(formDto.getLocality());
-        company.setStreet(formDto.getStreet());
-        company.setBuilding(formDto.getBuilding());
-        company.setOffice(formDto.getOffice());
-        company.setCabinet(formDto.getCabinet());
-        return company;
-    }
     private String getFormStatus(Form form){
         if (form.getStatus() == statusService.get(STATUS_CHANGE)){
             return "change";
@@ -269,7 +223,71 @@ public class ClientController {
 
 
     }
+    private Company getCompany(FormDto formDto) throws IOException {
+        RegionCode regionCode = new RegionCode();
+        Subject subject = regionCode.getSubject(formDto.getSubject());
+        subject = tryToSaveSubject(subject);
+        Company company = new Company();
+        company.setMainActivities(formDto.getMainActivities());
+        company.setActivities(formDto.getActivities());
+        company.setSubject(subject);
+        company.setLocality(formDto.getLocality());
+        company.setStreet(formDto.getStreet());
+        company.setBuilding(formDto.getBuilding());
+        company.setOffice(formDto.getOffice());
+        company.setCabinet(formDto.getCabinet());
+        return company;
+    }
+    private Subject tryToSaveSubject(Subject subject){
+        try{
+            subject = subjectService.save(subject);
+            System.out.println("subject = " + subject);
+            System.out.println("trying subject = " + subject);
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+            subject = subjectService.get(subject.getId());
+            System.out.println("get subject = " + subject);
+        }
+        System.out.println("subject = " + subject);
+        return subject;
+    }
+    private static Employer getEmployer(FormDto formDto) throws IOException {
+        Employer employer = new Employer();
+        CountryFounder countryFounder = new CountryFounder();
+        System.out.println("formDto = " + formDto.toString());
 
+        employer.setSurname(formDto.getLastName());
+        employer.setName(formDto.getFirstName());
+        employer.setMiddlename(formDto.getMiddleName());
+        employer.setBirthDate(formDto.getBirthDate());
+        employer.setBirthPlace(formDto.getBirthPlace());
+        employer.setCitizenship(formDto.getCitizenship());
+        employer.setSex(formDto.getSex());
+        employer.setINN(formDto.getiNN());
+
+        employer.setPhone(formDto.getPhone());
+        employer.setEmail(formDto.getEmail());
+
+        employer.setDocumentType(formDto.getDocumentType());
+        employer.setIssueCode(formDto.getIssueCode());
+        employer.setIssueDate(formDto.getIssueDate());
+        employer.setIssuePlace(formDto.getIssuePlace());
+        employer.setNumber(formDto.getNumber());
+
+        if (!Objects.equals(formDto.getCountry(), "")){
+            employer.setCountry(countryFounder.getCountryCode(formDto.getCountry()));
+            employer.setResidentCard(formDto.getResidentCard());
+            employer.setResidentCardEndDate(formDto.getResidentCardEndDate());
+            employer.setResidentCardIssueDate(formDto.getResidentCardIssueDate());
+            employer.setResidentCardNumber(formDto.getResidentCardNumber());
+            employer.setResidentCardIssuePlace(formDto.getResidentCardIssuePlace());
+            employer.setInfiniteResidentCard(formDto.getInfiniteResidentCard());
+        }
+
+
+        return employer;
+    }
     @GetMapping("/form/delete")
     public String deleteForm(Model model,@RequestParam(required = true) Long id ){
 
@@ -318,6 +336,8 @@ public class ClientController {
         User staff = getStaffToPurpose();
 
         purposeFormToStaff(form, staff);
+        form.setStatus(statusService.get(STATUS_IN_WORK));
+        formService.save(form);
 
         return "redirect:/profile";
     }

@@ -70,4 +70,13 @@ public class CountryFounder {
 
     }
 
+    public static void main(String[] args) {
+        try{
+            CountryFounder countryFounder = new CountryFounder();
+            countryFounder.getCountryCode("Санкт-Петербург");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

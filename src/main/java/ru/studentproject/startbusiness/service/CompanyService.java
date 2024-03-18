@@ -11,7 +11,6 @@ public class CompanyService {
     @Autowired
     CompanyRepository companyRepository;
     public Company save(Company company){
-
         return companyRepository.save(company);
     }
     public void delete(Company company){
