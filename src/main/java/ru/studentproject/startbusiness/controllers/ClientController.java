@@ -101,7 +101,7 @@ public class ClientController {
             status = "unpaid";
         }
         else if (curr_form.getStatus() == statusService.get(4L)){
-            List<Document> documents = documentRepository.findByForm(curr_form.getId());
+            List<Document> documents = documentRepository.findByForm(curr_form.getId());//Надо добавить documentService, перекинуть все функции репозитория в него и добавить новую, для отображения только готовых документов
             model.addAttribute("documents",documents);
             status = "done";
         }
