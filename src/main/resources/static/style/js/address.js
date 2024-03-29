@@ -6,10 +6,10 @@
     var $container = $(document.getElementById('form4'));
     var type  = "ADDRESS";
     var
-        $region = $container.find('[name="subjectInput"]'),
-        $city = $container.find('[name="cityInput"]'),
-        $street = $container.find('[name="streetInput"]'),
-        $building = $container.find('[name="houseInput"]');
+        $region = $container.find('[name="subject"]'),
+        $city = $container.find('[name="city"]'),
+        $street = $container.find('[name="street"]'),
+        $building = $container.find('[name="house"]');
 
 // регион и район
     $region.suggestions({

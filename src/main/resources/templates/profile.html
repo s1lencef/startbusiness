@@ -437,8 +437,8 @@
 	  stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 							</span>
-								<label class="request-input" for="subjectInput">
-									<input id="subjectInput" name="subjectInput" placeholder="" required
+								<label class="request-input" for="subject">
+									<input id="subject" name="subject" placeholder="" required
 										   th:field="*{subject}"
 										   type="text">
 									<p class="input-result" id="subject-result">Субъект Российской Федерации</p>
@@ -460,8 +460,8 @@
 	</svg>
 							</span>
 
-								<label class="request-input" for="cityInput">
-									<input id="cityInput" name="cityInput" placeholder="" required
+								<label class="request-input" for="locality">
+									<input id="locality" name="locality" placeholder="" required
 										   th:field="*{locality}"
 										   type="text">
 									<p class="input-result" id="city-result">Город, населенный пункт, поселок,
@@ -483,8 +483,8 @@
 	</svg>
 							</span>
 
-								<label class="request-input" for="streetInput">
-									<input id="streetInput" name="streetInput" placeholder="" required
+								<label class="request-input" for="street">
+									<input id="street" name="street" placeholder="" required
 										   th:field="*{street}"
 										   type="text">
 									<p class="input-result" id="street-result">Улица, микрорайон, территория и т.д.</p>
@@ -500,8 +500,8 @@
 	</svg>
 							</span>
 
-								<label class="request-input" for="houseInput">
-									<input id="houseInput" name="houseInput" placeholder="" required
+								<label class="request-input" for="building">
+									<input id="building" name="building" placeholder="" required
 										   th:field="*{building}"
 										   type="text">
 									<p class="input-result" id="house-result">Дом, Корпус, Строение</p>
@@ -517,8 +517,8 @@
 	</svg>
 							</span>
 
-								<label class="request-input" for="officeInput">
-									<input id="officeInput" name="officeInput" placeholder="" required
+								<label class="request-input" for="office">
+									<input id="office" name="office" placeholder="" required
 										   th:field="*{office}"
 										   type="text">
 									<p class="input-result" id="office-result">Офис, квартира, помещение.<br>
@@ -536,8 +536,8 @@
 	</svg>
 							</span>
 
-								<label class="request-input" for="cabinetInput">
-									<input id="cabinetInput" name="cabinetInput" placeholder="" th:field="*{cabinet}"
+								<label class="request-input" for="cabinet">
+									<input id="cabinet" name="cabinet" placeholder="" th:field="*{cabinet}"
 										   type="text">
 									<p class="input-result" id="cabinet-result">Помещение внутри квартиры<br></p>
 								</label>
@@ -2642,7 +2642,7 @@
 	</section>
 </div>
 <script src="https://unpkg.com/imask"></script>
-<!--<script src="../static/style/js/jquery.js" th:src="@{/style/js/jquery.js}" type="text/javascript"></script>-->
+<script src="../static/style/js/jquery.js" th:src="@{/style/js/jquery.js}" type="text/javascript"></script>
 <script src="../static/style/js/address.js" th:src="@{/style/js/address.js}" type="text/javascript"></script>
 <script src="../static/style/js/files.js" th:src="@{/style/js/files.js}" type="text/javascript"></script>
 <script src="../static/style/js/script.js" th:src="@{/style/js/script.js}" type="text/javascript"></script>
