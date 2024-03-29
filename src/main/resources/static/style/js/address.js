@@ -7,9 +7,10 @@
     var type  = "ADDRESS";
     var
         $region = $container.find('[name="subject"]'),
-        $city = $container.find('[name="city"]'),
+        $city = $container.find('[name="locality"]'),
         $street = $container.find('[name="street"]'),
-        $building = $container.find('[name="house"]');
+        $house = $container.find('[name="building"]');
+        $flat = $container.find('[name="office"]');
 
 // регион и район
     $region.suggestions({
@@ -39,11 +40,20 @@
     });
 
 // дом
-    $building.suggestions({
+    $house.suggestions({
         token: token,
         type: type,
         hint: false,
         noSuggestionsHint: false,
         bounds: "house",
         constraints: $street
+    });
+
+    $flat.suggestions({
+        token: token,
+        type: type,
+        hint: false,
+        noSuggestionsHint: false,
+        bounds: "flat",
+        constraints: $house
     });
