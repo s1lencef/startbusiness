@@ -1,7 +1,6 @@
 package ru.studentproject.startbusiness.controllers;
 
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import ru.studentproject.startbusiness.config.CountryFounder;
-import ru.studentproject.startbusiness.config.RegionCode;
+import ru.studentproject.startbusiness.ProxyClasses.CountryFounder;
+import ru.studentproject.startbusiness.ProxyClasses.RegionCode;
 import ru.studentproject.startbusiness.dto.FormDto;
 import ru.studentproject.startbusiness.models.*;
 
@@ -341,6 +340,7 @@ public class ClientController {
 
         return "redirect:/profile";
     }
+
 
 
 }
