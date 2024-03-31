@@ -137,7 +137,8 @@ public class AdminController {
 
         curr_form.setStatus(statusService.get(TO_FILL_OUT));
         curr_form = formService.save(curr_form);
-
+        Subject subject = company.getSubject();
+        String subjectName = subject.getName();
         return"redirect:/admin/form/make?id="+curr_form.getId();
     }
     @GetMapping("/form/make")
@@ -163,4 +164,5 @@ public class AdminController {
 
         return "redirect:/admin";
     }
+
 }

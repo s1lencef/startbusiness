@@ -54,4 +54,7 @@ public class FormService {
     public void delete(Form form){
         formRepository.delete(form);
     }
+    public void printForm(Form form){
+        System.out.println("Form: "+form.getId()+" "+form.getUser()+" "+form.getTax()+" "+form.getStatus());
+    }
 }

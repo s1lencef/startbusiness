@@ -764,8 +764,8 @@
 										</defs>
 									</svg>
 									<p th:text="${document.name}"></p>
-									<a class="business-document-btn" th:href="@{'/download?id='+${document.id}}">
-										<p>Скачать образец документа</p>
+									<a class="business-document-btn" th:href="@{'/make-documents?id='+${document.id}+'&form='+${curr_form.id}}">
+										<p>Скачать документ</p>
 									</a>
 								</div>
 								<div class="document">
@@ -823,7 +823,7 @@
 										</defs>
 									</svg>
 									<a class="business-document-btn" id='download-all'
-									   th:href="@{'/download/all?id='+${curr_form.id}}">
+									   th:href="@{'/make-documents/all?id='+${curr_form.id}}">
 										<p>Скачать все документы</p>
 									</a>
 								</div>

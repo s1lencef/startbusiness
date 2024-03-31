@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -40,6 +41,7 @@ public class SecurityConfiguration {
                         .requestMatchers("/profile/**").hasRole("USER")
                         .requestMatchers("/form/**").hasRole("USER")
                         .requestMatchers("/download").permitAll()
+                        .requestMatchers("/proxy/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
@@ -52,7 +54,7 @@ public class SecurityConfiguration {
                         .invalidateHttpSession(true)
                 ).sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                );
+                ).httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
