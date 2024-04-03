@@ -26,10 +26,10 @@ public class DadataProxyParent {
         connection.setDoOutput(true);
 
     }
-    protected void setJSONParameters(String country){
+    protected void setJSONParameters(String queryParam){
         params = new JSONObject();
         try {
-            params.put("query", country);
+            params.put("query", queryParam);
         }
         catch (JSONException e){
             System.out.println(e);
