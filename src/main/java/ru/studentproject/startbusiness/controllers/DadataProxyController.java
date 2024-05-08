@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class DadataProxyController {
     JSONObject params;
 
-    @GetMapping("/get-fns/region")
+    @PostMapping("/get-fns/region")
     public ResponseEntity<?> getFnsByRegion(@Valid @RequestBody SubjectRequestDto subjectRequestDto, Model model) throws IOException {
         System.out.println("subjectRequestDto = " + subjectRequestDto.getSubjectName());
         String subjectName = subjectRequestDto.getSubjectName();
