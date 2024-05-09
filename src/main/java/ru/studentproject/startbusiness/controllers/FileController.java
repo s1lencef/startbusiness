@@ -19,10 +19,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.studentproject.startbusiness.models.Document;
 import ru.studentproject.startbusiness.models.DocumentTypes;
 import ru.studentproject.startbusiness.models.Form;
+import ru.studentproject.startbusiness.models.User;
 import ru.studentproject.startbusiness.repos.DocumentRepository;
 import ru.studentproject.startbusiness.service.FileService;
 import ru.studentproject.startbusiness.service.FormService;
+import ru.studentproject.startbusiness.service.UserService;
 
+import javax.print.Doc;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -44,23 +47,88 @@ public class FileController {
     FormService formService;
     @Autowired
     DocumentRepository documentRepository;
+
+    @Autowired
+    UserService userService;
     @GetMapping("/upload")
     public String uploadPage() {
         return "upload";
     }
 
-//    @PostMapping("/upload")
-//    public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        String email =  authentication.getName();
-//        fileService.uploadFile(file,email);
-//
-//
-//        System.out.println("name = "+email);
-//        redirectAttributes.addFlashAttribute("filename","файл "+file.getOriginalFilename()+" успешно загружен!");
-//
-//        return "redirect:/upload?success";
-//    }
+    private String getContentType(Path file)  {
+        try {
+            String contentType = Files.probeContentType(file);
+            if (contentType == null) {
+                throw new IOException ("Пустой контент");
+            }
+            return contentType;
+        }
+        catch (IOException e){
+            return MediaType.APPLICATION_OCTET_STREAM_VALUE;
+        }
+
+    }
+    private void setResponseHeader(HttpServletResponse response, Path file){
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
+                .filename(file.getFileName().toString(), StandardCharsets.UTF_8)
+                .build()
+                .toString());
+    }
+    private Path getFileToDownload(Long id){
+        Document doc = fileService.get(id);
+
+        System.out.println("id = " + id + ", doc = "+doc.toString()) ;
+
+         return Paths.get(doc.getFilePath());
+    }
+    private void setResponseContent(HttpServletResponse response, Path file){
+        String contentType = getContentType(file);
+
+        try {
+            response.setContentType(contentType);
+
+            response.setContentLengthLong(Files.size(file));
+        }
+        catch (IOException e){
+            System.out.println(e);
+        }
+    }
+    private ArrayList<Path> getFilesToDownload(List<Document> documents){
+        ArrayList<Path> files =  new ArrayList<>();
+
+        for(Document doc:documents){
+            files.add(Paths.get(doc.getFilePath()));
+        }
+        return files;
+    }
+    private String createFilaNameForZip(Form form){
+        return form.getId()+" - "+form.getTax().getName()+".zip";
+    }
+    private void setResponseParamsForZip(HttpServletResponse response, String filename){
+        response.setContentType("application/zip");
+
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
+                .filename(filename, StandardCharsets.UTF_8)
+                .build()
+                .toString());
+    }
+    private void downloadAsZip(HttpServletResponse response,ArrayList<Path> filesToDownload){
+        try(ZipOutputStream zipOutputStream = new ZipOutputStream(response.getOutputStream())){
+            for (Path file : filesToDownload) {
+                try (InputStream inputStream = Files.newInputStream(file)) {
+                    zipOutputStream.putNextEntry(new ZipEntry(file.getFileName().toString()));
+                    StreamUtils.copy(inputStream, zipOutputStream);
+                    zipOutputStream.flush();
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Не удалось скачать");
+        }
+    }
+    private void printFileInfo(MultipartFile file){
+        System.out.println("Загружен файл: " + file.getOriginalFilename());
+        System.out.println("Размер файла: " + file.getSize() + " байт");
+    }
     @GetMapping("/samples")
     public String downloadPage (Model model, HttpServletRequest request){
         List<Document> documents = fileService.getSamples().stream().toList();
@@ -79,71 +147,46 @@ public class FileController {
         return "samples";
     }
     @GetMapping("/download")
-    public void dowloadFile(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = true) Long id) throws IOException {
-        Document doc = fileService.get(id);
-        System.out.println("id = " + id + ", doc = "+doc.toString()) ;
-        Path file = Paths.get(doc.getFilePath());
+    public void downloadFile(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = true) Long id) throws IOException {
 
-        // Get the media type of the file
-        String contentType = Files.probeContentType(file);
-        if (contentType == null) {
-            contentType = MediaType.APPLICATION_OCTET_STREAM_VALUE;
-        }
-        try {
-            response.setContentType(contentType);
+        Path file = getFileToDownload(id);
 
-            response.setContentLengthLong(Files.size(file));
-        }
-        catch (NoSuchFileException e){
-            System.out.println(e);
+        setResponseContent(response,file);
 
-        }
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
-                .filename(file.getFileName().toString(), StandardCharsets.UTF_8)
-                .build()
-                .toString());
+        setResponseHeader(response, file);
 
         Files.copy(file, response.getOutputStream());
+
         response.flushBuffer();
 
     }
     @GetMapping("/download/all")
-    public void dowloadAllFiles(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = true) Long id) throws IOException {
+    public void downloadAllFiles(HttpServletRequest request, HttpServletResponse response, @RequestParam(required = true) Long id) {
         Form form = formService.get(id);
-        List<Document> documents = documentRepository.findByForm(form.getId());
-        ArrayList<Path> filesToDownload =  new ArrayList<>();
-        for(Document doc:documents){
-            filesToDownload.add(Paths.get(doc.getFilePath()));
-        }
-        String filename = form.getId()+" - "+form.getTax().getName()+".zip";
-        response.setContentType("application/zip"); // zip archive format
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION, ContentDisposition.attachment()
-                .filename(filename, StandardCharsets.UTF_8)
-                .build()
-                .toString());
-        try(ZipOutputStream zipOutputStream = new ZipOutputStream(response.getOutputStream())){
-            for (Path file : filesToDownload) {
-                try (InputStream inputStream = Files.newInputStream(file)) {
-                    zipOutputStream.putNextEntry(new ZipEntry(file.getFileName().toString()));
-                    StreamUtils.copy(inputStream, zipOutputStream);
-                    zipOutputStream.flush();
-                }
-            }
-        }
+
+        List<Document> documents =  documentRepository.findByForm(form.getId());
+
+        ArrayList<Path> filesToDownload =  getFilesToDownload(documents);
+
+        String filename = createFilaNameForZip(form);
+
+        setResponseParamsForZip(response, filename);
+
+        downloadAsZip(response,filesToDownload);
     }
 
     @PostMapping("/upload")
     public String uploadFiles(@RequestParam("files") MultipartFile[] files, RedirectAttributes redirectAttributes) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String email =  authentication.getName();
+        User currUser = userService.getAuthenticatedUser();
+
         System.out.println("files = " + Arrays.toString(files) + ", redirectAttributes = " + redirectAttributes);
+
         for (MultipartFile file : files) {
+
             if (!file.isEmpty()) {
-                String fileName = file.getOriginalFilename();
-                long fileSize = file.getSize();
-                fileService.uploadFile(file,email);
-                System.out.println("Загружен файл: " + fileName);
-                System.out.println("Размер файла: " + fileSize + " байт");
+                fileService.uploadFile(file,currUser.getEmail(),null);
+                printFileInfo(file);
+
             }
         }
         redirectAttributes.addFlashAttribute("filename",

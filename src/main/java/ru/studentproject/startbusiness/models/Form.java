@@ -1,6 +1,7 @@
 package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,6 +20,8 @@ public class Form {
     private boolean type;
     private boolean favorites;
     private Date date;
+    private Date startDate;
+    private Date EndDate;
     @ManyToOne(targetEntity = Status.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "status")
     private Status status;
@@ -26,6 +29,8 @@ public class Form {
     @JoinColumn(nullable = false, name = "tax")
     private Types tax;
     private String department;
+    @ColumnDefault("0")
+    private Integer taxAuthority;
     public Form(Long id, User user, User staff, boolean type, Date date, Status status, Types tax) {
         this.id = id;
         this.user = user;
@@ -80,6 +85,22 @@ public class Form {
         this.date = now.getTime();
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return EndDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        EndDate = endDate;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -103,4 +124,21 @@ public class Form {
     public void setFavorites(boolean favorites) {
         this.favorites = favorites;
     }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public Integer getTaxAuthority() {
+        return taxAuthority;
+    }
+
+    public void setTaxAuthority(Integer taxAuthority) {
+        this.taxAuthority = taxAuthority;
+    }
+
 }

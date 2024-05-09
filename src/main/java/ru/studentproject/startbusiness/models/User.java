@@ -3,9 +3,15 @@ package ru.studentproject.startbusiness.models;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import org.hibernate.annotations.ColumnDefault;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import ru.studentproject.startbusiness.dto.UserRegistrationDto;
+import ru.studentproject.startbusiness.repos.RoleRepository;
 
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Table(name = "users", uniqueConstraints =
@@ -53,13 +59,26 @@ public class User {
         this.password = password;
         this.roles = roles;
     }
+    public User(UserRegistrationDto userRegistrationDto, Role role){
 
-    public Long getId() {
-        return id;
+
+        final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
+        this.firstName = userRegistrationDto.getFirstName();
+        this.lastName = userRegistrationDto.getLastName();
+        this.email = userRegistrationDto.getEmail();
+        this.password = passwordEncoder.encode(userRegistrationDto.getPassword());
+        this.roles = Collections.singletonList(role);
+
+
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getFirstName() {

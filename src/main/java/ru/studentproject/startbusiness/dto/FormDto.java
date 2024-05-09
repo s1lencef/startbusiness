@@ -40,7 +40,15 @@ public class FormDto {
     private String cabinet;
     private String mainActivities;
     private String activities;
+    private String country;
 
+    private Date startDate;
+    private Date EndDate;
+    private Integer taxAuthority;
+    private boolean haveEmp;
+    private boolean employersCount;
+
+    private String localityId;
     public String getFirstName() {
         return firstName;
     }
@@ -286,7 +294,62 @@ public class FormDto {
         this.infiniteResidentCard = infiniteResidentCard;
     }
 
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public FormDto() {
         this.infiniteResidentCard = 2;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return EndDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        EndDate = endDate;
+    }
+
+    public Integer getTaxAuthority() {
+        return taxAuthority;
+    }
+
+    public void setTaxAuthority(Integer taxAuthority) {
+        this.taxAuthority = taxAuthority;
+    }
+
+    public boolean isHaveEmp() {
+        return haveEmp;
+    }
+
+    public void setHaveEmp(boolean haveEmp) {
+        this.haveEmp = haveEmp;
+    }
+
+    public boolean isEmployersCount() {
+        return employersCount;
+    }
+
+    public void setEmployersCount(boolean employersCount) {
+        this.employersCount = employersCount;
+    }
+   public String getLocalityId() {
+        return localityId;
+    }
+
+    public void setLocalityId(String localityId) {
+        this.localityId = localityId;
     }
 }

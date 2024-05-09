@@ -62,7 +62,7 @@ def start_USN():
     #__Start_DB__
     try:
         conn = psycopg2.connect(dbname='startbusiness', user='business_admin',
-                                password='ct0mgB$eYQskZzFg74Qj#QMs', host='79.174.88.15', port='19975')
+                                password='ct0mgB$eYQskZzFg74Qj#QMs', host='79.174.88.55', port='19148')
         cursor = conn.cursor()
     except:
         print("ERROR CONNECT DB")
