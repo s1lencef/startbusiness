@@ -54,7 +54,7 @@ public class SecurityConfiguration {
                         .invalidateHttpSession(true)
                 ).sessionManagement((session) -> session
                         .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                ).httpBasic(Customizer.withDefaults());
+                ).httpBasic(Customizer.withDefaults()).csrf(Customizer.withDefaults());
 
         return http.build();
     }

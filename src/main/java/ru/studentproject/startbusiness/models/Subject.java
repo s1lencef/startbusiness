@@ -13,6 +13,9 @@ public class Subject {
         this.id = id;
         this.name = name;
     }
+    public Subject(String name) {
+        this.name = name;
+    }
 
     public Subject() {
     }

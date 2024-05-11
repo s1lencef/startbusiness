@@ -226,6 +226,7 @@ public class ClientController {
         RegionCode regionCode = new RegionCode();
         Subject subject = regionCode.getSubject(formDto.getSubject());
         subject = tryToSaveSubject(subject);
+
         Company company = new Company();
         company.setMainActivities(formDto.getMainActivities());
         company.setActivities(formDto.getActivities());
