@@ -1,6 +1,7 @@
 package ru.studentproject.startbusiness.dto;
 
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.ColumnDefault;
 
 
 import java.text.SimpleDateFormat;
@@ -25,14 +26,29 @@ public class FormDto {
     private Date issueDate;
     private String issuePlace;
     private String issueCode;
+    private int residentCard;
+    private String residentCardNumber;
+    private Date residentCardIssueDate;
+    private String residentCardIssuePlace;
+    private Date residentCardEndDate;
+    private int infiniteResidentCard;
     private String subject;
     private String locality;
     private String street;
     private String building;
     private String office;
+    private String cabinet;
     private String mainActivities;
     private String activities;
+    private String country;
 
+    private Date startDate;
+    private Date EndDate;
+    private Integer taxAuthority;
+    private boolean haveEmp;
+    private boolean employersCount;
+
+    private String localityId;
     public String getFirstName() {
         return firstName;
     }
@@ -208,6 +224,15 @@ public class FormDto {
     public void setLocality(String locality) {
         this.locality = locality;
     }
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
+    }
+
     public String toString(){
         return getLastName()+"&"+getFirstName()+"&"+getMiddleName()+"&"+getCitizenship()+"&"+new SimpleDateFormat("dd-MM-yyyy").format(getBirthDate())
                 +"&"+getBirthPlace()+"&"+getiNN()+"&"+getSex()+"&"+getEmail()+"&"+getPhone()+"&"+getDocumentType()+"&"+getNumber()+"&"+getIssueDate()+"&"+getIssuePlace()
@@ -215,6 +240,116 @@ public class FormDto {
 
     }
 
+    public int getResidentCard() {
+        return this.residentCard;
+    }
+
+    public void setResidentCard(int residentCard) {
+        this.residentCard = residentCard;
+    }
+
+    public String getResidentCardNumber() {
+        return residentCardNumber;
+    }
+
+    public void setResidentCardNumber(String residentCardNumber) {
+        this.residentCardNumber = residentCardNumber;
+    }
+
+    public Date getResidentCardIssueDate() {
+        return residentCardIssueDate;
+    }
+
+    public void setResidentCardIssueDate(Date residentCardIssueDate) {
+        if (residentCardIssuePlace == null){
+            Calendar now = Calendar.getInstance();
+            this.residentCardIssueDate = now.getTime();
+        }
+        this.residentCardIssueDate = residentCardIssueDate;
+    }
+
+    public String getResidentCardIssuePlace() {
+        return residentCardIssuePlace;
+    }
+
+    public void setResidentCardIssuePlace(String residentCardIssuePlace) {
+
+        this.residentCardIssuePlace = residentCardIssuePlace;
+    }
+
+
+    public Date getResidentCardEndDate() {
+        return residentCardEndDate;
+    }
+
+    public void setResidentCardEndDate(Date residentCardEndDate) {
+        this.residentCardEndDate = residentCardEndDate;
+    }
+
+    public int getInfiniteResidentCard() {
+        return infiniteResidentCard;
+    }
+
+    public void setInfiniteResidentCard(int infiniteResidentCard) {
+        this.infiniteResidentCard = infiniteResidentCard;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public FormDto() {
+        this.infiniteResidentCard = 2;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return EndDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        EndDate = endDate;
+    }
+
+    public Integer getTaxAuthority() {
+        return taxAuthority;
+    }
+
+    public void setTaxAuthority(Integer taxAuthority) {
+        this.taxAuthority = taxAuthority;
+    }
+
+    public boolean isHaveEmp() {
+        return haveEmp;
+    }
+
+    public void setHaveEmp(boolean haveEmp) {
+        this.haveEmp = haveEmp;
+    }
+
+    public boolean isEmployersCount() {
+        return employersCount;
+    }
+
+    public void setEmployersCount(boolean employersCount) {
+        this.employersCount = employersCount;
+    }
+   public String getLocalityId() {
+        return localityId;
+    }
+
+    public void setLocalityId(String localityId) {
+        this.localityId = localityId;
     }
 }

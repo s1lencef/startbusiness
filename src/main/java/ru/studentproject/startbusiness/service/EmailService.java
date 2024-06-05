@@ -1,5 +1,6 @@
 package ru.studentproject.startbusiness.service;
 
+import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -18,22 +19,39 @@ public class EmailService {
     private JavaMailSender emailSender;
     @Autowired
     private SpringTemplateEngine templateEngine;
+    private MimeMessageHelper helper;
 
+    private MimeMessageHelper createHelper (MimeMessage message) throws MessagingException {
+        return  new MimeMessageHelper(
+                message,
+                MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
+                StandardCharsets.UTF_8.name()
+        );
+    }
+    private Context createContext(Email email){
+        Context context = new Context();
+        context.setVariables(email.getModel());
+        return context;
+    }
+    private void setEmailSettingsToHelper(Email email) throws MessagingException {
+        helper.setTo(email.getTo());
+        helper.setFrom(email.getFrom());
+        helper.setSubject(email.getSubject());
+    }
     public void sendEmail(Email email) {
         try{
             MimeMessage message = emailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(
-                    message,
-                    MimeMessageHelper.MULTIPART_MODE_MIXED_RELATED,
-                    StandardCharsets.UTF_8.name()
-            );
-            Context context = new Context();
-            context.setVariables(email.getModel());
+
+            helper = createHelper(message);
+
+            Context context = createContext(email);
+
             String html = templateEngine.process("email-template.html",context);
-            helper.setTo(email.getTo());
-            helper.setFrom(email.getFrom());
-            helper.setSubject(email.getSubject());
+
+            setEmailSettingsToHelper(email);
+
             helper.setText(html,true);
+
             emailSender.send(message);
 
         }catch (Exception e){

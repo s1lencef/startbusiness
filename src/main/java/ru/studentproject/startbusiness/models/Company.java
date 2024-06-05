@@ -2,6 +2,7 @@ package ru.studentproject.startbusiness.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import org.hibernate.annotations.ColumnDefault;
 
 @Entity
 public class Company {
@@ -23,12 +24,22 @@ public class Company {
     @JoinColumn(nullable = true, name = "subject_id")
     private Subject subject;
     private String Locality;
+    @ColumnDefault("0")
+    private int localityId;
+    @ColumnDefault("0")
+    private int localityType;
     private String Street;
     private String Building;
     private String Office;
+    @Column(name = "cabinet")
+    private String cabinet;
     @Email
     private String email;
 
+    @ColumnDefault("false")
+    private boolean haveEmp;
+    @ColumnDefault("0")
+    private Integer employersCount;
     public Company() {
     }
 
@@ -96,6 +107,14 @@ public class Company {
         Locality = locality;
     }
 
+    public int getLocalityId() {
+        return localityId;
+    }
+
+    public void setLocalityId(int localityId) {
+        this.localityId = localityId;
+    }
+
     public String getStreet() {
         return Street;
     }
@@ -142,5 +161,38 @@ public class Company {
 
     public void setMainActivities(String mainActivities) {
         this.mainActivities = mainActivities;
+    }
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
+    }
+
+    public boolean isHaveEmp() {
+        return haveEmp;
+    }
+
+    public void setHaveEmp(boolean haveEmp) {
+        this.haveEmp = haveEmp;
+    }
+
+
+    public void setEmployersCount(Integer employersCount) {
+        this.employersCount = employersCount;
+    }
+
+    public int getLocalityType() {
+        return localityType;
+    }
+
+    public void setLocalityType(int localityType) {
+        this.localityType = localityType;
+    }
+
+    public Integer getEmployersCount() {
+        return employersCount;
     }
 }
