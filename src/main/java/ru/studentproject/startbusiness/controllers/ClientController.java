@@ -127,9 +127,11 @@ public class ClientController {
 
         String status = getFormStatus(curr_form);
 
+
         if (status.equals("done")) {
             List<Document> documents = documentRepository.findByForm(curr_form.getId());
             model.addAttribute("documents", documents);
+
         }
 
         model.addAttribute("user", curr_user);
@@ -343,5 +345,5 @@ public class ClientController {
     }
 
 
-
 }
+
